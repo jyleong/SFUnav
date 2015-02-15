@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //code to manipulate navbar - James
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xFE0000)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5121B)];
     //changing the navbar was done by chaning the RGB
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];

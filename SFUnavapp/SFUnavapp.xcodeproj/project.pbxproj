@@ -25,6 +25,8 @@
 		B01BE6B11A8D490C0013D9EA /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B01A8D490C0013D9EA /* ContactsTableViewController.m */; };
 		B01BE6B41A8D4A840013D9EA /* TransitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B31A8D4A840013D9EA /* TransitViewController.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
+		DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */ = {isa = PBXBuildFile; fileRef = DC807F9C1A905E55008CA3DC /* ServicesURL.m */; };
+		DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC807F9F1A905F5A008CA3DC /* ServicesWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		B01BE6B31A8D4A840013D9EA /* TransitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitViewController.m; sourceTree = "<group>"; };
 		B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
 		B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
+		DC807F9B1A905E55008CA3DC /* ServicesURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesURL.h; sourceTree = "<group>"; };
+		DC807F9C1A905E55008CA3DC /* ServicesURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesURL.m; sourceTree = "<group>"; };
+		DC807F9E1A905F5A008CA3DC /* ServicesWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesWebViewController.h; sourceTree = "<group>"; };
+		DC807F9F1A905F5A008CA3DC /* ServicesWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,10 @@
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
 				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
+				DC807F9E1A905F5A008CA3DC /* ServicesWebViewController.h */,
+				DC807F9F1A905F5A008CA3DC /* ServicesWebViewController.m */,
+				DC807F9B1A905E55008CA3DC /* ServicesURL.h */,
+				DC807F9C1A905E55008CA3DC /* ServicesURL.m */,
 				B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */,
 				B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */,
 				B01BE6B21A8D4A840013D9EA /* TransitViewController.h */,
@@ -274,8 +284,10 @@
 				B01BE6AB1A8D46C80013D9EA /* MapViewController.m in Sources */,
 				B01BE6AE1A8D47C30013D9EA /* WeatherViewController.m in Sources */,
 				B01BE6B11A8D490C0013D9EA /* ContactsTableViewController.m in Sources */,
+				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				B01BE6821A8D425E0013D9EA /* AppDelegate.m in Sources */,
 				B01BE67E1A8D425E0013D9EA /* main.m in Sources */,
+				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +492,7 @@
 				B01BE6A51A8D425F0013D9EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B01BE6A61A8D425F0013D9EA /* Build configuration list for PBXNativeTarget "SFUnavappTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +501,7 @@
 				B01BE6A81A8D425F0013D9EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

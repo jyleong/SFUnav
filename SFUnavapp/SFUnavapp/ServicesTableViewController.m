@@ -9,7 +9,9 @@
 #import "ServicesTableViewController.h"
 
 @interface ServicesTableViewController ()
-
+{
+    NSMutableArray *links;
+}
 @end
 
 @implementation ServicesTableViewController
@@ -29,6 +31,43 @@
     // this is how to change titles in navbars - James
     self.navigationItem.title = @"Services";
     
+    /*
+     Mutable array to hold all service names and url
+    Order of service names matters!! - Arjun
+     */
+    links = [[NSMutableArray alloc] init];
+    ServicesURL *url = [[ServicesURL alloc] init];
+    url.serviceName=@"SFU Search";
+    url.serviceURL = @"http://www.sfu.ca/search.html";
+    [links addObject:url];
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"SFU Library Search";
+    url.serviceURL = @"http://search.lib.sfu.ca";
+    [links addObject:url];
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"Canvas";
+    url.serviceURL = @"http://canvas.sfu.ca";
+    [links addObject:url];
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"CourSys";
+    url.serviceURL = @"http://courses.cs.sfu.ca";
+    [links addObject:url];
+
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"Connect";
+    url.serviceURL = @"http://connect.sfu.ca";
+    [links addObject:url];
+    
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"SFU Library Search";
+    url.serviceURL = @"http://search.lib.sfu.ca";
+    [links addObject:url];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -46,28 +85,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return links.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier=@"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    ServicesURL* current= [links objectAtIndex:indexPath.row];
+    cell.textLabel.text= [current serviceName];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -107,15 +148,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
+    ServicesWebViewController *webcont = [segue destinationViewController];
     // Pass the selected object to the new view controller.
+    
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    ServicesURL *send = links[path.row];
+    [webcont setCurrentURL:send];
 }
-*/
+
 
 @end
