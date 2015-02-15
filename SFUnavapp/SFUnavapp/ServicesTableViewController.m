@@ -165,6 +165,7 @@
     
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     ServicesURL *send = links[path.row];
+    webcont.hidesBottomBarWhenPushed = YES;
     [webcont setCurrentURL:send];
 }
 
