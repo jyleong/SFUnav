@@ -52,20 +52,25 @@
     [links addObject:url];
     
     url=[[ServicesURL alloc] init];
-    url.serviceName=@"CourSys";
-    url.serviceURL = @"http://courses.cs.sfu.ca";
+    url.serviceName=@"Connect";
+    url.serviceURL = @"http://connect.sfu.ca";
     [links addObject:url];
 
     
     url=[[ServicesURL alloc] init];
-    url.serviceName=@"Connect";
-    url.serviceURL = @"http://connect.sfu.ca";
+    url.serviceName=@"CourSys";
+    url.serviceURL = @"http://courses.cs.sfu.ca";
     [links addObject:url];
     
     
     url=[[ServicesURL alloc] init];
-    url.serviceName=@"SFU Library Search";
-    url.serviceURL = @"http://search.lib.sfu.ca";
+    url.serviceName=@"goSFU (SIS)";
+    url.serviceURL = @"https://go.sfu.ca/psp/paprd/EMPLOYEE/EMPL/h/?tab=PAPP_GUEST";
+    [links addObject:url];
+    
+    url=[[ServicesURL alloc] init];
+    url.serviceName=@"Symplicity";
+    url.serviceURL = @"http://www.sfu.ca/wil/symplicity.html";
     [links addObject:url];
     
     // Uncomment the following line to preserve selection between presentations.
