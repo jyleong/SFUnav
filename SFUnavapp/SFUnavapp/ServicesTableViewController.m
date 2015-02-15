@@ -31,6 +31,10 @@
     // this is how to change titles in navbars - James
     self.navigationItem.title = @"Services";
     
+    /*
+     Mutable array to hold all service names and url
+    Order of service names matters!! - Arjun
+     */
     links = [[NSMutableArray alloc] init];
     ServicesURL *url = [[ServicesURL alloc] init];
     url.serviceName=@"SFU Search";
@@ -144,15 +148,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
+    ServicesWebViewController *webcont = [segue destinationViewController];
     // Pass the selected object to the new view controller.
+    
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    ServicesURL *send = links[path.row];
+    [webcont setCurrentURL:send];
 }
-*/
+
 
 @end

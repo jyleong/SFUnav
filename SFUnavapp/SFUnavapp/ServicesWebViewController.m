@@ -3,7 +3,7 @@
 //  SFUnavapp
 //
 //  Created by Arjun Rathee on 2015-02-14.
-//  Copyright (c) 2015 James Leong. All rights reserved.
+//  Copyright (c) 2015 Arjun Rathee. All rights reserved.
 //
 
 #import "ServicesWebViewController.h"
@@ -28,6 +28,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title=_currentURL.serviceName;
+    
+    NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
+    NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
+    [_currentlink loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning

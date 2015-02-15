@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ServicesURL.h"
-
+#import "ServicesWebViewController.h"
 @interface ServicesTableViewController : UITableViewController
 
 @end

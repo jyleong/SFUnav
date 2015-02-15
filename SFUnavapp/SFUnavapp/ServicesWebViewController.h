@@ -3,7 +3,7 @@
 //  SFUnavapp
 //
 //  Created by Arjun Rathee on 2015-02-14.
-//  Copyright (c) 2015 James Leong. All rights reserved.
+//  Copyright (c) 2015 Arjun Rathee. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
