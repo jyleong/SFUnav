@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ServicesURL.h"
 
 @interface ServicesTableViewController : UITableViewController
 
