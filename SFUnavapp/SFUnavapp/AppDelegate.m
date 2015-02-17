@@ -14,16 +14,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //code to manipulate navbar - James
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5121B)];
+    //code to manipulate navbar - James B5111B
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     //changing the navbar was done by chaning the RGB
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];// changes all titles in navbar to white
     //code to manipulate tabbar - James
-    UIImage *tabBarBackground = [UIImage imageNamed:@"CustomUITabbar.png"];
+    //UIImage *tabBarBackground = [UIImage imageNamed:@"CustomUITabbar.png"];
     // changing the tabbar used an image
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     // Override point for customization after application launch.
     return YES;
