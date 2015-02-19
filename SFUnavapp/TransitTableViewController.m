@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *transitTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *quicklinksPicker;
 @property (weak, nonatomic) IBOutlet UILabel *quicklinkLabel;
+@property (strong, nonatomic) NSArray *busstopNames;
 
 
 @end
@@ -37,8 +38,12 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
-    // also must load data for the array and dictionary objects
+    
     self.busNumbers = @[@"135",@"143",@"144", @"145"];
+    self.busStopID = @{@"Tower Rd": @"59044", @"S Campus Rd" : @"51862", @"SFU Transportation Centre" : @"51863", @"University Dr W" : @"51864"};
+    //to map the keys to objects
+    self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
+    // need to keep list of keys to display in picker
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,8 +79,31 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 2;
-    //todo
+    if (component == 0) {
+        return self.busstopNames.count;
+    }
+    else {
+        return self.busNumbers.count;
+    }
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (component ==0) {
+        return self.busstopNames[row];
+    }
+    else {
+        return self.busNumbers[row];
+    }
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
+    switch (component){
+        case 0:
+            return 260.0f;
+        case 1:
+            return 55.0f;
+    }
+    return 0;
 }
 
 
