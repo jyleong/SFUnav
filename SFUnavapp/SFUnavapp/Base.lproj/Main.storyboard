@@ -107,43 +107,11 @@
             </objects>
             <point key="canvasLocation" x="1445" y="796"/>
         </scene>
-        <!--Transit View Controller-->
-        <scene sceneID="eyf-6U-8NP">
-            <objects>
-                <viewController id="0ZF-tq-4wv" customClass="TransitViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Coq-ff-WsU"/>
-                        <viewControllerLayoutGuide type="bottom" id="q6U-mS-kxP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Ns-pw-dNW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SGH-BN-SXN">
-                                <rect key="frame" x="0.0" y="66" width="320" height="172"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="translink results display" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7O-Xl-duP">
-                                <rect key="frame" x="20" y="300" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="mxI-x8-MUb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="saO-l9-MiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="585" y="974"/>
-        </scene>
         <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" id="2kH-6a-4Oc"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="Contactsicon" id="2kH-6a-4Oc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cRa-8s-tJ4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -159,7 +127,7 @@
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="AJu-zH-Twu"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Mapicon" id="AJu-zH-Twu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JUP-6C-ukT">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -194,7 +162,7 @@
         <scene sceneID="6Ph-q6-3KJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7W5-9N-B4f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" id="bCK-cJ-eda"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="Weathericon" id="bCK-cJ-eda"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="58v-Ac-uym">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -275,7 +243,7 @@
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Services" id="FdH-zH-Ukx"/>
+                    <tabBarItem key="tabBarItem" title="Services" image="Servicesicon" id="FdH-zH-Ukx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="waV-N5-5QQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -291,7 +259,7 @@
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transit" id="cKq-Fd-OwK"/>
+                    <tabBarItem key="tabBarItem" title="Transit" image="Transiticon" id="cKq-Fd-OwK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Wl-7l-Fxh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -299,14 +267,111 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0ZF-tq-4wv" kind="relationship" relationship="rootViewController" id="bcg-se-Fbk"/>
+                        <segue destination="hYB-sD-pmv" kind="relationship" relationship="rootViewController" id="eGa-MR-O0v"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wm-P4-fU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="974"/>
+            <point key="canvasLocation" x="139" y="1026"/>
+        </scene>
+        <!--Transit Table View Controller-->
+        <scene sceneID="2It-1y-ghL">
+            <objects>
+                <tableViewController id="hYB-sD-pmv" customClass="TransitTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zf1-dE-GlU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="dR6-rz-Cj2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tmn-GA-tkz">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tmn-GA-tkz" id="ijd-or-lR6">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Bus stop ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-5z-5Vv">
+                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="hYB-sD-pmv" id="wCi-JF-FZv"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PoK-cC-aya">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PoK-cC-aya" id="x2P-K2-eNt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quick links" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6e-D5-aCy">
+                                                    <rect key="frame" x="118" y="11" width="84" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="163" id="LDF-RW-6E6">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="163"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LDF-RW-6E6" id="2AT-C3-N2Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="myN-PH-87w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="hYB-sD-pmv" id="QmB-Jm-sDX"/>
+                                                        <outlet property="delegate" destination="hYB-sD-pmv" id="OfV-og-dQa"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="163" id="vcZ-mp-WUS">
+                                        <rect key="frame" x="0.0" y="315" width="320" height="163"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcZ-mp-WUS" id="QhA-FS-oEK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="delegate" destination="hYB-sD-pmv" id="6NC-cL-f0k"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3fr-VK-224"/>
+                    <connections>
+                        <outlet property="quicklinkLabel" destination="P6e-D5-aCy" id="1sy-iy-9k5"/>
+                        <outlet property="quicklinksPicker" destination="myN-PH-87w" id="FqO-o2-OE8"/>
+                        <outlet property="transitTextField" destination="lAk-5z-5Vv" id="Xd6-ib-9An"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WqI-e5-2Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="523" y="1026"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Contactsicon" width="70" height="62"/>
+        <image name="Mapicon" width="70" height="62"/>
+        <image name="Servicesicon" width="70" height="62"/>
+        <image name="Transiticon" width="70" height="62"/>
+        <image name="Weathericon" width="70" height="62"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
