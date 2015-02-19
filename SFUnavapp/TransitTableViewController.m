@@ -38,6 +38,7 @@
     self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
     // also must load data for the array and dictionary objects
+    self.busNumbers = @[@"135",@"143",@"144", @"145"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
