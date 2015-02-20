@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B6DE7A83-6C73-4248-B752-F1C9F0609864</string>
+	<string>050EE125-5EAB-45FC-B923-E414F427DF68</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SFUnavapp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EEA8E2CC-1662-497E-B820-4F9EFD8D42A5</key>
+		<key>1EE9C7753F118A368DBF74310E94567CF6C40FAD</key>
 		<string>https://bitbucket.org/nomacs/sfunav.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SFUnavapp/SFUnavapp.xcodeproj/project.xcworkspace</string>
+	<string>SFUnavapp/SFUnavapp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EEA8E2CC-1662-497E-B820-4F9EFD8D42A5</key>
+		<key>1EE9C7753F118A368DBF74310E94567CF6C40FAD</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/nomacs/sfunav.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EEA8E2CC-1662-497E-B820-4F9EFD8D42A5</string>
+	<string>1EE9C7753F118A368DBF74310E94567CF6C40FAD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EEA8E2CC-1662-497E-B820-4F9EFD8D42A5</string>
+			<string>1EE9C7753F118A368DBF74310E94567CF6C40FAD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>sfunav</string>
 		</dict>

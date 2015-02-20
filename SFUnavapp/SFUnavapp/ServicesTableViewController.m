@@ -30,6 +30,9 @@
     [super viewDidLoad];
     // this is how to change titles in navbars - James
     self.navigationItem.title = @"Services";
+
+    //Removing extra empty cells in tableview- Arjun
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
     
     /*
      Mutable array to hold all service names and url
