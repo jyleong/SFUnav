@@ -16,7 +16,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Jou-14-ZdQ" kind="relationship" relationship="viewControllers" id="90N-SM-69z"/>
-                        <segue destination="7W5-9N-B4f" kind="relationship" relationship="viewControllers" id="4mD-qj-b1W"/>
                         <segue destination="IFP-uG-4vk" kind="relationship" relationship="viewControllers" id="EUg-2F-rqp"/>
                         <segue destination="TkD-xP-h0k" kind="relationship" relationship="viewControllers" id="QWw-Q5-lj4"/>
                         <segue destination="VNn-TJ-YfH" kind="relationship" relationship="viewControllers" id="0rU-wL-lPI"/>
@@ -25,58 +24,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-952" y="108"/>
-        </scene>
-        <!--Weather View Controller-->
-        <scene sceneID="utM-bZ-1UN">
-            <objects>
-                <viewController id="5wy-DT-Kox" customClass="WeatherViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q3C-lR-eQz"/>
-                        <viewControllerLayoutGuide type="bottom" id="xM1-wh-iY4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0nc-xz-7P9" customClass="UIViewcon">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campus Current Conditions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40X-qo-t22">
-                                <rect key="frame" x="0.0" y="187" width="320" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="asf" translatesAutoresizingMaskIntoConstraints="NO" id="emi-L8-3OA">
-                                <rect key="frame" x="0.0" y="277" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emi-L8-3OA" id="Hxt-Xk-Nac">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="JvP-u9-cxx">
-                                <rect key="frame" x="0.0" y="329" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JvP-u9-cxx" id="Td0-u3-3Ks">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="XFp-7m-wtv">
-                                <rect key="frame" x="0.0" y="381" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XFp-7m-wtv" id="aMj-0R-unK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="OLG-x1-h5q"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ftp-ze-RyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1301" y="171"/>
         </scene>
         <!--Contacts Table View Controller - Root View Controller-->
         <scene sceneID="y2Y-Ss-0Ke">
@@ -157,25 +104,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-f1-flB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889" y="-409"/>
-        </scene>
-        <!--Navigation Controller - Weather-->
-        <scene sceneID="6Ph-q6-3KJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7W5-9N-B4f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" image="Weathericon" id="bCK-cJ-eda"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="58v-Ac-uym">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5wy-DT-Kox" kind="relationship" relationship="rootViewController" id="xII-B0-XE9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jy1-2t-RhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="841" y="171"/>
         </scene>
         <!--Services Table View Controller - Root View Controller-->
         <scene sceneID="4ym-nv-pvi">
@@ -370,7 +298,6 @@
         <image name="Mapicon" width="70" height="62"/>
         <image name="Servicesicon" width="70" height="62"/>
         <image name="Transiticon" width="70" height="62"/>
-        <image name="Weathericon" width="70" height="62"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

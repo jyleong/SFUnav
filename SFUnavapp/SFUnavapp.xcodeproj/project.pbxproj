@@ -21,7 +21,6 @@
 		B01BE69E1A8D425F0013D9EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B01BE69C1A8D425F0013D9EA /* InfoPlist.strings */; };
 		B01BE6A01A8D425F0013D9EA /* SFUnavappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */; };
 		B01BE6AB1A8D46C80013D9EA /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6AA1A8D46C80013D9EA /* MapViewController.m */; };
-		B01BE6AE1A8D47C30013D9EA /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6AD1A8D47C30013D9EA /* WeatherViewController.m */; };
 		B01BE6B11A8D490C0013D9EA /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B01A8D490C0013D9EA /* ContactsTableViewController.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
@@ -59,8 +58,6 @@
 		B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFUnavappTests.m; sourceTree = "<group>"; };
 		B01BE6A91A8D46C80013D9EA /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		B01BE6AA1A8D46C80013D9EA /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		B01BE6AC1A8D47C30013D9EA /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
-		B01BE6AD1A8D47C30013D9EA /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		B01BE6AF1A8D490C0013D9EA /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
 		B01BE6B01A8D490C0013D9EA /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
 		B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
@@ -143,8 +140,6 @@
 				B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */,
 				B01BE6AF1A8D490C0013D9EA /* ContactsTableViewController.h */,
 				B01BE6B01A8D490C0013D9EA /* ContactsTableViewController.m */,
-				B01BE6AC1A8D47C30013D9EA /* WeatherViewController.h */,
-				B01BE6AD1A8D47C30013D9EA /* WeatherViewController.m */,
 				B01BE6A91A8D46C80013D9EA /* MapViewController.h */,
 				B01BE6AA1A8D46C80013D9EA /* MapViewController.m */,
 				B01BE68C1A8D425E0013D9EA /* Images.xcassets */,
@@ -282,7 +277,6 @@
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				B01BE6AB1A8D46C80013D9EA /* MapViewController.m in Sources */,
-				B01BE6AE1A8D47C30013D9EA /* WeatherViewController.m in Sources */,
 				B01BE6B11A8D490C0013D9EA /* ContactsTableViewController.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				B01BE6821A8D425E0013D9EA /* AppDelegate.m in Sources */,
