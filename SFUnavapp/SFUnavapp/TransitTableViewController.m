@@ -39,7 +39,7 @@
     self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
     
-    self.busNumbers = @[@"135",@"143",@"144", @"145"];
+    self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
     self.busStopID = @{@"Tower Rd": @"59044", @"S Campus Rd" : @"51862", @"SFU Transportation Centre" : @"51863", @"University Dr W" : @"51864"};
     //to map the keys to objects
     self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
