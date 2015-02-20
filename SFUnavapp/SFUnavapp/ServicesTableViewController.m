@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     // this is how to change titles in navbars - James
-    self.navigationItem.title = @"Services";
+    self.navigationItem.title = @"mySFU";
 
     //Removing extra empty cells in tableview- Arjun
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
@@ -39,7 +39,14 @@
     Order of service names matters!! - Arjun
      */
     links = [[NSMutableArray alloc] init];
+    
+    
     ServicesURL *url = [[ServicesURL alloc] init];
+    url.serviceName=@"SFU homepage";
+    url.serviceURL=@"http://www.sfu.ca/";
+    [links addObject:url];
+    
+    url=[[ServicesURL alloc] init];
     url.serviceName=@"SFU Search";
     url.serviceURL = @"http://www.sfu.ca/search.html";
     [links addObject:url];

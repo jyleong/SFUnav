@@ -33,6 +33,7 @@
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
 - (void)didReceiveMemoryWarning
