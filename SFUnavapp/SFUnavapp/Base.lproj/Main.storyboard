@@ -239,11 +239,11 @@
             </objects>
             <point key="canvasLocation" x="-237" y="1676"/>
         </scene>
-        <!--Navigation Controller - Services-->
+        <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Services" image="Servicesicon" id="FdH-zH-Ukx"/>
+                    <tabBarItem key="tabBarItem" title="mySFU" image="Servicesicon" id="FdH-zH-Ukx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="waV-N5-5QQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
