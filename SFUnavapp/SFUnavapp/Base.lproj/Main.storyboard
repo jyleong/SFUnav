@@ -148,15 +148,22 @@
                                     <constraint firstAttribute="height" constant="169" id="8fe-8G-utv"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CqX-x8-INe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampusCell" id="CqX-x8-INe">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CqX-x8-INe" id="ZtY-FF-U4L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tky-Fp-kfm" id="pP5-c0-wLe"/>
+                                    <outlet property="delegate" destination="Tky-Fp-kfm" id="1eS-bj-EZg"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -172,6 +179,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9l4-Yh-f3m"/>
                     <connections>
+                        <outlet property="campusTable" destination="81B-9f-lth" id="UwX-lJ-HyH"/>
                         <outlet property="webcamTable" destination="5hO-YM-wep" id="2rM-38-8zh"/>
                     </connections>
                 </viewController>
