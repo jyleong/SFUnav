@@ -1,19 +1,19 @@
 //
-//  ServicesWebViewController.m
+//  WebcamWebViewController.m
 //  SFUnavapp
 //
-//  Created by Arjun Rathee on 2015-02-14.
-//  Copyright (c) 2015 Arjun Rathee. All rights reserved.
+//  Created by Arjun Rathee on 2015-02-17.
+//  Copyright (c) 2015 James Leong. All rights reserved.
 //
 
-#import "ServicesWebViewController.h"
+#import "WebcamWebViewController.h"
 
-@interface ServicesWebViewController ()
-@property (weak, nonatomic) IBOutlet UIWebView *currentlink;
+@interface WebcamWebViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *currentFile;
 
 @end
 
-@implementation ServicesWebViewController
+@implementation WebcamWebViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,12 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=_currentURL.serviceName;
-    
-    NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
-    NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
-    [_currentlink loadRequest:requestObj];
-    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
+    self.title=_currentURL.location;
+    NSURL *url = [[NSBundle mainBundle] URLForResource:_currentURL.filename withExtension:@"html"];
+    [_currentFile loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,6 +39,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)zoomToFit
+{
+    
+    if ([_currentFile respondsToSelector:@selector(scrollView)])
+    {
+        UIScrollView *scroll=[_currentFile scrollView];
+        
+        float zoom=_currentFile.bounds.size.width/scroll.contentSize.width;
+        [scroll setZoomScale:zoom animated:NO];
+    }
+}
 /*
 #pragma mark - Navigation
 

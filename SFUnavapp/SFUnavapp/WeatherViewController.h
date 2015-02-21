@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Webcam.h"
+#import "WebcamWebViewController.h"
 
-@interface WeatherViewController : UIViewController
+@interface WeatherViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic) Webcam* currentURL;
+@property (weak, nonatomic) IBOutlet UITableView *webcamTable;
 
 @end
