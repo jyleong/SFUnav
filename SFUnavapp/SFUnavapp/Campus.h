@@ -10,7 +10,10 @@
 
 @interface Campus : NSObject
 
-@property (nonatomic, weak) NSString* name;
-@property (nonatomic, weak) NSString* status;
+@property  NSString* name;
+@property  NSString* status;
+@property  NSString* ClassExam;
+@property  NSString* translink;
+@property  NSString* road;
 
 @end

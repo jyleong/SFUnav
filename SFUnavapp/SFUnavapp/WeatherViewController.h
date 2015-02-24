@@ -11,6 +11,7 @@
 #import "WebcamWebViewController.h"
 #import "Campus.h"
 #import "TFHpple.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WeatherViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
