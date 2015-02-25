@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *quicklinksPicker;
 @property (weak, nonatomic) IBOutlet UILabel *quicklinkLabel;
 @property (strong, nonatomic) NSArray *busstopNames;
+@property (strong, nonatomic) NSString *stopID;
+@property (strong, nonatomic) NSString *busNum;
+@property (strong, nonatomic) NSArray *fivedigitID;
 
 
 @end
@@ -41,9 +44,12 @@
     [self signUpForKeyboardNotifications];
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
-    self.busStopID = @{@"Tower Rd": @"59044", @"S Campus Rd" : @"51862", @"SFU Transportation Centre" : @"51863", @"University Dr W" : @"51864"};
+    //self.busStopID = @{@"Tower Rd": @"59044", @"S Campus Rd" : @"51862", @"SFU Transportation Centre" : @"51863", @"University Dr W" : @"51864"};
     //to map the keys to objects
     self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
+    self.fivedigitID = @[@"59044", @"51862",@"51863", @"51864"];
+    
+    self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
     [self showbusnumcontents];
     // Uncomment the following line to preserve selection between presentations.
@@ -107,7 +113,6 @@
     return 0;
 }
 
-
 #pragma mark - Table view methods
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,7 +164,14 @@
         
     }];
 }
+- (void) updateuserDefaults: (NSString *) string{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:string forKey:@"currentstopID"];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // immediately updates user defaults
+}
 
+// second method to send api information
 - (void)hidePickerCell {
     
     self.PickerIsShowing = NO;
@@ -174,18 +186,25 @@
                      completion:^(BOOL finished){
                          self.quicklinksPicker.hidden = YES;
                      }];
+    // may rewrite this block into function later
+    // this saves the picker values to nsuserdefaults
+    NSString *chosenstopName = [self.busstopNames objectAtIndex:[self.quicklinksPicker selectedRowInComponent:0]]; //gets 5 digit
+    NSString *chosenbusNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
+    //append the 5 + 3 length strings
+    NSString *chosenID = [self.busStopID objectForKey:chosenstopName];
+    NSString *pickerstopID = [chosenID stringByAppendingString:chosenbusNum]; // string that is full length id for API
+    [self updateuserDefaults:pickerstopID]; // immediately updates ns user defaults
 }
 
 # pragma mark - textFieldmethods
-
+// also the first intended method to send API request
 - (BOOL)textFieldShouldReturn:(UITextField *)textField { // method to save busnumber to nsuserdefaults
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
     bustext = textField.text;
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:bustext forKey:@"currentstopID"];
+    [self updateuserDefaults:bustext];
     // in this method, also sends and recieves info from API
     //todo, the API methods
-    [self downloadNeighbourCountries]; // does the api methods
+    //[self downloadNeighbourCountries]; // does the api methods
 
     [textField resignFirstResponder];
     return YES;
@@ -199,18 +218,18 @@
 
 #pragma mark - TranslinkAPI manipulation methods
 
--(void)downloadNeighbourCountries{
+/*-(void)downloadNeighbourCountries{
     NSString *currentbusnum = [[NSString alloc] init];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     currentbusnum = [userDefaults objectForKey:@"currentstopID"];
-    NSString *stopID = [currentbusnum substringToIndex:5];
-    NSString *busNum = [currentbusnum substringFromIndex:5];
+    self.stopID = [currentbusnum substringToIndex:5];
+    self.busNum = [currentbusnum substringFromIndex:5];
     // does not have error checking yet if user puts in wrong input
     
-    NSLog(@"stopID %@", stopID);
-    NSLog(@"busNum %@", busNum);
+    NSLog(@"stopID %@", self.stopID);
+    NSLog(@"busNum %@", self.busNum);
     
-    NSString *URLString = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",stopID, busNum];
+    NSString *URLString = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",_stopID, _busNum];
     
     NSURL *url = [NSURL URLWithString:URLString];
     
@@ -228,7 +247,7 @@
             [self.xmlParser parse];
         }
     }];
-}
+}*/
 
 /*#pragma mark - Table view data source
 
