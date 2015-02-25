@@ -9,7 +9,7 @@
 #import "TransitTableViewController.h"
 #import "AppDelegate.h"
 #define kPickerIndex 2
-#define kPickerCellHeight 164
+#define kPickerCellHeight 163
 //string ID for NSuserDefaults for saved bus stop = @"currentstopID"
 
 @interface TransitTableViewController ()
@@ -52,6 +52,7 @@
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
     [self showbusnumcontents];
+    [self hidePickerCell]; // picker needs to be initially hidden state
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -186,8 +187,13 @@
                      completion:^(BOOL finished){
                          self.quicklinksPicker.hidden = YES;
                      }];
+}
+- (IBAction)selectedpicker:(id)sender {
     // may rewrite this block into function later
+    // or move this call to an actual button to submit picker input
+    // button will hide picker, and save and send API information
     // this saves the picker values to nsuserdefaults
+    [self hidePickerCell];
     NSString *chosenstopName = [self.busstopNames objectAtIndex:[self.quicklinksPicker selectedRowInComponent:0]]; //gets 5 digit
     NSString *chosenbusNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
     //append the 5 + 3 length strings
