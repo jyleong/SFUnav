@@ -8,6 +8,8 @@
 
 #import "ServicesWebViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface ServicesWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *currentlink;
 
@@ -34,6 +36,8 @@
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
+    [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning
