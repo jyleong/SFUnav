@@ -7,9 +7,10 @@
 //
 
 #import "TransitTableViewController.h"
-
+#import "AppDelegate.h"
 #define kPickerIndex 2
 #define kPickerCellHeight 164
+//string ID for NSuserDefaults for saved bus stop = @"currentstopID"
 
 @interface TransitTableViewController ()
 
@@ -44,7 +45,7 @@
     //to map the keys to objects
     self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
     // need to keep list of keys to display in picker
-    
+    [self showbusnumcontents];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -173,6 +174,60 @@
                      completion:^(BOOL finished){
                          self.quicklinksPicker.hidden = YES;
                      }];
+}
+
+# pragma mark - textFieldmethods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField { // method to save busnumber to nsuserdefaults
+    NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
+    bustext = textField.text;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:bustext forKey:@"currentstopID"];
+    // in this method, also sends and recieves info from API
+    //todo, the API methods
+    [self downloadNeighbourCountries]; // does the api methods
+
+    [textField resignFirstResponder];
+    return YES;
+}
+// test method to display userdefaults
+- (void) showbusnumcontents {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentstring = [userDefaults objectForKey:@"currentstopID"];
+    NSLog(@"current: %@", currentstring);
+}
+
+#pragma mark - TranslinkAPI manipulation methods
+
+-(void)downloadNeighbourCountries{
+    NSString *currentbusnum = [[NSString alloc] init];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    currentbusnum = [userDefaults objectForKey:@"currentstopID"];
+    NSString *stopID = [currentbusnum substringToIndex:5];
+    NSString *busNum = [currentbusnum substringFromIndex:5];
+    // does not have error checking yet if user puts in wrong input
+    
+    NSLog(@"stopID %@", stopID);
+    NSLog(@"busNum %@", busNum);
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",stopID, busNum];
+    
+    NSURL *url = [NSURL URLWithString:URLString];
+    
+    // Download the data.
+    [AppDelegate downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
+        // Make sure that there is data.
+        if (data != nil) {
+            self.xmlParser = [[NSXMLParser alloc] initWithData:data];
+            self.xmlParser.delegate = self;
+            
+            // Initialize the mutable string that we'll use during parsing.
+            self.foundValue = [[NSMutableString alloc] init];
+            
+            // Start parsing.
+            [self.xmlParser parse];
+        }
+    }];
 }
 
 /*#pragma mark - Table view data source
