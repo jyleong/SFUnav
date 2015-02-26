@@ -45,7 +45,7 @@
     for (TFHppleElement *item in busnumber)
     {   //write log
         NSMutableArray *bustimearray = [[NSMutableArray alloc] initWithCapacity:0];
-        NSString *output = item.tagName;
+        //NSString *output = item.tagName;
         //NSLog(output);
         routeinfo=item.text;
         //NSLog(info);
@@ -58,7 +58,7 @@
         //this loops through the
         for (TFHppleElement *item in expleavetime)
         {   //write log
-            NSString *output = item.tagName;
+            //NSString *output = item.tagName;
             //NSLog(output);
             info=item.text;
             //NSLog(info);
