@@ -1,9 +1,11 @@
 //
 //  ServicesTableViewController.m
 //  SFUnavapp
-//
+//  Team NoMacs
 //  Created by James Leong on 2015-02-12.
-//  Copyright (c) 2015 James Leong. All rights reserved.
+//
+//	Edited by Arjun Rathee
+//	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
 #import "ServicesTableViewController.h"

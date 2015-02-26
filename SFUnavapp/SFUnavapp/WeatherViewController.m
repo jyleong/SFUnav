@@ -1,9 +1,11 @@
 //
 //  WeatherViewController.m
 //  SFUnavapp
-//
+//  Team NoMacs
 //  Created by Arjun Rathee on 2015-02-20.
-//  Copyright (c) 2015 James Leong. All rights reserved.
+//
+//	Edited by Arjun Rathee
+//	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
 #import "WeatherViewController.h"
