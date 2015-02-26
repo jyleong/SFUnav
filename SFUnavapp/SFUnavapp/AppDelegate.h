@@ -1,10 +1,15 @@
 //
 //  AppDelegate.h
 //  SFUnavapp
-//
+//  Team NoMacs
 //  Created by James Leong on 2015-02-12.
-//  Copyright (c) 2015 James Leong. All rights reserved.
 //
+//	Edited by James Leong
+//	Edited by Arjun Rathee
+//	Edited by <Your name>
+//	Copyright (c) 2015 Team NoMacs. All rights reserved.
+//
+
 
 #import <UIKit/UIKit.h>
 
@@ -12,7 +17,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-+(void)downloadDataFromURL:(NSURL *)url withCompletionHandler:(void(^)(NSData *data))completionHandler;
-// may delete if we use hpple
 
 @end

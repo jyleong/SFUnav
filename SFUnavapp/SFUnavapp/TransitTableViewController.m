@@ -1,13 +1,18 @@
 //
 //  TransitTableViewController.m
 //  SFUnavapp
-//
+//  Team NoMacs
 //  Created by James Leong on 2015-02-18.
-//  Copyright (c) 2015 James Leong. All rights reserved.
+//
+//	Edited by James Leong
+//	Edited by Tyler Wong
+//	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
 #import "TransitTableViewController.h"
 #import "AppDelegate.h"
+#import "BusRouteStorage.h" //  to use custom object to hold businfo
+
 #define kPickerIndex 2
 #define kPickerCellHeight 163
 //string ID for NSuserDefaults for saved bus stop = @"currentstopID"
@@ -22,6 +27,8 @@
 @property (strong, nonatomic) NSString *stopID;
 @property (strong, nonatomic) NSString *busNum;
 @property (strong, nonatomic) NSArray *fivedigitID;
+
+@property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 
 
 @end
@@ -200,6 +207,20 @@
     NSString *chosenID = [self.busStopID objectForKey:chosenstopName];
     NSString *pickerstopID = [chosenID stringByAppendingString:chosenbusNum]; // string that is full length id for API
     [self updateuserDefaults:pickerstopID]; // immediately updates ns user defaults
+    
+    
+    //Tylers custom class
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:chosenbusNum andbusid:chosenID];
+    //test output terminal
+    NSString *key;
+    
+    for(key in self.retrieveInfo.dictionary) {
+        NSLog(key);
+        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+        for(NSString *elem in temparray) {
+            NSLog(@"time: %@",elem);
+        }
+    }
 }
 
 # pragma mark - textFieldmethods
