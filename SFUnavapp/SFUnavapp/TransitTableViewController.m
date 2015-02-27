@@ -23,10 +23,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *transitTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *quicklinksPicker;
 @property (weak, nonatomic) IBOutlet UILabel *quicklinkLabel;
-@property (strong, nonatomic) NSArray *busstopNames;
-@property (strong, nonatomic) NSString *stopID;
+@property (strong, nonatomic) NSArray *busstopNames; // trivially to set up dictionary
+@property (strong, nonatomic) NSString *stopID; // stopID and busNUm to keep track of current stopid and busnum
 @property (strong, nonatomic) NSString *busNum;
-@property (strong, nonatomic) NSArray *fivedigitID;
+@property (strong, nonatomic) NSArray *fivedigitID; // trivially to set up dictionary
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
@@ -69,7 +69,15 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [_busDisplayLabel setNumberOfLines:0];
     [_busDisplayLabel sizeToFit];
-    //[_busDisplayLabel setText:@"Hello WOrld"];
+    
+    NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+    
+    _busNum = [[userdefaults objectForKey:@"currentstopID"] substringFromIndex:5];
+    _stopID = [[userdefaults objectForKey:@"currentstopID"] substringToIndex:5];
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+    [self displayBusroutes]; // load up last inputed valid stop id
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -219,15 +227,15 @@
     // this saves the picker values to nsuserdefaults
     [self hidePickerCell];
     NSString *chosenstopName = [self.busstopNames objectAtIndex:[self.quicklinksPicker selectedRowInComponent:0]]; //gets 5 digit
-    NSString *chosenbusNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
+    _busNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
     //append the 5 + 3 length strings
-    NSString *chosenID = [self.busStopID objectForKey:chosenstopName];
-    NSString *pickerstopID = [chosenID stringByAppendingString:chosenbusNum]; // string that is full length id for API
+    _stopID = [self.busStopID objectForKey:chosenstopName];
+    NSString *pickerstopID = [_stopID stringByAppendingString:_busNum]; // string that is full length id for API
     [self updateuserDefaults:pickerstopID]; // immediately updates ns user defaults
     
     
     //Tylers custom class
-    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:chosenbusNum andbusid:chosenID];
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     //test output terminal
     /*NSString *key;
     
@@ -249,10 +257,10 @@
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
     bustext = textField.text;
     [self updateuserDefaults:bustext];
-    NSString *busstop = [bustext substringToIndex:5]; // 5 digit
-    NSString *busName = [bustext substringFromIndex:5]; // 3 digit
+    _stopID = [bustext substringToIndex:5]; // 5 digit
+    _busNum = [bustext substringFromIndex:5]; // 3 digit
     
-    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:busName andbusid:busstop];
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
 
     [self displayBusroutes];
     [textField resignFirstResponder];

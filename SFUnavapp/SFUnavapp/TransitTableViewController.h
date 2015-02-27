@@ -13,7 +13,7 @@
 
 @interface TransitTableViewController : UITableViewController <UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (strong, nonatomic)NSDictionary *busStopID;
+@property (strong, nonatomic)NSDictionary *busStopID; // these two are what goes into pickerview
 @property (strong, nonatomic) NSArray *busNumbers;
 
 @end
