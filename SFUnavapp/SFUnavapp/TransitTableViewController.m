@@ -12,6 +12,7 @@
 #import "TransitTableViewController.h"
 #import "AppDelegate.h"
 #import "BusRouteStorage.h" //  to use custom object to hold businfo
+#import <QuartzCore/QuartzCore.h>
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
@@ -69,6 +70,7 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [_busDisplayLabel setNumberOfLines:0];
     [_busDisplayLabel sizeToFit];
+    _busDisplayLabel.layer.cornerRadius = 8;
     
     NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
     
@@ -76,7 +78,7 @@
     _stopID = [[userdefaults objectForKey:@"currentstopID"] substringToIndex:5];
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes]; // load up last inputed valid stop id
-    
+    self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
