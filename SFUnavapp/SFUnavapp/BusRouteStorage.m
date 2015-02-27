@@ -61,6 +61,8 @@
             //NSString *output = item.tagName;
             //NSLog(output);
             info=item.text;
+            NSRange range = [info rangeOfString:@" "];
+            info = [info substringWithRange:NSMakeRange(0, range.location)];
             //NSLog(info);
             [bustimearray addObject:info];
         }
