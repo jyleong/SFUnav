@@ -451,6 +451,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcZ-mp-WUS" id="QhA-FS-oEK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfo-ki-CxP">
+                                                    <rect key="frame" x="20" y="-8" width="250" height="170"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -462,6 +471,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3fr-VK-224"/>
                     <connections>
+                        <outlet property="busDisplayLabel" destination="rfo-ki-CxP" id="r0N-h3-VqS"/>
                         <outlet property="quicklinkLabel" destination="P6e-D5-aCy" id="1sy-iy-9k5"/>
                         <outlet property="quicklinksPicker" destination="myN-PH-87w" id="FqO-o2-OE8"/>
                         <outlet property="transitTextField" destination="lAk-5z-5Vv" id="Xd6-ib-9An"/>

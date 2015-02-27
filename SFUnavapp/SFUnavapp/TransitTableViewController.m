@@ -27,9 +27,11 @@
 @property (strong, nonatomic) NSString *stopID;
 @property (strong, nonatomic) NSString *busNum;
 @property (strong, nonatomic) NSArray *fivedigitID;
+@property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 
+@property (weak, nonatomic) IBOutlet UILabel *busDisplayLabel;
 
 @end
 
@@ -49,9 +51,13 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
+    // initialize tapper in viewdidload
+    _tapper = [[UITapGestureRecognizer alloc]
+              initWithTarget:self action:@selector(handleSingleTap:)];
+    _tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:_tapper];
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
-    //self.busStopID = @{@"Tower Rd": @"59044", @"S Campus Rd" : @"51862", @"SFU Transportation Centre" : @"51863", @"University Dr W" : @"51864"};
     //to map the keys to objects
     self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
     self.fivedigitID = @[@"59044", @"51862",@"51863", @"51864"];
@@ -60,6 +66,10 @@
     // need to keep list of keys to display in picker
     [self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [_busDisplayLabel setNumberOfLines:0];
+    [_busDisplayLabel sizeToFit];
+    //[_busDisplayLabel setText:@"Hello WOrld"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -78,13 +88,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
     
 }
-
+// these two are methods must be called in viewdidload to handle the keyboard and picker
 - (void)keyboardWillShow {
     
     if (self.PickerIsShowing){
         
         [self hidePickerCell];
     }
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES];
 }
 
 #pragma mark - PickerView Data Source
@@ -187,13 +202,15 @@
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     
-    [UIView animateWithDuration:0.25
+    self.quicklinksPicker.hidden = YES;
+    
+    /*[UIView animateWithDuration:0.25
                      animations:^{
                          self.quicklinksPicker.alpha = 0.0f;
                      }
                      completion:^(BOOL finished){
                          self.quicklinksPicker.hidden = YES;
-                     }];
+                     }];*/
 }
 - (IBAction)selectedpicker:(id)sender {
     // may rewrite this block into function later
@@ -212,7 +229,7 @@
     //Tylers custom class
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:chosenbusNum andbusid:chosenID];
     //test output terminal
-    NSString *key;
+    /*NSString *key;
     
     for(key in self.retrieveInfo.dictionary) {
         NSLog(key);
@@ -220,19 +237,24 @@
         for(NSString *elem in temparray) {
             NSLog(@"time: %@",elem);
         }
-    }
+    }*/
+    [self displayBusroutes];
+    
 }
 
 # pragma mark - textFieldmethods
+
 // also the first intended method to send API request
 - (BOOL)textFieldShouldReturn:(UITextField *)textField { // method to save busnumber to nsuserdefaults
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
     bustext = textField.text;
     [self updateuserDefaults:bustext];
-    // in this method, also sends and recieves info from API
-    //todo, the API methods
-    //[self downloadNeighbourCountries]; // does the api methods
+    NSString *busstop = [bustext substringToIndex:5]; // 5 digit
+    NSString *busName = [bustext substringFromIndex:5]; // 3 digit
+    
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:busName andbusid:busstop];
 
+    [self displayBusroutes];
     [textField resignFirstResponder];
     return YES;
 }
@@ -243,39 +265,21 @@
     NSLog(@"current: %@", currentstring);
 }
 
-#pragma mark - TranslinkAPI manipulation methods
+# pragma mark - displaymethods
 
-/*-(void)downloadNeighbourCountries{
-    NSString *currentbusnum = [[NSString alloc] init];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    currentbusnum = [userDefaults objectForKey:@"currentstopID"];
-    self.stopID = [currentbusnum substringToIndex:5];
-    self.busNum = [currentbusnum substringFromIndex:5];
-    // does not have error checking yet if user puts in wrong input
-    
-    NSLog(@"stopID %@", self.stopID);
-    NSLog(@"busNum %@", self.busNum);
-    
-    NSString *URLString = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",_stopID, _busNum];
-    
-    NSURL *url = [NSURL URLWithString:URLString];
-    
-    // Download the data.
-    [AppDelegate downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
-        // Make sure that there is data.
-        if (data != nil) {
-            self.xmlParser = [[NSXMLParser alloc] initWithData:data];
-            self.xmlParser.delegate = self;
-            
-            // Initialize the mutable string that we'll use during parsing.
-            self.foundValue = [[NSMutableString alloc] init];
-            
-            // Start parsing.
-            [self.xmlParser parse];
-        }
-    }];
-}*/
-
+-(void) displayBusroutes {
+    NSString *currstring = @"";
+    NSString *key;
+    for(key in self.retrieveInfo.dictionary) {
+        currstring = [currstring stringByAppendingFormat:@"%@\n", key];
+        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+        for(NSString *elem in temparray) {
+            currstring = [currstring stringByAppendingFormat:@"%@ ", elem];
+        };
+        currstring = [currstring stringByAppendingString:@"\n"];
+    }
+    [_busDisplayLabel setText:currstring];
+}
 /*#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
