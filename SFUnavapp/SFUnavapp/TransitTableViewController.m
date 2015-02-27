@@ -12,6 +12,7 @@
 #import "TransitTableViewController.h"
 #import "AppDelegate.h"
 #import "BusRouteStorage.h" //  to use custom object to hold businfo
+#import <QuartzCore/QuartzCore.h>
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
@@ -31,8 +32,7 @@
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
-
-@property (weak, nonatomic) IBOutlet UILabel *busDisplayLabel;
+@property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 
 @end
 
@@ -68,8 +68,7 @@
     [self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [_busDisplayLabel setNumberOfLines:0];
-    [_busDisplayLabel sizeToFit];
+    _busDisplaytextView.layer.cornerRadius = 8;
     
     NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
     
@@ -77,7 +76,7 @@
     _stopID = [[userdefaults objectForKey:@"currentstopID"] substringToIndex:5];
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes]; // load up last inputed valid stop id
-    
+    self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -287,7 +286,7 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
-    [_busDisplayLabel setText:currstring];
+    [_busDisplaytextView setText:currstring];
 }
 /*#pragma mark - Table view data source
 
