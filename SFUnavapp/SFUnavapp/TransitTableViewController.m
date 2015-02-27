@@ -31,8 +31,7 @@
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
-
-@property (weak, nonatomic) IBOutlet UILabel *busDisplayLabel;
+@property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 
 @end
 
@@ -68,9 +67,7 @@
     [self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [_busDisplayLabel setNumberOfLines:0];
-    [_busDisplayLabel sizeToFit];
-    _busDisplayLabel.layer.cornerRadius = 8;
+    _busDisplaytextView.layer.cornerRadius = 8;
     
     NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
     
@@ -288,7 +285,7 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
-    [_busDisplayLabel setText:currstring];
+    [_busDisplaytextView setText:currstring];
 }
 /*#pragma mark - Table view data source
 
