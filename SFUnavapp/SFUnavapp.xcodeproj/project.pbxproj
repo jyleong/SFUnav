@@ -531,7 +531,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/include/libxml2,
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,7 +549,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/include/libxml2,
+					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
