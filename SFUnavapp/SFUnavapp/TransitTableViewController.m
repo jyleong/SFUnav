@@ -17,7 +17,6 @@
 #define kPickerIndex 2
 #define kPickerCellHeight 163
 //string ID for NSuserDefaults for saved bus stop = @"currentstopID"
-//test
 
 @interface TransitTableViewController ()
 
