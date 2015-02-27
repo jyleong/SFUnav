@@ -38,21 +38,21 @@
     data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-status half first']/div/h1"];
     item = data[0];
     //write status
-    info.status=item.text;
+    info.status=[item.text capitalizedString];
   
     data = [xpath searchWithXPathQuery:@"//div[@class='extra-weather-conditions last']/ul/li/span"];
     item = data[1];
-    info.ClassExam=item.text;
+    info.ClassExam=[item.text capitalizedString];
     //NSLog(@"Class Exma bur%@",info.ClassExam);
   
     //data = [xpath searchWithXPathQuery:@"//div[@class='extra-weather-conditions last']/ul/li/li/li"];
     item = data[2];
-    info.translink=item.text;
+    info.translink=[item.text capitalizedString];
     //NSLog(@"Bus bur%@",info.translink);
     
     data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-info half last']/div/div/div/h3/span"];
     item = data[0];
-    info.road=item.text;
+    info.road=[item.text capitalizedString];
     //NSLog(@"road bur%@",info.road);
     [collection addObject:info];
     
@@ -68,10 +68,10 @@
     
     item = data[0];
         //write log
-    info.status=item.text;
+    info.status=[item.text capitalizedString];
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half first']/p/span/strong"];
     item = data[0];
-    info.ClassExam= item.text;
+    info.ClassExam= [item.text capitalizedString];
     info.translink= @"NODATA";
     info.road=@"NODATA";
     //NSLog(@"Class Exma sur%@",info.ClassExam);
@@ -88,10 +88,10 @@
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/a/div/h3"];
     item = data[0];
        //write status
-    info.status=item.text;
+    info.status=[item.text capitalizedString];
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/p/span/strong"];
     item = data[0];
-    info.ClassExam= item.text;
+    info.ClassExam= [item.text capitalizedString];
     //NSLog(@"Class Exma van%@",info.ClassExam);
     info.translink= @"NODATA";
     info.road=@"NODATA";
@@ -195,9 +195,9 @@
     
         // Configure the cell...
         Campus* current= [collection objectAtIndex:indexPath.row];
-        if ([current.status isEqual:@"Open"] && [current.ClassExam isEqual:@"On schedule"] )
+        if ([current.status isEqual:@"Open"] && [current.ClassExam isEqual:@"On Schedule"] )
         {
-            if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"On schedule"])
+            if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"On Schedule"])
             cell.backgroundColor= open;
         }
         else
@@ -210,6 +210,7 @@
         else
         {
             cell.detailTextLabel.text= @"Looks like something is wrong! Click Here!!";
+            cell.detailTextLabel.textColor = [UIColor whiteColor];
         }
         /*[cell.layer setCornerRadius:7.0f];
         [cell.layer setMasksToBounds:NO];
