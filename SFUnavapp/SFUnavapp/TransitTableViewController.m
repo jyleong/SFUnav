@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 
+@property (weak, nonatomic) IBOutlet UILabel *busDisplayLabel;
 
 @end
 
@@ -50,7 +51,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
-    
     // initialize tapper in viewdidload
     _tapper = [[UITapGestureRecognizer alloc]
               initWithTarget:self action:@selector(handleSingleTap:)];
@@ -66,6 +66,10 @@
     // need to keep list of keys to display in picker
     [self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [_busDisplayLabel setNumberOfLines:0];
+    [_busDisplayLabel sizeToFit];
+    //[_busDisplayLabel setText:@"Hello WOrld"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -198,13 +202,15 @@
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     
-    [UIView animateWithDuration:0.25
+    self.quicklinksPicker.hidden = YES;
+    
+    /*[UIView animateWithDuration:0.25
                      animations:^{
                          self.quicklinksPicker.alpha = 0.0f;
                      }
                      completion:^(BOOL finished){
                          self.quicklinksPicker.hidden = YES;
-                     }];
+                     }];*/
 }
 - (IBAction)selectedpicker:(id)sender {
     // may rewrite this block into function later
@@ -222,7 +228,6 @@
     
     //Tylers custom class
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:chosenbusNum andbusid:chosenID];
-    
     //test output terminal
     /*NSString *key;
     
@@ -233,6 +238,8 @@
             NSLog(@"time: %@",elem);
         }
     }*/
+    [self displayBusroutes];
+    
 }
 
 # pragma mark - textFieldmethods
@@ -247,6 +254,7 @@
     
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:busName andbusid:busstop];
 
+    [self displayBusroutes];
     [textField resignFirstResponder];
     return YES;
 }
@@ -257,6 +265,21 @@
     NSLog(@"current: %@", currentstring);
 }
 
+# pragma mark - displaymethods
+
+-(void) displayBusroutes {
+    NSString *currstring = @"";
+    NSString *key;
+    for(key in self.retrieveInfo.dictionary) {
+        currstring = [currstring stringByAppendingFormat:@"%@\n", key];
+        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+        for(NSString *elem in temparray) {
+            currstring = [currstring stringByAppendingFormat:@"%@ ", elem];
+        };
+        currstring = [currstring stringByAppendingString:@"\n"];
+    }
+    [_busDisplayLabel setText:currstring];
+}
 /*#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
