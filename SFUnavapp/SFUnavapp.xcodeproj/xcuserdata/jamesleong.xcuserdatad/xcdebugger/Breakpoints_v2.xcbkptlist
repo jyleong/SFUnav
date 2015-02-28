@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SFUnavapp/TransitTableViewController.m"
-            timestampString = "446792463.107319"
+            timestampString = "446847301.171144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-showPickerCell"
             landmarkType = "5">
          </BreakpointContent>

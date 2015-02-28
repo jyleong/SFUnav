@@ -13,7 +13,7 @@
 #import "TransitTableViewController.h"
 #import "AppDelegate.h"
 #import "BusRouteStorage.h" //  to use custom object to hold businfo
-#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h> // handles the appearance of UI elements
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
@@ -95,6 +95,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+#pragma mark - initialization methods
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -117,7 +119,14 @@
 
 - (void)handleSingleTap:(UITapGestureRecognizer *) sender
 {
-    [self.view endEditing:YES];
+    [self.view endEditing:YES]; // so the keyboard will always resign when you click ANYWHERE
+}
+
+- (void) updateuserDefaults: (NSString *) string{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:string forKey:@"currentstopID"];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // immediately updates user defaults
 }
 
 #pragma mark - PickerView Data Source
@@ -211,12 +220,6 @@
         
     }];
 }
-- (void) updateuserDefaults: (NSString *) string{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    [userDefaults setObject:string forKey:@"currentstopID"];
-    [[NSUserDefaults standardUserDefaults] synchronize]; // immediately updates user defaults
-}
 
 // second method to send api information
 - (void)hidePickerCell {
@@ -271,7 +274,6 @@
 }
 
 # pragma mark - textFieldmethods
-// BUG: app crahses if user enters wrong transit information such as blank string or character string, need to error check
 // also the first intended method to send API request
 
 -(void)cancelNumberPad{ // when click cancel of numberpad, clears the textfield without submitting
@@ -283,6 +285,8 @@
 -(void)doneWithNumberPad{
     
     if (_transitTextField.text.length<5) { // just resigns if they submitted a string of length 4 or less
+        UIAlertView *invalidAlert = [[UIAlertView alloc] initWithTitle:@"Invalid bus stop ID" message:@"A valid input is a 5 digit stop ID or the ID with bus number e.g. 59044, 59044145" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [invalidAlert show];
         [_transitTextField resignFirstResponder];
         return;
     }
