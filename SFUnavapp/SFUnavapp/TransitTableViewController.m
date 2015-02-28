@@ -6,6 +6,7 @@
 //
 //	Edited by James Leong
 //	Edited by Tyler Wong
+//  Edited by Arjun Rathee
 //	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -280,8 +281,14 @@
 
 // just like the behavior with sending the text information
 -(void)doneWithNumberPad{
+    
+    if ([_transitTextField.text isEqualToString:@""]) { // just resigns if they submitted an empty string
+        [_transitTextField resignFirstResponder];
+        return;
+    }
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
     bustext = _transitTextField.text;
+    
     [self updateuserDefaults:bustext];
     _stopID = [bustext substringToIndex:5]; // 5 digit
     _busNum = [bustext substringFromIndex:5]; // 3 digit
