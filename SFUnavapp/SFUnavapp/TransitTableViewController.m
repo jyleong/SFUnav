@@ -155,6 +155,12 @@
         
     }
     
+    //index path for label cell. Height adjusted to have full cell interactions
+    if (indexPath.row ==3)
+    {
+        height= 265;
+    }
+    
     return height;
 }
 
