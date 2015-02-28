@@ -22,11 +22,10 @@
     /*
      NSString *result = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",self.busstopid, self.routnumber];
      */
-    
-    
     // NSMutableArray *busnumberarray = [[NSMutableArray alloc] initWithCapacity:0];
     //NSMutableArray *bustimearray; //= [[NSMutableArray alloc] initWithCapacity:0];
     //NSString *test;
+    
     NSString *info;
     NSString *routeinfo;
     /*
@@ -38,8 +37,8 @@
     
     
     //PARSES HTML DOCUMENT
-    TFHpple *haha = [[TFHpple alloc]initWithHTMLData:result];
-    NSArray *busnumber = [haha searchWithXPathQuery:@"//nextbus/routeno"];
+    TFHpple *xmldocument = [[TFHpple alloc]initWithHTMLData:result];
+    NSArray *busnumber = [xmldocument searchWithXPathQuery:@"//nextbus/routeno"];
     
     //LOOPS THROUGH ALL THE BUS ROUTES THAT WILL COME, AND WILL RETURN THE TIMES ALONG WITH THE ROUTES IN DICTIONARY OBJECT
     for (TFHppleElement *item in busnumber)
@@ -52,7 +51,7 @@
         [self.busroutereturnvalues addObject:routeinfo];//this should create the array of busroutes servicing at the given busstopnumber
         
         NSString *query = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedleavetime",routeinfo];
-        NSMutableArray *expleavetime = [haha searchWithXPathQuery:query];
+        NSMutableArray *expleavetime = [xmldocument searchWithXPathQuery:query];
         
         
         //this loops through the
@@ -67,20 +66,14 @@
             //NSLog(info);
             [bustimearray addObject:info];
         }
-        
         //create a temporary dictionary of 1 entry, attatch the bus times to that entry, and attatch the temporary dictionary to the main dictionary.
         NSMutableDictionary *tempdictionary = [[NSMutableDictionary alloc] init];
         [tempdictionary setObject:bustimearray forKey:routeinfo];
         [self.dictionary addEntriesFromDictionary:tempdictionary];
-        
-        
-        
     }
+    
     /*
-     NSArray *expleavetime = [haha searchWithXPathQuery:@"//nextbus/schedules/schedule/expectedleavetime"];
-     
-     
-     
+     NSArray *expleavetime = [xmldocument searchWithXPathQuery:@"//nextbus/schedules/schedule/expectedleavetime"];
      for (TFHppleElement *item in expleavetime)
      {   //write log
      NSString *output = item.tagName;
@@ -89,27 +82,16 @@
      NSLog(info);
      [bustimearray addObject:info];
      }
-     
-     
-     
      NSLog(@"PRINTING");
-     
      for (NSString *i in bustimearray){
      test=i;
      NSLog(test);
-     
-     
      }
-     
      for (NSString *i in busnumberarray){
      test=i;
      NSLog(test);
-     
-     
-     }
-     
+    }
      */
-    
 }
 
 
