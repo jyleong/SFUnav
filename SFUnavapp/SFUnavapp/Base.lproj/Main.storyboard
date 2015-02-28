@@ -393,7 +393,7 @@
                                                     <rect key="frame" x="13" y="7" width="292" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="search"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="hYB-sD-pmv" id="wCi-JF-FZv"/>
                                                     </connections>

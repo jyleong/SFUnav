@@ -75,6 +75,17 @@
     [self displayBusroutes]; // load up last inputed valid stop id
     self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
     
+    // this block of code makes the done and cancel buttons for the numpad
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleDefault;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    
+    _transitTextField.inputAccessoryView = numberToolbar;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -261,18 +272,24 @@
 # pragma mark - textFieldmethods
 // BUG: app crahses if user enters wrong transit information such as blank string or character string, need to error check
 // also the first intended method to send API request
-- (BOOL)textFieldShouldReturn:(UITextField *)textField { // method to save busnumber to nsuserdefaults
+
+-(void)cancelNumberPad{ // when click cancel of numberpad, clears the textfield without submitting
+    [_transitTextField resignFirstResponder];
+    _transitTextField.text = @"";
+}
+
+// just like the behavior with sending the text information
+-(void)doneWithNumberPad{
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
-    bustext = textField.text;
+    bustext = _transitTextField.text;
     [self updateuserDefaults:bustext];
     _stopID = [bustext substringToIndex:5]; // 5 digit
     _busNum = [bustext substringFromIndex:5]; // 3 digit
     
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
-
+    
     [self displayBusroutes];
-    [textField resignFirstResponder];
-    return YES;
+    [_transitTextField resignFirstResponder];
 }
 // test method to display userdefaults
 - (void) showbusnumcontents {
