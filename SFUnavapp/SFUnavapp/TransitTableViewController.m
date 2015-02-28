@@ -32,6 +32,7 @@
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
+@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel;
 
 @end
 
@@ -68,14 +69,12 @@
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
     _busDisplaytextView.layer.cornerRadius = 8;
+    _timeDIsplayLabel.layer.cornerRadius = 8;
     
-    NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
-    
-    _busNum = [[userdefaults objectForKey:@"currentstopID"] substringFromIndex:5];
-    _stopID = [[userdefaults objectForKey:@"currentstopID"] substringToIndex:5];
-    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+    [self initialDisplay];
     [self displayBusroutes]; // load up last inputed valid stop id
     self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -254,9 +253,13 @@
     [self displayBusroutes];
     
 }
+- (IBAction)refreshAction:(id)sender {
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+    [self displayBusroutes];
+}
 
 # pragma mark - textFieldmethods
-
+// BUG: app crahses if user enters wrong transit information such as blank string or character string, need to error check
 // also the first intended method to send API request
 - (BOOL)textFieldShouldReturn:(UITextField *)textField { // method to save busnumber to nsuserdefaults
     NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
@@ -292,6 +295,17 @@
         currstring = [currstring stringByAppendingString:@"\n"];
     }
     [_busDisplaytextView setText:currstring];
+}
+
+- (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
+    
+    NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([userdefaults objectForKey:@"currentstopID"] != nil) {
+        _busNum = [[userdefaults objectForKey:@"currentstopID"] substringFromIndex:5];
+        _stopID = [[userdefaults objectForKey:@"currentstopID"] substringToIndex:5];
+        self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+    }
 }
 /*#pragma mark - Table view data source
 

@@ -32,6 +32,10 @@
     [super viewDidLoad];
     // this is how to change titles in navbars - James
     self.navigationItem.title = @"mySFU";
+    
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier]; // this code should be taken out after error checking in TransitTableViewController is implemented, it clears nsuserdefaults
+    //currently app crahses if user enters invalid bus info
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 
     //Removing extra empty cells in tableview- Arjun
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
