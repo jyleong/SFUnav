@@ -282,7 +282,7 @@
 // just like the behavior with sending the text information
 -(void)doneWithNumberPad{
     
-    if ([_transitTextField.text isEqualToString:@""]) { // just resigns if they submitted an empty string
+    if (_transitTextField.text.length<5) { // just resigns if they submitted a string of length 4 or less
         [_transitTextField resignFirstResponder];
         return;
     }
