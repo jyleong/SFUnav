@@ -14,10 +14,28 @@
 {
     NSMutableArray * links;
     NSMutableArray * collection;
+    NSString * extraPara;
 }
 @end
 
 @implementation WeatherViewController
+
+- (void) BurnabyParaGen
+{
+    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
+    TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
+    //use xpath to search element
+    
+    //Burnaby Campus Extra Details
+    NSArray *data = [xpath searchWithXPathQuery:@"//section[@class='main commentary']/section/div/div"];
+    //item to convert object type and write content
+    TFHppleElement *item = data[0];
+    
+    //write name
+    NSString *temp=item.content;
+    extraPara=[ temp substringFromIndex:1];
+   
+}
 
 - (void) CampusInfoGen
 {
@@ -116,6 +134,8 @@
 {
     [super viewDidLoad];
     [self CampusInfoGen];
+    [self BurnabyParaGen];
+    
     self.navigationItem.title = @"Weather";
     // Do any additional setup after loading the view.
     //Footer to remove extra cells
@@ -212,16 +232,19 @@
             cell.detailTextLabel.text= @"Looks like something is wrong! Click Here!!";
             cell.detailTextLabel.textColor = [UIColor whiteColor];
         }
-        /*[cell.layer setCornerRadius:7.0f];
-        [cell.layer setMasksToBounds:NO];
-        [cell.layer setBorderWidth:1.0f];
-        */
-        //[cell.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-        
-
-        
+        if ([cell.textLabel.text isEqualToString: @"Burnaby Campus"])
+        {
+            cell.accessoryType = UITableViewCellAccessoryDetailButton;
+            
+        }
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    //Create alert when accessory button is clicked
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Announcements" message: extraPara delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
