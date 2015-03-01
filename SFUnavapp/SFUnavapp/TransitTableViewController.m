@@ -284,7 +284,11 @@
 // just like the behavior with sending the text information
 -(void)doneWithNumberPad{
     
-    if (_transitTextField.text.length<5) { // just resigns if they submitted a string of length 4 or less
+    if ([_transitTextField.text isEqualToString:@""]) {
+        [_transitTextField resignFirstResponder];
+        return;
+    }
+    else if (_transitTextField.text.length < 5) { // just resigns if they submitted a string of length 4 or less
         UIAlertView *invalidAlert = [[UIAlertView alloc] initWithTitle:@"Invalid bus stop ID" message:@"A valid input is a 5 digit stop ID or the ID with bus number e.g. 59044, 59044145" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [invalidAlert show];
         [_transitTextField resignFirstResponder];
