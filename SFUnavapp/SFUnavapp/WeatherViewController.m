@@ -15,12 +15,13 @@
     NSMutableArray * links;
     NSMutableArray * collection;
     NSString * extraPara;
+    BOOL parsingResult;
 }
 @end
 
 @implementation WeatherViewController
 
-- (void) BurnabyParaGen
+- (BOOL) BurnabyParaGen
 {
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
@@ -29,15 +30,21 @@
     //Burnaby Campus Extra Details
     NSArray *data = [xpath searchWithXPathQuery:@"//section[@class='main commentary']/section/div/div"];
     //item to convert object type and write content
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     TFHppleElement *item = data[0];
     
     //write name
     NSString *temp=item.content;
     extraPara=[ temp substringFromIndex:1];
+    return YES;
    
 }
 
-- (void) CampusInfoGen
+- (BOOL) CampusInfoGen
 {
     collection=[[NSMutableArray alloc]init];
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
@@ -48,27 +55,53 @@
     //Burnaby Campus
     NSArray *data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-status half first']/div/div/h3"];
     //item to convert object type and write content
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
+    
     TFHppleElement *item = data[0];
     
     //write name
     info.name=item.text;
     
     data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-status half first']/div/h1"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
     //write status
     info.status=[item.text capitalizedString];
   
     data = [xpath searchWithXPathQuery:@"//div[@class='extra-weather-conditions last']/ul/li/span"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[1];
     info.ClassExam=[item.text capitalizedString];
     //NSLog(@"Class Exma bur%@",info.ClassExam);
   
     //data = [xpath searchWithXPathQuery:@"//div[@class='extra-weather-conditions last']/ul/li/li/li"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[2];
     info.translink=[item.text capitalizedString];
     //NSLog(@"Bus bur%@",info.translink);
     
     data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-info half last']/div/div/div/h3/span"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
     info.road=[item.text capitalizedString];
     //NSLog(@"road bur%@",info.road);
@@ -77,17 +110,31 @@
     //Surrey Campus
     info = [[Campus alloc] init];
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half first']/a/div/div/h4"];
-    
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
        //write log
     info.name=item.text;
     
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half first']/a/div/h3"];
-    
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
         //write log
     info.status=[item.text capitalizedString];
+    
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half first']/p/span/strong"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
     info.ClassExam= [item.text capitalizedString];
     info.translink= @"NODATA";
@@ -98,16 +145,30 @@
     //Vancouver Campus
     info = [[Campus alloc] init];
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/a/div/div/h4"];
-    
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
        //write name
     info.name=item.text;
     
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/a/div/h3"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
        //write status
     info.status=[item.text capitalizedString];
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/p/span/strong"];
+    if (data==nil || [data count] ==0)
+    {
+        //failed to parse
+        return NO;
+    }
     item = data[0];
     info.ClassExam= [item.text capitalizedString];
     //NSLog(@"Class Exma van%@",info.ClassExam);
@@ -115,6 +176,7 @@
     info.road=@"NODATA";
 
     [collection addObject:info];
+    return YES;
     
 }
 
@@ -133,8 +195,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self CampusInfoGen];
-    [self BurnabyParaGen];
+    parsingResult=([self CampusInfoGen] && [self BurnabyParaGen]);
     
     self.navigationItem.title = @"Weather";
     // Do any additional setup after loading the view.
@@ -186,7 +247,7 @@
     if (tableView == self.webcamTable)
         return links.count;
     else
-        return collection.count;
+        return 3;
     
 }
 
@@ -212,7 +273,15 @@
         UIColor * open = [UIColor colorWithRed:51/255.0f green:161/255.0f blue:0/255.0f alpha:1.0f];
         static NSString *CellIdentifier=@"CampusCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+        if (parsingResult==NO)
+        {
+            cell.backgroundColor=close;
+            cell.textLabel.text=@"Internet Connection Is Required";
+            cell.detailTextLabel.text=@"Internet Connection Is Required";
+            cell.textLabel.textColor= [UIColor whiteColor];
+            cell.detailTextLabel.textColor= [UIColor whiteColor];
+            return cell;
+        }
         // Configure the cell...
         Campus* current= [collection objectAtIndex:indexPath.row];
         if ([current.status isEqual:@"Open"] && [current.ClassExam isEqual:@"On Schedule"] )
@@ -251,6 +320,13 @@
 {
     if (tableView== self.campusTable)
     {
+        if (parsingResult==NO)
+        {
+            //NSLog(@"Parsing result was no\n");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
         Campus* current= [collection objectAtIndex:indexPath.row];
         
         if ([current.name isEqual: @"Burnaby Campus"])
