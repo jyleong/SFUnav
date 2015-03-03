@@ -33,6 +33,7 @@
     self.title=_currentURL.location;
     NSURL *url = [[NSBundle mainBundle] URLForResource:_currentURL.filename withExtension:@"html"];
     [_currentFile loadRequest:[NSURLRequest requestWithURL:url]];
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
 - (void)didReceiveMemoryWarning
