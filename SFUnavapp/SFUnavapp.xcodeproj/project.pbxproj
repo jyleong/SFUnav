@@ -28,6 +28,8 @@
 		B01BE69E1A8D425F0013D9EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B01BE69C1A8D425F0013D9EA /* InfoPlist.strings */; };
 		B01BE6A01A8D425F0013D9EA /* SFUnavappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
+		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
+		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
 		D27E32741A984E1A00004735 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E326F1A984E1A00004735 /* TFHpple.m */; };
@@ -93,6 +95,10 @@
 		B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFUnavappTests.m; sourceTree = "<group>"; };
 		B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
 		B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
+		B080DB451AA6BD7900C3F403 /* FloorPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorPlanTableViewController.h; sourceTree = "<group>"; };
+		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
+		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
+		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
 		B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusRouteStorage.m; sourceTree = "<group>"; };
 		B0FC32731A956FFB00900E3A /* TransitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitTableViewController.h; sourceTree = "<group>"; };
@@ -312,6 +318,10 @@
 			children = (
 				DC566CC41AA67308006AA2D9 /* MapViewController.h */,
 				DC566CC51AA67308006AA2D9 /* MapViewController.m */,
+				B080DB451AA6BD7900C3F403 /* FloorPlanTableViewController.h */,
+				B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */,
+				B080DB481AA6BDCC00C3F403 /* BuildingObject.h */,
+				B080DB491AA6BDCC00C3F403 /* BuildingObject.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -460,7 +470,9 @@
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
+				B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */,
 				DC86568B1A97164C00D908C9 /* WeatherViewController.m in Sources */,
+				B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */,
 				DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				D27E32761A984E1A00004735 /* XPathQuery.m in Sources */,
