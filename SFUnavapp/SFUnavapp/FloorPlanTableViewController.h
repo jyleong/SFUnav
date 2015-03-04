@@ -8,7 +8,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BuildingObject.h"
 
 @interface FloorPlanTableViewController : UITableViewController
+
+@property (nonatomic, strong) NSMutableArray *BuildingObjects;
 
 @end

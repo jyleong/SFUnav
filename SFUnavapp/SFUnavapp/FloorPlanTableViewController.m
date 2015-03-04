@@ -8,6 +8,7 @@
 //
 
 #import "FloorPlanTableViewController.h"
+#import "FloorImageViewController.h"
 
 @interface FloorPlanTableViewController ()
 
@@ -33,6 +34,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = @"FloorPlan Search";
+    
+    _BuildingObjects = [[NSMutableArray alloc]init];
+    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" coordinate:@"4139,681,4139,857,3928,857,3926,681" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [_BuildingObjects addObject:Blussonplan];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,28 +51,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _BuildingObjects.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buildName" forIndexPath:indexPath];
     
     // Configure the cell...
+    BuildingObject * current= [_BuildingObjects objectAtIndex:indexPath.row];
+    cell.textLabel.text= current.buildingName;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -106,7 +112,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -114,7 +120,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    FloorImageViewController *fivc = [segue destinationViewController];
+    NSIndexPath *path =[self.tableView indexPathForSelectedRow];
+    BuildingObject *send = _BuildingObjects[path.row];
+    fivc.hidesBottomBarWhenPushed = YES;
+    [fivc setCurrentBuilding:send];
 }
-*/
+
 
 @end
