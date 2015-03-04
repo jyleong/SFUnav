@@ -27,7 +27,6 @@
 		B01BE6961A8D425F0013D9EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6751A8D425E0013D9EA /* UIKit.framework */; };
 		B01BE69E1A8D425F0013D9EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B01BE69C1A8D425F0013D9EA /* InfoPlist.strings */; };
 		B01BE6A01A8D425F0013D9EA /* SFUnavappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */; };
-		B01BE6AB1A8D46C80013D9EA /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6AA1A8D46C80013D9EA /* MapViewController.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
@@ -36,6 +35,12 @@
 		D27E32761A984E1A00004735 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E32731A984E1A00004735 /* XPathQuery.m */; };
 		D27E32781A984EC900004735 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D27E32771A984EC900004735 /* libxml2.dylib */; };
 		D27E327B1A984EF900004735 /* Campus.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E327A1A984EF900004735 /* Campus.m */; };
+		DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */; };
+		DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */; };
+		DC566CBF1AA670DF006AA2D9 /* map-Campus-01.png in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */; };
+		DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC11AA67135006AA2D9 /* MTImageMapView.m */; };
+		DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC51AA67308006AA2D9 /* MapViewController.m */; };
+		DC566CCE1AA68328006AA2D9 /* Campus_Map.png in Resources */ = {isa = PBXBuildFile; fileRef = DC566CCD1AA68328006AA2D9 /* Campus_Map.png */; };
 		DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */ = {isa = PBXBuildFile; fileRef = DC807F9C1A905E55008CA3DC /* ServicesURL.m */; };
 		DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC807F9F1A905F5A008CA3DC /* ServicesWebViewController.m */; };
 		DC86567C1A97162E00D908C9 /* AQNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC86567B1A97162E00D908C9 /* AQNorth.html */; };
@@ -84,8 +89,6 @@
 		B01BE69B1A8D425F0013D9EA /* SFUnavappTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SFUnavappTests-Info.plist"; sourceTree = "<group>"; };
 		B01BE69D1A8D425F0013D9EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFUnavappTests.m; sourceTree = "<group>"; };
-		B01BE6A91A8D46C80013D9EA /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		B01BE6AA1A8D46C80013D9EA /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
 		B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
@@ -101,6 +104,14 @@
 		D27E32771A984EC900004735 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D27E32791A984EF800004735 /* Campus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Campus.h; sourceTree = "<group>"; };
 		D27E327A1A984EF900004735 /* Campus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campus.m; sourceTree = "<group>"; };
+		DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
+		DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
+		DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-Campus-01.png"; sourceTree = "<group>"; };
+		DC566CC01AA67135006AA2D9 /* MTImageMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageMapView.h; sourceTree = "<group>"; };
+		DC566CC11AA67135006AA2D9 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
+		DC566CC41AA67308006AA2D9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		DC566CC51AA67308006AA2D9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		DC566CCD1AA68328006AA2D9 /* Campus_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Campus_Map.png; sourceTree = "<group>"; };
 		DC807F9B1A905E55008CA3DC /* ServicesURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesURL.h; sourceTree = "<group>"; };
 		DC807F9C1A905E55008CA3DC /* ServicesURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesURL.m; sourceTree = "<group>"; };
 		DC807F9E1A905F5A008CA3DC /* ServicesWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesWebViewController.h; sourceTree = "<group>"; };
@@ -177,6 +188,7 @@
 		B01BE6771A8D425E0013D9EA /* SFUnavapp */ = {
 			isa = PBXGroup;
 			children = (
+				DC566CC31AA67149006AA2D9 /* MTImageMapView */,
 				D27E326D1A984E0000004735 /* hpple_parser */,
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
@@ -202,12 +214,16 @@
 				04971D451AA389F600AE1F6E /* Contacts - email.png */,
 				04971D461AA389F600AE1F6E /* Contacts - Weblink.png */,
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
+				DC566CCD1AA68328006AA2D9 /* Campus_Map.png */,
+				DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */,
 				04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */,
 				04971CF31AA381B400AE1F6E /* VancouverCampus-sm.png */,
 				B01BE6791A8D425E0013D9EA /* SFUnavapp-Info.plist */,
 				B01BE67A1A8D425E0013D9EA /* InfoPlist.strings */,
 				B01BE67D1A8D425E0013D9EA /* main.m */,
 				B01BE67F1A8D425E0013D9EA /* SFUnavapp-Prefix.pch */,
+				DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */,
+				DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -243,6 +259,15 @@
 			name = hpple_parser;
 			sourceTree = "<group>";
 		};
+		DC566CC31AA67149006AA2D9 /* MTImageMapView */ = {
+			isa = PBXGroup;
+			children = (
+				DC566CC01AA67135006AA2D9 /* MTImageMapView.h */,
+				DC566CC11AA67135006AA2D9 /* MTImageMapView.m */,
+			);
+			name = MTImageMapView;
+			sourceTree = "<group>";
+		};
 		DC8656771A9715C600D908C9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +293,8 @@
 		DC8656791A9715DC00D908C9 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				B01BE6A91A8D46C80013D9EA /* MapViewController.h */,
-				B01BE6AA1A8D46C80013D9EA /* MapViewController.m */,
+				DC566CC41AA67308006AA2D9 /* MapViewController.h */,
+				DC566CC51AA67308006AA2D9 /* MapViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -380,18 +405,22 @@
 			files = (
 				DC86567C1A97162E00D908C9 /* AQNorth.html in Resources */,
 				B01BE68D1A8D425E0013D9EA /* Images.xcassets in Resources */,
+				DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */,
 				B01BE67C1A8D425E0013D9EA /* InfoPlist.strings in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
 				04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */,
+				DC566CBF1AA670DF006AA2D9 /* map-Campus-01.png in Resources */,
 				DC86567E1A97163500D908C9 /* AQSouthWest.html in Resources */,
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
+				DC566CCE1AA68328006AA2D9 /* Campus_Map.png in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
+				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +443,8 @@
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
-				B01BE6AB1A8D46C80013D9EA /* MapViewController.m in Sources */,
 				DC86568B1A97164C00D908C9 /* WeatherViewController.m in Sources */,
+				DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				D27E32761A984E1A00004735 /* XPathQuery.m in Sources */,
 				D27E32741A984E1A00004735 /* TFHpple.m in Sources */,
@@ -425,6 +454,7 @@
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
+				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
 				DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
