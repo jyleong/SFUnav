@@ -249,7 +249,7 @@
         static NSString *CellIdentifier=@"WebcamCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-        // Configure the cell...
+        // Configure the cell..
         Webcam* current= [links objectAtIndex:indexPath.row];
        // cell.textLabel.font = [UIFont fontWithName:@"Arial" size:12];
         cell.textLabel.text= [current location];
