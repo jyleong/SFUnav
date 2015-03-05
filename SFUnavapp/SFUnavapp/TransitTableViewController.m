@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "BusRouteStorage.h" //  to use custom object to hold businfo
 #import <QuartzCore/QuartzCore.h> // handles the appearance of UI elements
+#import "ServicesURL.h"
+#import "ServicesWebViewController.h" // code to add bus pass ups segue
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
@@ -202,6 +204,7 @@
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 - (void)showPickerCell {
     
@@ -404,7 +407,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -412,7 +415,16 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"passUps"]) {
+        ServicesWebViewController *webcont = [segue destinationViewController];
+        
+        ServicesURL *send = [[ServicesURL alloc] init];
+        send.serviceName=@"Pass Ups";
+        send.serviceURL=@"http://www.sfu.ca/busstop.html";
+        webcont.hidesBottomBarWhenPushed = YES;
+        [webcont setCurrentURL:send];
+    }
 }
-*/
+
 
 @end
