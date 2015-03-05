@@ -389,9 +389,6 @@ Canada. V6B 5K3</string>
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="3Kh-Bm-ceF" kind="push" identifier="FloorImageDetail" id="sD2-aN-eGl"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -402,6 +399,7 @@ Canada. V6B 5K3</string>
                     <navigationItem key="navigationItem" id="bmK-sP-TwN"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="PXS-6M-DdV" id="EmX-EI-bdQ"/>
+                        <segue destination="3Kh-Bm-ceF" kind="push" identifier="FloorImageDetail" id="L0D-jd-wNt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vka-ld-i7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,6 +434,7 @@ Canada. V6B 5K3</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kHS-bJ-pfI"/>
                     <connections>
                         <outlet property="FloorImage" destination="GlE-4l-1Oh" id="aF1-Qb-c1I"/>
                     </connections>
