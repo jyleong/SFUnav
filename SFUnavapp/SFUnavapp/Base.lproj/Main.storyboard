@@ -390,7 +390,7 @@ Canada. V6B 5K3</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="3Kh-Bm-ceF" kind="push" id="sD2-aN-eGl"/>
+                                    <segue destination="3Kh-Bm-ceF" kind="push" identifier="FloorImageDetail" id="sD2-aN-eGl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -405,14 +405,6 @@ Canada. V6B 5K3</string>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vka-ld-i7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="sj0-9X-pW7">
-                    <connections>
-                        <outlet property="delegate" destination="uek-Ao-sUV" id="vG6-bL-AC6"/>
-                        <outlet property="searchContentsController" destination="uek-Ao-sUV" id="Yrs-Lw-OTl"/>
-                        <outlet property="searchResultsDataSource" destination="uek-Ao-sUV" id="azE-7o-gvY"/>
-                        <outlet property="searchResultsDelegate" destination="uek-Ao-sUV" id="FSB-tK-bzG"/>
-                    </connections>
-                </searchDisplayController>
                 <searchDisplayController id="PXS-6M-DdV">
                     <connections>
                         <outlet property="delegate" destination="uek-Ao-sUV" id="0FJ-7m-oGy"/>
