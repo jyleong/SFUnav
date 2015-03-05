@@ -1,6 +1,7 @@
 //
 //  MapViewController.m
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by Arjun Rathee on 2015-03-03.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
@@ -27,16 +28,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.scrollView.minimumZoomScale=0.1;
+    self.scrollView.maximumZoomScale=3.0;
+    [_scrollView setDelegate:self];
     
     
     //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
-    MTImageMapView *viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"map-Campus-01.png"]];
+    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"map-Campus-01.png"]];
     
-    [viewImageMap setDelegate:self];
+    [_viewImageMap setDelegate:self];
     
-    [self.scrollView addSubview:viewImageMap];
+    [self.scrollView addSubview:_viewImageMap];
     //sets scrollview size to be the same as imagemap size to allow scrolling
-    self.scrollView.contentSize = viewImageMap.frame.size;
+    self.scrollView.contentSize = _viewImageMap.frame.size;
     
     
     
@@ -44,11 +48,16 @@
     
     NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
     NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
-    [viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
     
     
     
 
+}
+
+- (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView
+{
+    return self.viewImageMap;
 }
 
 -(void)imageMapView:(MTImageMapView *)inImageMapView
