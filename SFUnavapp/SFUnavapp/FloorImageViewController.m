@@ -31,6 +31,8 @@
     // Do any additional setup after loading the view.
     UIImage *image = self.currentBuilding.floorPlanImage;
     [_FloorImage setImage:image];
+    self.navigationItem.title = self.currentBuilding.buildingName;
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
 - (void)didReceiveMemoryWarning
