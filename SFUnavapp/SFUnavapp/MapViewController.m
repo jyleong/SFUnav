@@ -28,8 +28,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title=@"Map";
+    
     self.scrollView.minimumZoomScale=0.1;
-    self.scrollView.maximumZoomScale=3.0;
+    self.scrollView.maximumZoomScale=1.0;
     [_scrollView setDelegate:self];
     
     

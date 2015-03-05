@@ -10,6 +10,13 @@
 #import "BuildingObject.h"
 
 @interface FloorImageViewController : UIViewController
+
 @property (nonatomic) BuildingObject *currentBuilding;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property UIImageView *FloorImage;
+- (void)centerScrollViewContents;
+- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
+- (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
 
 @end
+
