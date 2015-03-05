@@ -10,11 +10,14 @@
 #import "FloorPlanTableViewController.h"
 #import "FloorImageViewController.h"
 
-@interface FloorPlanTableViewController ()
+@interface FloorPlanTableViewController () {
+    NSMutableArray *buildingArrayNames; //strings
+}
 
 @end
 
 @implementation FloorPlanTableViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,8 +40,12 @@
     self.navigationItem.title = @"FloorPlan Search";
     
     _BuildingObjects = [[NSMutableArray alloc]init];
+    buildingArrayNames = [[NSMutableArray alloc] init]; // reminder, should make a dictionary for string:buildingObject for passing info to segues
+    
     BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" coordinate:@"4139,681,4139,857,3928,857,3926,681" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
     [_BuildingObjects addObject:Blussonplan];
+    [buildingArrayNames addObject:Blussonplan.buildingName];
+    self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,19 +65,56 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _BuildingObjects.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_searchResult count];
+    }
+    else {
+        return _BuildingObjects.count;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buildName" forIndexPath:indexPath];
+    static NSString *CellIdentifier=@"buildName";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        cell.textLabel.text = [self.searchResult objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        BuildingObject * current= [_BuildingObjects objectAtIndex:indexPath.row];
+        cell.textLabel.text= current.buildingName;
+    }
     
     // Configure the cell...
-    BuildingObject * current= [_BuildingObjects objectAtIndex:indexPath.row];
-    cell.textLabel.text= current.buildingName;
     
     return cell;
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    [self.searchResult removeAllObjects];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", searchText];
+    
+    self.searchResult = [NSMutableArray arrayWithArray: [buildingArrayNames filteredArrayUsingPredicate:resultPredicate]];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
 }
 
 
@@ -122,7 +166,7 @@
     // Pass the selected object to the new view controller.
     FloorImageViewController *fivc = [segue destinationViewController];
     NSIndexPath *path =[self.tableView indexPathForSelectedRow];
-    BuildingObject *send = _BuildingObjects[path.row];
+    BuildingObject *send = _BuildingObjects[path.row]; //should map key to custom object
     fivc.hidesBottomBarWhenPushed = YES;
     [fivc setCurrentBuilding:send];
 }

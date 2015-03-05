@@ -10,8 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "BuildingObject.h"
 
-@interface FloorPlanTableViewController : UITableViewController
+@interface FloorPlanTableViewController : UITableViewController <UISearchDisplayDelegate>
 
-@property (nonatomic, strong) NSMutableArray *BuildingObjects;
+@property (nonatomic, strong) NSMutableArray *BuildingObjects; //mutable array that holds CUSTOM OBJETS
+@property (nonatomic, strong) NSMutableArray *searchResult; //mutable array that holds results STRINGS
 
 @end

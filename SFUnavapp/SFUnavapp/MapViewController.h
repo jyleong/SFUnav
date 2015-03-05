@@ -13,5 +13,6 @@
 @interface MapViewController : UIViewController <MTImageMapDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *BuildingNames;
+@property MTImageMapView *viewImageMap;
 
 @end
