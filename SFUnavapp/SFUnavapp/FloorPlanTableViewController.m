@@ -11,7 +11,6 @@
 #import "FloorImageViewController.h"
 
 @interface FloorPlanTableViewController () {
-    NSMutableArray *buildingArrayNames; //strings
 }
 
 @end
@@ -40,11 +39,9 @@
     self.navigationItem.title = @"FloorPlan Search";
     
     _BuildingObjects = [[NSMutableArray alloc]init];
-    buildingArrayNames = [[NSMutableArray alloc] init]; // reminder, should make a dictionary for string:buildingObject for passing info to segues
     
     BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" coordinate:@"4139,681,4139,857,3928,857,3926,681" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
     [_BuildingObjects addObject:Blussonplan];
-    [buildingArrayNames addObject:Blussonplan.buildingName];
     self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
 }
 
@@ -78,7 +75,7 @@
 {
     static NSString *CellIdentifier=@"buildName";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    BuildingObject *current;
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -86,11 +83,12 @@
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
     {
-        cell.textLabel.text = [self.searchResult objectAtIndex:indexPath.row];
+        current = [_searchResult objectAtIndex:indexPath.row];
+        cell.textLabel.text = current.buildingName;
     }
     else
     {
-        BuildingObject * current= [_BuildingObjects objectAtIndex:indexPath.row];
+        current= [_BuildingObjects objectAtIndex:indexPath.row];
         cell.textLabel.text= current.buildingName;
     }
     
@@ -102,9 +100,9 @@
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     [self.searchResult removeAllObjects];
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", searchText];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.buildingName contains[c] %@", searchText];
     
-    self.searchResult = [NSMutableArray arrayWithArray: [buildingArrayNames filteredArrayUsingPredicate:resultPredicate]];
+    self.searchResult = [NSMutableArray arrayWithArray: [_BuildingObjects filteredArrayUsingPredicate:resultPredicate]];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -117,45 +115,58 @@
     return YES;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
-*/
+
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+#pragma mark - TableView Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue to candy detail
+    [self performSegueWithIdentifier:@"FloorImageDetail" sender:tableView];
+}
 
 #pragma mark - Navigation
 
@@ -164,11 +175,22 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    FloorImageViewController *fivc = [segue destinationViewController];
-    NSIndexPath *path =[self.tableView indexPathForSelectedRow];
-    BuildingObject *send = _BuildingObjects[path.row]; //should map key to custom object
-    fivc.hidesBottomBarWhenPushed = YES;
-    [fivc setCurrentBuilding:send];
+    if ([[segue identifier] isEqualToString:@"FloorImageDetail"]) {
+        FloorImageViewController *fivc = [segue destinationViewController];
+        
+        if (sender == self.searchDisplayController.searchResultsTableView) {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            BuildingObject *send = [_searchResult objectAtIndex:[indexPath row]];
+            fivc.hidesBottomBarWhenPushed = YES;
+            [fivc setCurrentBuilding:send];
+        }
+        else {
+            NSIndexPath *path =[self.tableView indexPathForSelectedRow];
+            BuildingObject *send = _BuildingObjects[path.row]; //should map key to custom object
+            fivc.hidesBottomBarWhenPushed = YES;
+            [fivc setCurrentBuilding:send];
+        }
+    }
 }
 
 
