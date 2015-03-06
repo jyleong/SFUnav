@@ -395,9 +395,10 @@
             NSLog(@"%i dateminute",dateminute);
 
             int busMinutes = [buscomponents minute];
+            NSLog(@"%i busminutes", busMinutes);
         
             int resultMinutes; // holds the minutes to didspaly
-            if (dateminute > busMinutes) {
+            if (busMinutes < dateminute) {
                 busMinutes += 60;
                 resultMinutes = busMinutes - dateminute;
             }
