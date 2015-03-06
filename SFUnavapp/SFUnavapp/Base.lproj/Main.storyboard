@@ -20,11 +20,61 @@
                         <segue destination="YEs-O7-3NY" kind="relationship" relationship="viewControllers" id="zY0-3z-ZH3"/>
                         <segue destination="TkD-xP-h0k" kind="relationship" relationship="viewControllers" id="QWw-Q5-lj4"/>
                         <segue destination="VNn-TJ-YfH" kind="relationship" relationship="viewControllers" id="0rU-wL-lPI"/>
+                        <segue destination="4i8-eF-r4p" kind="relationship" relationship="viewControllers" id="a5V-xr-6bT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1016" y="108"/>
+        </scene>
+        <!--Try Table View Controller - Item-->
+        <scene sceneID="7XG-3b-Vn6">
+            <objects>
+                <tableViewController id="4i8-eF-r4p" customClass="TryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sHj-PJ-pPY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="uFP-LI-nrZ" detailTextLabel="Vaf-8B-4sJ" style="IBUITableViewCellStyleSubtitle" id="LCw-Wa-KQ5">
+                                <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LCw-Wa-KQ5" id="woD-Kr-kmS">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uFP-LI-nrZ">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vaf-8B-4sJ">
+                                            <rect key="frame" x="15" y="25" width="32" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="4i8-eF-r4p" id="nND-or-gfm"/>
+                            <outlet property="delegate" destination="4i8-eF-r4p" id="tXz-V7-nXq"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="vOM-bz-TCR"/>
+                    <connections>
+                        <segue destination="tD1-7g-azJ" kind="push" identifier="webcamDisplay" id="zB8-96-vVT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtE-Py-63f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-407" y="-538"/>
         </scene>
         <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
@@ -333,11 +383,11 @@ Canada. V6B 5K3</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-qe-xya">
-                                <rect key="frame" x="0.0" y="101" width="320" height="379"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-qe-xya">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
                                 <rect key="frame" x="20" y="70" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search">
@@ -348,12 +398,13 @@ Canada. V6B 5K3</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LZa-qe-xya" firstAttribute="top" secondItem="6S5-tf-uYO" secondAttribute="top" id="AVH-Bg-QY3"/>
-                            <constraint firstAttribute="trailing" secondItem="LZa-qe-xya" secondAttribute="trailing" id="L6t-mM-IhC"/>
-                            <constraint firstItem="LZa-qe-xya" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" id="fjX-Q5-Pjh"/>
-                            <constraint firstAttribute="bottom" secondItem="LZa-qe-xya" secondAttribute="bottom" id="rEY-b6-6aW"/>
+                            <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="6" id="7d0-6O-1kc"/>
+                            <constraint firstItem="LZa-qe-xya" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" id="MBF-vd-bbR"/>
+                            <constraint firstAttribute="trailing" secondItem="LZa-qe-xya" secondAttribute="trailing" id="NWw-nz-q5w"/>
+                            <constraint firstItem="LZa-qe-xya" firstAttribute="top" secondItem="6S5-tf-uYO" secondAttribute="top" id="fab-O7-4F4"/>
+                            <constraint firstItem="S1d-ay-bj0" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" constant="20" symbolic="YES" id="j0d-3z-lHO"/>
+                            <constraint firstAttribute="bottom" secondItem="LZa-qe-xya" secondAttribute="bottom" id="ofr-j9-8oz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QNM-Ay-pqU"/>
@@ -576,7 +627,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MT8-83-Sdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="207"/>
+            <point key="canvasLocation" x="312" y="-900"/>
         </scene>
         <!--Services Table View Controller - Root View Controller-->
         <scene sceneID="4ym-nv-pvi">
@@ -885,4 +936,7 @@ Canada. V6B 5K3</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="zB8-96-vVT"/>
+    </inferredMetricsTieBreakers>
 </document>

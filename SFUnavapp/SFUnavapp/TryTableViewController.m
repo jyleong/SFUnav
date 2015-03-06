@@ -1,25 +1,124 @@
 //
-//  WeatherViewController.m
+//  TryTableViewController.m
 //  SFUnavapp
-//  Team NoMacs
-//  Created by Arjun Rathee on 2015-02-20.
 //
-//	Edited by Arjun Rathee
-//	Copyright (c) 2015 Team NoMacs. All rights reserved.
+//  Created by Arjun Rathee on 2015-03-05.
+//  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
-#import "WeatherViewController.h"
+#import "TryTableViewController.h"
 #import "Reachability.h"
-@interface WeatherViewController ()
+@interface TryTableViewController ()
+
 {
     NSMutableArray * links;
     NSMutableArray * collection;
+    NSArray *rowsToReload;
     NSString * extraPara;
     BOOL parsingResult;
 }
 @end
 
-@implementation WeatherViewController
+@implementation TryTableViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    //parsingResult=YES;
+    rowsToReload=@[@0,@1,@2];
+    [self genData];
+    
+    // Initialize the refresh control.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor purpleColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+    
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title=@"Weather";
+    [self webcamGen];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    NSLog(@"in viewWillAppear\n");
+}
+
+- (void)reload
+{
+    // Reload table data
+    [self genData];
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
+}
+
+-(void) webcamGen
+{
+    links= [[NSMutableArray alloc] init];
+    Webcam *url = [[Webcam alloc]init];
+    url.filename=@"AQNorth";
+    url.location=@"AQ North";
+    [links addObject:url];
+    
+    url=[[Webcam alloc]init];
+    url.filename=@"AQSouthWest";
+    url.location=@"AQ South West";
+    [links addObject:url];
+    
+    url=[[Webcam alloc]init];
+    url.filename=@"ConvocationMall";
+    url.location=@"Convocation Mall";
+    [links addObject:url];
+    
+    url=[[Webcam alloc]init];
+    url.filename=@"Gaglardi";
+    url.location=@"Gaglardi Intersection";
+    [links addObject:url];
+    
+    url=[[Webcam alloc]init];
+    url.filename=@"UniversityDriveNorth";
+    url.location=@"University Drive North";
+    [links addObject:url];
+}
+
+-(void) genData
+{
+    parsingResult=[self checkInternet];
+    //NSLog(@"\n\nIn gendata\n\n");
+    if (parsingResult)
+    {
+        [self CampusInfoGen];
+        [self BurnabyParaGen];
+    }
+    return;
+}
 
 -(BOOL) checkInternet
 {
@@ -29,8 +128,8 @@
         NSLog(@"There IS NO internet connection");
         return NO;
     }
-        NSLog(@"There IS internet connection");
-        return  YES;
+    NSLog(@"There IS internet connection");
+    return  YES;
     
 }
 
@@ -61,10 +160,10 @@
 
 - (void) CampusInfoGen
 {
-
+    
     if (parsingResult==NO)
     {    return;
-    
+        
     }
     collection=[[NSMutableArray alloc]init];
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
@@ -88,7 +187,7 @@
     //write campus status
     item = data[0];
     info.status=[item.text capitalizedString];
-  
+    
     data = [xpath searchWithXPathQuery:@"//div[@class='extra-weather-conditions last']/ul/li/span"];
     //write class and exam status
     item = data[1];
@@ -96,7 +195,7 @@
     //write bus status
     item = data[2];
     info.translink=[item.text capitalizedString];
-
+    
     
     data = [xpath searchWithXPathQuery:@"//div[@class='main-campus-info half last']/div/div/div/h3/span"];
     //write road condition
@@ -136,7 +235,7 @@
     item = data[0];
     //write campus status
     info.status=[item.text capitalizedString];
-
+    
     data = [xpath searchWithXPathQuery:@"//div[@class='status-container half last']/p/span/strong"];
     //write class and exam status
     item = data[0];
@@ -144,131 +243,59 @@
     //NSLog(@"Class Exma van%@",info.ClassExam);
     info.translink= @"NODATA";
     info.road=@"NODATA";
-
+    
     [collection addObject:info];
     
 }
 
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)didReceiveMemoryWarning
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        // Custom initialization
-    }
-    return self;
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
--(void) genData
-{
-    parsingResult=[self checkInternet];
-    if (parsingResult)
-    {
-        [self CampusInfoGen];
-        [self BurnabyParaGen];
-    }
+#pragma mark - Table view data source
 
-    [_campusTable reloadData];
-    return;
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    //parsingResult=[self checkInternet];
-    parsingResult=NO;
-    
-    self.navigationItem.title = @"Weather";
-    // Do any additional setup after loading the view.
-    //Footer to remove extra cells
-    _webcamTable.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
-  
-    
-    links= [[NSMutableArray alloc] init];
-    Webcam *url = [[Webcam alloc]init];
-    url.filename=@"AQNorth";
-    url.location=@"AQ North";
-    [links addObject:url];
-    
-    url=[[Webcam alloc]init];
-    url.filename=@"AQSouthWest";
-    url.location=@"AQ South West";
-    [links addObject:url];
-    
-    url=[[Webcam alloc]init];
-    url.filename=@"ConvocationMall";
-    url.location=@"Convocation Mall";
-    [links addObject:url];
-    
-    url=[[Webcam alloc]init];
-    url.filename=@"Gaglardi";
-    url.location=@"Gaglardi Intersection";
-    [links addObject:url];
-    
-    url=[[Webcam alloc]init];
-    url.filename=@"UniversityDriveNorth";
-    url.location=@"University Drive North";
-    [links addObject:url];
-
-}
-
--(void) viewWillAppear:(BOOL)animated
-{
-    NSLog(@"\n\nin view will appear\n");
-    parsingResult=NO;
-    [self genData];
-}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // Return the number of sections.
-    return 1;
-}
 
+    // Return the number of sections.
+    return 2;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+
     // Return the number of rows in the section.
-    if (tableView == self.webcamTable)
-        return links.count;
-    else
+    if(section==0)
         return 3;
-    
+    return 5;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==0)
+        return @"Campus Status ---Pull to refresh---";
+    return @"SFU Webcams";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.webcamTable)
+    UITableViewCell *cell;
+    if (indexPath.section==0)
     {
-        static NSString *CellIdentifier=@"WebcamCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-        // Configure the cell..
-        Webcam* current= [links objectAtIndex:indexPath.row];
-       // cell.textLabel.font = [UIFont fontWithName:@"Arial" size:12];
-        cell.textLabel.text= [current location];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        //[rowsToReload addObject:indexPath.row];
         
-        return cell;
-    
-    }
-    
-    else
-    {
-        UIColor * close = [UIColor colorWithRed:255/255.0f green:161/255.0f blue:0/255.0f alpha:1.0f];
-        UIColor * open = [UIColor colorWithRed:51/255.0f green:161/255.0f blue:0/255.0f alpha:1.0f];
-        static NSString *CellIdentifier=@"CampusCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        //cell.detailTextLabel.text=@"YES";
         if (parsingResult==NO)
         {
-            cell.backgroundColor=close;
+            //cell.backgroundColor=close;
             cell.textLabel.text=@"Internet Connection Is Required";
             cell.detailTextLabel.text=@"Internet Connection Is Required";
-            cell.textLabel.textColor= [UIColor whiteColor];
-            cell.detailTextLabel.textColor= [UIColor whiteColor];
+            //cell.textLabel.textColor= [UIColor whiteColor];
+            //cell.detailTextLabel.textColor= [UIColor whiteColor];
             return cell;
         }
         // Configure the cell...
@@ -276,27 +303,38 @@
         if ([current.status isEqual:@"Open"] && [current.ClassExam isEqual:@"On Schedule"] )
         {
             if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"On Schedule"])
-            cell.backgroundColor= open;
+                cell.detailTextLabel.text=@"Open";
+            NSLog(@"adjusting cell label\n");
         }
         else
-            cell.backgroundColor= close;
+            cell.detailTextLabel.text= @"Close";
         cell.textLabel.text= [current name];
-        cell.textLabel.textColor= [UIColor whiteColor];
-        cell.detailTextLabel.textColor= [UIColor grayColor];
-        if (cell.backgroundColor==open)
-            cell.detailTextLabel.text= @"Everything is fine! Click for more details";
-        else
-        {
-            cell.detailTextLabel.text= @"Looks like something is wrong! Click Here!!";
-            cell.detailTextLabel.textColor = [UIColor whiteColor];
-        }
+        //cell.textLabel.textColor= [UIColor whiteColor];
+        //cell.detailTextLabel.textColor= [UIColor grayColor];
+        //if (cell.backgroundColor==open)
+        //    cell.detailTextLabel.text= @"Everything is fine! Click for more details";
+        //else
+        //{
+        //   cell.detailTextLabel.text= @"Looks like something is wrong! Click Here!!";
+        //    cell.detailTextLabel.textColor = [UIColor whiteColor];
+        //}
         if ([cell.textLabel.text isEqualToString: @"Burnaby Campus"])
         {
             cell.accessoryType = UITableViewCellAccessoryDetailButton;
             
         }
-        return cell;
+
     }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.detailTextLabel.text=@"";
+        Webcam* current= [links objectAtIndex:indexPath.row];
+        // cell.textLabel.font = [UIFont fontWithName:@"Arial" size:12];
+        cell.textLabel.text= [current location];
+        cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
+    }
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
@@ -306,7 +344,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         return;
-  
+        
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Announcements" message: extraPara delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
@@ -314,7 +352,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView== self.campusTable)
+    if (indexPath.section==0)
     {
         if (parsingResult==NO)
         {
@@ -340,38 +378,29 @@
             [alert show];
             
         }
-        
+        return;
+    }
+    if (indexPath.section==1)
+    {
+        [self performSegueWithIdentifier:@"webcamDisplay" sender:self];
+        return;
     }
 }
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    WebcamWebViewController *webcont = [segue destinationViewController];
-    // Pass the selected object to the new view controller.
-    
-    NSIndexPath *path = [_webcamTable indexPathForSelectedRow];
-    Webcam *send = links[path.row];
-    webcont.hidesBottomBarWhenPushed = YES;
-    [webcont setCurrentURL:send];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ WebcamWebViewController *webcont = [segue destinationViewController];
+ // Pass the selected object to the new view controller.
+ 
+ NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+ Webcam *send = links[path.row];
+ webcont.hidesBottomBarWhenPushed = YES;
+ [webcont setCurrentURL:send];
+ }
 
 @end

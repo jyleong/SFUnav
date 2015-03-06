@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIColor * bgrnd = [UIColor colorWithRed:182/255.0f green:189/255.0f blue:147/255.0f alpha:1.0f];
+    _scrollView.backgroundColor=bgrnd;
     self.navigationItem.title=@"Map";
     
     self.scrollView.minimumZoomScale=0.1;
