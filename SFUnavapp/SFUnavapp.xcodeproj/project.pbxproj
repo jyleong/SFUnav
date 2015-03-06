@@ -32,6 +32,7 @@
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
 		B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
+		B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DDA5321AAA63860027A81D /* AboutUsViewController.m */; };
 		B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
 		D27E32741A984E1A00004735 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E326F1A984E1A00004735 /* TFHpple.m */; };
@@ -105,6 +106,8 @@
 		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = ../../../../SFU/SPRING2015/CMPT275/graphics/Library_floorplan.png; sourceTree = "<group>"; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
 		B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusRouteStorage.m; sourceTree = "<group>"; };
+		B0DDA5311AAA63860027A81D /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		B0DDA5321AAA63860027A81D /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		B0FC019D1AA7C86900F67493 /* FloorImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorImageViewController.h; sourceTree = "<group>"; };
 		B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorImageViewController.m; sourceTree = "<group>"; };
 		B0FC32731A956FFB00900E3A /* TransitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitTableViewController.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
 				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
+				B0DDA5311AAA63860027A81D /* AboutUsViewController.h */,
+				B0DDA5321AAA63860027A81D /* AboutUsViewController.m */,
 				D2DB94DD1AA9335D00501DD7 /* PageViewAttempt */,
 				B0FC32731A956FFB00900E3A /* TransitTableViewController.h */,
 				B0FC32741A956FFB00900E3A /* TransitTableViewController.m */,
@@ -505,6 +510,7 @@
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
+				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
 				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
 				DC566CD31AA6A44B006AA2D9 /* Reachability.m in Sources */,
 				DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */,
