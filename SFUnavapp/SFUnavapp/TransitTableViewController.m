@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "BusRouteStorage.h" //  to use custom object to hold businfo
 #import <QuartzCore/QuartzCore.h> // handles the appearance of UI elements
+#import "ServicesURL.h"
+#import "ServicesWebViewController.h" // code to add bus pass ups segue
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
@@ -33,7 +35,8 @@
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
-@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
 
 @end
 
@@ -203,6 +206,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+
 - (void)showPickerCell {
     
     self.PickerIsShowing = YES;
@@ -314,7 +318,7 @@
 }
 
 # pragma mark - displaymethods
-
+// note: make this method also display in label of time difference
 -(void) displayBusroutes {
     NSString *currstring = @"";
     NSString *key;
@@ -326,8 +330,93 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
+    
     [_busDisplaytextView setText:currstring];
+    
+    [self setTimer];
 }
+
+
+//timer works!! dont mess with it yet, i'll add good comments later -James
+-(void) setTimer {
+    NSString *key;
+    NSString *currentTime; // gets the minutes
+    NSString *displayTimerString;
+    NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
+    
+    for(key in self.retrieveInfo.dictionary) // to get first item of dictionary
+    { // this loop will not execute if the dictionary is empty
+        [holds_from_d addObject:self.retrieveInfo.dictionary[key][0]]; //holds first string from the dictonary
+        //break; // exit loop as soon as we enter it (key will be set to some key)
+    }
+    //this block here gets the string from array
+    NSMutableArray *modifiedArr = [[NSMutableArray alloc] init]; // will hold those new strings;
+    // must cut out the and leave only the minutes of each item, 5:47pm -> 5:47
+    NSString *elem;
+    for(elem in holds_from_d) {
+        elem = [elem substringToIndex:[elem length] -2];
+        NSLog(elem);
+        [modifiedArr addObject:elem];
+    }
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm"];
+    
+    NSMutableArray *dates = [NSMutableArray arrayWithCapacity:modifiedArr.count];
+    for (NSString *timeString in modifiedArr)
+    {
+        NSDate *date = [dateFormatter dateFromString:timeString];
+        [dates addObject:date];
+    }
+    
+    [dates sortUsingSelector:@selector(compare:)];
+    
+    NSMutableArray *sortedTimes = [NSMutableArray arrayWithCapacity:dates.count]; // sorted times
+    for (NSDate *date in dates)
+    {
+        NSString *timeString = [dateFormatter stringFromDate:date];
+        [sortedTimes addObject:timeString];
+    }
+    
+    
+    if ([sortedTimes count] != 0) {
+        NSString *firstTime = sortedTimes[0];
+        NSLog(@"%@", firstTime);
+    
+        if (firstTime != nil) {
+        
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"hh:mm"];
+        
+            NSDate *date = [NSDate date];
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+            int dateminute = [components minute]; //this holds the minutes from urrent phone
+            NSLog(@"%i dateminute",dateminute);
+        
+            NSDate *busDate = [dateFormatter dateFromString:firstTime];
+            NSCalendar *buscalendar = [NSCalendar currentCalendar];
+            NSDateComponents *buscomponents = [buscalendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:busDate];
+            int busMinutes = [buscomponents minute];
+        
+            int resultMinutes; // holds the minutes to didspaly
+            if (dateminute > busMinutes) {
+                busMinutes += 60;
+                resultMinutes = busMinutes - dateminute;
+            }
+            else {
+                resultMinutes = busMinutes - dateminute;
+            }
+            displayTimerString = [NSString stringWithFormat:@"%i", resultMinutes];
+        }
+    }
+    else { //dictionary is empty
+        displayTimerString = @"";
+    }
+    
+    [_timerLabel setText:displayTimerString];
+}
+
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
     
@@ -339,72 +428,8 @@
         self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     }
 }
-/*#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}*/
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -412,7 +437,16 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"passUps"]) {
+        ServicesWebViewController *webcont = [segue destinationViewController];
+        
+        ServicesURL *send = [[ServicesURL alloc] init];
+        send.serviceName=@"Pass Ups";
+        send.serviceURL=@"http://www.sfu.ca/busstop.html";
+        webcont.hidesBottomBarWhenPushed = YES;
+        [webcont setCurrentURL:send];
+    }
 }
-*/
+
 
 @end
