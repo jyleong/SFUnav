@@ -248,28 +248,31 @@
     // or move this call to an actual button to submit picker input
     // button will hide picker, and save and send API information
     // this saves the picker values to nsuserdefaults
-    [self hidePickerCell];
-    NSString *chosenstopName = [self.busstopNames objectAtIndex:[self.quicklinksPicker selectedRowInComponent:0]]; //gets 5 digit
-    _busNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
-    //append the 5 + 3 length strings
-    _stopID = [self.busStopID objectForKey:chosenstopName];
-    NSString *pickerstopID = [_stopID stringByAppendingString:_busNum]; // string that is full length id for API
-    [self updateuserDefaults:pickerstopID]; // immediately updates ns user defaults
     
-    
-    //Tylers custom class
-    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
-    //test output terminal
-    /*NSString *key;
-    
-    for(key in self.retrieveInfo.dictionary) {
-        NSLog(key);
-        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
-        for(NSString *elem in temparray) {
-            NSLog(@"time: %@",elem);
-        }
-    }*/
-    [self displayBusroutes];
+    if (_PickerIsShowing) {
+        [self hidePickerCell];
+        NSString *chosenstopName = [self.busstopNames objectAtIndex:[self.quicklinksPicker selectedRowInComponent:0]]; //gets 5 digit
+        _busNum = [self.busNumbers objectAtIndex:[self.quicklinksPicker selectedRowInComponent:1]]; //gets bus number
+        //append the 5 + 3 length strings
+        _stopID = [self.busStopID objectForKey:chosenstopName];
+        NSString *pickerstopID = [_stopID stringByAppendingString:_busNum]; // string that is full length id for API
+        [self updateuserDefaults:pickerstopID]; // immediately updates ns user defaults
+        
+        
+        //Tylers custom class
+        self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+        //test output terminal
+        /*NSString *key;
+         
+         for(key in self.retrieveInfo.dictionary) {
+         NSLog(key);
+         NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+         for(NSString *elem in temparray) {
+         NSLog(@"time: %@",elem);
+         }
+         }*/
+        [self displayBusroutes];
+    }
     
 }
 - (IBAction)refreshAction:(id)sender {
@@ -405,7 +408,7 @@
             else {
                 resultMinutes = busMinutes - dateminute;
             }
-            displayTimerString = [NSString stringWithFormat:@"%i", resultMinutes];
+            displayTimerString = [NSString stringWithFormat:@"%i min", resultMinutes];
         }
     }
     else { //dictionary is empty
