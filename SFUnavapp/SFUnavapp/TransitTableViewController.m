@@ -335,44 +335,88 @@
     
     [self setTimer];
 }
+
+
+//timer works!! dont mess with it yet, i'll add good comments later -James
 -(void) setTimer {
     NSString *key;
     NSString *currentTime; // gets the minutes
     NSString *displayTimerString;
+    NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
+    
     for(key in self.retrieveInfo.dictionary) // to get first item of dictionary
     { // this loop will not execute if the dictionary is empty
-        break; // exit loop as soon as we enter it (key will be set to some key)
+        [holds_from_d addObject:self.retrieveInfo.dictionary[key][0]]; //holds first string from the dictonary
+        //break; // exit loop as soon as we enter it (key will be set to some key)
     }
     //this block here gets the string from array
-    NSArray *arrayofFirst = self.retrieveInfo.dictionary[key]; // get object associated with key. nil if key doesn't exist.
-    NSString *firstTime = arrayofFirst[0];
-    NSLog(@"%@", firstTime);
-    currentTime = [firstTime substringToIndex:[firstTime length] -2]; //takes out am, pm
-    NSLog(currentTime);
-    currentTime = [currentTime substringFromIndex:[currentTime length] -2];
-    NSLog(currentTime); //gets the minutes digits like 5:47pm -> 47
-    NSInteger busMinutes = [currentTime integerValue];
-    NSLog(@"%i", busMinutes);
+    NSMutableArray *modifiedArr = [[NSMutableArray alloc] init]; // will hold those new strings;
+    // must cut out the and leave only the minutes of each item, 5:47pm -> 5:47
+    NSString *elem;
+    for(elem in holds_from_d) {
+        elem = [elem substringToIndex:[elem length] -2];
+        NSLog(elem);
+        [modifiedArr addObject:elem];
+    }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    NSDate *date = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-    NSInteger dateminute = [components minute]; //this holds the minutes from urrent phone
-    NSLog(@"%i",dateminute);
-    int resultMinutes; // holds the minutes to didspaly
-    if (dateminute < busMinutes) {
-        dateminute += 60;
-        resultMinutes = dateminute - busMinutes;
+    [dateFormatter setDateFormat:@"hh:mm"];
+    
+    NSMutableArray *dates = [NSMutableArray arrayWithCapacity:modifiedArr.count];
+    for (NSString *timeString in modifiedArr)
+    {
+        NSDate *date = [dateFormatter dateFromString:timeString];
+        [dates addObject:date];
     }
-    else {
-        resultMinutes = dateminute - busMinutes;
+    
+    [dates sortUsingSelector:@selector(compare:)];
+    
+    NSMutableArray *sortedTimes = [NSMutableArray arrayWithCapacity:dates.count]; // sorted times
+    for (NSDate *date in dates)
+    {
+        NSString *timeString = [dateFormatter stringFromDate:date];
+        [sortedTimes addObject:timeString];
     }
-    displayTimerString = [NSString stringWithFormat:@"%i", resultMinutes];
+    
+    
+    if ([sortedTimes count] != 0) {
+        NSString *firstTime = sortedTimes[0];
+        NSLog(@"%@", firstTime);
+    
+        if (firstTime != nil) {
+        
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"hh:mm"];
+        
+            NSDate *date = [NSDate date];
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+            int dateminute = [components minute]; //this holds the minutes from urrent phone
+            NSLog(@"%i dateminute",dateminute);
+        
+            NSDate *busDate = [dateFormatter dateFromString:firstTime];
+            NSCalendar *buscalendar = [NSCalendar currentCalendar];
+            NSDateComponents *buscomponents = [buscalendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:busDate];
+            int busMinutes = [buscomponents minute];
+        
+            int resultMinutes; // holds the minutes to didspaly
+            if (dateminute > busMinutes) {
+                busMinutes += 60;
+                resultMinutes = busMinutes - dateminute;
+            }
+            else {
+                resultMinutes = busMinutes - dateminute;
+            }
+            displayTimerString = [NSString stringWithFormat:@"%i", resultMinutes];
+        }
+    }
+    else { //dictionary is empty
+        displayTimerString = @"";
+    }
     
     [_timerLabel setText:displayTimerString];
 }
+
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
     
