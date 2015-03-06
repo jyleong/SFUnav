@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -20,11 +20,12 @@
                         <segue destination="lMh-T6-J6f" kind="relationship" relationship="viewControllers" id="a5V-xr-6bT"/>
                         <segue destination="TkD-xP-h0k" kind="relationship" relationship="viewControllers" id="QWw-Q5-lj4"/>
                         <segue destination="VNn-TJ-YfH" kind="relationship" relationship="viewControllers" id="0rU-wL-lPI"/>
+                        <segue destination="S08-0G-b9P" kind="relationship" relationship="viewControllers" id="PoZ-eh-MeX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-972" y="54"/>
+            <point key="canvasLocation" x="-1090" y="0.0"/>
         </scene>
         <!--Weather Table View Controller - Title-->
         <scene sceneID="7XG-3b-Vn6">
@@ -73,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtE-Py-63f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="199"/>
+            <point key="canvasLocation" x="1475" y="199"/>
         </scene>
         <!--Webcam Web View Controller-->
         <scene sceneID="URd-2U-9c9">
@@ -108,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nle-Pq-FcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453" y="198"/>
+            <point key="canvasLocation" x="1979" y="198"/>
         </scene>
         <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
@@ -124,7 +125,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUZ-fk-jlr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="796"/>
+            <point key="canvasLocation" x="1557" y="796"/>
         </scene>
         <!--Campus Contacts View Controller - Contacts-->
         <scene sceneID="TZ2-8S-W1f">
@@ -387,7 +388,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7D-V8-IJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="796"/>
+            <point key="canvasLocation" x="2087" y="796"/>
         </scene>
         <!--Navigation Controller - Map-->
         <scene sceneID="1hF-xc-bIL">
@@ -567,7 +568,7 @@ Canada. V6B 5K3</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkV-Wo-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="1016"/>
+            <point key="canvasLocation" x="119" y="1016"/>
         </scene>
         <!--Services Web View Controller-->
         <scene sceneID="3Ts-CN-0u3">
@@ -578,17 +579,17 @@ Canada. V6B 5K3</string>
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="556" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
@@ -639,7 +640,58 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5Y-0S-QCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49" y="1740"/>
+            <point key="canvasLocation" x="-481" y="1622"/>
+        </scene>
+        <!--About Us View Controller-->
+        <scene sceneID="kgo-Tt-ZSO">
+            <objects>
+                <viewController id="2yi-F0-w5H" customClass="AboutUsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TKF-2g-6gl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sj6-1d-fXa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L7t-mm-zwz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
+                                <rect key="frame" x="43" y="318" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Website">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openWebsite:" destination="2yi-F0-w5H" eventType="touchUpInside" id="Rso-ti-C2a"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
+                                <rect key="frame" x="221" y="318" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Email Us">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z7x-Cg-ka7"/>
+                    <connections>
+                        <outlet property="emailusButton" destination="rla-n8-SG4" id="eue-Rw-Uo1"/>
+                        <outlet property="websiteButton" destination="V2U-3z-xIS" id="74S-te-Qww"/>
+                        <segue destination="2os-sd-hNf" kind="push" identifier="linktoWeb" id="Pov-Lm-lJD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LL7-aj-cLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-957" y="1214"/>
         </scene>
         <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
@@ -655,7 +707,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWq-4C-8eR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-793" y="1016"/>
+            <point key="canvasLocation" x="-267" y="1016"/>
         </scene>
         <!--Navigation Controller - Transit-->
         <scene sceneID="v4f-zr-j2I">
@@ -674,7 +726,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wm-P4-fU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="1026"/>
+            <point key="canvasLocation" x="665" y="1026"/>
         </scene>
         <!--Transit Table View Controller-->
         <scene sceneID="2It-1y-ghL">
@@ -841,7 +893,7 @@ Canada. V6B 5K3</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqI-e5-2Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="523" y="1026"/>
+            <point key="canvasLocation" x="1049" y="1026"/>
         </scene>
         <!--Navigation Controller - Weather-->
         <scene sceneID="EuP-yQ-EoZ">
@@ -860,7 +912,26 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9v-A0-cLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="199"/>
+            <point key="canvasLocation" x="949" y="199"/>
+        </scene>
+        <!--Navigation Controller - About Us-->
+        <scene sceneID="RD8-Yg-qWq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About Us" image="first" id="1FC-9p-uH0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bC7-fs-2qA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2yi-F0-w5H" kind="relationship" relationship="rootViewController" id="Ono-3L-Jsp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-DG-707" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1395" y="1226"/>
         </scene>
     </scenes>
     <resources>
@@ -873,6 +944,7 @@ Canada. V6B 5K3</string>
         <image name="Transiticon" width="70" height="62"/>
         <image name="VancouverCampus-sm.png" width="667" height="200"/>
         <image name="Weathericon" width="70" height="62"/>
+        <image name="first" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -881,6 +953,6 @@ Canada. V6B 5K3</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rhp-dj-yhr"/>
+        <segue reference="Pov-Lm-lJD"/>
     </inferredMetricsTieBreakers>
 </document>
