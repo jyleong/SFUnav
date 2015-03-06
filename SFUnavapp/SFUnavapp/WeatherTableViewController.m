@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
-#import "TryTableViewController.h"
+#import "WeatherTableViewController.h"
 #import "Reachability.h"
-@interface TryTableViewController ()
+@interface WeatherTableViewController ()
 
 {
     NSMutableArray * links;
@@ -19,7 +19,7 @@
 }
 @end
 
-@implementation TryTableViewController
+@implementation WeatherTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,13 +43,14 @@
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title=@"Weather";
+    self.navigationController.navigationBarHidden=NO;
     [self webcamGen];
 }
 
@@ -259,14 +260,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     // Return the number of rows in the section.
     if(section==0)
         return 3;
@@ -323,7 +324,7 @@
             cell.accessoryType = UITableViewCellAccessoryDetailButton;
             
         }
-
+        
     }
     else
     {
@@ -350,6 +351,7 @@
     [alert show];
 }
 
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0)
@@ -361,6 +363,7 @@
             [alert show];
             return;
         }
+        
         Campus* current= [collection objectAtIndex:indexPath.row];
         
         if ([current.name isEqual: @"Burnaby Campus"])
@@ -391,16 +394,16 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- WebcamWebViewController *webcont = [segue destinationViewController];
- // Pass the selected object to the new view controller.
- 
- NSIndexPath *path = [self.tableView indexPathForSelectedRow];
- Webcam *send = links[path.row];
- webcont.hidesBottomBarWhenPushed = YES;
- [webcont setCurrentURL:send];
- }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    WebcamWebViewController *webcont = [segue destinationViewController];
+    // Pass the selected object to the new view controller.
+    
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    Webcam *send = links[path.row];
+    webcont.hidesBottomBarWhenPushed = YES;
+    [webcont setCurrentURL:send];
+}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TryTableViewController.h
+//  WeatherTableViewController.h
 //  SFUnavapp
 //
 //  Created by Arjun Rathee on 2015-03-05.
@@ -12,7 +12,7 @@
 #import "WebcamWebViewController.h"
 #import "TFHpple.h"
 
-@interface TryTableViewController : UITableViewController
+@interface WeatherTableViewController : UITableViewController
 
 @property (nonatomic) Webcam* currentURL;
 @property (nonatomic) Campus* currentCampus;

@@ -39,7 +39,7 @@
 		D27E32781A984EC900004735 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D27E32771A984EC900004735 /* libxml2.dylib */; };
 		D27E327B1A984EF900004735 /* Campus.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E327A1A984EF900004735 /* Campus.m */; };
 		D2DB94D61AA912C800501DD7 /* Blusson_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */; };
-		D2DB94E01AA9417000501DD7 /* TryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2DB94DF1AA9417000501DD7 /* TryTableViewController.m */; };
+		D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */; };
 		DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */; };
 		DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */; };
 		DC566CBF1AA670DF006AA2D9 /* map-Campus-01.png in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */; };
@@ -55,7 +55,6 @@
 		DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */ = {isa = PBXBuildFile; fileRef = DC86567F1A97164C00D908C9 /* ConvocationMall.html */; };
 		DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656801A97164C00D908C9 /* Gaglardi.html */; };
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
-		DC86568B1A97164C00D908C9 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656831A97164C00D908C9 /* WeatherViewController.m */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -118,8 +117,8 @@
 		D27E32791A984EF800004735 /* Campus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Campus.h; sourceTree = "<group>"; };
 		D27E327A1A984EF900004735 /* Campus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campus.m; sourceTree = "<group>"; };
 		D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blusson_floorplan.png; sourceTree = "<group>"; };
-		D2DB94DE1AA9417000501DD7 /* TryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryTableViewController.h; sourceTree = "<group>"; };
-		D2DB94DF1AA9417000501DD7 /* TryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryTableViewController.m; sourceTree = "<group>"; };
+		D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableViewController.h; sourceTree = "<group>"; };
+		D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableViewController.m; sourceTree = "<group>"; };
 		DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
 		DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-Campus-01.png"; sourceTree = "<group>"; };
@@ -140,8 +139,6 @@
 		DC86567F1A97164C00D908C9 /* ConvocationMall.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ConvocationMall.html; sourceTree = "<group>"; };
 		DC8656801A97164C00D908C9 /* Gaglardi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Gaglardi.html; sourceTree = "<group>"; };
 		DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UniversityDriveNorth.html; sourceTree = "<group>"; };
-		DC8656821A97164C00D908C9 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
-		DC8656831A97164C00D908C9 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		DC8656841A97164C00D908C9 /* Webcam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webcam.h; sourceTree = "<group>"; };
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
@@ -349,10 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				DC86568E1A97165500D908C9 /* Websites */,
-				DC8656821A97164C00D908C9 /* WeatherViewController.h */,
-				D2DB94DE1AA9417000501DD7 /* TryTableViewController.h */,
-				D2DB94DF1AA9417000501DD7 /* TryTableViewController.m */,
-				DC8656831A97164C00D908C9 /* WeatherViewController.m */,
+				D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */,
+				D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */,
 				DC8656841A97164C00D908C9 /* Webcam.h */,
 				DC8656851A97164C00D908C9 /* Webcam.m */,
 				DC8656861A97164C00D908C9 /* WebcamWebViewController.h */,
@@ -489,13 +484,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC86568C1A97164C00D908C9 /* Webcam.m in Sources */,
-				D2DB94E01AA9417000501DD7 /* TryTableViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
 				B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */,
 				B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */,
-				DC86568B1A97164C00D908C9 /* WeatherViewController.m in Sources */,
 				B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */,
 				DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
@@ -507,6 +500,7 @@
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
+				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
 				DC566CD31AA6A44B006AA2D9 /* Reachability.m in Sources */,
 				DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */,
