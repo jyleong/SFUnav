@@ -39,6 +39,8 @@
     _FloorImage =[[UIImageView alloc] initWithImage:_currentBuilding.floorPlanImage] ;
     //_FloorImage.delegate=self;
     //[_FloorImage setDelegate:self];
+    self.navigationItem.title = _currentBuilding.buildingName;
+    self.navigationController.navigationBar.topItem.title = @"";
     
     [self.scrollView addSubview:_FloorImage];
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];

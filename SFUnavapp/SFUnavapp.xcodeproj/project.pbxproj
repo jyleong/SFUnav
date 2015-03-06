@@ -30,6 +30,7 @@
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
+		B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
 		B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
@@ -101,6 +102,7 @@
 		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
 		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
+		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = ../../../../SFU/SPRING2015/CMPT275/graphics/Library_floorplan.png; sourceTree = "<group>"; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
 		B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusRouteStorage.m; sourceTree = "<group>"; };
 		B0FC019D1AA7C86900F67493 /* FloorImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorImageViewController.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
 				DC566CCD1AA68328006AA2D9 /* Campus_Map.png */,
 				DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */,
+				B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */,
 				D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */,
 				04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */,
 				04971CF31AA381B400AE1F6E /* VancouverCampus-sm.png */,
@@ -459,6 +462,7 @@
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
 				DC566CCE1AA68328006AA2D9 /* Campus_Map.png in Resources */,
+				B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
