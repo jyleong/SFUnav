@@ -340,14 +340,12 @@
 //timer works!! dont mess with it yet, i'll add good comments later -James
 -(void) setTimer {
     NSString *key;
-    NSString *currentTime; // gets the minutes
-    NSString *displayTimerString;
+    NSString *displayTimerString; // text to display in label
     NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
     
     for(key in self.retrieveInfo.dictionary) // to get first item of dictionary
     { // this loop will not execute if the dictionary is empty
         [holds_from_d addObject:self.retrieveInfo.dictionary[key][0]]; //holds first string from the dictonary
-        //break; // exit loop as soon as we enter it (key will be set to some key)
     }
     //this block here gets the string from array
     NSMutableArray *modifiedArr = [[NSMutableArray alloc] init]; // will hold those new strings;
@@ -355,10 +353,10 @@
     NSString *elem;
     for(elem in holds_from_d) {
         elem = [elem substringToIndex:[elem length] -2];
-        NSLog(elem);
+        //NSLog(elem);
         [modifiedArr addObject:elem];
     }
-    
+    // this block sorts the array
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"hh:mm"];
     
@@ -377,7 +375,7 @@
         NSString *timeString = [dateFormatter stringFromDate:date];
         [sortedTimes addObject:timeString];
     }
-    
+    ///////////////////////////////////////////
     
     if ([sortedTimes count] != 0) {
         NSString *firstTime = sortedTimes[0];
@@ -385,18 +383,17 @@
     
         if (firstTime != nil) {
         
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"hh:mm"];
-        
-            NSDate *date = [NSDate date];
+            NSDate *date = [NSDate date]; // block of code helps to get the minutes into int from NSString
             NSCalendar *calendar = [NSCalendar currentCalendar];
             NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+            // this part will do same function but for the firstTime String
+            NSDate *busDate = [dateFormatter dateFromString:firstTime];
+            NSDateComponents *buscomponents = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:busDate];
+            
+            
             int dateminute = [components minute]; //this holds the minutes from urrent phone
             NSLog(@"%i dateminute",dateminute);
-        
-            NSDate *busDate = [dateFormatter dateFromString:firstTime];
-            NSCalendar *buscalendar = [NSCalendar currentCalendar];
-            NSDateComponents *buscomponents = [buscalendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:busDate];
+
             int busMinutes = [buscomponents minute];
         
             int resultMinutes; // holds the minutes to didspaly
