@@ -36,13 +36,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"FloorPlan Search";
+    self.navigationItem.title = @"Building Search";
     
     _BuildingObjects = [[NSMutableArray alloc]init];
     
     BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" coordinate:@"4139,681,4139,857,3928,857,3926,681" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
     [_BuildingObjects addObject:Blussonplan];
     self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +71,7 @@
     }
 }
 
-
+// loads the tablecells, case of regulat table and filtered table
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"buildName";
@@ -97,6 +98,7 @@
     return cell;
 }
 
+//function that filters and adds to searchResult
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     [self.searchResult removeAllObjects];
