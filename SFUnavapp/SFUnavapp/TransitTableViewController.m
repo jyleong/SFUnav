@@ -35,7 +35,8 @@
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
-@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
 
 @end
 
@@ -317,7 +318,7 @@
 }
 
 # pragma mark - displaymethods
-
+// note: make this method also display in label of time difference
 -(void) displayBusroutes {
     NSString *currstring = @"";
     NSString *key;
@@ -329,7 +330,48 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
+    
     [_busDisplaytextView setText:currstring];
+    
+    [self setTimer];
+}
+-(void) setTimer {
+    NSString *key;
+    NSString *currentTime; // gets the minutes
+    NSString *displayTimerString;
+    for(key in self.retrieveInfo.dictionary) // to get first item of dictionary
+    { // this loop will not execute if the dictionary is empty
+        break; // exit loop as soon as we enter it (key will be set to some key)
+    }
+    //this block here gets the string from array
+    NSArray *arrayofFirst = self.retrieveInfo.dictionary[key]; // get object associated with key. nil if key doesn't exist.
+    NSString *firstTime = arrayofFirst[0];
+    NSLog(@"%@", firstTime);
+    currentTime = [firstTime substringToIndex:[firstTime length] -2]; //takes out am, pm
+    NSLog(currentTime);
+    currentTime = [currentTime substringFromIndex:[currentTime length] -2];
+    NSLog(currentTime); //gets the minutes digits like 5:47pm -> 47
+    NSInteger busMinutes = [currentTime integerValue];
+    NSLog(@"%i", busMinutes);
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSDate *date = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+    NSInteger dateminute = [components minute]; //this holds the minutes from urrent phone
+    NSLog(@"%i",dateminute);
+    int resultMinutes; // holds the minutes to didspaly
+    if (dateminute < busMinutes) {
+        dateminute += 60;
+        resultMinutes = dateminute - busMinutes;
+    }
+    else {
+        resultMinutes = dateminute - busMinutes;
+    }
+    displayTimerString = [NSString stringWithFormat:@"%i", resultMinutes];
+    
+    [_timerLabel setText:displayTimerString];
 }
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
