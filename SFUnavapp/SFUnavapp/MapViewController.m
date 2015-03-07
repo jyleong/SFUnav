@@ -33,8 +33,8 @@
     _scrollView.backgroundColor=bgrnd;
     self.navigationItem.title=@"Map";
     
-    self.scrollView.minimumZoomScale=0.1;
-    self.scrollView.maximumZoomScale=1.0;
+    self.scrollView.minimumZoomScale=0.2;
+    self.scrollView.maximumZoomScale=.7;
     [_scrollView setDelegate:self];
     
     

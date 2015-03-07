@@ -25,7 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1090" y="0.0"/>
+            <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
         <!--Weather Table View Controller - Title-->
         <scene sceneID="7XG-3b-Vn6">
@@ -74,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtE-Py-63f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1475" y="199"/>
+            <point key="canvasLocation" x="1195" y="271"/>
         </scene>
         <!--Webcam Web View Controller-->
         <scene sceneID="URd-2U-9c9">
@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nle-Pq-FcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1979" y="198"/>
+            <point key="canvasLocation" x="1619" y="271"/>
         </scene>
         <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
@@ -125,7 +125,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUZ-fk-jlr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="796"/>
+            <point key="canvasLocation" x="1145" y="862"/>
         </scene>
         <!--Campus Contacts View Controller - Contacts-->
         <scene sceneID="TZ2-8S-W1f">
@@ -388,7 +388,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7D-V8-IJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="796"/>
+            <point key="canvasLocation" x="1559" y="862"/>
         </scene>
         <!--Navigation Controller - Map-->
         <scene sceneID="1hF-xc-bIL">
@@ -404,7 +404,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYi-yf-oJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="-409"/>
+            <point key="canvasLocation" x="-785" y="-305"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="XfA-3e-rxI">
@@ -449,7 +449,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-f1-flB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="-409"/>
+            <point key="canvasLocation" x="-323" y="-305"/>
         </scene>
         <!--Floor Plan Table View Controller-->
         <scene sceneID="F0d-iD-d2k">
@@ -499,7 +499,7 @@ Canada. V6B 5K3</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1320" y="-409"/>
+            <point key="canvasLocation" x="68" y="-305"/>
         </scene>
         <!--Floor Image View Controller-->
         <scene sceneID="n1M-ku-XFM">
@@ -536,7 +536,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgD-DV-sCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="-409"/>
+            <point key="canvasLocation" x="451" y="-305"/>
         </scene>
         <!--Services Table View Controller - Root View Controller-->
         <scene sceneID="4ym-nv-pvi">
@@ -568,7 +568,7 @@ Canada. V6B 5K3</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkV-Wo-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="1016"/>
+            <point key="canvasLocation" x="-697" y="1026"/>
         </scene>
         <!--Services Web View Controller-->
         <scene sceneID="3Ts-CN-0u3">
@@ -640,7 +640,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5Y-0S-QCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-481" y="1622"/>
+            <point key="canvasLocation" x="871" y="1474"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="kgo-Tt-ZSO">
@@ -654,7 +654,7 @@ Canada. V6B 5K3</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
+                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -710,7 +710,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWq-4C-8eR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="1016"/>
+            <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
         <!--Navigation Controller - Transit-->
         <scene sceneID="v4f-zr-j2I">
@@ -729,7 +729,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wm-P4-fU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="1026"/>
+            <point key="canvasLocation" x="-35" y="862"/>
         </scene>
         <!--Transit Table View Controller-->
         <scene sceneID="2It-1y-ghL">
@@ -838,7 +838,7 @@ Canada. V6B 5K3</string>
                                                     </connections>
                                                 </button>
                                                 <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-Nw-rU0">
-                                                    <rect key="frame" x="260" y="100" width="42" height="42"/>
+                                                    <rect key="frame" x="253" y="100" width="56" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -896,7 +896,7 @@ Canada. V6B 5K3</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqI-e5-2Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="1026"/>
+            <point key="canvasLocation" x="384" y="862"/>
         </scene>
         <!--Navigation Controller - Weather-->
         <scene sceneID="EuP-yQ-EoZ">
@@ -915,7 +915,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9v-A0-cLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="199"/>
+            <point key="canvasLocation" x="725" y="271"/>
         </scene>
         <!--Navigation Controller - About Us-->
         <scene sceneID="RD8-Yg-qWq">
@@ -934,7 +934,7 @@ Canada. V6B 5K3</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXz-DG-707" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1395" y="1226"/>
+            <point key="canvasLocation" x="-1299" y="1670"/>
         </scene>
     </scenes>
     <resources>
