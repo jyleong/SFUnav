@@ -32,8 +32,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"About Us";
     self.navigationController.navigationBar.topItem.title = @"";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title = @"About Us";
 }
 
 - (void)didReceiveMemoryWarning

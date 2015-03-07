@@ -31,7 +31,6 @@
     // Do any additional setup after loading the view.
     UIColor * bgrnd = [UIColor colorWithRed:182/255.0f green:189/255.0f blue:147/255.0f alpha:1.0f];
     _scrollView.backgroundColor=bgrnd;
-    self.navigationItem.title=@"Map";
     
     self.scrollView.minimumZoomScale=0.2;
     self.scrollView.maximumZoomScale=.7;
@@ -54,10 +53,11 @@
     NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
     NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
     [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
-    
-    
-    
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title=@"Map";
 }
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView

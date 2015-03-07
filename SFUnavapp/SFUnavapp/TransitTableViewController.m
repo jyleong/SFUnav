@@ -54,7 +54,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Transit";
     [self signUpForKeyboardNotifications];
     // initialize tapper in viewdidload
     _tapper = [[UITapGestureRecognizer alloc]
@@ -96,6 +95,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title = @"Transit";
 }
 
 #pragma mark - initialization methods

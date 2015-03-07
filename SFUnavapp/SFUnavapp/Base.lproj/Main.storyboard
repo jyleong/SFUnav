@@ -694,7 +694,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LL7-aj-cLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="1226"/>
+            <point key="canvasLocation" x="-779" y="1670"/>
         </scene>
         <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">

@@ -37,7 +37,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"Building Search";
     
     _BuildingObjects = [[NSMutableArray alloc]init];
     
@@ -49,6 +48,10 @@
     
     self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title=@"Building Search";
 }
 
 - (void)didReceiveMemoryWarning

@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
     // this is how to change titles in navbars - James
-    self.navigationItem.title = @"mySFU";
     
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
@@ -95,6 +94,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title = @"mySFU";
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

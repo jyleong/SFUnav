@@ -49,7 +49,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title=@"Weather";
     self.navigationController.navigationBarHidden=NO;
     [self webcamGen];
 }
@@ -57,6 +56,10 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     NSLog(@"in viewWillAppear\n");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.title = @"Weather";
 }
 
 - (void)reload
