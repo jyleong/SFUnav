@@ -47,6 +47,10 @@
 - (IBAction)openWebsite:(id)sender {
     [self performSegueWithIdentifier:@"linktoWeb" sender:self];
 }
+
+// sending email code taken from
+//http://www.codingexplorer.com/mfmailcomposeviewcontroller-send-email-in-your-apps/
+// as an example
 - (IBAction)openemail:(id)sender {
     if ([MFMailComposeViewController canSendMail])
     {
