@@ -9,8 +9,9 @@
 #import "AboutUsViewController.h"
 #import "ServicesURL.h"
 #import "ServicesWebViewController.h" // code to add bus pass ups segue
+#import <MessageUI/MessageUI.h>
 
-@interface AboutUsViewController ()
+@interface AboutUsViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 @property (weak, nonatomic) IBOutlet UIButton *emailusButton;
 
@@ -42,6 +43,45 @@
 }
 - (IBAction)openWebsite:(id)sender {
     [self performSegueWithIdentifier:@"linktoWeb" sender:self];
+}
+- (IBAction)openemail:(id)sender {
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:@"RE: SFUnav Feedback"];
+        [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
+        [mail setToRecipients:@[@"cmpt275g13@gmail.com"]];
+        
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        NSLog(@"This device cannot send email");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
