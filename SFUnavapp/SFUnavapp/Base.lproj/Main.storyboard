@@ -921,7 +921,7 @@ Canada. V6B 5K3</string>
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About Us" image="first" id="1FC-9p-uH0"/>
+                    <tabBarItem key="tabBarItem" title="About Us" image="AboutUsicon" id="1FC-9p-uH0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bC7-fs-2qA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -938,6 +938,7 @@ Canada. V6B 5K3</string>
         </scene>
     </scenes>
     <resources>
+        <image name="AboutUsicon" width="62" height="62"/>
         <image name="BurnabyCampus-sm.png" width="667" height="200"/>
         <image name="Contactsicon" width="70" height="62"/>
         <image name="Mapicon" width="70" height="62"/>
@@ -947,7 +948,6 @@ Canada. V6B 5K3</string>
         <image name="Transiticon" width="70" height="62"/>
         <image name="VancouverCampus-sm.png" width="667" height="200"/>
         <image name="Weathericon" width="70" height="62"/>
-        <image name="first" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
