@@ -33,12 +33,12 @@
     _scrollView.backgroundColor=bgrnd;
     
     self.scrollView.minimumZoomScale=0.2;
-    self.scrollView.maximumZoomScale=.7;
+    self.scrollView.maximumZoomScale=.65;
     [_scrollView setDelegate:self];
     
     
     //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
-    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"map-Campus-01.png"]];
+    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"Campus_Map(half res).png"]];
     
     [_viewImageMap setDelegate:self];
     

@@ -40,10 +40,10 @@
     
     _BuildingObjects = [[NSMutableArray alloc]init];
     
-    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" coordinate:@"4139,681,4139,857,3928,857,3926,681" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
     [_BuildingObjects addObject:Blussonplan];
     
-    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Library" coordinate:@"2764,898,3042,889,3042,977,2764,977" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
+    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
     [_BuildingObjects addObject:Libraryplan];
     
     self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
