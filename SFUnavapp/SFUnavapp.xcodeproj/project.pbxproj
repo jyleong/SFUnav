@@ -106,7 +106,7 @@
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
 		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
 		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
-		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = ../../../../SFU/SPRING2015/CMPT275/graphics/Library_floorplan.png; sourceTree = "<group>"; };
+		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = SFUnavapp/Library_floorplan.png; sourceTree = SOURCE_ROOT; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
 		B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusRouteStorage.m; sourceTree = "<group>"; };
 		B0DDA5311AAA63860027A81D /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
