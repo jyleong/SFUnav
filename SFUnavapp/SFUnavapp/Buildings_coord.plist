@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>4006,1434,4006,1219,3767,1219,3767,1358,3836,1358,3836,1434</string>
-	<string>4139,681,4139,857,3928,857,3926,681</string>
-	<string>3575,837,3575,1205,3158,1205,3158,837</string>
-	<string>2764,898,3042,889,3042,977,2764,977</string>
+	<string>2003,717,2003,609,1883.5,609,1883,679,1918,679,1918,717</string>
+	<string>2069,340,2069.5,428,1964,428,1963,340</string>
+	<string>1787,418.5,1787,602,1579,602,1579,418</string>
+	<string>1382,449,1521,444,1521,488,1382,488</string>
 </array>
 </plist>

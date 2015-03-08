@@ -16,6 +16,6 @@
 @property NSString* coordinateString;
 @property UIImage* floorPlanImage;
 
--(id) initWithbuildingObj: (NSString *) name coordinate: (NSString *) cooString floorPlan: (UIImage *) floorImage;
+-(id) initWithbuildingObj: (NSString *) name floorPlan: (UIImage *) floorImage;
 
 @end
