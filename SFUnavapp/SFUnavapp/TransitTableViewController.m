@@ -57,7 +57,7 @@
     [self signUpForKeyboardNotifications];
     // initialize tapper in viewdidload
     _tapper = [[UITapGestureRecognizer alloc]
-              initWithTarget:self action:@selector(handleSingleTap:)];
+               initWithTarget:self action:@selector(handleSingleTap:)];
     _tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:_tapper];
     
@@ -89,7 +89,7 @@
     [numberToolbar sizeToFit];
     
     _transitTextField.inputAccessoryView = numberToolbar;
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -239,12 +239,12 @@
     self.quicklinksPicker.hidden = YES;
     
     /*[UIView animateWithDuration:0.25
-                     animations:^{
-                         self.quicklinksPicker.alpha = 0.0f;
-                     }
-                     completion:^(BOOL finished){
-                         self.quicklinksPicker.hidden = YES;
-                     }];*/
+     animations:^{
+     self.quicklinksPicker.alpha = 0.0f;
+     }
+     completion:^(BOOL finished){
+     self.quicklinksPicker.hidden = YES;
+     }];*/
 }
 - (IBAction)selectedpicker:(id)sender {
     // button will hide picker, and save and send API information
@@ -382,9 +382,9 @@
     if ([sortedTimes count] != 0) {
         NSString *firstTime = sortedTimes[0];
         NSLog(@"%@", firstTime);
-    
-        if (firstTime != nil) {
         
+        if (firstTime != nil) {
+            
             NSDate *date = [NSDate date]; // block of code helps to get the minutes into int from NSString
             NSCalendar *calendar = [NSCalendar currentCalendar];
             NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
@@ -395,10 +395,10 @@
             
             int dateminute = [components minute]; //this holds the minutes from urrent phone
             NSLog(@"%i dateminute",dateminute);
-
+            
             int busMinutes = [buscomponents minute];
             NSLog(@"%i busminutes", busMinutes);
-        
+            
             int resultMinutes; // holds the minutes to didspaly
             if (busMinutes < dateminute) {
                 busMinutes += 60;
