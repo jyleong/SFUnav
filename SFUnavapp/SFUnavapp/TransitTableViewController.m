@@ -247,10 +247,9 @@
                      }];*/
 }
 - (IBAction)selectedpicker:(id)sender {
-    // may rewrite this block into function later
-    // or move this call to an actual button to submit picker input
     // button will hide picker, and save and send API information
     // this saves the picker values to nsuserdefaults
+    // only sends information if pickerisshowing
     
     if (_PickerIsShowing) {
         [self hidePickerCell];
@@ -291,7 +290,7 @@
     _transitTextField.text = @"";
 }
 
-// just like the behavior with sending the text information
+// tapping done sends the information to api
 -(void)doneWithNumberPad{
     
     if ([_transitTextField.text isEqualToString:@""]) {
@@ -304,12 +303,11 @@
         [_transitTextField resignFirstResponder];
         return;
     }
-    NSString *bustext  = [[NSString alloc] init]; // save the numbers to busnumText, doesn't account for errors yet
-    bustext = _transitTextField.text;
     
-    [self updateuserDefaults:bustext];
-    _stopID = [bustext substringToIndex:5]; // 5 digit
-    _busNum = [bustext substringFromIndex:5]; // 3 digit
+    //updates userdefaults with stored bus string
+    [self updateuserDefaults:_transitTextField.text];
+    _stopID = [_transitTextField.text substringToIndex:5]; // 5 digit
+    _busNum = [_transitTextField.text substringFromIndex:5]; // 3 digit
     
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     
@@ -324,7 +322,6 @@
 }
 
 # pragma mark - displaymethods
-// note: make this method also display in label of time difference
 -(void) displayBusroutes {
     NSString *currstring = @"";
     NSString *key;
@@ -338,12 +335,11 @@
     }
     
     [_busDisplaytextView setText:currstring];
-    
+    // call to method to display the time remaining for next bus
     [self setTimer];
 }
 
 
-//timer works!! dont mess with it yet, i'll add good comments later -James
 -(void) setTimer {
     NSString *key;
     NSString *displayTimerString; // text to display in label
