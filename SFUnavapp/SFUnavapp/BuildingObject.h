@@ -7,7 +7,9 @@
 //  Edited by Arjun Rathee
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
-
+/*
+    container for floorplan images and the respective building names
+ */
 #import <Foundation/Foundation.h>
 
 @interface BuildingObject : NSObject

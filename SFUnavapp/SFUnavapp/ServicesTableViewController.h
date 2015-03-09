@@ -7,7 +7,10 @@
 //	Edited by Arjun Rathee
 //	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
-
+/*
+ Custom UITableViewController class declaration to hold the names of online services
+ and perform segue action on cell selection
+ */
 #import <UIKit/UIKit.h>
 #import "ServicesURL.h"
 #import "ServicesWebViewController.h"

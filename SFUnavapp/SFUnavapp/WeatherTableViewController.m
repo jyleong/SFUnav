@@ -1,5 +1,5 @@
 //
-//  TryTableViewController.m
+//  WeatherTableViewController.m
 //  SFUnavapp
 //
 //  Created by Arjun Rathee on 2015-03-05.
@@ -13,7 +13,7 @@
 {
     NSMutableArray * links;
     NSMutableArray * collection;
-    NSArray *rowsToReload;
+    //NSArray *rowsToReload;
     NSString * extraPara;
     BOOL parsingResult;
 }
@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     //parsingResult=YES;
-    rowsToReload=@[@0,@1,@2];
+    //rowsToReload=@[@0,@1,@2];
     [self genData];
     
     // Initialize the refresh control.
@@ -53,10 +53,6 @@
     [self webcamGen];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    NSLog(@"in viewWillAppear\n");
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.title = @"Weather";
@@ -284,6 +280,7 @@
     return @"SFU Webcams";
 }
 
+//Configure cells for each section
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
@@ -308,7 +305,7 @@
         {
             if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"On Schedule"])
                 cell.detailTextLabel.text=@"Open";
-            NSLog(@"adjusting cell label\n");
+           // NSLog(@"adjusting cell label\n");
         }
         else
             cell.detailTextLabel.text= @"Close";
@@ -322,7 +319,7 @@
         //   cell.detailTextLabel.text= @"Looks like something is wrong! Click Here!!";
         //    cell.detailTextLabel.textColor = [UIColor whiteColor];
         //}
-        if ([cell.textLabel.text isEqualToString: @"Burnaby Campus"])
+       if ([cell.textLabel.text isEqualToString: @"Burnaby Campus"])
         {
             cell.accessoryType = UITableViewCellAccessoryDetailButton;
             
@@ -340,7 +337,7 @@
     }
     return cell;
 }
-
+//Accessory action for Burnaby campus cell to display extra announcements from the website
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     //Create alert when accessory button is clicked
     if (parsingResult==NO)
@@ -354,7 +351,8 @@
     [alert show];
 }
 
-
+//Create AlertViews to show parsing result on cell click for campus rows
+//or perform segue to UIWebView when a webcam name is selected
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0)

@@ -6,7 +6,10 @@
 //  Edited by Arjun Rathee
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
-
+/*
+    ViewController to display floorplans as scrollable and zoomable images
+    ImageView is loaded as a subview to the scrollview to allow zooming and scrolling
+ */
 #import <UIKit/UIKit.h>
 #import "BuildingObject.h"
 

@@ -7,7 +7,10 @@
 //  Edited by Arjun Rathee
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
-
+/*
+    Custom class declaration to hold container for displaying map
+    ScrollView holds MTImageMapView as a subview to show a scrollable and zoomable image
+ */
 #import <UIKit/UIKit.h>
 #import "MTImageMapView.h"
 

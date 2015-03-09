@@ -47,7 +47,8 @@
     self.scrollView.contentSize = _viewImageMap.frame.size;
     
     
-    
+    //Loads building names and coordintaes into an array from the plist file specified
+    //Use services like GIMP to generate coordintaes with appropriate origins
     self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
     
     NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
@@ -64,7 +65,7 @@
 {
     return self.viewImageMap;
 }
-
+// UIAlertView actions performed when building is clicked
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
 {

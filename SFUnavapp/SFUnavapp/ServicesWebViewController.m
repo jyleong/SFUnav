@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view.
     self.title=_currentURL.serviceName;
     
+    //Loads the url provided in custom object and assigns the title to the navigation bar
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];

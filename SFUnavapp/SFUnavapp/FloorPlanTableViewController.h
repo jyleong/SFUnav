@@ -7,6 +7,9 @@
 //  Edited by Arjun Rathee
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
+/*
+    container for displaying floorplan search results.
+ */
 
 #import <UIKit/UIKit.h>
 #import "BuildingObject.h"
