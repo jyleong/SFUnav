@@ -14,6 +14,11 @@
 #import <UIKit/UIKit.h>
 #import "ServicesURL.h"
 #import "ServicesWebViewController.h"
+
+extern NSString *username;
+extern NSString *password;
+extern BOOL autoLogin;
+
 @interface ServicesTableViewController : UITableViewController
 
 @end

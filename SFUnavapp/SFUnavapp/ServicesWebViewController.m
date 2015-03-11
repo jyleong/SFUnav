@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=_currentURL.serviceName;
-    
+    _currentlink.delegate=self;
     //Loads the url provided in custom object and assigns the title to the navigation bar
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
@@ -43,7 +43,10 @@
     [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
 }
 
-
+-(void)webViewDidFinishLoad:(UIWebView *)webview
+{
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
