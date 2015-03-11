@@ -13,10 +13,14 @@
  */
 #import <UIKit/UIKit.h>
 #import "MTImageMapView.h"
+#import "FloorImageViewController.h"
+
+extern NSMutableArray *BuildingObjects;
 
 @interface MapViewController : UIViewController <MTImageMapDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *BuildingNames;
 @property MTImageMapView *viewImageMap;
+@property unsigned int currentIndex;
 
 @end

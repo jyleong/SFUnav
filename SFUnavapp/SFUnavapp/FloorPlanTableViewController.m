@@ -10,6 +10,7 @@
 
 #import "FloorPlanTableViewController.h"
 #import "FloorImageViewController.h"
+#import "MapViewController.h"
 
 @interface FloorPlanTableViewController () {
 }
@@ -37,16 +38,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
     
-    _BuildingObjects = [[NSMutableArray alloc]init];
-    
-    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
-    [_BuildingObjects addObject:Blussonplan];
-    
-    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
-    [_BuildingObjects addObject:Libraryplan];
-    
-    self.searchResult = [NSMutableArray arrayWithCapacity:[_BuildingObjects count]];
+    self.searchResult = [NSMutableArray arrayWithCapacity:[BuildingObjects count]];
+    NSLog(@"Size of extern-- number of floor plans%d",[BuildingObjects count]);
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
@@ -75,7 +70,7 @@
         return [_searchResult count];
     }
     else {
-        return _BuildingObjects.count;
+        return BuildingObjects.count;
     }
 }
 
@@ -97,7 +92,7 @@
     }
     else
     {
-        current= [_BuildingObjects objectAtIndex:indexPath.row];
+        current= [BuildingObjects objectAtIndex:indexPath.row];
         cell.textLabel.text= current.buildingName;
     }
     
@@ -112,7 +107,7 @@
     [self.searchResult removeAllObjects];
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"SELF.buildingName contains[c] %@", searchText];
     
-    self.searchResult = [NSMutableArray arrayWithArray: [_BuildingObjects filteredArrayUsingPredicate:resultPredicate]];
+    self.searchResult = [NSMutableArray arrayWithArray: [BuildingObjects filteredArrayUsingPredicate:resultPredicate]];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -196,7 +191,7 @@
         }
         else {
             NSIndexPath *path =[self.tableView indexPathForSelectedRow];
-            BuildingObject *send = _BuildingObjects[path.row]; //should map key to custom object
+            BuildingObject *send = BuildingObjects[path.row]; //should map key to custom object
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
         }

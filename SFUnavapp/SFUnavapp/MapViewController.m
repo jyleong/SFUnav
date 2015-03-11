@@ -9,13 +9,14 @@
 //
 
 #import "MapViewController.h"
-
+#import "BuildingObject.h"
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController
 
+NSMutableArray * BuildingObjects;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,7 +34,8 @@
     _scrollView.backgroundColor=bgrnd;
     
     self.scrollView.minimumZoomScale=0.2;
-    self.scrollView.maximumZoomScale=.65;
+    self.scrollView.maximumZoomScale=0.65;
+    
     [_scrollView setDelegate:self];
     
     
@@ -43,9 +45,11 @@
     [_viewImageMap setDelegate:self];
     
     [self.scrollView addSubview:_viewImageMap];
-    //sets scrollview size to be the same as imagemap size to allow scrolling
-    self.scrollView.contentSize = _viewImageMap.frame.size;
     
+    //sets scrollview size to be the same as imagemap size to allow scrolling
+    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
+    self.scrollView.contentSize = _viewImageMap.frame.size;
+    self.scrollView.zoomScale=0.1;
     
     //Loads building names and coordintaes into an array from the plist file specified
     //Use services like GIMP to generate coordintaes with appropriate origins
@@ -54,11 +58,30 @@
     NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
     NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
     [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+    
+    [self loadBuildingObjects];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.title=@"Map";
+}
+
+- (void)loadBuildingObjects
+{
+    BuildingObjects = [[NSMutableArray alloc]init];
+    
+    BuildingObject *ASBplan = [[BuildingObject alloc] initWithbuildingObj: @"Applied Science Building" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:ASBplan];
+    
+    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Blussonplan];
+    
+    BuildingObject *AQplan = [[BuildingObject alloc] initWithbuildingObj: @"Academic Quadrangle" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:AQplan];
+    
+    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
+    [BuildingObjects addObject:Libraryplan];
 }
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView
@@ -69,7 +92,9 @@
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
 {
-    [[[UIAlertView alloc] initWithTitle:@"*** Building Name ***" message:[_BuildingNames objectAtIndex:inIndexSelected] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    _currentIndex=inIndexSelected;
+    UIAlertView * libraryAlert = [[UIAlertView alloc] initWithTitle:[_BuildingNames objectAtIndex:inIndexSelected] message:@"View Floorplans?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
+    [libraryAlert show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +103,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1)
+        [self performSegueWithIdentifier:@"ShowPlans" sender:self];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -86,7 +115,17 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ShowPlans"]) {
+            FloorImageViewController *fivc = [segue destinationViewController];
+            //NSIndexPath *path =[self.tableView indexPathForSelectedRow];
+            BuildingObject *send = BuildingObjects[_currentIndex]; //should map key to custom object
+            fivc.hidesBottomBarWhenPushed = YES;
+            [fivc setCurrentBuilding:send];
+        
+    }
+
+
 }
-*/
+
 
 @end
