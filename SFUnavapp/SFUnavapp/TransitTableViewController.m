@@ -63,8 +63,8 @@
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
     //to map the keys to objects
-    self.busstopNames = @[@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
-    self.fivedigitID = @[@"59044", @"51862",@"51863", @"51864"];
+    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 135", @"Transit Hub - 143", @"Transit Hub - 144", @"Production Way",@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
+    self.fivedigitID = @[@"51861",@"53096",@"52998",@"52807", @"59314",@"59044", @"51862",@"51863", @"51864"];
     
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
@@ -74,6 +74,7 @@
     _busDisplaytextView.layer.cornerRadius = 8;
     _timeDIsplayLabel.layer.cornerRadius = 8;
     
+    [self.quicklinksPicker selectRow:4 inComponent:0 animated:YES]; // so the first component in picker defaulted at production way
     [self initialDisplay];
     [self displayBusroutes]; // load up last inputed valid stop id
     self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
@@ -90,6 +91,11 @@
     
     _transitTextField.inputAccessoryView = numberToolbar;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor grayColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -99,6 +105,28 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.title = @"Transit";
+}
+
+- (void)reload
+{
+    // Reload Bus Results
+    self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
+    [self displayBusroutes];
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
 }
 
 #pragma mark - initialization methods
