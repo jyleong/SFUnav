@@ -445,11 +445,12 @@ Canada. V6B 5K3</string>
                     <navigationItem key="navigationItem" id="QNM-Ay-pqU"/>
                     <connections>
                         <outlet property="scrollView" destination="LZa-qe-xya" id="4t6-1p-3vY"/>
+                        <segue destination="3Kh-Bm-ceF" kind="push" identifier="ShowPlans" id="YuH-DV-njh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-f1-flB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-305"/>
+            <point key="canvasLocation" x="-415" y="-406"/>
         </scene>
         <!--Floor Plan Table View Controller-->
         <scene sceneID="F0d-iD-d2k">
@@ -536,7 +537,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgD-DV-sCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="-305"/>
+            <point key="canvasLocation" x="526" y="-427"/>
         </scene>
         <!--Services Table View Controller - Root View Controller-->
         <scene sceneID="4ym-nv-pvi">

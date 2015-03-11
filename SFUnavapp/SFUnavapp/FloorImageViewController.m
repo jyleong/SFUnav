@@ -32,17 +32,22 @@
     // Do any additional setup after loading the view.
     
     self.scrollView.minimumZoomScale=0.1;
-    self.scrollView.maximumZoomScale=1.0;
+    self.scrollView.maximumZoomScale=2.0;
     //[_scrollView setDelegate:self];
     self.scrollView.contentSize = _FloorImage.frame.size;
     
     _FloorImage =[[UIImageView alloc] initWithImage:_currentBuilding.floorPlanImage] ;
+ 
     //_FloorImage.delegate=self;
     //[_FloorImage setDelegate:self];
     self.navigationItem.title = _currentBuilding.buildingName;
     self.navigationController.navigationBar.topItem.title = @"";
     
     [self.scrollView addSubview:_FloorImage];
+    
+    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
+    self.scrollView.zoomScale=0.5;
+    
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.numberOfTouchesRequired = 1;
