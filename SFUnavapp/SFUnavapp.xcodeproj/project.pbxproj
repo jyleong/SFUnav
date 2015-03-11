@@ -14,6 +14,10 @@
 		04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971D441AA389F600AE1F6E /* Contacts - dial.png */; };
 		04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971D451AA389F600AE1F6E /* Contacts - email.png */; };
 		04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971D461AA389F600AE1F6E /* Contacts - Weblink.png */; };
+		B0094F401AAFFF6C003AC68D /* all_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3C1AAFFF6C003AC68D /* all_campus_map.png */; };
+		B0094F411AAFFF6C003AC68D /* icons_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3D1AAFFF6C003AC68D /* icons_campus_map.png */; };
+		B0094F421AAFFF6C003AC68D /* none_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3E1AAFFF6C003AC68D /* none_campus_map.png */; };
+		B0094F431AAFFF6C003AC68D /* text_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3F1AAFFF6C003AC68D /* text_campus_map.png */; };
 		B01BE6721A8D425E0013D9EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6711A8D425E0013D9EA /* Foundation.framework */; };
 		B01BE6741A8D425E0013D9EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6731A8D425E0013D9EA /* CoreGraphics.framework */; };
 		B01BE6761A8D425E0013D9EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6751A8D425E0013D9EA /* UIKit.framework */; };
@@ -83,6 +87,10 @@
 		04971D441AA389F600AE1F6E /* Contacts - dial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacts - dial.png"; sourceTree = "<group>"; };
 		04971D451AA389F600AE1F6E /* Contacts - email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacts - email.png"; sourceTree = "<group>"; };
 		04971D461AA389F600AE1F6E /* Contacts - Weblink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacts - Weblink.png"; sourceTree = "<group>"; };
+		B0094F3C1AAFFF6C003AC68D /* all_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_campus_map.png; sourceTree = "<group>"; };
+		B0094F3D1AAFFF6C003AC68D /* icons_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons_campus_map.png; sourceTree = "<group>"; };
+		B0094F3E1AAFFF6C003AC68D /* none_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_campus_map.png; sourceTree = "<group>"; };
+		B0094F3F1AAFFF6C003AC68D /* text_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_campus_map.png; sourceTree = "<group>"; };
 		B01BE66E1A8D425E0013D9EA /* SFUnavapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFUnavapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01BE6711A8D425E0013D9EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B01BE6731A8D425E0013D9EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -251,6 +259,10 @@
 				04971D461AA389F600AE1F6E /* Contacts - Weblink.png */,
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
 				DC566CCD1AA68328006AA2D9 /* Campus_Map.png */,
+				B0094F3C1AAFFF6C003AC68D /* all_campus_map.png */,
+				B0094F3D1AAFFF6C003AC68D /* icons_campus_map.png */,
+				B0094F3E1AAFFF6C003AC68D /* none_campus_map.png */,
+				B0094F3F1AAFFF6C003AC68D /* text_campus_map.png */,
 				DC566CBE1AA670DF006AA2D9 /* map-Campus-01.png */,
 				B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */,
 				D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */,
@@ -476,10 +488,14 @@
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
 				DC566CCE1AA68328006AA2D9 /* Campus_Map.png in Resources */,
 				B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */,
+				B0094F411AAFFF6C003AC68D /* icons_campus_map.png in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
+				B0094F431AAFFF6C003AC68D /* text_campus_map.png in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
+				B0094F421AAFFF6C003AC68D /* none_campus_map.png in Resources */,
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
+				B0094F401AAFFF6C003AC68D /* all_campus_map.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
 			);

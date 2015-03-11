@@ -38,9 +38,8 @@ NSMutableArray * BuildingObjects;
     
     [_scrollView setDelegate:self];
     
-    
     //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
-    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"Campus_Map(half res).png"]];
+    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"all_campus_map.png"]];
     
     [_viewImageMap setDelegate:self];
     
@@ -66,6 +65,49 @@ NSMutableArray * BuildingObjects;
 - (void)viewDidAppear:(BOOL)animated {
     self.navigationItem.title=@"Map";
 }
+
+-(void) changeImage: (NSString *) newIm {
+    [self.scrollView setZoomScale:0.65];
+    [self.viewImageMap setImage:[UIImage imageNamed:newIm]];
+    //[self.viewImageMap setFrame:rect];
+    [self.scrollView setContentSize:[self.viewImageMap frame].size];
+    CGFloat minZoomScale = [self.scrollView frame].size.width / [self.viewImageMap frame].size.width;
+    if (minZoomScale < [self.scrollView frame].size.height / [self.viewImageMap frame].size.height) {
+        minZoomScale = [self.scrollView frame].size.height / [self.viewImageMap frame].size.height;
+    }
+    [self.scrollView setMinimumZoomScale:.2];
+    [self.scrollView setZoomScale:[self.scrollView minimumZoomScale]];
+    
+    //Loads building names and coordintaes into an array from the plist file specified
+    //Use services like GIMP to generate coordintaes with appropriate origins
+    self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
+    
+    NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
+    NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
+    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+}
+
+/*- (void) loadMTI: (NSString *) imageName {
+    //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
+    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:imageName]];
+    
+    [_viewImageMap setDelegate:self];
+    
+    [self.scrollView addSubview:_viewImageMap];
+    
+    //sets scrollview size to be the same as imagemap size to allow scrolling
+    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
+    self.scrollView.contentSize = _viewImageMap.frame.size;
+    self.scrollView.zoomScale=0.1;
+    
+    //Loads building names and coordintaes into an array from the plist file specified
+    //Use services like GIMP to generate coordintaes with appropriate origins
+    self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
+    
+    NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
+    NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
+    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+}*/
 
 - (void)loadBuildingObjects
 {
@@ -106,6 +148,15 @@ NSMutableArray * BuildingObjects;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1)
         [self performSegueWithIdentifier:@"ShowPlans" sender:self];
+}
+- (IBAction)toggleBlank:(id)sender {
+    [self changeImage:@"none_campus_map.png"];
+}
+- (IBAction)toggleIcon:(id)sender {
+    [self changeImage:@"icons_campus_map.png"];
+}
+- (IBAction)toggleText:(id)sender {
+    [self changeImage:@"text_campus_map.png"];
 }
 
 #pragma mark - Navigation
