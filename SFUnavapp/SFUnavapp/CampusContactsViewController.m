@@ -140,10 +140,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"A number" message:@"Make the call?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                 initWithTitle:@"[name]" message:@"[number]" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call", nil];
     
     // Display Alert Message
     [messageAlert show];
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1)
+       //make a phone call
+        NSLog(@"pressed call");
+        ;
+        
 }
 @end
