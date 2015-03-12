@@ -10,11 +10,16 @@
 
 #import "ServicesTableViewController.h"
 
+
 @interface ServicesTableViewController ()
 {
     NSMutableArray *links;
 }
 @end
+
+NSString *username;
+NSString *password;
+BOOL autoLogin;
 
 @implementation ServicesTableViewController
 
@@ -31,6 +36,7 @@
 {
     [super viewDidLoad];
     // this is how to change titles in navbars - James
+    
     
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
@@ -176,7 +182,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
+    if([[segue identifier] isEqual:@"LoadWebpage"])
+    { // Get the new view controller using [segue destinationViewController].
     ServicesWebViewController *webcont = [segue destinationViewController];
     // Pass the selected object to the new view controller.
     
@@ -184,6 +191,7 @@
     ServicesURL *send = links[path.row];
     webcont.hidesBottomBarWhenPushed = YES;
     [webcont setCurrentURL:send];
+    }
 }
 
 
