@@ -72,10 +72,11 @@
             self.burnabyTable.hidden = NO;
             self.surreyTable.hidden = YES;
             self.vancouverTable.hidden = YES;
+            
             break;
             
         case 1: //selected surrey
-            self.burnabyView.hidden = YES;
+            self.burnabyView.hidden = NO;
             self.surreyView.hidden = NO;
             self.vancouverView.hidden = YES;
             self.burnabyTable.hidden = YES;

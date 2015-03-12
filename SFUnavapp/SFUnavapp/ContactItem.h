@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface ContactItem : NSObject
-@property NSString* contactName;
-@property NSString* contactInfo;
+@property NSString *contactName;
+@property NSString *contactPhone;
+@property NSString *contactEmail;
+@property NSString *contactLocation;
+@property NSString *contactURL;
 @end
