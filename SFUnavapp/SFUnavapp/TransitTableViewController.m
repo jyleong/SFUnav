@@ -37,7 +37,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 @property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
-@property (weak, nonatomic) IBOutlet UIButton *viewBusmap;
+
+
 
 @end
 
@@ -310,23 +311,7 @@
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes];
 }
-- (IBAction)viewTranslinksite:(id)sender {
-    
-    /*
-    NSURL *URLS = [NSURL URLWithString:@"http://google.ca"];
-    
-    NSURLRequest* req = [NSURLRequest requestWithURL:URLS];
-    
-    
-    [ServicesWebViewController loadrequest: req];
-    
-    [myWebView loadRequest:req];
-    
-    
-    
-    */
-    
-}
+
 
 # pragma mark - textFieldmethods
 // also the first intended method to send API request
@@ -481,16 +466,34 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    ServicesWebViewController *webcont = [segue destinationViewController];
+    
+    ServicesURL *send = [[ServicesURL alloc] init];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"passUps"]) {
-        ServicesWebViewController *webcont = [segue destinationViewController];
-        
-        ServicesURL *send = [[ServicesURL alloc] init];
         send.serviceName=@"Pass Ups";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];
+    }
+    else if ([[segue identifier] isEqualToString:@"viewBus"]) {
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *currentstring = [userDefaults objectForKey:@"currentstopID"];
+        NSLog(@"current string to pass to web: %@", currentstring);
+        send.serviceName=@"Translink";
+        
+        if (currentstring.length ==5) {
+            send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@", _stopID];
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
+        else if (currentstring.length >=5) {
+            send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@/Route/%@", _stopID,_busNum];
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
     }
     
     
