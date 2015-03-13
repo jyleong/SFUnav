@@ -99,9 +99,8 @@
 }
 
 
-- (IBAction)makeCall:(id)sender {
+- (IBAction)makeCall:(NSString *)phoneNumber{
     
-    NSString *phoneNumber = [sender currentTitle];
     NSString *phoneStr = [[NSString alloc] initWithFormat:@"tel:%@",phoneNumber];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneStr]];
     NSLog(@"Called %@",phoneNumber);
@@ -140,19 +139,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"[name]" message:@"[number]" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Call", nil];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  
+    // Show details of cell in alert
+    UIAlertView *alert = [[UIAlertView alloc]
+                                 initWithTitle:cell.textLabel.text
+                                 message:cell.detailTextLabel.text
+                                 delegate:nil
+                                 cancelButtonTitle:@"Cancel"
+                                 otherButtonTitles:@"Call", nil];
     
     // Display Alert Message
-    [messageAlert show];
-    
+    [alert show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==1)
-       //make a phone call
-        NSLog(@"pressed call");
-        ;
-        
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    [self makeCall:alertView.message];
 }
+
+
 @end

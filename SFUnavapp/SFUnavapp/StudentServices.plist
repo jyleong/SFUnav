@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>registrar</key>
+	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>778-782-6930</string>
+			<key>contactDetail</key>
+			<string></string>
+			<key>contactIcon</key>
+			<string>Contacts - dial.png</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>reginfo.sfu.ca</string>
+			<key>contactDetail</key>
+			<string></string>
+			<key>contactIcon</key>
+			<string>Contacts - email.png</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>https://livehelp.sfu.ca/cgi-bin/WebObjects/LiveHelp.woa/wa/HelpRequest?reginfo</string>
+			<key>contactDetail</key>
+			<string>Live Chat Service(Login required)</string>
+			<key>contactIcon</key>
+			<string>Contacts - Weblink.png</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>MBC 3200</string>
+			<key>contactDetail</key>
+			<string>M-Th: 9-6pm | F: 10-4:30pm | 8am @ enrollment</string>
+			<key>contactIcon</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>778-383-7663</string>
+			<key>contactDetail</key>
+			<string>Get in line (via text message)</string>
+			<key>contactIcon</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>financial</key>
+	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>fiassist@sfu.ca</string>
+			<key>contactDetail</key>
+			<string></string>
+			<key>contactIcon</key>
+			<string>Contacts - email.png</string>
+		</dict>
+		<dict>
+			<key>contactinfo</key>
+			<string>MBC 3200</string>
+			<key>contactDetail</key>
+			<string>M-Th: 9:30-3:30pm (W: to 2pm) | F: 10-3:30pm </string>
+			<key>contactIcon</key>
+			<string></string>
+		</dict>
+	</array>
+</dict>
+</plist>

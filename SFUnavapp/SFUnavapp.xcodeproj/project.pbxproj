@@ -73,6 +73,7 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
+		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 				049B5C001AB1FE1C001521D4 /* ContactsTableViewCell.m */,
 				049B5C061AB21571001521D4 /* Registrar.plist */,
 				049B5C081AB216EC001521D4 /* Financial.plist */,
+				E7D969521AB25F24008F6796 /* StudentServices.plist */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				B0094F401AAFFF6C003AC68D /* all_campus_map.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
+				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
