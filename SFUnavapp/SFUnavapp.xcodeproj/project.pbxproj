@@ -73,6 +73,7 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
+		E73D9EAB1AB397C70031B483 /* studentServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73D9EAA1AB397C70031B483 /* studentServicesTableViewController.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,8 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		E73D9EA91AB397C70031B483 /* studentServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = studentServicesTableViewController.h; sourceTree = "<group>"; };
+		E73D9EAA1AB397C70031B483 /* studentServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = studentServicesTableViewController.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -377,6 +380,8 @@
 				049B5C061AB21571001521D4 /* Registrar.plist */,
 				049B5C081AB216EC001521D4 /* Financial.plist */,
 				E7D969521AB25F24008F6796 /* StudentServices.plist */,
+				E73D9EA91AB397C70031B483 /* studentServicesTableViewController.h */,
+				E73D9EAA1AB397C70031B483 /* studentServicesTableViewController.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				049B5BFE1AB1FDDD001521D4 /* ContactsTableViewController.m in Sources */,
 				B01BE67E1A8D425E0013D9EA /* main.m in Sources */,
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
+				E73D9EAB1AB397C70031B483 /* studentServicesTableViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,

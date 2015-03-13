@@ -10,8 +10,6 @@
 
 @interface ContactItem : NSObject
 @property NSString *contactName;
-@property NSString *contactPhone;
-@property NSString *contactEmail;
-@property NSString *contactLocation;
-@property NSString *contactURL;
+@property NSString *contactInfo;
+@property NSString *contactType;
 @end

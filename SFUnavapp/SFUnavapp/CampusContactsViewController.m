@@ -140,7 +140,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-  
+    
+    [self makeCall:(cell.detailTextLabel.text)];
+    /*
     // Show details of cell in alert
     UIAlertView *alert = [[UIAlertView alloc]
                                  initWithTitle:cell.textLabel.text
@@ -151,13 +153,9 @@
     
     // Display Alert Message
     [alert show];
+    */
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-
-    [self makeCall:alertView.message];
-}
 
 
 @end

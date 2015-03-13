@@ -8,13 +8,15 @@
 		<key>contactDetail</key>
 		<string></string>
 		<key>contactIcon</key>
-		<string>Contacts - email.png</string>
+		<string>email</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
 		<string>MBC 3200</string>
 		<key>contactDetail</key>
 		<string>M-Th: 9:30-3:30pm (W: to 2pm) | F: 10-3:30pm </string>
+		<key>contactIcon</key>
+		<string>location</string>
 	</dict>
 </array>
 </plist>

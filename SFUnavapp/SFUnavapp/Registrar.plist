@@ -4,35 +4,43 @@
 <array>
 	<dict>
 		<key>contactInfo</key>
+		<string>http://mycusthelp.ca/SFU/_cs/SupportHome.aspx</string>
+		<key>contactDetail</key>
+		<string>Frequently Asked Questions</string>
+		<key>contactIcon</key>
+		<string>weblink</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
 		<string>778-782-6930</string>
 		<key>contactDetail</key>
-		<string></string>
+		<string>General Student Services</string>
 		<key>contactIcon</key>
-		<string>Contacts - dial.png</string>
+		<string>phone</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
 		<string>reginfo@sfu.ca</string>
 		<key>contactDetail</key>
-		<string></string>
+		<string>Enrollment, Record, Documents</string>
 		<key>contactIcon</key>
-		<string>Contacts - email.png</string>
+		<string>email</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
 		<string>https://livehelp.sfu.ca/cgi-bin/WebObjects/LiveHelp.woa/wa/HelpRequest?reginfo</string>
 		<key>contactDetail</key>
-		<string></string>
+		<string>SFU LiveHelp</string>
 		<key>contactIcon</key>
-		<string>Contacts - Weblink.png</string>
+		<string>weblink</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
 		<string>MBC 3200</string>
 		<key>contactDetail</key>
-		<string>M-Th: 9-6pm | F: 10-4:30pm | 8am @ enrollment</string>
+		<string>Hours: M-Th: 9-6pm | F: 10-4:30pm |</string>
 		<key>contactIcon</key>
-		<string></string>
+		<string>location</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
@@ -40,7 +48,7 @@
 		<key>contactDetail</key>
 		<string>Send a text to get in line</string>
 		<key>contactIcon</key>
-		<string></string>
+		<string>textmessage</string>
 	</dict>
 </array>
 </plist>

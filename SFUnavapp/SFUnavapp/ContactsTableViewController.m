@@ -8,16 +8,19 @@
 
 #import "ContactsTableViewController.h"
 #import "ContactsTableViewCell.h"
+
 @interface ContactsTableViewController ()
 
 @property (strong,nonatomic)NSArray *registrarArray;
 @property (strong,nonatomic)NSArray *financialArray;
 @property (strong,nonatomic)NSDictionary *contact;
 
+@property (strong,nonatomic)NSArray *contactsArray;
+
 @end
 
 @implementation ContactsTableViewController
-@synthesize registrarArray, financialArray, contact;
+@synthesize contactsArray, registrarArray, financialArray, contact;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,12 +34,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     NSString *regPath = [[NSBundle mainBundle]pathForResource:@"Registrar" ofType:@"plist"];
     registrarArray = [NSArray arrayWithContentsOfFile:regPath];
     
     NSString *finPath = [[NSBundle mainBundle]pathForResource:@"Financial" ofType:@"plist"];
     financialArray = [NSArray arrayWithContentsOfFile:finPath];
+
+    NSString *conPath = [[NSBundle mainBundle]pathForResource:@"StudentServices" ofType:@"plist"];
+    contactsArray = [NSArray arrayWithContentsOfFile:conPath];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,17 +79,32 @@
     
     // Configure the cell...
     if (indexPath.section == 0) {
+    
         contact = registrarArray[indexPath.row];
-        
+                
         /* unload array */
         NSString *contactDetail = contact[@"contactDetail"];
         NSString *contactInfo = contact[@"contactInfo"];
         NSString *contactIcon = contact[@"contactIcon"];
         
+        if ([contactIcon isEqual:@"email"]) {
+            contactIcon = @"Contacts - email.png";
+        }
+        else if ([contactIcon isEqual:@"phone"]){
+            contactIcon = @"Contacts - dial.png";
+        }
+        else if ([contactIcon isEqual:@"weblink"]){
+            contactIcon = @"Contacts - Weblink.png";
+        }
+        
         UIImage *icon = [UIImage imageNamed:contactIcon];
         
         cell.contactInfo.text = contactInfo;
+        cell.contactInfo.numberOfLines = 1;
+        //cell.contactInfo.adjustsFontSizeToFitWidth;
+        
         cell.contactDetails.text = contactDetail;
+        cell.contactDetails.numberOfLines = 0;
         cell.contactIcon.image = icon;
     }
     if (indexPath.section == 1) {
@@ -111,6 +133,25 @@
         return @"Financial Advising";
     }
     return 0;
+}
+
+/*      contact functions   */
+- (IBAction)makeCall:(NSString *)phoneNumber{
+    
+    NSString *phoneStr = [[NSString alloc] initWithFormat:@"tel:%@",phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneStr]];
+    NSLog(@"Called %@",phoneNumber);
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ContactsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+
+    //NSLog(cell.contactInfo.text);
+    
 }
 
 /*
