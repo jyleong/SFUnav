@@ -370,8 +370,34 @@
     [self setTimer];
 }
 
-
 -(void) setTimer {
+    NSString *key;
+    NSString *displayTimerString; // text to display in label
+    NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
+    
+    for(key in self.retrieveInfo.dictionary_count) // to get first item of dictionary
+    { // this loop will not execute if the dictionary is empty
+        [holds_from_d addObject:self.retrieveInfo.dictionary_count[key][0]]; //holds first string from the dictonary
+    }
+    //block sorts the array
+    [holds_from_d sortUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+        return [str1 compare:str2 options:(NSNumericSearch)];
+    }];
+    
+    //logging
+    NSLog(@"%@", holds_from_d);
+    if ([holds_from_d count] != 0) {
+        NSString *firstTime = holds_from_d[0];
+        if (firstTime != nil) {
+            displayTimerString = firstTime;
+        }
+        else {
+            displayTimerString = @"";
+        }
+    }
+    [_timerLabel setText:displayTimerString];
+}
+/*-(void) setTimer {
     NSString *key;
     NSString *displayTimerString; // text to display in label
     NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
@@ -446,7 +472,7 @@
     }
     
     [_timerLabel setText:displayTimerString];
-}
+}*/
 
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
@@ -495,12 +521,6 @@
             [webcont setCurrentURL:send];
         }
     }
-    
-    
-    
-    
-    
-    
     
     
     
