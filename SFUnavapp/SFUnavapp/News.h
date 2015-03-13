@@ -12,9 +12,16 @@
 
 @property NSString* nameoffeed; 
 
-@property NSString* inputurlstring; //
+@property NSString* inputurlstring;
 
--(id) initWithappend: (NSString *) inputcategory;
+@property NSString* sectiontitle;
+
+@property NSMutableArray * articletitle;
+
+@property NSMutableArray * articlecontent; 
+
+
+-(id) initWithnameoffeed: (NSString *) inputcategory;
     
     
 -(void) parsefeed;
