@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 @property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
+@property (weak, nonatomic) IBOutlet UIButton *viewBusmap;
 
 @end
 
@@ -309,6 +310,23 @@
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes];
 }
+- (IBAction)viewTranslinksite:(id)sender {
+    
+    /*
+    NSURL *URLS = [NSURL URLWithString:@"http://google.ca"];
+    
+    NSURLRequest* req = [NSURLRequest requestWithURL:URLS];
+    
+    
+    [ServicesWebViewController loadrequest: req];
+    
+    [myWebView loadRequest:req];
+    
+    
+    
+    */
+    
+}
 
 # pragma mark - textFieldmethods
 // also the first intended method to send API request
@@ -474,6 +492,17 @@
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 
