@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -27,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
-        <!--Weather Table View Controller - Title-->
+        <!--Title-->
         <scene sceneID="7XG-3b-Vn6">
             <objects>
                 <tableViewController id="4i8-eF-r4p" customClass="WeatherTableViewController" sceneMemberID="viewController">
@@ -110,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="1619" y="271"/>
         </scene>
-        <!--Navigation Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
@@ -126,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="1145" y="862"/>
         </scene>
-        <!--Campus Contacts View Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="TZ2-8S-W1f">
             <objects>
                 <viewController id="RBu-ZI-ztG" customClass="CampusContactsViewController" sceneMemberID="viewController">
@@ -359,7 +360,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="1559" y="862"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
@@ -719,8 +720,27 @@ Canada. V6B 5K3</string>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="oFC-ef-3GV"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
+                                <rect key="frame" x="75" y="330" width="177" height="89"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
+                                <rect key="frame" x="16" y="82" width="288" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-VY-tet">
+                                <rect key="frame" x="40" y="257" width="229" height="177"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xKj-0m-iS0" id="xM2-cp-WbO"/>
+                                </connections>
+                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tox-EQ-eBx">
-                                <rect key="frame" x="140" y="117" width="46" height="30"/>
+                                <rect key="frame" x="137" y="275" width="46" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -728,25 +748,6 @@ Canada. V6B 5K3</string>
                                     <action selector="loginButtonPress:" destination="xKj-0m-iS0" eventType="touchUpInside" id="SKP-7b-J0E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
-                                <rect key="frame" x="75" y="330" width="177" height="89"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
-                                <rect key="frame" x="75" y="82" width="177" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-VY-tet">
-                                <rect key="frame" x="40" y="257" width="229" height="177"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="xKj-0m-iS0" id="xM2-cp-WbO"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -762,7 +763,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
-        <!--Navigation Controller - mySFU-->
+        <!--mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
@@ -778,7 +779,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
-        <!--Navigation Controller - Transit-->
+        <!--Transit-->
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
@@ -906,9 +907,8 @@ Canada. V6B 5K3</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
                                                     <rect key="frame" x="257" y="175" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
                                                     </connections>
@@ -981,7 +981,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="384" y="862"/>
         </scene>
-        <!--Navigation Controller - Weather-->
+        <!--Weather-->
         <scene sceneID="EuP-yQ-EoZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMh-T6-J6f" sceneMemberID="viewController">
@@ -1000,7 +1000,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="725" y="271"/>
         </scene>
-        <!--Navigation Controller - About Us-->
+        <!--About Us-->
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
@@ -1032,7 +1032,6 @@ Canada. V6B 5K3</string>
         <image name="VancouverCampus-sm.png" width="667" height="200"/>
         <image name="Weathericon" width="70" height="62"/>
     </resources>
-    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1042,4 +1041,5 @@ Canada. V6B 5K3</string>
         <segue reference="YuH-DV-njh"/>
         <segue reference="peE-4i-7qa"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
