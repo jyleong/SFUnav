@@ -42,7 +42,7 @@
         
         NSMutableArray *buscountarray = [[NSMutableArray alloc] initWithCapacity:0]; //holds the expected countdown
         routeinfo=item.text;
-        NSLog(routeinfo);
+        //NSLog(routeinfo);
         //NSLog(info);
         [self.busroutereturnvalues addObject:routeinfo];//this should create the array of busroutes servicing at the given busstopnumber
         

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -28,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
-        <!--Title-->
+        <!--Weather Table View Controller - Title-->
         <scene sceneID="7XG-3b-Vn6">
             <objects>
                 <tableViewController id="4i8-eF-r4p" customClass="WeatherTableViewController" sceneMemberID="viewController">
@@ -111,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="1619" y="271"/>
         </scene>
-        <!--Contacts-->
+        <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
@@ -127,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="1145" y="862"/>
         </scene>
-        <!--Contacts-->
+        <!--Campus Contacts View Controller - Contacts-->
         <scene sceneID="TZ2-8S-W1f">
             <objects>
                 <viewController id="RBu-ZI-ztG" customClass="CampusContactsViewController" sceneMemberID="viewController">
@@ -360,7 +359,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="1559" y="862"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller - Map-->
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
@@ -531,9 +530,9 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgD-DV-sCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="-427"/>
+            <point key="canvasLocation" x="520" y="-529"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Services Table View Controller - Root View Controller-->
         <scene sceneID="4ym-nv-pvi">
             <objects>
                 <tableViewController id="NWL-ZQ-IUF" customClass="ServicesTableViewController" sceneMemberID="viewController">
@@ -763,7 +762,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
-        <!--mySFU-->
+        <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
@@ -779,7 +778,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
-        <!--Transit-->
+        <!--Navigation Controller - Transit-->
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
@@ -907,6 +906,13 @@ Canada. V6B 5K3</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch appearanceType="aqua" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                    <rect key="frame" x="257" y="175" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -931,13 +937,14 @@ Canada. V6B 5K3</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1gX-RH-0Vz">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="522" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1gX-RH-0Vz" id="XO0-7m-Hdt">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View on Translink Site" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8w-vX-xBe">
-                                                    <rect key="frame" x="20" y="8" width="167" height="21"/>
+                                                    <rect key="frame" x="20" y="0.0" width="167" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -964,6 +971,7 @@ Canada. V6B 5K3</string>
                         <outlet property="busDisplaytextView" destination="frx-NJ-2fY" id="hX3-cR-ec3"/>
                         <outlet property="quicklinkLabel" destination="P6e-D5-aCy" id="1sy-iy-9k5"/>
                         <outlet property="quicklinksPicker" destination="myN-PH-87w" id="FqO-o2-OE8"/>
+                        <outlet property="textSwitch" destination="vgP-CA-SfA" id="KwI-H9-WSv"/>
                         <outlet property="timeDIsplayLabel" destination="iAy-aV-r6k" id="P7C-zP-hQF"/>
                         <outlet property="timerLabel" destination="JPi-Nw-rU0" id="jgN-GG-EY3"/>
                         <outlet property="transitTextField" destination="lAk-5z-5Vv" id="Xd6-ib-9An"/>
@@ -973,7 +981,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="384" y="862"/>
         </scene>
-        <!--Weather-->
+        <!--Navigation Controller - Weather-->
         <scene sceneID="EuP-yQ-EoZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMh-T6-J6f" sceneMemberID="viewController">
@@ -992,7 +1000,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="725" y="271"/>
         </scene>
-        <!--About Us-->
+        <!--Navigation Controller - About Us-->
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
@@ -1024,6 +1032,7 @@ Canada. V6B 5K3</string>
         <image name="VancouverCampus-sm.png" width="667" height="200"/>
         <image name="Weathericon" width="70" height="62"/>
     </resources>
+    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1033,5 +1042,4 @@ Canada. V6B 5K3</string>
         <segue reference="Zqx-ub-k57"/>
         <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>

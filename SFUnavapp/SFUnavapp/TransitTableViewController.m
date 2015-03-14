@@ -37,7 +37,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 @property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
+@property (strong, nonatomic) NSString *stringofTimes; // two strings to hold the current text to show in disaply
 
+@property (strong, nonatomic) NSString *stringofCounts;
+@property (weak, nonatomic) IBOutlet UISwitch *textSwitch;
 
 
 @end
@@ -311,6 +314,14 @@
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes];
 }
+- (IBAction)toggletime_min:(id)sender {
+    if (_textSwitch.on) {
+        [_busDisplaytextView setText:_stringofTimes];
+    }
+    else{
+        [_busDisplaytextView setText:_stringofCounts];
+    }
+}
 
 
 # pragma mark - textFieldmethods
@@ -364,11 +375,43 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
+    _stringofTimes = currstring;
+    
+    NSString *currstring2 = @"";
+    NSString *secondkey;
+    for(secondkey in self.retrieveInfo.dictionary_count) {
+        currstring2 = [currstring2 stringByAppendingFormat:@"%@\n", secondkey];
+
+        NSArray *temparray2 = [self.retrieveInfo.dictionary_count objectForKey:secondkey];
+        for(NSString *elem2 in temparray2) {
+            currstring2 = [currstring2 stringByAppendingFormat:@"%@min ", elem2];
+        };
+        currstring2 = [currstring2 stringByAppendingString:@"\n"];
+        NSLog(@"%@", currstring2);
+    }
+    _stringofCounts = currstring2;
+    NSLog(@"%@", _stringofCounts);
+    [_busDisplaytextView setText:_stringofTimes];
+    // call to method to display the time remaining for next bus
+    [self setTimer];
+}
+
+/*-(void) displayBusroutes {
+    NSString *currstring = @"";
+    NSString *key;
+    for(key in self.retrieveInfo.dictionary) {
+        currstring = [currstring stringByAppendingFormat:@"%@\n", key];
+        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+        for(NSString *elem in temparray) {
+            currstring = [currstring stringByAppendingFormat:@"%@ ", elem];
+        };
+        currstring = [currstring stringByAppendingString:@"\n"];
+    }
     
     [_busDisplaytextView setText:currstring];
     // call to method to display the time remaining for next bus
     [self setTimer];
-}
+}*/
 
 -(void) setTimer {
     NSString *key;
@@ -385,11 +428,11 @@
     }];
     
     //logging
-    NSLog(@"%@", holds_from_d);
+    //NSLog(@"%@", holds_from_d);
     if ([holds_from_d count] != 0) {
         NSString *firstTime = holds_from_d[0];
         if (firstTime != nil) {
-            displayTimerString = firstTime;
+            displayTimerString = [firstTime stringByAppendingString:@" min"];
         }
         else {
             displayTimerString = @"";
