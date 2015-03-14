@@ -37,7 +37,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
 @property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
-@property (weak, nonatomic) IBOutlet UIButton *viewBusmap;
+@property (strong, nonatomic) NSString *stringofTimes; // two strings to hold the current text to show in disaply
+
+@property (strong, nonatomic) NSString *stringofCounts;
+@property (weak, nonatomic) IBOutlet UISwitch *textSwitch;
+
 
 @end
 
@@ -310,23 +314,15 @@
     self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
     [self displayBusroutes];
 }
-- (IBAction)viewTranslinksite:(id)sender {
-    
-    /*
-    NSURL *URLS = [NSURL URLWithString:@"http://google.ca"];
-    
-    NSURLRequest* req = [NSURLRequest requestWithURL:URLS];
-    
-    
-    [ServicesWebViewController loadrequest: req];
-    
-    [myWebView loadRequest:req];
-    
-    
-    
-    */
-    
+- (IBAction)toggletime_min:(id)sender {
+    if (_textSwitch.on) {
+        [_busDisplaytextView setText:_stringofTimes];
+    }
+    else{
+        [_busDisplaytextView setText:_stringofCounts];
+    }
 }
+
 
 # pragma mark - textFieldmethods
 // also the first intended method to send API request
@@ -379,14 +375,72 @@
         };
         currstring = [currstring stringByAppendingString:@"\n"];
     }
+    _stringofTimes = currstring;
     
-    [_busDisplaytextView setText:currstring];
+    NSString *currstring2 = @"";
+    NSString *secondkey;
+    for(secondkey in self.retrieveInfo.dictionary_count) {
+        currstring2 = [currstring2 stringByAppendingFormat:@"%@\n", secondkey];
+
+        NSArray *temparray2 = [self.retrieveInfo.dictionary_count objectForKey:secondkey];
+        for(NSString *elem2 in temparray2) {
+            currstring2 = [currstring2 stringByAppendingFormat:@"%@min ", elem2];
+        };
+        currstring2 = [currstring2 stringByAppendingString:@"\n"];
+        NSLog(@"%@", currstring2);
+    }
+    _stringofCounts = currstring2;
+    NSLog(@"%@", _stringofCounts);
+    [_busDisplaytextView setText:_stringofTimes];
     // call to method to display the time remaining for next bus
     [self setTimer];
 }
 
+/*-(void) displayBusroutes {
+    NSString *currstring = @"";
+    NSString *key;
+    for(key in self.retrieveInfo.dictionary) {
+        currstring = [currstring stringByAppendingFormat:@"%@\n", key];
+        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
+        for(NSString *elem in temparray) {
+            currstring = [currstring stringByAppendingFormat:@"%@ ", elem];
+        };
+        currstring = [currstring stringByAppendingString:@"\n"];
+    }
+    
+    [_busDisplaytextView setText:currstring];
+    // call to method to display the time remaining for next bus
+    [self setTimer];
+}*/
 
 -(void) setTimer {
+    NSString *key;
+    NSString *displayTimerString; // text to display in label
+    NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
+    
+    for(key in self.retrieveInfo.dictionary_count) // to get first item of dictionary
+    { // this loop will not execute if the dictionary is empty
+        [holds_from_d addObject:self.retrieveInfo.dictionary_count[key][0]]; //holds first string from the dictonary
+    }
+    //block sorts the array
+    [holds_from_d sortUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+        return [str1 compare:str2 options:(NSNumericSearch)];
+    }];
+    
+    //logging
+    //NSLog(@"%@", holds_from_d);
+    if ([holds_from_d count] != 0) {
+        NSString *firstTime = holds_from_d[0];
+        if (firstTime != nil) {
+            displayTimerString = [firstTime stringByAppendingString:@" min"];
+        }
+        else {
+            displayTimerString = @"";
+        }
+    }
+    [_timerLabel setText:displayTimerString];
+}
+/*-(void) setTimer {
     NSString *key;
     NSString *displayTimerString; // text to display in label
     NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
@@ -461,7 +515,7 @@
     }
     
     [_timerLabel setText:displayTimerString];
-}
+}*/
 
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
@@ -481,23 +535,35 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    ServicesWebViewController *webcont = [segue destinationViewController];
+    
+    ServicesURL *send = [[ServicesURL alloc] init];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"passUps"]) {
-        ServicesWebViewController *webcont = [segue destinationViewController];
-        
-        ServicesURL *send = [[ServicesURL alloc] init];
         send.serviceName=@"Pass Ups";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];
     }
-    
-    
-    
-    
-    
-    
+    else if ([[segue identifier] isEqualToString:@"viewBus"]) {
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *currentstring = [userDefaults objectForKey:@"currentstopID"];
+        NSLog(@"current string to pass to web: %@", currentstring);
+        send.serviceName=@"Translink";
+        
+        if (currentstring.length ==5) {
+            send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@", _stopID];
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
+        else if (currentstring.length >=5) {
+            send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@/Route/%@", _stopID,_busNum];
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
+    }
     
     
     
