@@ -6,17 +6,19 @@
 		<key>contactInfo</key>
 		<string>fiassist@sfu.ca</string>
 		<key>contactDetail</key>
-		<string></string>
-		<key>contactIcon</key>
-		<string>email</string>
+		<string>Financial Aid and Awards</string>
+		<key>contactType</key>
+		<string>Email</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>MBC 3200</string>
+		<string>Maggie Benson Centre 3200</string>
 		<key>contactDetail</key>
-		<string>M-Th: 9:30-3:30pm (W: to 2pm) | F: 10-3:30pm </string>
-		<key>contactIcon</key>
-		<string>location</string>
+		<string>M T Th: 9:30 am – 3:30 pm
+W: 9:30 am – 2:00 pm
+F: 10:00 am – 3:30 pm</string>
+		<key>contactType</key>
+		<string>In Person</string>
 	</dict>
 </array>
 </plist>

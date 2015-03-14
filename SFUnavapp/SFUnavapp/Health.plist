@@ -4,37 +4,44 @@
 <array>
 	<dict>
 		<key>contactInfo</key>
-		<string>reginfo@sfu.ca</string>
+		<string>intake@sfu.ca</string>
 		<key>contactDetail</key>
-		<string>Enrollment, Record, Documents</string>
+		<string>For questions about counselling services</string>
 		<key>contactType</key>
 		<string>Email</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>778-782-6930</string>
+		<string>hcs_feedback@sfu.ca</string>
 		<key>contactDetail</key>
-		<string>General Student Services</string>
+		<string>For general inquiries</string>
+		<key>contactType</key>
+		<string>Email</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>778-782-4615</string>
+		<key>contactDetail</key>
+		<string>For general inquiries</string>
 		<key>contactType</key>
 		<string>Phone</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>Maggie Benson Centre 3200</string>
+		<string>Maggie Benson Centre 0101</string>
 		<key>contactDetail</key>
-		<string>M T W Th: 9:00 am – 6:00 pm
-F: 10:00 am – 4:30 pm
-Opens at 8 am during enrollment period</string>
+		<string>Appointments are made in-person
+ Monday - Friday: 9:00 - 4:30pm</string>
 		<key>contactType</key>
 		<string>In Person</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>778-383-7663</string>
+		<string>778-782-3284</string>
 		<key>contactDetail</key>
-		<string>Send a text to get in line</string>
+		<string>Book a physiotherapy appointment</string>
 		<key>contactType</key>
-		<string>Text</string>
+		<string>Phone</string>
 	</dict>
 </array>
 </plist>

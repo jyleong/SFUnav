@@ -39,10 +39,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    campusContacts = [[NSArray alloc] initWithObjects:@"Switchboard", @"Student Services", @"Security Services", nil];
-    burnabyNumbers = [[NSArray alloc] initWithObjects:@"778-782-3111", @"778-782-6930", @"778-782-3100", nil];
-    surreyNumbers = [[NSArray alloc] initWithObjects:@"778-782-7400", @"778-782-6930", @"778-782-7070", nil];
-    vancouverNumbers = [[NSArray alloc] initWithObjects:@"778-782-5000", @"778-782-6930", @"778-782-5029", nil];
+    campusContacts = [[NSArray alloc] initWithObjects:@"Switchboard", @"Student Services", @"Security Services", @"Emergency", nil];
+    burnabyNumbers = [[NSArray alloc] initWithObjects:@"778-782-3111", @"778-782-6930", @"778-782-3100", @"778-782-4500",nil];
+    surreyNumbers = [[NSArray alloc] initWithObjects:@"778-782-7400", @"778-782-6930", @"778-782-7070", @"778-782-7511",nil];
+    vancouverNumbers = [[NSArray alloc] initWithObjects:@"778-782-5000", @"778-782-6930", @"778-782-5029", @"778–782–5252",nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,29 +109,68 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return campusContacts.count;
+    if (section == 0) {
+        return campusContacts.count;
+    }
+    else {
+        return 1;
+    }
 }
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"campusContactCell" forIndexPath:indexPath];
- 
- // Configure the cell...
-     cell.textLabel.text=campusContacts[indexPath.row];
-     if(tableView == burnabyTable)
-     {  cell.detailTextLabel.text=burnabyNumbers[indexPath.row];    }
-     if(tableView == surreyTable)
-     {  cell.detailTextLabel.text=surreyNumbers[indexPath.row]; }
-     if(tableView == vancouverTable)
-     {  cell.detailTextLabel.text=vancouverNumbers[indexPath.row]; }
+     
+     // transparent background
      cell.backgroundColor = [UIColor clearColor];
+ 
+     // Configure the cell...
+     if (indexPath.section == 0)
+     {  //section 0 contains phone numbers
+         cell.textLabel.text=campusContacts[indexPath.row];
+         if(tableView == burnabyTable)
+         {
+             cell.detailTextLabel.text=burnabyNumbers[indexPath.row];
+             cell.detailTextLabel.numberOfLines = 0;
+         }
+         else if(tableView == surreyTable)
+         {
+             cell.detailTextLabel.text=surreyNumbers[indexPath.row];
+             cell.detailTextLabel.numberOfLines = 0;
+         }
+         else
+         {
+             cell.detailTextLabel.text=vancouverNumbers[indexPath.row];
+             cell.detailTextLabel.numberOfLines = 0;
+         }
+     }
+     else
+     {  //section 1 contains the address
+         if (tableView == burnabyTable) {
+             cell.textLabel.text = @"8888 University Drive\nBurnaby, B.C. Canada. V5A 1S6";
+             cell.detailTextLabel.text = nil;
+             cell.textLabel.numberOfLines = 0;
+         }
+         else if (tableView == surreyTable) {
+             cell.textLabel.text = @"250 - 13450 – 102nd Avenue\nSurrey, B.C. Canada. V3T 0A3";
+             cell.detailTextLabel.text = nil;
+             cell.textLabel.numberOfLines = 0;
+         }
+         else { //vancouver campus
+             cell.textLabel.text = @"515 West Hastings Street\nVancouver, B.C. Canada. V6B 5K3";
+             cell.detailTextLabel.text = nil;
+             cell.textLabel.numberOfLines = 0;
+         }
+         
+     }
+     
  
  return cell;
  }
@@ -141,7 +180,9 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [self makeCall:(cell.detailTextLabel.text)];
+    if (cell.detailTextLabel.text != nil) {
+        [self makeCall:(cell.detailTextLabel.text)];
+    }
     /*
     // Show details of cell in alert
     UIAlertView *alert = [[UIAlertView alloc]

@@ -4,37 +4,27 @@
 <array>
 	<dict>
 		<key>contactInfo</key>
-		<string>reginfo@sfu.ca</string>
+		<string>career_services@sfu.ca</string>
 		<key>contactDetail</key>
-		<string>Enrollment, Record, Documents</string>
+		<string>For general inquiries</string>
 		<key>contactType</key>
 		<string>Email</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>778-782-6930</string>
+		<string>778.782.3106</string>
 		<key>contactDetail</key>
-		<string>General Student Services</string>
+		<string>Book an appointment</string>
 		<key>contactType</key>
 		<string>Phone</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>Maggie Benson Centre 3200</string>
+		<string>Maggie Benson Centre 0300</string>
 		<key>contactDetail</key>
-		<string>M T W Th: 9:00 am – 6:00 pm
-F: 10:00 am – 4:30 pm
-Opens at 8 am during enrollment period</string>
+		<string></string>
 		<key>contactType</key>
 		<string>In Person</string>
-	</dict>
-	<dict>
-		<key>contactInfo</key>
-		<string>778-383-7663</string>
-		<key>contactDetail</key>
-		<string>Send a text to get in line</string>
-		<key>contactType</key>
-		<string>Text</string>
 	</dict>
 </array>
 </plist>

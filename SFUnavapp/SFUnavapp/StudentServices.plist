@@ -1,68 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>registrar</key>
+<array>
 	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>reginfo@sfu.ca</string>
+			<key>contactDetail</key>
+			<string>Enrollment, Record, Documents</string>
+			<key>contactIcon</key>
+			<string>Email</string>
+		</dict>
 		<dict>
 			<key>contactInfo</key>
 			<string>778-782-6930</string>
 			<key>contactDetail</key>
-			<string></string>
-			<key>contactType</key>
-			<string>phone</string>
+			<string>General Student Services</string>
+			<key>contactIcon</key>
+			<string>Phone</string>
 		</dict>
 		<dict>
 			<key>contactInfo</key>
-			<string>reginfo.sfu.ca</string>
+			<string>http://mycusthelp.ca/SFU/_cs/SupportHome.aspx</string>
 			<key>contactDetail</key>
-			<string></string>
-			<key>contactType</key>
-			<string>email</string>
+			<string>Frequently Asked Questions</string>
+			<key>contactIcon</key>
+			<string>Online</string>
 		</dict>
 		<dict>
 			<key>contactInfo</key>
 			<string>https://livehelp.sfu.ca/cgi-bin/WebObjects/LiveHelp.woa/wa/HelpRequest?reginfo</string>
 			<key>contactDetail</key>
-			<string>Live Chat Service(Login required)</string>
-			<key>contactType</key>
-			<string>weblink</string>
+			<string>SFU LiveHelp</string>
+			<key>contactIcon</key>
+			<string>Online</string>
 		</dict>
 		<dict>
 			<key>contactInfo</key>
-			<string>MBC 3200</string>
+			<string>Maggie Benson Centre 3200</string>
 			<key>contactDetail</key>
-			<string>M-Th: 9-6pm | F: 10-4:30pm | 8am @ enrollment</string>
-			<key>contactType</key>
-			<string>location</string>
+			<string>M T W Th: 9:00 am – 6:00 pm
+                F: 10:00 am – 4:30 pm
+                Opens at 8 am during enrollment period</string>
+			<key>contactIcon</key>
+			<string>In Person</string>
 		</dict>
 		<dict>
 			<key>contactInfo</key>
 			<string>778-383-7663</string>
 			<key>contactDetail</key>
-			<string>Get in line (via text message)</string>
-			<key>contactType</key>
-			<string>textmessage</string>
+			<string>Send a text to get in line</string>
+			<key>contactIcon</key>
+			<string>Text</string>
 		</dict>
 	</array>
-	<key>financial</key>
 	<array>
 		<dict>
 			<key>contactInfo</key>
 			<string>fiassist@sfu.ca</string>
 			<key>contactDetail</key>
-			<string></string>
-			<key>contactType</key>
-			<string>email</string>
+			<string>Financial Aid and Awards</string>
+			<key>contactIcon</key>
+			<string>Email</string>
 		</dict>
 		<dict>
-			<key>contactinfo</key>
-			<string>MBC 3200</string>
+			<key>contactInfo</key>
+			<string>Maggie Benson Centre 3200</string>
 			<key>contactDetail</key>
-			<string>M-Th: 9:30-3:30pm (W: to 2pm) | F: 10-3:30pm </string>
-			<key>contactType</key>
-			<string>location</string>
+			<string>M T Th: 9:30 am – 3:30 pm
+                W: 9:30 am – 2:00 pm
+                F: 10:00 am – 3:30 pm</string>
+			<key>contactIcon</key>
+			<string>In Person</string>
 		</dict>
 	</array>
-</dict>
+</array>
 </plist>

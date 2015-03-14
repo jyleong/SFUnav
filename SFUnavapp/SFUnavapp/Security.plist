@@ -4,37 +4,37 @@
 <array>
 	<dict>
 		<key>contactInfo</key>
-		<string>reginfo@sfu.ca</string>
+		<string>778-782-4500</string>
 		<key>contactDetail</key>
-		<string>Enrollment, Record, Documents</string>
-		<key>contactType</key>
-		<string>Email</string>
-	</dict>
-	<dict>
-		<key>contactInfo</key>
-		<string>778-782-6930</string>
-		<key>contactDetail</key>
-		<string>General Student Services</string>
+		<string>For emergencies</string>
 		<key>contactType</key>
 		<string>Phone</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>Maggie Benson Centre 3200</string>
+		<string>778-782-3100</string>
 		<key>contactDetail</key>
-		<string>M T W Th: 9:00 am – 6:00 pm
-F: 10:00 am – 4:30 pm
-Opens at 8 am during enrollment period</string>
+		<string>General Inquiries &amp; Safe Walk</string>
 		<key>contactType</key>
-		<string>In Person</string>
+		<string>Phone</string>
 	</dict>
 	<dict>
 		<key>contactInfo</key>
-		<string>778-383-7663</string>
+		<string>778.782.3921</string>
 		<key>contactDetail</key>
-		<string>Send a text to get in line</string>
+		<string>To contact the Security Information Booth</string>
 		<key>contactType</key>
-		<string>Text</string>
+		<string>Phone</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>Transportation Centre 050</string>
+		<key>contactDetail</key>
+		<string>Monday–Friday:	7:00 am – 11:00pm
+Saturday:	7:00am – 9:00pm
+Sunday:	7:00am – 3:00pm</string>
+		<key>contactType</key>
+		<string>In Person</string>
 	</dict>
 </array>
 </plist>
