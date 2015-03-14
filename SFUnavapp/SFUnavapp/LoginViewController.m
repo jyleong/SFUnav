@@ -15,7 +15,9 @@
     NSString *js;
     BOOL error;
     BOOL internetStatus;
+    BOOL loginStatus;
 }
+@property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 @end
 
 @implementation LoginViewController
@@ -34,7 +36,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     error=NO;
-
+    autoLogin=NO;
+    _tapper = [[UITapGestureRecognizer alloc]
+               initWithTarget:self action:@selector(handleSingleTap:)];
+    _tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:_tapper];
+    [self.view addSubview:_web];
+    //[_web setDelegate:self];
+    NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/login?"];
+    NSMutableURLRequest *requestObj= [NSURLRequest requestWithURL:url];
+    //    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
+    NSLog(@"Loading webpage\n");
+    [_web loadRequest:requestObj];
     
     
 }
@@ -77,19 +90,22 @@
 
 - (IBAction)loginButtonPress:(id)sender {
     
+    [_passWord resignFirstResponder];
+    [_userName resignFirstResponder];
     internetStatus=[self checkInternet];
-    error=NO;
+    error=YES;
     if (internetStatus==NO)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+        
         return;
     }
     autoLogin=YES;
     username=_userName.text;
     password=_passWord.text;
-    NSLog(@"%@ %@",username,password);
-    if ([username isEqualToString:@""] && [password isEqualToString:@""])
+    //NSLog(@"%@ %@",username,password);
+    if ([username isEqualToString:@""] || [password isEqualToString:@""])
     {
         _errorDisplay.text=@"Both username and password fields are required";
         return;
@@ -103,36 +119,59 @@
     @"form.submit();",username,password];
     //NSLog(@"JS CODE %@",js);
     //_web=[[UIWebView alloc] init];
-    [self.view addSubview:_web];
-    //[_web setDelegate:self];
-    NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/login?"];
-    NSMutableURLRequest *requestObj= [NSURLRequest requestWithURL:url];
-//    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
-    NSLog(@"Loading webpage\n");
-    [_web loadRequest:requestObj];
+//    [self.view addSubview:_web];
+//    //[_web setDelegate:self];
+//    NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/login?"];
+//    NSMutableURLRequest *requestObj= [NSURLRequest requestWithURL:url];
+////    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
+//    NSLog(@"Loading webpage\n");
+//    [_web loadRequest:requestObj];
+        [_web stringByEvaluatingJavaScriptFromString:js];
+    [self checkValidInfo];
     
-    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0)
+        [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    [self.view endEditing:YES]; // so the keyboard will always resign when you click ANYWHERE
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    if (error==YES)
+    {
+        
+        
+        //[_web stringByEvaluatingJavaScriptFromString:js];
+        
+        [self checkValidInfo];
+    }
+}
+
+-(void) checkValidInfo
+{
+
+        js= [NSString stringWithFormat:
+         @"var success = document.getElementsByTagName('h2');"
+         @"success[1].innerHTML"
+         ];
+        NSLog(@"%@",[_web stringByEvaluatingJavaScriptFromString:js]);
+        if([[_web stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"You have successfully logged into the Central Authentication Service."])
+        {
+            _errorDisplay.text=@"Successfully Logged In";
+            NSLog(@"SUCCESS");
+            autoLogin=YES;
+            return;
+        }
+        _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
+        autoLogin=NO;
     
 
-}
--(void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (error==NO)
-    {
-        error=YES;
-        [_web stringByEvaluatingJavaScriptFromString:js];
-        NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://cas.sfu.ca/cas/login"]];
-        TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
-        //use xpath to search element
-        
-        //Burnaby Campus Extra Details
-        NSArray *data = [xpath searchWithXPathQuery:@"//div[@class='section-layout']/h2"];
-        NSLog(@"data size%d",[data count]);
-        TFHppleElement *item=data[0];
-        NSLog(@"%@",item.text);
-        if ([data count])
-            _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
-        
-    }
+
 }
 
 @end

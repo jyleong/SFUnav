@@ -20,6 +20,7 @@
 #define kPickerIndex 2
 #define kPickerCellHeight 163
 //string ID for NSuserDefaults for saved bus stop = @"currentstopID"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface TransitTableViewController ()
 
@@ -97,10 +98,11 @@
     _transitTextField.inputAccessoryView = numberToolbar;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor grayColor];
+    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
+    _textSwitch.onTintColor=UIColorFromRGB(0xB5111B);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
