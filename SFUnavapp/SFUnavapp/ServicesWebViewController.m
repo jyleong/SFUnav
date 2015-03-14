@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=_currentURL.serviceName;
-    _currentlink.delegate=self;
+    //_currentlink.delegate=self;
     //Loads the url provided in custom object and assigns the title to the navigation bar
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
@@ -45,7 +45,41 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webview
 {
-    
+    if ([_currentURL.serviceName isEqualToString:@"goSFU (SIS)"])
+    {
+        NSLog(@"found sis");
+        [self injectJavatoSIS];
+    }
+}
+
+-(void) injectJavatoSIS
+{
+    NSString *js= [NSString stringWithFormat:
+         @"var x= document.getElementById('login');"
+        @"if (x==null) console.log('IT WAS NULL')"
+         ];
+    //inject javascript code
+    //http://www.kirupa.com/html5/running_your_code_at_the_right_time.htm
+    NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
+//    while (![[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"complete"]) {
+//        NSLog(@"waiting for frames to load");
+//    }
+    js= [NSString stringWithFormat:
+         @"var x= document.getElementById('footer');"
+         @"window.load=myfunc(){"
+         @"var user=document.getElementById('user');"
+         @"user.value='%@';"
+         @"var pwd= document.getElementById('pwd');"
+         @"pwd.value='%@';"
+         @"var form=document.getElementById('login');"
+         @"form.submit();"
+         @"};"
+         @"document.readyState;",username,password
+         ];
+        NSLog(@"injecting into sis");
+    [_currentlink stringByEvaluatingJavaScriptFromString:js];
+    NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
+
 }
 
 - (void)didReceiveMemoryWarning

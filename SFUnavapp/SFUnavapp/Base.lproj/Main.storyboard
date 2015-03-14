@@ -390,6 +390,9 @@ Canada. V6B 5K3</string>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-qe-xya">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c8a-cf-Ykq" id="g9K-X1-PNo"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
                                 <rect key="frame" x="20" y="70" width="48" height="30"/>
@@ -555,19 +558,28 @@ Canada. V6B 5K3</string>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="NWL-ZQ-IUF" id="IXJ-6f-Ifv"/>
                             <outlet property="delegate" destination="NWL-ZQ-IUF" id="Nya-We-uIT"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="aTf-ly-yTu">
                         <barButtonItem key="rightBarButtonItem" title="Login" id="iBP-oH-q30">
                             <connections>
-                                <segue destination="xKj-0m-iS0" kind="push" id="yVS-yI-Zgn"/>
+                                <action selector="LoginButtonPress:" destination="NWL-ZQ-IUF" id="GeG-IW-uPD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="LoginButton" destination="iBP-oH-q30" id="29C-Ky-NBJ"/>
+                        <outlet property="web" destination="bbZ-Kh-pth" id="ztw-Y1-Loh"/>
+                        <segue destination="xKj-0m-iS0" kind="push" identifier="LoginSegue" id="cg6-gj-RsR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkV-Wo-W6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <webView hidden="YES" contentMode="scaleToFill" id="bbZ-Kh-pth">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
             </objects>
             <point key="canvasLocation" x="-697" y="1026"/>
         </scene>
@@ -583,11 +595,6 @@ Canada. V6B 5K3</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
-                            </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
                                 <rect key="frame" x="0.0" y="530" width="320" height="44"/>
                                 <items>
@@ -620,6 +627,14 @@ Canada. V6B 5K3</string>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EVi-0O-ngm"/>
                                 </items>
                             </toolbar>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2os-sd-hNf" id="LSW-qm-hAf"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -720,20 +735,14 @@ Canada. V6B 5K3</string>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="oFC-ef-3GV"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
-                                <rect key="frame" x="75" y="330" width="177" height="89"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
                                 <rect key="frame" x="16" y="82" width="288" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-VY-tet">
-                                <rect key="frame" x="40" y="257" width="229" height="177"/>
+                                <rect key="frame" x="40" y="318" width="229" height="104"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="xM2-cp-WbO"/>
@@ -748,6 +757,12 @@ Canada. V6B 5K3</string>
                                     <action selector="loginButtonPress:" destination="xKj-0m-iS0" eventType="touchUpInside" id="SKP-7b-J0E"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
+                                <rect key="frame" x="40" y="303" width="241" height="89"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

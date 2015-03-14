@@ -20,5 +20,5 @@ extern NSString *password;
 extern BOOL autoLogin;
 
 @interface ServicesTableViewController : UITableViewController
-
+@property (weak, nonatomic) IBOutlet UIWebView *web;
 @end

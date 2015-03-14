@@ -13,6 +13,7 @@
  */
 #import <UIKit/UIKit.h>
 #import "ServicesURL.h"
+#import "ServicesTableViewController.h"
 @interface ServicesWebViewController : UIViewController
 
 @property (nonatomic) ServicesURL *currentURL;
