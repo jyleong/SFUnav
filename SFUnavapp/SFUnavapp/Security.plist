@@ -22,7 +22,7 @@
 		<key>contactInfo</key>
 		<string>778.782.3921</string>
 		<key>contactDetail</key>
-		<string>To contact the Security Information Booth</string>
+		<string>Security Information Booth</string>
 		<key>contactType</key>
 		<string>Phone</string>
 	</dict>
@@ -30,9 +30,10 @@
 		<key>contactInfo</key>
 		<string>Transportation Centre 050</string>
 		<key>contactDetail</key>
-		<string>Monday–Friday:	7:00 am – 11:00pm
-Saturday:	7:00am – 9:00pm
-Sunday:	7:00am – 3:00pm</string>
+		<string>Monday to Friday: 
+7:00 am – 11:00 pm
+Saturday: 7:00 am – 9:00 pm
+Sunday: 7:00 am – 3:00 pm</string>
 		<key>contactType</key>
 		<string>In Person</string>
 	</dict>

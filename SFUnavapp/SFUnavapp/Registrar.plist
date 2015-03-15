@@ -22,9 +22,11 @@
 		<key>contactInfo</key>
 		<string>Maggie Benson Centre 3200</string>
 		<key>contactDetail</key>
-		<string>M T W Th: 9:00 am – 6:00 pm
-F: 10:00 am – 4:30 pm
-Opens at 8 am during enrollment period</string>
+		<string>Monday to Thursday: 
+9:00 am – 6:00 pm
+Friday: 
+10:00 am – 4:30 pm
+Opens at 8 am during enrollment</string>
 		<key>contactType</key>
 		<string>In Person</string>
 	</dict>

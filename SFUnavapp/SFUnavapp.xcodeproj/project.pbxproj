@@ -11,7 +11,6 @@
 		0456CFAC1AB4C264002548B5 /* Career.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFAB1AB4C264002548B5 /* Career.plist */; };
 		0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */; };
 		0456CFB71AB4CC33002548B5 /* Security.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFB61AB4CC33002548B5 /* Security.plist */; };
-		0456CFB91AB4CFE0002548B5 /* srs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFB81AB4CFE0002548B5 /* srs.plist */; };
 		0456CFBB1AB4D050002548B5 /* access.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFBA1AB4D050002548B5 /* access.plist */; };
 		045E5E761AB0144200FDF7BC /* burnaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E731AB0144200FDF7BC /* burnaby.png */; };
 		045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E741AB0144200FDF7BC /* harbourcenter.png */; };
@@ -98,7 +97,6 @@
 		0456CFB31AB4CAD6002548B5 /* srsContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srsContactTableViewController.h; sourceTree = "<group>"; };
 		0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srsContactTableViewController.m; sourceTree = "<group>"; };
 		0456CFB61AB4CC33002548B5 /* Security.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Security.plist; sourceTree = "<group>"; };
-		0456CFB81AB4CFE0002548B5 /* srs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = srs.plist; sourceTree = "<group>"; };
 		0456CFBA1AB4D050002548B5 /* access.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = access.plist; sourceTree = "<group>"; };
 		045E5E731AB0144200FDF7BC /* burnaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burnaby.png; sourceTree = "<group>"; };
 		045E5E741AB0144200FDF7BC /* harbourcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harbourcenter.png; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				0456CFAB1AB4C264002548B5 /* Career.plist */,
 				0456CFB61AB4CC33002548B5 /* Security.plist */,
 				0456CFBA1AB4D050002548B5 /* access.plist */,
-				0456CFB81AB4CFE0002548B5 /* srs.plist */,
 				E7D969521AB25F24008F6796 /* StudentServices.plist */,
 			);
 			name = plists;
@@ -563,7 +560,6 @@
 				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
 				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
-				0456CFB91AB4CFE0002548B5 /* srs.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

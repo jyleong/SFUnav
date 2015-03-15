@@ -14,9 +14,12 @@
 		<key>contactInfo</key>
 		<string>Maggie Benson Centre 3200</string>
 		<key>contactDetail</key>
-		<string>M T Th: 9:30 am – 3:30 pm
-W: 9:30 am – 2:00 pm
-F: 10:00 am – 3:30 pm</string>
+		<string>Monday, Tuesday, Thursday: 
+9:30 am – 3:30 pm
+Wednesday: 
+9:30 am – 2:00 pm
+Friday: 
+10:00 am – 3:30 pm</string>
 		<key>contactType</key>
 		<string>In Person</string>
 	</dict>
