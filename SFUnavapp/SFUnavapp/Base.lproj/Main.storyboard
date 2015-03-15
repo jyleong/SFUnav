@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -28,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
-        <!--Title-->
+        <!--Weather Table View Controller - Title-->
         <scene sceneID="7XG-3b-Vn6">
             <objects>
                 <tableViewController id="4i8-eF-r4p" customClass="WeatherTableViewController" sceneMemberID="viewController">
@@ -111,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="1619" y="271"/>
         </scene>
-        <!--Contacts-->
+        <!--Navigation Controller - Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
@@ -125,9 +124,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUZ-fk-jlr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1145" y="862"/>
+            <point key="canvasLocation" x="1665" y="874"/>
         </scene>
-        <!--Contacts-->
+        <!--Campus Contacts View Controller - Contacts-->
         <scene sceneID="TZ2-8S-W1f">
             <objects>
                 <viewController id="RBu-ZI-ztG" customClass="CampusContactsViewController" sceneMemberID="viewController">
@@ -358,9 +357,9 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7D-V8-IJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="862"/>
+            <point key="canvasLocation" x="2139" y="862"/>
         </scene>
-        <!--Map-->
+        <!--Navigation Controller - Map-->
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
@@ -440,7 +439,13 @@ Canada. V6B 5K3</string>
                             <constraint firstAttribute="bottom" secondItem="LZa-qe-xya" secondAttribute="bottom" id="ofr-j9-8oz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QNM-Ay-pqU"/>
+                    <navigationItem key="navigationItem" id="QNM-Ay-pqU">
+                        <barButtonItem key="rightBarButtonItem" title="Online" id="P5L-gc-wXU">
+                            <connections>
+                                <segue destination="7o9-pz-HuX" kind="push" id="Wxf-Ny-L3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="LZa-qe-xya" id="4t6-1p-3vY"/>
                         <segue destination="3Kh-Bm-ceF" kind="push" identifier="ShowPlans" id="YuH-DV-njh"/>
@@ -449,6 +454,37 @@ Canada. V6B 5K3</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-f1-flB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-333" y="-305"/>
+        </scene>
+        <!--Online Map View Controller-->
+        <scene sceneID="ioV-HJ-jeW">
+            <objects>
+                <viewController id="7o9-pz-HuX" customClass="OnlineMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Acd-b5-NsN"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAB-xI-kl3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u6n-ks-bbn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-ah-C4b">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7o9-pz-HuX" id="zH9-2k-9A5"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E2o-Lt-Mja"/>
+                    <connections>
+                        <outlet property="sfumapView" destination="sfo-ah-C4b" id="dJi-uh-Q9c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0dW-2x-iL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127" y="-896"/>
         </scene>
         <!--Floor Plan Table View Controller-->
         <scene sceneID="F0d-iD-d2k">
@@ -498,7 +534,7 @@ Canada. V6B 5K3</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="68" y="-305"/>
+            <point key="canvasLocation" x="136" y="-305"/>
         </scene>
         <!--Floor Image View Controller-->
         <scene sceneID="n1M-ku-XFM">
@@ -534,7 +570,7 @@ Canada. V6B 5K3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgD-DV-sCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="520" y="-529"/>
+            <point key="canvasLocation" x="564" y="-305"/>
         </scene>
         <!--Services Table View Controller-->
         <scene sceneID="4ym-nv-pvi">
@@ -735,7 +771,7 @@ Canada. V6B 5K3</string>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="oFC-ef-3GV"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="a10-jT-BCM">
                                 <rect key="frame" x="16" y="82" width="288" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -757,7 +793,7 @@ Canada. V6B 5K3</string>
                                     <action selector="loginButtonPress:" destination="xKj-0m-iS0" eventType="touchUpInside" id="SKP-7b-J0E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="177" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This information is not available to any service or the developers. It stays on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="241" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
                                 <rect key="frame" x="40" y="303" width="241" height="89"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -778,7 +814,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
-        <!--mySFU-->
+        <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
@@ -794,7 +830,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
-        <!--Transit-->
+        <!--Navigation Controller - Transit-->
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
@@ -996,7 +1032,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="384" y="862"/>
         </scene>
-        <!--Weather-->
+        <!--Navigation Controller - Weather-->
         <scene sceneID="EuP-yQ-EoZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMh-T6-J6f" sceneMemberID="viewController">
@@ -1015,7 +1051,7 @@ Canada. V6B 5K3</string>
             </objects>
             <point key="canvasLocation" x="725" y="271"/>
         </scene>
-        <!--About Us-->
+        <!--Navigation Controller - About Us-->
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
@@ -1047,14 +1083,14 @@ Canada. V6B 5K3</string>
         <image name="VancouverCampus-sm.png" width="667" height="200"/>
         <image name="Weathericon" width="70" height="62"/>
     </resources>
+    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YuH-DV-njh"/>
         <segue reference="peE-4i-7qa"/>
+        <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
