@@ -467,7 +467,7 @@ Canada. V6B 5K3</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-ah-C4b">
+                            <mapView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-ah-C4b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
@@ -476,6 +476,12 @@ Canada. V6B 5K3</string>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sfo-ah-C4b" firstAttribute="leading" secondItem="u6n-ks-bbn" secondAttribute="leading" id="7e0-pe-xaI"/>
+                            <constraint firstItem="sfo-ah-C4b" firstAttribute="top" secondItem="u6n-ks-bbn" secondAttribute="top" id="SEn-RQ-XD5"/>
+                            <constraint firstAttribute="bottom" secondItem="sfo-ah-C4b" secondAttribute="bottom" id="WAS-hQ-asC"/>
+                            <constraint firstAttribute="trailing" secondItem="sfo-ah-C4b" secondAttribute="trailing" id="YTi-ea-JVv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E2o-Lt-Mja"/>
                     <connections>
