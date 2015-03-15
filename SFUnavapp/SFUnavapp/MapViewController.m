@@ -36,7 +36,7 @@ NSMutableArray * BuildingObjects;
     self.scrollView.minimumZoomScale=0.2;
     self.scrollView.maximumZoomScale=0.65;
     
-    [_scrollView setDelegate:self];
+    //[_scrollView setDelegate:self];
     
     //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
     _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"all_campus_map.png"]];
@@ -63,6 +63,7 @@ NSMutableArray * BuildingObjects;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     self.navigationItem.title=@"Map";
 }
 

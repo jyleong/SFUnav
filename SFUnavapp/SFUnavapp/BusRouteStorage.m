@@ -19,12 +19,7 @@
 
 //this method is called when the object is initiated. It will take the parameters of the bus stop number and bus route requested, and add entries to the dictionary properties with the buses servicing that stop and the times they will come.
 -(void) updatebustimes{
-    /*
-     NSString *result = [NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R &count=3&timeframe=60&routeNo=%@",self.busstopid, self.routnumber];
-     */
-    // NSMutableArray *busnumberarray = [[NSMutableArray alloc] initWithCapacity:0];
-    //NSMutableArray *bustimearray; //= [[NSMutableArray alloc] initWithCapacity:0];
-    //NSString *test;
+
     
     NSString *info;
     NSString *routeinfo;
@@ -43,15 +38,19 @@
     //LOOPS THROUGH ALL THE BUS ROUTES THAT WILL COME, AND WILL RETURN THE TIMES ALONG WITH THE ROUTES IN DICTIONARY OBJECT
     for (TFHppleElement *item in busnumber)
     {   //write log
-        NSMutableArray *bustimearray = [[NSMutableArray alloc] initWithCapacity:0];
-        //NSString *output = item.tagName;
-        //NSLog(output);
+        NSMutableArray *bustimearray = [[NSMutableArray alloc] initWithCapacity:0]; // holds the bustimes
+        
+        NSMutableArray *buscountarray = [[NSMutableArray alloc] initWithCapacity:0]; //holds the expected countdown
         routeinfo=item.text;
+        //NSLog(routeinfo);
         //NSLog(info);
         [self.busroutereturnvalues addObject:routeinfo];//this should create the array of busroutes servicing at the given busstopnumber
         
         NSString *query = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedleavetime",routeinfo];
         NSMutableArray *expleavetime = [xmldocument searchWithXPathQuery:query];
+        
+        NSString *querycountDown = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedcountdown",routeinfo];
+        NSMutableArray *countDownarr = [xmldocument searchWithXPathQuery:querycountDown];
         
         
         //this loops through the
@@ -70,6 +69,21 @@
         NSMutableDictionary *tempdictionary = [[NSMutableDictionary alloc] init];
         [tempdictionary setObject:bustimearray forKey:routeinfo];
         [self.dictionary addEntriesFromDictionary:tempdictionary];
+        
+        
+        for (TFHppleElement *item in countDownarr) {
+            info = item.text;
+            //NSLog(info);
+            
+            [buscountarray addObject:info];
+        }
+        
+        NSMutableDictionary *tempdict2 = [[NSMutableDictionary alloc] init];
+        [tempdict2 setObject:buscountarray forKey:routeinfo];
+        /*for(NSString *elem in buscountarray) {
+            NSLog(elem);
+        }*/
+        [self.dictionary_count addEntriesFromDictionary:tempdict2];
     }
     
     /*
@@ -102,6 +116,7 @@
     self.busstopid = busid;
     self.dictionary = [[NSMutableDictionary alloc] init];
     self.busroutereturnvalues = [[NSMutableArray alloc] init] ;
+    self.dictionary_count = [[NSMutableDictionary alloc] init];
     [self updatebustimes];
     return self;
 }

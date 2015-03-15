@@ -18,6 +18,7 @@
 // holds the returned bus routes
 @property NSMutableDictionary *dictionary; // DICTIONARY OBJECT THAT HOLDS ROUTES ALONG WITH THE TIMES
 @property NSMutableArray *busroutereturnvalues;// THE LIST OF BUS ROUTES THAT COME THROUGH THE INPUTTED STOP
+@property NSMutableDictionary *dictionary_count; // DICTIONARY THAT HOLDS THE COUNTDOWN ALONG WITH BUS ROUTES
 
 // first field for 3 digit, next field for 5 digit
 -(id) initWithbusroute: (NSString *) routenumber andbusid: (NSString *) busid;

@@ -15,6 +15,9 @@
 {
     NSMutableArray *links;
 }
+@property (strong) IBOutlet UIBarButtonItem *LoginButton;
+- (IBAction)LoginButtonPress:(id)sender;
+
 @end
 
 NSString *username;
@@ -52,7 +55,7 @@ BOOL autoLogin;
     
     
     ServicesURL *url = [[ServicesURL alloc] init];
-    url.serviceName=@"SFU homepage";
+    url.serviceName=@"SFU Homepage";
     url.serviceURL=@"http://www.sfu.ca/";
     [links addObject:url];
     
@@ -63,7 +66,7 @@ BOOL autoLogin;
     
     url=[[ServicesURL alloc] init];
     url.serviceName=@"SFU Library Search";
-    url.serviceURL = @"http://search.lib.sfu.ca";
+    url.serviceURL = @"http://fastsearch.lib.sfu.ca";
     [links addObject:url];
     
     url=[[ServicesURL alloc] init];
@@ -101,8 +104,18 @@ BOOL autoLogin;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     self.navigationItem.title = @"mySFU";
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (autoLogin)
+        _LoginButton.title=@"Logout";
+    NSLog(@"%@ %@",username,password);
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -184,15 +197,48 @@ BOOL autoLogin;
 {
     if([[segue identifier] isEqual:@"LoadWebpage"])
     { // Get the new view controller using [segue destinationViewController].
-    ServicesWebViewController *webcont = [segue destinationViewController];
+        ServicesWebViewController *webcont = [segue destinationViewController];
     // Pass the selected object to the new view controller.
     
-    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    ServicesURL *send = links[path.row];
-    webcont.hidesBottomBarWhenPushed = YES;
-    [webcont setCurrentURL:send];
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        ServicesURL *send = links[path.row];
+        webcont.hidesBottomBarWhenPushed = YES;
+        [webcont setCurrentURL:send];
     }
 }
 
 
+- (IBAction)LoginButtonPress:(id)sender {
+    if (!autoLogin) {
+        [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+    }
+    else
+    {
+        NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=https%3A%2F%2Fcourses.cs.sfu.ca%2F"];
+        NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
+        NSLog(@"Logout coursys\n");
+        [_web loadRequest:requestObj];
+        
+        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
+        requestObj= [NSURLRequest requestWithURL:url];
+        NSLog(@"Logout connect\n");
+        [_web loadRequest:requestObj];
+
+        url= [NSURL URLWithString:@"https://sfu-csm.symplicity.com/logout.php"];
+        requestObj= [NSURLRequest requestWithURL:url];
+        NSLog(@"Logout symplicity\n");
+        [_web loadRequest:requestObj];
+        
+        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?destination=https%3A%2F%2Fcanvas.sfu.ca%2Flogin%2Fcas&gateway=true"];
+        requestObj= [NSURLRequest requestWithURL:url];
+        NSLog(@"Logout canvas\n");
+        [_web loadRequest:requestObj];
+        
+        _LoginButton.title=@"Login";
+        autoLogin=NO;
+        username=@"";
+        password=@"";
+    }
+    
+}
 @end
