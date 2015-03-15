@@ -634,11 +634,11 @@ Canada. V6B 5K3</string>
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="530" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="676" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
                                     <barButtonItem systemItem="rewind" id="MS9-XW-M3E">
@@ -670,7 +670,7 @@ Canada. V6B 5K3</string>
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="556"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -873,7 +873,7 @@ Canada. V6B 5K3</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Bus stop ID e.g. 51414 or 51414123" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-5z-5Vv">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Bus stop ID e.g. 51414 or 51414123" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-5z-5Vv">
                                                     <rect key="frame" x="13" y="7" width="292" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search"/>
@@ -882,6 +882,11 @@ Canada. V6B 5K3</string>
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lAk-5z-5Vv" firstAttribute="leading" secondItem="ijd-or-lR6" secondAttribute="leading" constant="13" id="17U-CC-s0i"/>
+                                                <constraint firstAttribute="trailing" secondItem="lAk-5z-5Vv" secondAttribute="trailing" constant="15" id="KLf-qI-WOW"/>
+                                                <constraint firstItem="lAk-5z-5Vv" firstAttribute="top" secondItem="ijd-or-lR6" secondAttribute="top" constant="7" id="RAx-YF-WOt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PoK-cC-aya">
@@ -896,7 +901,7 @@ Canada. V6B 5K3</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Vd-tCp">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Vd-tCp">
                                                     <rect key="frame" x="248" y="7" width="55" height="30"/>
                                                     <state key="normal" title="Done">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -906,6 +911,9 @@ Canada. V6B 5K3</string>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="DrY-Vd-tCp" secondAttribute="trailing" constant="17" id="4bg-Ez-phY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="163" id="LDF-RW-6E6">
@@ -915,7 +923,7 @@ Canada. V6B 5K3</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="myN-PH-87w">
+                                                <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="myN-PH-87w">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="hYB-sD-pmv" id="QmB-Jm-sDX"/>
@@ -923,6 +931,10 @@ Canada. V6B 5K3</string>
                                                     </connections>
                                                 </pickerView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="myN-PH-87w" secondAttribute="trailing" id="2Ri-oF-rcM"/>
+                                                <constraint firstItem="myN-PH-87w" firstAttribute="leading" secondItem="2AT-C3-N2Z" secondAttribute="leading" id="Gzr-20-7DI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="163" id="vcZ-mp-WUS">
@@ -932,20 +944,20 @@ Canada. V6B 5K3</string>
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frx-NJ-2fY">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frx-NJ-2fY">
                                                     <rect key="frame" x="10" y="0.0" width="235" height="265"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAy-aV-r6k">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAy-aV-r6k">
                                                     <rect key="frame" x="253" y="0.0" width="56" height="265"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efl-4G-Ibk">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efl-4G-Ibk">
                                                     <rect key="frame" x="219" y="6" width="125" height="62"/>
                                                     <state key="normal" image="Refreshicon">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -954,23 +966,32 @@ Canada. V6B 5K3</string>
                                                         <action selector="refreshAction:" destination="hYB-sD-pmv" eventType="touchUpInside" id="Y36-QU-NbG"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-Nw-rU0">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-Nw-rU0">
                                                     <rect key="frame" x="253" y="100" width="56" height="42"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Bus in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-TR-axT">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Next Bus in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-TR-axT">
                                                     <rect key="frame" x="253" y="70" width="56" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
                                                     <rect key="frame" x="257" y="175" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="frx-NJ-2fY" firstAttribute="leading" secondItem="QhA-FS-oEK" secondAttribute="leading" constant="10" id="94j-uJ-osX"/>
+                                                <constraint firstAttribute="trailing" secondItem="9fb-TR-axT" secondAttribute="trailing" constant="11" id="CGV-VI-tGs"/>
+                                                <constraint firstAttribute="trailing" secondItem="vgP-CA-SfA" secondAttribute="trailing" constant="14" id="LmM-Qb-8nh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Efl-4G-Ibk" secondAttribute="trailing" constant="-24" id="RY1-57-uSj"/>
+                                                <constraint firstAttribute="trailing" secondItem="frx-NJ-2fY" secondAttribute="trailing" constant="75" id="fcz-a0-lAc"/>
+                                                <constraint firstAttribute="trailing" secondItem="iAy-aV-r6k" secondAttribute="trailing" constant="11" id="t5g-zT-iV5"/>
+                                                <constraint firstAttribute="trailing" secondItem="JPi-Nw-rU0" secondAttribute="trailing" constant="11" id="uSo-nj-uv4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="SM2-mC-ZNM">
@@ -1096,7 +1117,7 @@ Canada. V6B 5K3</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="peE-4i-7qa"/>
+        <segue reference="rhp-dj-yhr"/>
         <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
 </document>
