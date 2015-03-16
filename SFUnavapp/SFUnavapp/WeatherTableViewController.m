@@ -136,26 +136,28 @@
 
 - (void) BurnabyParaGen
 {
-    if (parsingResult==NO)
-        return;
-    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
+//    if (parsingResult==NO)
+//        return;
+    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/"]];
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     //use xpath to search element
     
     //Burnaby Campus Extra Details
-    NSArray *data = [xpath searchWithXPathQuery:@"//section[@class='main commentary']/section/div/div"];
+    NSArray *data = [xpath searchWithXPathQuery:@"//section[@class='announcements']/div"];
     if ([data count]==0)
     {
-        parsingResult=NO;
-        return;
+        //parsingResult=NO;
+        extraPara=@"";
     }
     //item to convert object type and write content
-    TFHppleElement *item = data[0];
-    
-    //write announcement string
-    NSString *temp=item.content;
-    //remove \n from first character
-    extraPara=[temp substringFromIndex:1];
+    else
+    {
+        
+        TFHppleElement *item = data[0];
+        //write announcement string
+        NSString *temp=item.content;
+        extraPara=[temp substringFromIndex:0];
+    }
     
 }
 
@@ -167,7 +169,7 @@
         
     }
     collection=[[NSMutableArray alloc]init];
-    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions"]];
+    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/"]];
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     //use xpath to search element
     Campus* info = [[Campus alloc]init];
@@ -341,6 +343,7 @@
 //Accessory action for Burnaby campus cell to display extra announcements from the website
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     //Create alert when accessory button is clicked
+   
     if (parsingResult==NO)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
