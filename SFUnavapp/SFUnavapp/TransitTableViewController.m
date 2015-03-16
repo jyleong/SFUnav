@@ -218,9 +218,9 @@
     }
     
     //index path for label cell. Height adjusted to have full cell interactions
-    if (indexPath.row ==3)
+    if (indexPath.row ==4)
     {
-        height= 265;
+        height= 225;
     }
     
     return height;
@@ -336,6 +336,7 @@
 }
 
 // tapping done sends the information to api
+
 -(void)doneWithNumberPad{
     
     if ([_transitTextField.text isEqualToString:@""]) {
@@ -368,7 +369,7 @@
 
 # pragma mark - displaymethods
 -(void) displayBusroutes {
-    NSString *currstring = @"";
+    NSString *currstring = [NSString stringWithFormat:@"Stop: %@%@\n", _stopID,_busNum];
     NSString *key;
     for(key in self.retrieveInfo.dictionary) {
         currstring = [currstring stringByAppendingFormat:@"%@\n", key];
@@ -380,41 +381,25 @@
     }
     _stringofTimes = currstring;
     
-    NSString *currstring2 = @"";
+    NSString *currstring2 = [NSString stringWithFormat:@"Stop: %@%@\n", _stopID,_busNum];
     NSString *secondkey;
     for(secondkey in self.retrieveInfo.dictionary_count) {
         currstring2 = [currstring2 stringByAppendingFormat:@"%@\n", secondkey];
-
+        
         NSArray *temparray2 = [self.retrieveInfo.dictionary_count objectForKey:secondkey];
         for(NSString *elem2 in temparray2) {
             currstring2 = [currstring2 stringByAppendingFormat:@"%@min ", elem2];
         };
         currstring2 = [currstring2 stringByAppendingString:@"\n"];
-        NSLog(@"%@", currstring2);
+        //NSLog(@"%@", currstring2);
     }
     _stringofCounts = currstring2;
-    NSLog(@"%@", _stringofCounts);
+    
+    //NSLog(@"%@", _stringofCounts);
     [_busDisplaytextView setText:_stringofTimes];
     // call to method to display the time remaining for next bus
     [self setTimer];
 }
-
-/*-(void) displayBusroutes {
-    NSString *currstring = @"";
-    NSString *key;
-    for(key in self.retrieveInfo.dictionary) {
-        currstring = [currstring stringByAppendingFormat:@"%@\n", key];
-        NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
-        for(NSString *elem in temparray) {
-            currstring = [currstring stringByAppendingFormat:@"%@ ", elem];
-        };
-        currstring = [currstring stringByAppendingString:@"\n"];
-    }
-    
-    [_busDisplaytextView setText:currstring];
-    // call to method to display the time remaining for next bus
-    [self setTimer];
-}*/
 
 -(void) setTimer {
     NSString *key;

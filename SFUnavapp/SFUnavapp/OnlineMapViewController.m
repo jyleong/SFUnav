@@ -45,6 +45,8 @@
     [self.sfumapView setRegion:region];
     [self addOverlay];
     
+    [self.sfumapView setShowsUserLocation:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
