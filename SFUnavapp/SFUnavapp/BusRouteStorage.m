@@ -27,7 +27,7 @@
      NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://api.translink.ca/rttiapi/v1/stops/59044/estimates?apikey=Inm4xjwOOLahxETIK89R&count=3&timeframe=60&routeNo="]];
      */
     //setting up URL connection
-    NSString *inputurlstring=[NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R&count=4&timeframe=60&routeNo=%@",self.busstopid,self.routnumber];
+    NSString *inputurlstring=[NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R&count=5&timeframe=75&routeNo=%@",self.busstopid,self.routnumber];
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
     
     
@@ -61,7 +61,7 @@
             info=item.text;
             NSRange range = [info rangeOfString:@"m"];
             info = [info substringWithRange:NSMakeRange(0, range.location)];
-            info = [info stringByAppendingString:@"m"];
+            //info = [info stringByAppendingString:@"m"];
             //NSLog(info);
             [bustimearray addObject:info];
         }

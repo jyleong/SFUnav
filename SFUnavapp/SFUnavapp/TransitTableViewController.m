@@ -390,10 +390,10 @@
             currstring2 = [currstring2 stringByAppendingFormat:@"%@min ", elem2];
         };
         currstring2 = [currstring2 stringByAppendingString:@"\n"];
-        NSLog(@"%@", currstring2);
+        //NSLog(@"%@", currstring2);
     }
     _stringofCounts = currstring2;
-    NSLog(@"%@", _stringofCounts);
+    //NSLog(@"%@", _stringofCounts);
     [_busDisplaytextView setText:_stringofTimes];
     // call to method to display the time remaining for next bus
     [self setTimer];
