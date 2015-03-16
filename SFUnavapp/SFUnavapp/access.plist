@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>contactInfo</key>
+		<string>access_control@sfu.ca</string>
+		<key>contactDetail</key>
+		<string>For general inquiries</string>
+		<key>contactType</key>
+		<string>Email</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>778-782-5448</string>
+		<key>contactDetail</key>
+		<string>For general inquiries</string>
+		<key>contactType</key>
+		<string>Phone</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>Discovery 1 1300</string>
+		<key>contactDetail</key>
+		<string>Monday to Friday 8:45 am – 3:45 pm</string>
+		<key>contactType</key>
+		<string>In Person</string>
+	</dict>
+</array>
+</plist>

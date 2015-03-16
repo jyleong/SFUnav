@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>contactInfo</key>
+		<string>intake@sfu.ca</string>
+		<key>contactDetail</key>
+		<string>For questions about counselling services</string>
+		<key>contactType</key>
+		<string>Email</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>hcs_feedback@sfu.ca</string>
+		<key>contactDetail</key>
+		<string>For general inquiries</string>
+		<key>contactType</key>
+		<string>Email</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>778-782-4615</string>
+		<key>contactDetail</key>
+		<string>For general inquiries</string>
+		<key>contactType</key>
+		<string>Phone</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>Maggie Benson Centre 0101</string>
+		<key>contactDetail</key>
+		<string>Appointments are made in-person
+ Monday to Friday: 
+9:00 am - 4:30 pm</string>
+		<key>contactType</key>
+		<string>In Person</string>
+	</dict>
+	<dict>
+		<key>contactInfo</key>
+		<string>778-782-3284</string>
+		<key>contactDetail</key>
+		<string>Book a physiotherapy appointment</string>
+		<key>contactType</key>
+		<string>Phone</string>
+	</dict>
+</array>
+</plist>

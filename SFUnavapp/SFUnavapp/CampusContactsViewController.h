@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CampusContactsViewController : UIViewController
-
+@interface CampusContactsViewController : UIViewController <UIAlertViewDelegate> 
 // segmented button
 @property (strong, nonatomic) IBOutlet UIView *burnabyView;
 @property (strong, nonatomic) IBOutlet UIView *surreyView;
