@@ -1182,17 +1182,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="250" id="vcZ-mp-WUS">
-                                        <rect key="frame" x="0.0" y="359" width="320" height="250"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="245" id="vcZ-mp-WUS">
+                                        <rect key="frame" x="0.0" y="359" width="320" height="245"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcZ-mp-WUS" id="QhA-FS-oEK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frx-NJ-2fY">
-                                                    <rect key="frame" x="10" y="0.0" width="295" height="250"/>
+                                                    <rect key="frame" x="10" y="0.0" width="295" height="245"/>
                                                     <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -1203,7 +1203,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="SM2-mC-ZNM">
-                                        <rect key="frame" x="0.0" y="609" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="604" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SM2-mC-ZNM" id="XdW-hn-9cf">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1223,7 +1223,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1gX-RH-0Vz">
-                                        <rect key="frame" x="0.0" y="653" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="648" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1gX-RH-0Vz" id="XO0-7m-Hdt">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
