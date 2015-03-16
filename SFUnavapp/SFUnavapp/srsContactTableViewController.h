@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface srsContactTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface srsContactTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 - (IBAction)makeCall:(NSString *)phoneNumber;
 - (IBAction)showEmail:(id)sender;
