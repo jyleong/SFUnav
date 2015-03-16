@@ -6,7 +6,7 @@
 		<key>contactInfo</key>
 		<string>access_control@sfu.ca</string>
 		<key>contactDetail</key>
-		<string></string>
+		<string>For general inquiries</string>
 		<key>contactType</key>
 		<string>Email</string>
 	</dict>
@@ -14,7 +14,7 @@
 		<key>contactInfo</key>
 		<string>778-782-5448</string>
 		<key>contactDetail</key>
-		<string></string>
+		<string>For general inquiries</string>
 		<key>contactType</key>
 		<string>Phone</string>
 	</dict>
