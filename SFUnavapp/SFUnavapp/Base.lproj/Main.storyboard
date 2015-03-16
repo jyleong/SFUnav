@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -840,11 +840,11 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="676" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
                                     <barButtonItem systemItem="rewind" id="MS9-XW-M3E">
@@ -876,7 +876,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -913,18 +913,18 @@
                         <viewControllerLayoutGuide type="bottom" id="sj6-1d-fXa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="L7t-mm-zwz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">We are Team NoMacs, or Team 13, a 5 person group comprised of student developers from CMPT 275. This term, we are fortunate to develop the official SFU mobile app thanks to our sponsor Mark McLaughlin from SFU Ancillary Services.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
-                                <rect key="frame" x="43" y="318" width="55" height="30"/>
+                                <rect key="frame" x="45" y="-27" width="55" height="30"/>
                                 <state key="normal" title="Website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -933,7 +933,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
-                                <rect key="frame" x="221" y="318" width="61" height="30"/>
+                                <rect key="frame" x="215" y="-27" width="61" height="30"/>
                                 <state key="normal" title="Email Us">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -941,10 +941,17 @@
                                     <action selector="openemail:" destination="2yi-F0-w5H" eventType="touchUpInside" id="vTC-2A-oLw"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Serena" translatesAutoresizingMaskIntoConstraints="NO" id="pVn-Eq-hHh">
+                                <rect key="frame" x="-83" y="189" width="486" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="z7x-Cg-ka7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="0.0"/>
                     <connections>
                         <outlet property="emailusButton" destination="rla-n8-SG4" id="eue-Rw-Uo1"/>
                         <outlet property="websiteButton" destination="V2U-3z-xIS" id="74S-te-Qww"/>
@@ -1291,6 +1298,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About Us" image="AboutUsicon" id="1FC-9p-uH0"/>
                     <toolbarItems/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bC7-fs-2qA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1386,6 +1394,7 @@
         <image name="Contactsicon" width="70" height="62"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Refresh_Grey" width="70" height="62"/>
+        <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
         <image name="Transiticon" width="70" height="62"/>
         <image name="Weathericon" width="70" height="62"/>
@@ -1401,6 +1410,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YuH-DV-njh"/>
-        <segue reference="rhp-dj-yhr"/>
+        <segue reference="Pov-Lm-lJD"/>
     </inferredMetricsTieBreakers>
 </document>
