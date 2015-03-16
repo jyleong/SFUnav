@@ -220,7 +220,7 @@
     //index path for label cell. Height adjusted to have full cell interactions
     if (indexPath.row ==4)
     {
-        height= 225;
+        height= 250;
     }
     
     return height;
