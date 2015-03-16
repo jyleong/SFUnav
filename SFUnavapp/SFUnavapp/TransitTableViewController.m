@@ -220,7 +220,7 @@
     //index path for label cell. Height adjusted to have full cell interactions
     if (indexPath.row ==4)
     {
-        height= 225;
+        height= 215;
     }
     
     return height;
@@ -369,7 +369,7 @@
 
 # pragma mark - displaymethods
 -(void) displayBusroutes {
-    NSString *currstring = [NSString stringWithFormat:@"Stop: %@%@\n", _stopID,_busNum];
+    NSString *currstring = @"";
     NSString *key;
     for(key in self.retrieveInfo.dictionary) {
         currstring = [currstring stringByAppendingFormat:@"%@\n", key];
@@ -381,7 +381,7 @@
     }
     _stringofTimes = currstring;
     
-    NSString *currstring2 = [NSString stringWithFormat:@"Stop: %@%@\n", _stopID,_busNum];
+    NSString *currstring2 = @"";
     NSString *secondkey;
     for(secondkey in self.retrieveInfo.dictionary_count) {
         currstring2 = [currstring2 stringByAppendingFormat:@"%@\n", secondkey];
@@ -420,7 +420,8 @@
     if ([holds_from_d count] != 0) {
         NSString *firstTime = holds_from_d[0];
         if (firstTime != nil) {
-            displayTimerString = [firstTime stringByAppendingString:@" min"];
+            //displayTimerString = [firstTime stringByAppendingString:@" min"];
+            displayTimerString = [NSString stringWithFormat:@"%@ Next Bus: %@min", _stopID, firstTime];
         }
         else {
             displayTimerString = @"";
