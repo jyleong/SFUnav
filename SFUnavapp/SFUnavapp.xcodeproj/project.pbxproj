@@ -26,10 +26,6 @@
 		049B5C071AB21571001521D4 /* Registrar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C061AB21571001521D4 /* Registrar.plist */; };
 		049B5C091AB216EC001521D4 /* Financial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C081AB216EC001521D4 /* Financial.plist */; };
 		04DD15831AB4EFC700714CFA /* studContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD15821AB4EFC700714CFA /* studContactTableViewController.m */; };
-		B0094F401AAFFF6C003AC68D /* all_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3C1AAFFF6C003AC68D /* all_campus_map.png */; };
-		B0094F411AAFFF6C003AC68D /* icons_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3D1AAFFF6C003AC68D /* icons_campus_map.png */; };
-		B0094F421AAFFF6C003AC68D /* none_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3E1AAFFF6C003AC68D /* none_campus_map.png */; };
-		B0094F431AAFFF6C003AC68D /* text_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0094F3F1AAFFF6C003AC68D /* text_campus_map.png */; };
 		B01BE6721A8D425E0013D9EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6711A8D425E0013D9EA /* Foundation.framework */; };
 		B01BE6741A8D425E0013D9EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6731A8D425E0013D9EA /* CoreGraphics.framework */; };
 		B01BE6761A8D425E0013D9EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6751A8D425E0013D9EA /* UIKit.framework */; };
@@ -53,6 +49,8 @@
 		B01E40551AB6099A00166904 /* MVSFUMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E40541AB6099A00166904 /* MVSFUMapOverlayView.m */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
+		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
+		B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */; };
 		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
 		B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
@@ -72,8 +70,6 @@
 		D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E082A1AAFE93900B35F6B /* LoginViewController.m */; };
 		D2DB94D61AA912C800501DD7 /* Blusson_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */; };
 		D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */; };
-		DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */; };
-		DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */; };
 		DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC11AA67135006AA2D9 /* MTImageMapView.m */; };
 		DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC51AA67308006AA2D9 /* MapViewController.m */; };
 		DC566CD01AA6A1D0006AA2D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC566CCF1AA6A1D0006AA2D9 /* SystemConfiguration.framework */; };
@@ -87,8 +83,8 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
-		EEC408AA1AB2604400B825E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC408A91AB2604400B825E3 /* News.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
+		EEC408AA1AB2604400B825E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC408A91AB2604400B825E3 /* News.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,10 +121,6 @@
 		049B5C081AB216EC001521D4 /* Financial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Financial.plist; sourceTree = "<group>"; };
 		04DD15811AB4EFC700714CFA /* studContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = studContactTableViewController.h; sourceTree = "<group>"; };
 		04DD15821AB4EFC700714CFA /* studContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = studContactTableViewController.m; sourceTree = "<group>"; };
-		B0094F3C1AAFFF6C003AC68D /* all_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_campus_map.png; sourceTree = "<group>"; };
-		B0094F3D1AAFFF6C003AC68D /* icons_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons_campus_map.png; sourceTree = "<group>"; };
-		B0094F3E1AAFFF6C003AC68D /* none_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none_campus_map.png; sourceTree = "<group>"; };
-		B0094F3F1AAFFF6C003AC68D /* text_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_campus_map.png; sourceTree = "<group>"; };
 		B01BE66E1A8D425E0013D9EA /* SFUnavapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFUnavapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01BE6711A8D425E0013D9EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B01BE6731A8D425E0013D9EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +155,8 @@
 		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
 		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
+		B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
+		B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
 		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = SFUnavapp/Library_floorplan.png; sourceTree = SOURCE_ROOT; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
@@ -192,8 +186,6 @@
 		D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blusson_floorplan.png; sourceTree = "<group>"; };
 		D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableViewController.h; sourceTree = "<group>"; };
 		D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableViewController.m; sourceTree = "<group>"; };
-		DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
-		DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		DC566CC01AA67135006AA2D9 /* MTImageMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageMapView.h; sourceTree = "<group>"; };
 		DC566CC11AA67135006AA2D9 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
 		DC566CC41AA67308006AA2D9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -214,9 +206,9 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 		EEC408A81AB2604400B825E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		EEC408A91AB2604400B825E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,8 +338,8 @@
 				B01BE67A1A8D425E0013D9EA /* InfoPlist.strings */,
 				B01BE67D1A8D425E0013D9EA /* main.m */,
 				B01BE67F1A8D425E0013D9EA /* SFUnavapp-Prefix.pch */,
-				DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */,
-				DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */,
+				B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */,
+				B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */,
 				B01E404C1AB606E200166904 /* SFUlatlongCoor.plist */,
 			);
 			name = "Supporting Files";
@@ -565,10 +557,10 @@
 			files = (
 				DC86567C1A97162E00D908C9 /* AQNorth.html in Resources */,
 				B0DB77EB1AB2A44800EFDB83 /* none_campus_map.png in Resources */,
+				B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */,
 				B01BE68D1A8D425E0013D9EA /* Images.xcassets in Resources */,
 				B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */,
 				B0DB77EA1AB2A44800EFDB83 /* icons_campus_map.png in Resources */,
-				DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */,
 				B01BE67C1A8D425E0013D9EA /* InfoPlist.strings in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
@@ -581,8 +573,8 @@
 				045E5E781AB0144200FDF7BC /* surrey.png in Resources */,
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
-				DC566CCE1AA68328006AA2D9 /* Campus_Map.png in Resources */,
 				045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */,
+				B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */,
 				B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				B01E404D1AB606E200166904 /* SFUlatlongCoor.plist in Resources */,
@@ -595,7 +587,6 @@
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
-				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
 				B0DB77E91AB2A44800EFDB83 /* all_campus_map.png in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
