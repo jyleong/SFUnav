@@ -31,6 +31,9 @@
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     // Override point for customization after application launch.
+    
+    [GMSServices provideAPIKey:@"AIzaSyBFtiNNbmwLpkIwusvkDV9rWPDCU9zcP18"];
+    // to use google maps sdk
     return YES;
 }
 

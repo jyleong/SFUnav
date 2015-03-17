@@ -7,16 +7,15 @@
 //
 
 #import "OnlineMapViewController.h"
-#import "MVSFU.h"
-#import "MVSFUMapOverlay.h"
-#import "MVSFUMapOverlayView.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface OnlineMapViewController ()
-@property (nonatomic,strong) MVSFU *sfum;
+
 
 @end
 
-@implementation OnlineMapViewController
+@implementation OnlineMapViewController {
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,22 +30,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate at SFU at zoom level 10.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.278094
+                                                            longitude:-122.919883
+                                                                 zoom:15];
+    _sfumapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    _sfumapView.myLocationEnabled = YES;
+    self.view = _sfumapView;
     
-    self.sfum = [[MVSFU alloc] initWithFilename:@"SFUlatlongCoor"];
-    
-    
-    CLLocationDegrees latDelta = self.sfum.overlayTopLeftCoordinate.latitude - self.sfum.overlayBottomRightCoordinate.latitude;
-    
-    // think of a span as a tv size, measure from one corner to another
-    MKCoordinateSpan span = MKCoordinateSpanMake(fabsf(latDelta), 0.01);
-    
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.sfum.midCoordinate, span);
-    
-    [self.sfumapView setRegion:region];
-    [self addOverlay];
-    
-    [self.sfumapView setShowsUserLocation:YES];
-    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(49.278094, -122.919883);
+    marker.title = @"SFU";
+    marker.snippet = @"Burnaby";
+    marker.map = _sfumapView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,21 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addOverlay {
-    MVSFUMapOverlay *overlay = [[MVSFUMapOverlay alloc] initWithSFU:self.sfum];
-    [self.sfumapView addOverlay:overlay];
-    NSLog(@"addoverlay called?");
-}
-
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay{
-    if ([overlay isKindOfClass:MVSFUMapOverlay.class]) {
-        UIImage *sfuImage = [UIImage imageNamed:@"all_campus_map_rotated.png"];
-        MVSFUMapOverlayView *overlayView = [[MVSFUMapOverlayView alloc] initWithOverlay:overlay overlayImage:sfuImage];
-        return overlayView;
-    }
-    
-    return nil;
-}
 
 /*
 #pragma mark - Navigation
