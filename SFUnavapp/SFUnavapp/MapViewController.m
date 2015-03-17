@@ -175,10 +175,6 @@ NSMutableArray * BuildingObjects;
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
     }
-    /*else if ([[segue identifier] isEqualToString:@"onlineView"]) {
-        OnlineMapViewController *omvc = [segue destinationViewController];
-        omvc.hidesBottomBarWhenPushed = YES;
-    }*/
 
 
 }
