@@ -9,10 +9,14 @@
 //
 
 #import "ServicesWebViewController.h"
-
+#import "ServicesTableViewController.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface ServicesWebViewController ()
+{
+    bool loggedIn;
+}
+
 @property (weak, nonatomic) IBOutlet UIWebView *currentlink;
 
 @end
@@ -38,16 +42,22 @@
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
+    NSLog(@"string url%@",url);
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
+    
+    if (autoLogin)
+        loggedIn=NO;
+    else
+        loggedIn=YES;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webview
 {
-    if ([_currentURL.serviceName isEqualToString:@"goSFU (SIS)"])
+    if (([_currentURL.serviceName isEqualToString:@"goSFU (SIS)"]) && (loggedIn==NO))
     {
-        NSLog(@"found sis");
+        NSLog(@"found sis FOR AUTOLOGIN");
         [self injectJavatoSIS];
     }
 }
@@ -55,15 +65,19 @@
 -(void) injectJavatoSIS
 {
     NSString *js= [NSString stringWithFormat:
-         @"var x= document.getElementById('login');"
-        @"if (x==null) console.log('IT WAS NULL')"
+         @"var x=document.getElementsByClassName('PSEDITBOXLABEL')"
+         @"x[1].innerHTML"
          ];
     //inject javascript code
     //http://www.kirupa.com/html5/running_your_code_at_the_right_time.htm
-    NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
-//    while (![[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"complete"]) {
-//        NSLog(@"waiting for frames to load");
-//    }
+    if (![[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"ID"])
+    {
+        NSLog(@"Element not found");
+        [self webViewDidFinishLoad:_currentlink];
+        return;
+        
+    }
+
     js= [NSString stringWithFormat:
          @"var x= document.getElementById('footer');"
          @"window.load=myfunc(){"

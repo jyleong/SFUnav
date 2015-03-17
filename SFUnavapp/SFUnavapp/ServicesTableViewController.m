@@ -113,7 +113,7 @@ BOOL autoLogin;
     [super viewWillAppear:animated];
     if (autoLogin)
         _LoginButton.title=@"Logout";
-    NSLog(@"%@ %@",username,password);
+   // NSLog(@"%@ %@",username,password);
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,7 +204,9 @@ BOOL autoLogin;
         ServicesURL *send = links[path.row];
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];
+        
     }
+   
 }
 
 
@@ -214,30 +216,38 @@ BOOL autoLogin;
     }
     else
     {
-        NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=https%3A%2F%2Fcourses.cs.sfu.ca%2F"];
+        NSURL *url= [NSURL URLWithString:@"https://courses.cs.sfu.ca/logout/"];
         NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
         NSLog(@"Logout coursys\n");
         [_web loadRequest:requestObj];
+       
         
-        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
-        requestObj= [NSURLRequest requestWithURL:url];
-        NSLog(@"Logout connect\n");
-        [_web loadRequest:requestObj];
-
-        url= [NSURL URLWithString:@"https://sfu-csm.symplicity.com/logout.php"];
-        requestObj= [NSURLRequest requestWithURL:url];
-        NSLog(@"Logout symplicity\n");
-        [_web loadRequest:requestObj];
-        
-        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?destination=https%3A%2F%2Fcanvas.sfu.ca%2Flogin%2Fcas&gateway=true"];
-        requestObj= [NSURLRequest requestWithURL:url];
-        NSLog(@"Logout canvas\n");
-        [_web loadRequest:requestObj];
+//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
+//        requestObj= [NSURLRequest requestWithURL:url];
+//        NSLog(@"Logout connect\n");
+//        [_web loadRequest:requestObj];
+//
+//        url= [NSURL URLWithString:@"https://sfu-csm.symplicity.com/logout.php"];
+//        requestObj= [NSURLRequest requestWithURL:url];
+//        NSLog(@"Logout symplicity\n");
+//        [_web loadRequest:requestObj];
+//        
+//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?destination=https%3A%2F%2Fcanvas.sfu.ca%2Flogin%2Fcas&gateway=true"];
+//        requestObj= [NSURLRequest requestWithURL:url];
+//        NSLog(@"Logout canvas\n");
+//        [_web loadRequest:requestObj];
         
         _LoginButton.title=@"Login";
         autoLogin=NO;
         username=@"";
         password=@"";
+         [[NSURLCache sharedURLCache] removeAllCachedResponses];
+//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
+//        requestObj= [NSURLRequest requestWithURL:url];
+//        NSLog(@"Logout connect\n");
+//        [_web loadRequest:requestObj];
+    
+    
     }
     
 }
