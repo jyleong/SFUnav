@@ -636,7 +636,7 @@
                     <navigationItem key="navigationItem" id="QNM-Ay-pqU">
                         <barButtonItem key="rightBarButtonItem" title="Online" id="P5L-gc-wXU">
                             <connections>
-                                <segue destination="7o9-pz-HuX" kind="push" id="Wxf-Ny-L3t"/>
+                                <segue destination="S9R-r9-cj7" kind="push" identifier="onlineVIew" id="jpV-03-kX5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -650,40 +650,40 @@
             <point key="canvasLocation" x="-333" y="-305"/>
         </scene>
         <!--Online Map View Controller-->
-        <scene sceneID="ioV-HJ-jeW">
+        <scene sceneID="WlD-Ap-1B5">
             <objects>
-                <viewController id="7o9-pz-HuX" customClass="OnlineMapViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="S9R-r9-cj7" customClass="OnlineMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Acd-b5-NsN"/>
-                        <viewControllerLayoutGuide type="bottom" id="EAB-xI-kl3"/>
+                        <viewControllerLayoutGuide type="top" id="DUO-3k-7Pw"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIU-pg-o6W"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u6n-ks-bbn">
+                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB" customClass="GMSMapView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-ah-C4b">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-sC-UPG">
+                                <rect key="frame" x="262" y="77" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="delegate" destination="7o9-pz-HuX" id="zH9-2k-9A5"/>
+                                    <action selector="clearMark:" destination="S9R-r9-cj7" eventType="touchUpInside" id="nZ7-0p-V2O"/>
                                 </connections>
-                            </mapView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sfo-ah-C4b" firstAttribute="leading" secondItem="u6n-ks-bbn" secondAttribute="leading" id="7e0-pe-xaI"/>
-                            <constraint firstItem="sfo-ah-C4b" firstAttribute="top" secondItem="u6n-ks-bbn" secondAttribute="top" id="SEn-RQ-XD5"/>
-                            <constraint firstAttribute="bottom" secondItem="sfo-ah-C4b" secondAttribute="bottom" id="WAS-hQ-asC"/>
-                            <constraint firstAttribute="trailing" secondItem="sfo-ah-C4b" secondAttribute="trailing" id="YTi-ea-JVv"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="E2o-Lt-Mja"/>
+                    <navigationItem key="navigationItem" id="BIk-ID-3VK"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sfumapView" destination="sfo-ah-C4b" id="dJi-uh-Q9c"/>
+                        <outlet property="clrBtn" destination="rDR-sC-UPG" id="Knb-NM-839"/>
+                        <outlet property="sfumapView" destination="Que-i4-fTB" id="WzJ-ds-8R2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0dW-2x-iL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Vr-fo-UMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="-896"/>
+            <point key="canvasLocation" x="5" y="-803"/>
         </scene>
         <!--Floor Plan Table View Controller-->
         <scene sceneID="F0d-iD-d2k">

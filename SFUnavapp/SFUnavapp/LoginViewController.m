@@ -161,10 +161,17 @@
             password=_passWord.text;
             return;
         }
-        _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
-        autoLogin=NO;
+        js= [NSString stringWithFormat:
+         @"var x= document.getElementsByTagName('span');"
+         @"x[2].innerHTML"
+         ];
+        if([[_web stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"The credentials you provided cannot be determined to be authentic."])
+        {
+            NSLog(@"Failure");
+            _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
+            autoLogin=NO;
     
-
+        }
 
 }
 
