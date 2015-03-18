@@ -1083,11 +1083,11 @@
             </objects>
             <point key="canvasLocation" x="-237" y="2322"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - News-->
         <scene sceneID="ITK-PO-uNb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="EMH-eS-sVh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="D6a-kh-ww7"/>
+                    <tabBarItem key="tabBarItem" title="News" id="D6a-kh-ww7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Egq-uw-AqY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
