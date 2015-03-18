@@ -9,6 +9,7 @@
 #import "NewsTableViewController.h"
 #import "AppDelegate.h"
 #import "Parser.h"
+#import "NewsWebViewController.h"
 @interface NewsTableViewController ()
 @end
 
@@ -133,16 +134,38 @@
     return YES;
 }
 */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"hahah");
+    
+    [self performSegueWithIdentifier:@"NewsLink" sender:self];
+    //[self performSegueWithIdentifier:@"linktoWeb" sender:self];
+    
+    
+    
+    
+    
+}
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
+    if ([[segue identifier] isEqualToString:@"NewsLink"]) {
+        NewsWebViewController *webcont = [segue destinationViewController];
+        
+       // ServicesURL *send = [[ServicesURL alloc] init];
+        //send.serviceName=@"About Us";
+        //send.serviceURL=@"https://cmpt275g13.wordpress.com/";
+        //webcont.hidesBottomBarWhenPushed = YES;
+        [webcont setCurrentURL:theList];
+    }
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

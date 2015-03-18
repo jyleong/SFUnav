@@ -93,6 +93,7 @@
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
+		EE9A4CD91ABA23F9008AE555 /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */; };
 		EEC408AA1AB2604400B825E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC408A91AB2604400B825E3 /* News.m */; };
 		EEC7864B1AB79312004AF041 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC786481AB79312004AF041 /* List.m */; };
 		EEC7864C1AB79312004AF041 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864A1AB79312004AF041 /* Parser.m */; };
@@ -225,6 +226,8 @@
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
+		EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsWebViewController.h; path = ../NewsWebViewController.h; sourceTree = "<group>"; };
+		EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsWebViewController.m; path = ../NewsWebViewController.m; sourceTree = "<group>"; };
 		EEC408A81AB2604400B825E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		EEC408A91AB2604400B825E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		EEC786471AB79312004AF041 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
@@ -342,11 +345,11 @@
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
-				DCC465C71AB8E22900922F21 /* TabBarController.h */,
-				DCC465C81AB8E22900922F21 /* TabBarController.m */,
 				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
 				EEC786471AB79312004AF041 /* List.h */,
 				EEC786481AB79312004AF041 /* List.m */,
+				EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */,
+				EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */,
 				EEC786491AB79312004AF041 /* Parser.h */,
 				EEC7864A1AB79312004AF041 /* Parser.m */,
 				EEC408A81AB2604400B825E3 /* News.h */,
@@ -668,9 +671,9 @@
 				B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */,
 				B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */,
 				DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */,
-				DCC465C91AB8E22900922F21 /* TabBarController.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				D27E32761A984E1A00004735 /* XPathQuery.m in Sources */,
+				EE9A4CD91ABA23F9008AE555 /* NewsWebViewController.m in Sources */,
 				D27E32741A984E1A00004735 /* TFHpple.m in Sources */,
 				B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */,
 				B01BE6821A8D425E0013D9EA /* AppDelegate.m in Sources */,
@@ -680,7 +683,6 @@
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
-				B01E40551AB6099A00166904 /* MVSFUMapOverlayView.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,

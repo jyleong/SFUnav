@@ -29,6 +29,10 @@
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];// changes all titles in navbar to white
     //code to manipulate tabbar - James
     //UIImage *tabBarBackground = [UIImage imageNamed:@"CustomUITabbar.png"];
+    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
     [GMSServices provideAPIKey:@"AIzaSyBFtiNNbmwLpkIwusvkDV9rWPDCU9zcP18"];
     // to use google maps sdk
     
