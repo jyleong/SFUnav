@@ -78,11 +78,17 @@
     theList = [app.listArray objectAtIndex:indexPath.row];
     NSString *input = theList.title;
     NSString* result = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *laugh = @"haha";
     
-    //cell.textLabel.text = @"buttonsdafaadsfsadfsfsdfsdfsafsdfasdfa";
+    NSString *inputdate = theList.pubDate;
     cell.textLabel.text = result;
-    NSLog(result);
+    
+    
+    
+    NSString *result2 = [inputdate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//result2 = @"haha";
+    cell.detailTextLabel.text =result2;
+    
+    NSLog(result2);
    // NSLog(theList.title);
     //NSLog(theList.link);
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
