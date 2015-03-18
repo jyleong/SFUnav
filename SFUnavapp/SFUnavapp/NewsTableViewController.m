@@ -63,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [app.listArray count];
 }
@@ -89,7 +89,7 @@
 //result2 = @"haha";
     cell.detailTextLabel.text =result2;
     
-    NSLog(result2);
+   // NSLog(result2);
    // NSLog(theList.title);
     //NSLog(theList.link);
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -135,7 +135,7 @@
 }
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"hahah");
+    //NSLog(@"hahah");
     
     [self performSegueWithIdentifier:@"NewsLink" sender:self];
     //[self performSegueWithIdentifier:@"linktoWeb" sender:self];

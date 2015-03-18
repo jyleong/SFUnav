@@ -37,7 +37,7 @@
     
     
     
-    NSLog(trimmedURL);
+    //NSLog(trimmedURL);
     NSString *fullURL = trimmedURL;
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
