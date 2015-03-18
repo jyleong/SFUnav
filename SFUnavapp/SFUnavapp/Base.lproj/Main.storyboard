@@ -656,12 +656,12 @@
                         <viewControllerLayoutGuide type="top" id="DUO-3k-7Pw"/>
                         <viewControllerLayoutGuide type="bottom" id="QIU-pg-o6W"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB" customClass="GMSMapView">
+                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-sC-UPG">
-                                <rect key="frame" x="262" y="77" width="37" height="30"/>
+                                <rect key="frame" x="263" y="126" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -670,14 +670,24 @@
                                     <action selector="clearMark:" destination="S9R-r9-cj7" eventType="touchUpInside" id="nZ7-0p-V2O"/>
                                 </connections>
                             </button>
+                            <searchBar appearanceType="aqua" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-D0-XsZ">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="S9R-r9-cj7" id="4XO-ih-OVt"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BIk-ID-3VK"/>
+                    <navigationItem key="navigationItem" id="BIk-ID-3VK">
+                        <nil key="title"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="clrBtn" destination="rDR-sC-UPG" id="Knb-NM-839"/>
-                        <outlet property="sfumapView" destination="Que-i4-fTB" id="WzJ-ds-8R2"/>
+                        <outlet property="searchBar" destination="Bt1-D0-XsZ" id="oXs-gT-lvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vr-fo-UMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
