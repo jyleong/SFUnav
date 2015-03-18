@@ -180,12 +180,6 @@ NSMutableArray * BuildingObjects;
         [self performSegueWithIdentifier:@"ShowPlans" sender:self];
 }
 
-- (IBAction)toggleBlank:(id)sender {
-    [self changeImage:@"none_campus_map.png"];
-    icons = NO;
-    text = NO;
-}
-
 - (IBAction)toggleIcon:(id)sender {
     if (icons && text) {
         [self changeImage:@"text_campus_map.png"];

@@ -614,15 +614,6 @@
                                     <action selector="toggleText:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="w2l-6X-K1F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRg-yH-D9G">
-                                <rect key="frame" x="140" y="70" width="38" height="30"/>
-                                <state key="normal" title="blank">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleBlank:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="hXw-h5-bJf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="6" id="7d0-6O-1kc"/>
