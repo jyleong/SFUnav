@@ -627,7 +627,7 @@
                     <navigationItem key="navigationItem" id="QNM-Ay-pqU">
                         <barButtonItem key="rightBarButtonItem" title="Online" id="P5L-gc-wXU">
                             <connections>
-                                <segue destination="7o9-pz-HuX" kind="push" id="Wxf-Ny-L3t"/>
+                                <segue destination="S9R-r9-cj7" kind="push" identifier="onlineVIew" id="jpV-03-kX5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -641,40 +641,36 @@
             <point key="canvasLocation" x="-333" y="-305"/>
         </scene>
         <!--Online Map View Controller-->
-        <scene sceneID="ioV-HJ-jeW">
+        <scene sceneID="WlD-Ap-1B5">
             <objects>
-                <viewController id="7o9-pz-HuX" customClass="OnlineMapViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="S9R-r9-cj7" customClass="OnlineMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Acd-b5-NsN"/>
-                        <viewControllerLayoutGuide type="bottom" id="EAB-xI-kl3"/>
+                        <viewControllerLayoutGuide type="top" id="DUO-3k-7Pw"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIU-pg-o6W"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u6n-ks-bbn">
+                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB" customClass="GMSMapView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sfo-ah-C4b">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <connections>
-                                    <outlet property="delegate" destination="7o9-pz-HuX" id="zH9-2k-9A5"/>
+                                    <action selector="clearMark:" destination="S9R-r9-cj7" eventType="touchUpInside" id="nZ7-0p-V2O"/>
                                 </connections>
-                            </mapView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sfo-ah-C4b" firstAttribute="leading" secondItem="u6n-ks-bbn" secondAttribute="leading" id="7e0-pe-xaI"/>
-                            <constraint firstItem="sfo-ah-C4b" firstAttribute="top" secondItem="u6n-ks-bbn" secondAttribute="top" id="SEn-RQ-XD5"/>
-                            <constraint firstAttribute="bottom" secondItem="sfo-ah-C4b" secondAttribute="bottom" id="WAS-hQ-asC"/>
-                            <constraint firstAttribute="trailing" secondItem="sfo-ah-C4b" secondAttribute="trailing" id="YTi-ea-JVv"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="E2o-Lt-Mja"/>
+                    <navigationItem key="navigationItem" id="BIk-ID-3VK"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sfumapView" destination="sfo-ah-C4b" id="dJi-uh-Q9c"/>
+                        <outlet property="clrBtn" destination="rDR-sC-UPG" id="Knb-NM-839"/>
+                        <outlet property="sfumapView" destination="Que-i4-fTB" id="WzJ-ds-8R2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0dW-2x-iL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Vr-fo-UMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="-896"/>
+            <point key="canvasLocation" x="5" y="-803"/>
         </scene>
         <!--Floor Plan Table View Controller-->
         <scene sceneID="F0d-iD-d2k">
@@ -1106,7 +1102,7 @@
             <objects>
                 <tableViewController id="hYB-sD-pmv" customClass="TransitTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zf1-dE-GlU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -1191,7 +1187,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efl-4G-Ibk">
-                                                    <rect key="frame" x="155" y="-9" width="125" height="62"/>
+                                                    <rect key="frame" x="175" y="-9" width="125" height="62"/>
                                                     <state key="normal" image="Refresh_Grey">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1211,7 +1207,7 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPi-Nw-rU0">
-                                                    <rect key="frame" x="121" y="9" width="56" height="21"/>
+                                                    <rect key="frame" x="20" y="9" width="180" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1222,17 +1218,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="163" id="vcZ-mp-WUS">
-                                        <rect key="frame" x="0.0" y="359" width="320" height="163"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="215" id="vcZ-mp-WUS">
+                                        <rect key="frame" x="0.0" y="359" width="320" height="215"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcZ-mp-WUS" id="QhA-FS-oEK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frx-NJ-2fY">
-                                                    <rect key="frame" x="10" y="0.0" width="295" height="225"/>
+                                                    <rect key="frame" x="10" y="0.0" width="295" height="215"/>
                                                     <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -1243,7 +1239,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="SM2-mC-ZNM">
-                                        <rect key="frame" x="0.0" y="522" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="574" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SM2-mC-ZNM" id="XdW-hn-9cf">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1263,7 +1259,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1gX-RH-0Vz">
-                                        <rect key="frame" x="0.0" y="566" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="618" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1gX-RH-0Vz" id="XO0-7m-Hdt">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1292,7 +1288,7 @@
                     <navigationItem key="navigationItem" id="3fr-VK-224"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="600"/>
+                    <size key="freeformSize" width="320" height="700"/>
                     <connections>
                         <outlet property="busDisplaytextView" destination="frx-NJ-2fY" id="hX3-cR-ec3"/>
                         <outlet property="quicklinkLabel" destination="P6e-D5-aCy" id="1sy-iy-9k5"/>

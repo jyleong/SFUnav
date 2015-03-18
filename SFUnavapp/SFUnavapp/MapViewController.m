@@ -11,6 +11,7 @@
 
 #import "MapViewController.h"
 #import "BuildingObject.h"
+#import "OnlineMapViewController.h"
 @interface MapViewController ()
 {
     bool icons;
@@ -239,7 +240,6 @@ NSMutableArray * BuildingObjects;
             BuildingObject *send = BuildingObjects[_currentIndex]; //should map key to custom object
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
-        
     }
 
 }

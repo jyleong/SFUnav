@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface OnlineMapViewController : UIViewController <MKMapViewDelegate>
-@property (weak, nonatomic) IBOutlet MKMapView *sfumapView;
+@interface OnlineMapViewController : UIViewController <GMSMapViewDelegate>
+
+@property (strong, nonatomic) IBOutlet GMSMapView *sfumapView;
 
 @end
