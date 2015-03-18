@@ -205,6 +205,7 @@ NSMutableArray * BuildingObjects;
 }
 
 - (IBAction)toggleText:(id)sender {
+    
     if (icons && text) {
         [self changeImage:@"icons_campus_map.png"];
         icons = YES;

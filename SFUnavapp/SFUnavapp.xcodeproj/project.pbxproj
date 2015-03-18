@@ -48,7 +48,18 @@
 		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
 		B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */; };
 		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
-		B0A3826F1AB6D9C700FD23ED /* MapUI_button_text.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A3826E1AB6D9C700FD23ED /* MapUI_button_text.png */; };
+		B0A1E6391AB7959300B5D60C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */; };
+		B0A1E6401AB795C400B5D60C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */; };
+		B0A1E6411AB795C400B5D60C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63D1AB795C400B5D60C /* CoreData.framework */; };
+		B0A1E6421AB795C400B5D60C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63E1AB795C400B5D60C /* CoreLocation.framework */; };
+		B0A1E6431AB795C400B5D60C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63F1AB795C400B5D60C /* CoreText.framework */; };
+		B0A1E6461AB795CD00B5D60C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6441AB795CD00B5D60C /* GLKit.framework */; };
+		B0A1E6471AB795CE00B5D60C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6451AB795CD00B5D60C /* OpenGLES.framework */; };
+		B0A1E6491AB795D800B5D60C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6481AB795D800B5D60C /* ImageIO.framework */; };
+		B0A1E64B1AB795E100B5D60C /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E64A1AB795E100B5D60C /* libc++.dylib */; };
+		B0A1E64D1AB795E900B5D60C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E64C1AB795E900B5D60C /* libicucore.dylib */; };
+		B0A1E64F1AB795F100B5D60C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E64E1AB795F100B5D60C /* libz.dylib */; };
+		B0A1E6511AB795FC00B5D60C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6501AB795FC00B5D60C /* QuartzCore.framework */; };
 		B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */; };
 		B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */; };
 		B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0BC90671AB7A0FA00135D51 /* GoogleMaps.bundle */; };
@@ -81,6 +92,7 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
+		DCC465C91AB8E22900922F21 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC465C81AB8E22900922F21 /* TabBarController.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 		EEC408AA1AB2604400B825E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC408A91AB2604400B825E3 /* News.m */; };
 /* End PBXBuildFile section */
@@ -149,7 +161,18 @@
 		B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
 		B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
-		B0A3826E1AB6D9C700FD23ED /* MapUI_button_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapUI_button_text.png; sourceTree = "<group>"; };
+		B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B0A1E63D1AB795C400B5D60C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B0A1E63E1AB795C400B5D60C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B0A1E63F1AB795C400B5D60C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B0A1E6441AB795CD00B5D60C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B0A1E6451AB795CD00B5D60C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B0A1E6481AB795D800B5D60C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		B0A1E64A1AB795E100B5D60C /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		B0A1E64C1AB795E900B5D60C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B0A1E64E1AB795F100B5D60C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B0A1E6501AB795FC00B5D60C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B0A5B71B1AAA165D00F0F42F /* Library_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Library_floorplan.png; path = SFUnavapp/Library_floorplan.png; sourceTree = SOURCE_ROOT; };
 		B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusRouteStorage.h; sourceTree = "<group>"; };
 		B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusRouteStorage.m; sourceTree = "<group>"; };
@@ -199,6 +222,8 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		DCC465C71AB8E22900922F21 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		DCC465C81AB8E22900922F21 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 		EEC408A81AB2604400B825E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		EEC408A91AB2604400B825E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
