@@ -55,44 +55,50 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webview
 {
+    NSLog(@"did finish load");
     if (([_currentURL.serviceName isEqualToString:@"goSFU (SIS)"]) && (loggedIn==NO))
     {
         NSLog(@"found sis FOR AUTOLOGIN");
-        [self injectJavatoSIS];
+        NSString *js= [NSString stringWithFormat:
+                       @"var x= document.getElementsByClassName('PSPUSHBUTTON')"
+                       @"x[6].name"
+                        ];
+        while([[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"Submit"])
+        {
+            NSLog(@"returning");
+            
+        }
+        //[self injectJavatoSIS];
     }
 }
 
 -(void) injectJavatoSIS
 {
+//    NSString *js= [NSString stringWithFormat:
+//         @"var x= document.getElementsByClassName('PSPUSHBUTTON')"
+//         @"x[6].name"
+//         ];
+//    //inject javascript code
+//    //http://www.kirupa.com/html5/running_your_code_at_the_right_time.htm
+//    if ([[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"Submit"])
+//    {
+//        NSLog(@"Element not found");
+//        [self webViewDidFinishLoad:_currentlink];
+//        return;
+//        
+//    }
+    NSLog(@"prepare to inject");
     NSString *js= [NSString stringWithFormat:
-         @"var x=document.getElementsByClassName('PSEDITBOXLABEL')"
-         @"x[1].innerHTML"
-         ];
-    //inject javascript code
-    //http://www.kirupa.com/html5/running_your_code_at_the_right_time.htm
-    if (![[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"ID"])
-    {
-        NSLog(@"Element not found");
-        [self webViewDidFinishLoad:_currentlink];
-        return;
-        
-    }
-
-    js= [NSString stringWithFormat:
-         @"var x= document.getElementById('footer');"
-         @"window.load=myfunc(){"
          @"var user=document.getElementById('user');"
          @"user.value='%@';"
          @"var pwd= document.getElementById('pwd');"
          @"pwd.value='%@';"
          @"var form=document.getElementById('login');"
-         @"form.submit();"
-         @"};"
-         @"document.readyState;",username,password
+         @"form.submit();",username,password
          ];
         NSLog(@"injecting into sis");
     [_currentlink stringByEvaluatingJavaScriptFromString:js];
-    NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
+    //NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
 
 }
 
