@@ -10,6 +10,7 @@
 
 #import "ServicesWebViewController.h"
 #import "ServicesTableViewController.h"
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface ServicesWebViewController ()
@@ -42,64 +43,44 @@
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
-    NSLog(@"string url%@",url);
+
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
     
-    if (autoLogin)
-        loggedIn=NO;
-    else
-        loggedIn=YES;
+    if (autoLogin && [_currentURL.serviceName isEqualToString:@"goSFU (SIS)"])
+    {
+        NSTimer * timer;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                             target:self
+                                           selector:@selector(webViewLoading:)
+                                           userInfo:nil
+                                            repeats:YES];
+    }
+    
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webview
-{
-    NSLog(@"did finish load");
-    if (([_currentURL.serviceName isEqualToString:@"goSFU (SIS)"]) && (loggedIn==NO))
-    {
-        NSLog(@"found sis FOR AUTOLOGIN");
-        NSString *js= [NSString stringWithFormat:
-                       @"var x= document.getElementsByClassName('PSPUSHBUTTON')"
-                       @"x[6].name"
-                        ];
-        while([[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"Submit"])
-        {
-            NSLog(@"returning");
-            
-        }
-        //[self injectJavatoSIS];
+
+-(void)webViewLoading:(NSTimer *)timer{
+    if (_currentlink.loading) {
+        
     }
+    else
+    {
+        [self injectJavatoSIS];
+        [timer invalidate];
+   }
+   
 }
 
 -(void) injectJavatoSIS
 {
-//    NSString *js= [NSString stringWithFormat:
-//         @"var x= document.getElementsByClassName('PSPUSHBUTTON')"
-//         @"x[6].name"
-//         ];
-//    //inject javascript code
-//    //http://www.kirupa.com/html5/running_your_code_at_the_right_time.htm
-//    if ([[_currentlink stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"Submit"])
-//    {
-//        NSLog(@"Element not found");
-//        [self webViewDidFinishLoad:_currentlink];
-//        return;
-//        
-//    }
+    
     NSLog(@"prepare to inject");
-    NSString *js= [NSString stringWithFormat:
-         @"var user=document.getElementById('user');"
-         @"user.value='%@';"
-         @"var pwd= document.getElementById('pwd');"
-         @"pwd.value='%@';"
-         @"var form=document.getElementById('login');"
-         @"form.submit();",username,password
-         ];
-        NSLog(@"injecting into sis");
-    [_currentlink stringByEvaluatingJavaScriptFromString:js];
-    //NSLog(@"%@",[_currentlink stringByEvaluatingJavaScriptFromString:js]);
-
+    [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('user').value = '%@';", username]];
+    [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('pwd').value = '%@';", password]];
+    [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('PSPUSHBUTTON')[5].click()"]];
+  
 }
 
 - (void)didReceiveMemoryWarning

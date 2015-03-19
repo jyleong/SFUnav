@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -29,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
-        <!--Table View Controller - Library-->
+        <!--Library-->
         <scene sceneID="CoY-Td-vLr">
             <objects>
                 <tableViewController id="iZn-1Q-9HV" sceneMemberID="viewController">
@@ -58,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="-703" y="-945"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="Y32-wr-tjt">
             <objects>
                 <navigationController definesPresentationContext="YES" id="e6q-p2-wW2" sceneMemberID="viewController">
@@ -74,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="-1137" y="-945"/>
         </scene>
-        <!--Weather Table View Controller - Title-->
+        <!--Title-->
         <scene sceneID="7XG-3b-Vn6">
             <objects>
                 <tableViewController id="4i8-eF-r4p" customClass="WeatherTableViewController" sceneMemberID="viewController">
@@ -157,7 +158,7 @@
             </objects>
             <point key="canvasLocation" x="1693" y="262"/>
         </scene>
-        <!--Navigation Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
@@ -173,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="1665" y="874"/>
         </scene>
-        <!--Table View Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="HlC-0T-vwr">
             <objects>
                 <tableViewController id="caL-8u-4GZ" sceneMemberID="viewController">
@@ -258,7 +259,7 @@
             </objects>
             <point key="canvasLocation" x="2188" y="874"/>
         </scene>
-        <!--Campus Contacts View Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="TZ2-8S-W1f">
             <objects>
                 <viewController id="RBu-ZI-ztG" customClass="CampusContactsViewController" sceneMemberID="viewController">
@@ -480,7 +481,7 @@
             </objects>
             <point key="canvasLocation" x="2814" y="262"/>
         </scene>
-        <!--Stud Contact Table View Controller - Student Services-->
+        <!--Student Services-->
         <scene sceneID="wlY-Cd-jQk">
             <objects>
                 <tableViewController id="ay1-e6-OpV" customClass="studContactTableViewController" sceneMemberID="viewController">
@@ -553,7 +554,7 @@
             </objects>
             <point key="canvasLocation" x="2814" y="874"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
@@ -661,9 +662,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-sC-UPG">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-sC-UPG">
                                 <rect key="frame" x="262" y="77" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -831,7 +831,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="530.5" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="531" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
                                     <barButtonItem systemItem="rewind" id="MS9-XW-M3E">
@@ -1013,7 +1013,7 @@
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
-        <!--News Table View Controller - News-->
+        <!--News-->
         <scene sceneID="huF-X4-7G5">
             <objects>
                 <tableViewController id="Dd1-u1-XmG" customClass="NewsTableViewController" sceneMemberID="viewController">
@@ -1066,9 +1066,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-eU-pLC">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-eU-pLC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
@@ -1083,7 +1082,7 @@
             </objects>
             <point key="canvasLocation" x="-237" y="2322"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="ITK-PO-uNb">
             <objects>
                 <navigationController definesPresentationContext="YES" id="EMH-eS-sVh" sceneMemberID="viewController">
@@ -1099,7 +1098,7 @@
             </objects>
             <point key="canvasLocation" x="-1386" y="2338"/>
         </scene>
-        <!--Navigation Controller - mySFU-->
+        <!--mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
@@ -1115,7 +1114,7 @@
             </objects>
             <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
-        <!--Navigation Controller - Transit-->
+        <!--Transit-->
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
@@ -1232,7 +1231,7 @@
                                                         <action selector="refreshAction:" destination="hYB-sD-pmv" eventType="touchUpInside" id="Y36-QU-NbG"/>
                                                     </connections>
                                                 </button>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
                                                     <rect key="frame" x="251" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
@@ -1334,7 +1333,7 @@
             </objects>
             <point key="canvasLocation" x="384" y="862"/>
         </scene>
-        <!--Navigation Controller - Weather-->
+        <!--Weather-->
         <scene sceneID="EuP-yQ-EoZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMh-T6-J6f" sceneMemberID="viewController">
@@ -1353,7 +1352,7 @@
             </objects>
             <point key="canvasLocation" x="725" y="271"/>
         </scene>
-        <!--Navigation Controller - About Us-->
+        <!--About Us-->
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
@@ -1372,7 +1371,7 @@
             </objects>
             <point key="canvasLocation" x="-1299" y="1670"/>
         </scene>
-        <!--Srs Contact Table View Controller - Safety & Risk Services-->
+        <!--Safety & Risk Services-->
         <scene sceneID="Bax-L5-MuW">
             <objects>
                 <tableViewController id="GBW-xe-UeT" customClass="srsContactTableViewController" sceneMemberID="viewController">
@@ -1458,7 +1457,6 @@
         <image name="harbourcenter.png" width="1200" height="782"/>
         <image name="surrey.png" width="1024" height="1539"/>
     </resources>
-    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1468,4 +1466,5 @@
         <segue reference="YuH-DV-njh"/>
         <segue reference="Pov-Lm-lJD"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
