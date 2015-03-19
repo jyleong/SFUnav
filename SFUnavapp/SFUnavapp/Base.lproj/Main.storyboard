@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -614,15 +614,6 @@
                                     <action selector="toggleText:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="w2l-6X-K1F"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRg-yH-D9G">
-                                <rect key="frame" x="140" y="70" width="38" height="30"/>
-                                <state key="normal" title="blank">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleBlank:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="hXw-h5-bJf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="6" id="7d0-6O-1kc"/>
@@ -657,12 +648,12 @@
                         <viewControllerLayoutGuide type="top" id="DUO-3k-7Pw"/>
                         <viewControllerLayoutGuide type="bottom" id="QIU-pg-o6W"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB" customClass="GMSMapView">
+                    <view key="view" contentMode="scaleToFill" id="Que-i4-fTB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDR-sC-UPG">
-                                <rect key="frame" x="262" y="77" width="37" height="30"/>
+                                <rect key="frame" x="263" y="126" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -671,14 +662,24 @@
                                     <action selector="clearMark:" destination="S9R-r9-cj7" eventType="touchUpInside" id="nZ7-0p-V2O"/>
                                 </connections>
                             </button>
+                            <searchBar appearanceType="aqua" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-D0-XsZ">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="S9R-r9-cj7" id="4XO-ih-OVt"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BIk-ID-3VK"/>
+                    <navigationItem key="navigationItem" id="BIk-ID-3VK">
+                        <nil key="title"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="clrBtn" destination="rDR-sC-UPG" id="Knb-NM-839"/>
-                        <outlet property="sfumapView" destination="Que-i4-fTB" id="WzJ-ds-8R2"/>
+                        <outlet property="searchBar" destination="Bt1-D0-XsZ" id="oXs-gT-lvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vr-fo-UMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -831,7 +832,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="530.5" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="530" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
                                     <barButtonItem systemItem="rewind" id="MS9-XW-M3E">
@@ -903,35 +904,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">We are Team NoMacs, or Team 13, a 5 person group comprised of student developers from CMPT 275. This term, we are fortunate to develop the official SFU mobile app thanks to our sponsor Mark McLaughlin from SFU Ancillary Services.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
-                                <rect key="frame" x="43" y="318" width="55" height="30"/>
-                                <state key="normal" title="Website">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openWebsite:" destination="2yi-F0-w5H" eventType="touchUpInside" id="Rso-ti-C2a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
-                                <rect key="frame" x="221" y="318" width="61" height="30"/>
-                                <state key="normal" title="Email Us">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openemail:" destination="2yi-F0-w5H" eventType="touchUpInside" id="vTC-2A-oLw"/>
-                                </connections>
-                            </button>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-Fh-Qc6">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1490"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
+                                                <rect key="frame" x="132" y="1400" width="55" height="30"/>
+                                                <state key="normal" title="Website">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openWebsite:" destination="2yi-F0-w5H" eventType="touchUpInside" id="Rso-ti-C2a"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
+                                                <rect key="frame" x="129" y="1400" width="61" height="30"/>
+                                                <state key="normal" title="Email Us">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openemail:" destination="2yi-F0-w5H" eventType="touchUpInside" id="vTC-2A-oLw"/>
+                                                </connections>
+                                            </button>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Serena Chan" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R8s-qa-dg7">
+                                                <rect key="frame" x="40" y="125" width="240" height="27"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Serena" translatesAutoresizingMaskIntoConstraints="NO" id="zoA-Db-dHs">
+                                                <rect key="frame" x="-83" y="160" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Steven Zhou" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-C8-qYA">
+                                                <rect key="frame" x="40" y="1123" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Arjun Rathee" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tND-HN-0dh">
+                                                <rect key="frame" x="40" y="621" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="James Leong" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-YQ-2lb">
+                                                <rect key="frame" x="40" y="370" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arjun" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-q2-3ZM">
+                                                <rect key="frame" x="-83" y="662" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Tyler Wong" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="akO-68-XXs">
+                                                <rect key="frame" x="40" y="872" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tyler" translatesAutoresizingMaskIntoConstraints="NO" id="9Wl-Ps-LZI">
+                                                <rect key="frame" x="-83" y="913" width="486" height="202"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Steven" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-yW-ajs">
+                                                <rect key="frame" x="-83" y="1164" width="486" height="202"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="James" translatesAutoresizingMaskIntoConstraints="NO" id="wn9-Vd-eVq">
+                                                <rect key="frame" x="-83" y="411" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmb-IB-6nS">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">We are Team NoMacs, a 5 person group comprised of student developers from CMPT 275. This term, we are fortunate enough to develop the official SFU mobile app thanks to our sponsor Mark McLaughlin, head of SFU Ancillary Services.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="320" height="1490"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="z7x-Cg-ka7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailusButton" destination="rla-n8-SG4" id="eue-Rw-Uo1"/>
                         <outlet property="websiteButton" destination="V2U-3z-xIS" id="74S-te-Qww"/>
@@ -1448,11 +1511,16 @@
     </scenes>
     <resources>
         <image name="AboutUsicon" width="62" height="62"/>
+        <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
+        <image name="James" width="250" height="300"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Refresh_Grey" width="70" height="62"/>
+        <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
+        <image name="Steven" width="250" height="300"/>
         <image name="Transiticon" width="70" height="62"/>
+        <image name="Tyler" width="250" height="300"/>
         <image name="Weathericon" width="70" height="62"/>
         <image name="burnaby.png" width="881" height="1200"/>
         <image name="harbourcenter.png" width="1200" height="782"/>
