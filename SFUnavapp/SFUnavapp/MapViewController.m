@@ -5,6 +5,7 @@
 //
 //  Created by Arjun Rathee on 2015-03-03.
 //  Edited by Arjun Rathee
+//              Steven Zhou
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -12,6 +13,10 @@
 #import "BuildingObject.h"
 #import "OnlineMapViewController.h"
 @interface MapViewController ()
+{
+    bool icons;
+    bool text;
+}
 
 @end
 
@@ -58,6 +63,9 @@ NSMutableArray * BuildingObjects;
     NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
     NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
     [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+    
+    icons = YES;
+    text = YES;
     
     [self loadBuildingObjects];
 
@@ -124,8 +132,29 @@ NSMutableArray * BuildingObjects;
     BuildingObject *AQplan = [[BuildingObject alloc] initWithbuildingObj: @"Academic Quadrangle" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
     [BuildingObjects addObject:AQplan];
     
-    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
+    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Bennett Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
     [BuildingObjects addObject:Libraryplan];
+	
+	BuildingObject *Shellplan = [[BuildingObject alloc] initWithbuildingObj: @"Shell House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Shellplan];
+	
+	BuildingObject *Louisplan = [[BuildingObject alloc] initWithbuildingObj: @"Louis Riel House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Louisplan];
+	
+	BuildingObject *Hamiltonplan = [[BuildingObject alloc] initWithbuildingObj: @"Hamilton Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Hamiltonplan];
+	
+	BuildingObject *Paulineplan = [[BuildingObject alloc] initWithbuildingObj: @"Pauline Jewett House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Paulineplan];
+	
+	BuildingObject *Barbaraplan = [[BuildingObject alloc] initWithbuildingObj: @"Barbara Rae House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Barbaraplan];
+	
+	BuildingObject *Shadboltplan = [[BuildingObject alloc] initWithbuildingObj: @"Shadbolt House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:Shadboltplan];
+	
+	BuildingObject *McTaggartplan = [[BuildingObject alloc] initWithbuildingObj: @"McTaggart-Cowan House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    [BuildingObjects addObject:McTaggartplan];
 }
 
 - (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView
@@ -151,14 +180,52 @@ NSMutableArray * BuildingObjects;
     if (buttonIndex==1)
         [self performSegueWithIdentifier:@"ShowPlans" sender:self];
 }
-- (IBAction)toggleBlank:(id)sender {
-    [self changeImage:@"none_campus_map.png"];
-}
+
 - (IBAction)toggleIcon:(id)sender {
-    [self changeImage:@"icons_campus_map.png"];
+    if (icons && text) {
+        [self changeImage:@"text_campus_map.png"];
+        icons = NO;
+        text =  YES;
+    }
+    else if (!icons && text) {
+        [self changeImage:@"all_campus_map.png"];
+        icons = YES;
+        text =  YES;
+    }
+    else if (icons && !text) {
+        [self changeImage:@"none_campus_map.png"];
+        icons = NO;
+        text =  NO;
+    }
+    else if (!icons && !text) {
+        [self changeImage:@"icons_campus_map.png"];
+        icons = YES;
+        text =  NO;
+    }
 }
+
 - (IBAction)toggleText:(id)sender {
-    [self changeImage:@"text_campus_map.png"];
+    
+    if (icons && text) {
+        [self changeImage:@"icons_campus_map.png"];
+        icons = YES;
+        text =  NO;
+    }
+    else if (!icons && text) {
+        [self changeImage:@"none_campus_map.png"];
+        icons = NO;
+        text =  NO;
+    }
+    else if (icons && !text) {
+        [self changeImage:@"all_campus_map.png"];
+        icons = YES;
+        text =  YES;
+    }
+    else if (!icons && !text) {
+        [self changeImage:@"text_campus_map.png"];
+        icons = NO;
+        text =  YES;
+    }
 }
 
 #pragma mark - Navigation
@@ -175,7 +242,6 @@ NSMutableArray * BuildingObjects;
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
     }
-
 
 }
 

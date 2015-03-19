@@ -36,7 +36,6 @@
 
 @property (strong, nonatomic) BusRouteStorage *retrieveInfo; // instantiate object here
 @property (weak, nonatomic) IBOutlet UITextView *busDisplaytextView;
-@property (weak, nonatomic) IBOutlet UILabel *timeDIsplayLabel; // the grey background that holds the refresh button and timer
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel; // the timer label that displays X min until next bus
 @property (strong, nonatomic) NSString *stringofTimes; // two strings to hold the current text to show in disaply
 
@@ -78,7 +77,6 @@
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
     _busDisplaytextView.layer.cornerRadius = 8;
-    _timeDIsplayLabel.layer.cornerRadius = 8;
     
     [self.quicklinksPicker selectRow:4 inComponent:0 animated:YES]; // so the first component in picker defaulted at production way
     [self initialDisplay];

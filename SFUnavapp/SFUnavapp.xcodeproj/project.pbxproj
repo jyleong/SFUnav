@@ -45,6 +45,8 @@
 		B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
+		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
+		B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */; };
 		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
 		B0A1E6391AB7959300B5D60C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */; };
 		B0A1E6401AB795C400B5D60C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */; };
@@ -77,8 +79,6 @@
 		D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E082A1AAFE93900B35F6B /* LoginViewController.m */; };
 		D2DB94D61AA912C800501DD7 /* Blusson_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */; };
 		D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */; };
-		DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */; };
-		DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */; };
 		DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC11AA67135006AA2D9 /* MTImageMapView.m */; };
 		DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC566CC51AA67308006AA2D9 /* MapViewController.m */; };
 		DC566CD01AA6A1D0006AA2D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC566CCF1AA6A1D0006AA2D9 /* SystemConfiguration.framework */; };
@@ -161,6 +161,8 @@
 		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
 		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
+		B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
+		B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
 		B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -203,8 +205,6 @@
 		D2DB94D51AA912C800501DD7 /* Blusson_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blusson_floorplan.png; sourceTree = "<group>"; };
 		D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableViewController.h; sourceTree = "<group>"; };
 		D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableViewController.m; sourceTree = "<group>"; };
-		DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
-		DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		DC566CC01AA67135006AA2D9 /* MTImageMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTImageMapView.h; sourceTree = "<group>"; };
 		DC566CC11AA67135006AA2D9 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
 		DC566CC41AA67308006AA2D9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -226,16 +226,16 @@
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
-		EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsWebViewController.h; path = ../NewsWebViewController.h; sourceTree = "<group>"; };
-		EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsWebViewController.m; path = ../NewsWebViewController.m; sourceTree = "<group>"; };
+		EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWebViewController.h; sourceTree = SOURCE_ROOT; };
+		EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = SOURCE_ROOT; };
 		EEC408A81AB2604400B825E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		EEC408A91AB2604400B825E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		EEC786471AB79312004AF041 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		EEC786481AB79312004AF041 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		EEC786491AB79312004AF041 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
-		EEC7864A1AB79312004AF041 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
-		EEC7864D1AB79588004AF041 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
-		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		EEC786491AB79312004AF041 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parser.h; path = SFUnavapp/Parser.h; sourceTree = SOURCE_ROOT; };
+		EEC7864A1AB79312004AF041 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Parser.m; path = SFUnavapp/Parser.m; sourceTree = SOURCE_ROOT; };
+		EEC7864D1AB79588004AF041 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = SFUnavapp/NewsTableViewController.h; sourceTree = SOURCE_ROOT; };
+		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = SFUnavapp/NewsTableViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,21 +343,12 @@
 				DC566CC31AA67149006AA2D9 /* MTImageMapView */,
 				D27E326D1A984E0000004735 /* hpple_parser */,
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
+				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
-				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
-				EEC786471AB79312004AF041 /* List.h */,
-				EEC786481AB79312004AF041 /* List.m */,
-				EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */,
-				EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */,
-				EEC786491AB79312004AF041 /* Parser.h */,
-				EEC7864A1AB79312004AF041 /* Parser.m */,
-				EEC408A81AB2604400B825E3 /* News.h */,
-				EEC408A91AB2604400B825E3 /* News.m */,
 				B0DDA5311AAA63860027A81D /* AboutUsViewController.h */,
 				B0DDA5321AAA63860027A81D /* AboutUsViewController.m */,
-				EEC7864D1AB79588004AF041 /* NewsTableViewController.h */,
-				EEC7864E1AB79588004AF041 /* NewsTableViewController.m */,
+				EE9A4CDA1ABA2FE0008AE555 /* News */,
 				B0FC32731A956FFB00900E3A /* TransitTableViewController.h */,
 				B0FC32741A956FFB00900E3A /* TransitTableViewController.m */,
 				B0B0FC5E1A9F8AE700BE6964 /* BusRouteStorage.h */,
@@ -375,6 +366,7 @@
 		B01BE6781A8D425E0013D9EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0A3826E1AB6D9C700FD23ED /* MapUI_button_text.png */,
 				045E5E731AB0144200FDF7BC /* burnaby.png */,
 				045E5E741AB0144200FDF7BC /* harbourcenter.png */,
 				045E5E751AB0144200FDF7BC /* surrey.png */,
@@ -396,8 +388,8 @@
 				B01BE67A1A8D425E0013D9EA /* InfoPlist.strings */,
 				B01BE67D1A8D425E0013D9EA /* main.m */,
 				B01BE67F1A8D425E0013D9EA /* SFUnavapp-Prefix.pch */,
-				DC566CBA1AA66ED1006AA2D9 /* Buildings_coord.plist */,
-				DC566CBC1AA66F48006AA2D9 /* Buildings_name.plist */,
+				B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */,
+				B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */,
 				B01E404C1AB606E200166904 /* SFUlatlongCoor.plist */,
 			);
 			name = "Supporting Files";
@@ -528,6 +520,23 @@
 			name = Websites;
 			sourceTree = "<group>";
 		};
+		EE9A4CDA1ABA2FE0008AE555 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */,
+				EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */,
+				EEC786471AB79312004AF041 /* List.h */,
+				EEC786481AB79312004AF041 /* List.m */,
+				EEC7864A1AB79312004AF041 /* Parser.m */,
+				EEC786491AB79312004AF041 /* Parser.h */,
+				EEC408A91AB2604400B825E3 /* News.m */,
+				EEC408A81AB2604400B825E3 /* News.h */,
+				EEC7864E1AB79588004AF041 /* NewsTableViewController.m */,
+				EEC7864D1AB79588004AF041 /* NewsTableViewController.h */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -609,10 +618,10 @@
 			files = (
 				DC86567C1A97162E00D908C9 /* AQNorth.html in Resources */,
 				B0DB77EB1AB2A44800EFDB83 /* none_campus_map.png in Resources */,
+				B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */,
 				B01BE68D1A8D425E0013D9EA /* Images.xcassets in Resources */,
 				B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */,
 				B0DB77EA1AB2A44800EFDB83 /* icons_campus_map.png in Resources */,
-				DC566CBB1AA66ED1006AA2D9 /* Buildings_coord.plist in Resources */,
 				B01BE67C1A8D425E0013D9EA /* InfoPlist.strings in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
@@ -626,6 +635,7 @@
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
 				045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */,
+				B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */,
 				B0A5B71C1AAA165D00F0F42F /* Library_floorplan.png in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				B01E404D1AB606E200166904 /* SFUlatlongCoor.plist in Resources */,
@@ -639,10 +649,10 @@
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
-				DC566CBD1AA66F48006AA2D9 /* Buildings_name.plist in Resources */,
 				B0DB77E91AB2A44800EFDB83 /* all_campus_map.png in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
+				B0A3826F1AB6D9C700FD23ED /* MapUI_button_text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
