@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -22,13 +23,14 @@
                         <segue destination="VNn-TJ-YfH" kind="relationship" relationship="viewControllers" id="0rU-wL-lPI"/>
                         <segue destination="S08-0G-b9P" kind="relationship" relationship="viewControllers" id="PoZ-eh-MeX"/>
                         <segue destination="e6q-p2-wW2" kind="relationship" relationship="viewControllers" id="U8P-SM-DMb"/>
+                        <segue destination="EMH-eS-sVh" kind="relationship" relationship="viewControllers" id="Yvk-4x-FGy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1574" y="204"/>
         </scene>
-        <!--Table View Controller - Library-->
+        <!--Library-->
         <scene sceneID="CoY-Td-vLr">
             <objects>
                 <tableViewController id="iZn-1Q-9HV" sceneMemberID="viewController">
@@ -57,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="-703" y="-945"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="Y32-wr-tjt">
             <objects>
                 <navigationController definesPresentationContext="YES" id="e6q-p2-wW2" sceneMemberID="viewController">
@@ -73,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="-1137" y="-945"/>
         </scene>
-        <!--Weather Table View Controller - Title-->
+        <!--Title-->
         <scene sceneID="7XG-3b-Vn6">
             <objects>
                 <tableViewController id="4i8-eF-r4p" customClass="WeatherTableViewController" sceneMemberID="viewController">
@@ -154,9 +156,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nle-Pq-FcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="271"/>
+            <point key="canvasLocation" x="1693" y="262"/>
         </scene>
-        <!--Navigation Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
@@ -172,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="1665" y="874"/>
         </scene>
-        <!--Table View Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="HlC-0T-vwr">
             <objects>
                 <tableViewController id="caL-8u-4GZ" sceneMemberID="viewController">
@@ -257,7 +259,7 @@
             </objects>
             <point key="canvasLocation" x="2188" y="874"/>
         </scene>
-        <!--Campus Contacts View Controller - Contacts-->
+        <!--Contacts-->
         <scene sceneID="TZ2-8S-W1f">
             <objects>
                 <viewController id="RBu-ZI-ztG" customClass="CampusContactsViewController" sceneMemberID="viewController">
@@ -479,7 +481,7 @@
             </objects>
             <point key="canvasLocation" x="2814" y="262"/>
         </scene>
-        <!--Stud Contact Table View Controller - Student Services-->
+        <!--Student Services-->
         <scene sceneID="wlY-Cd-jQk">
             <objects>
                 <tableViewController id="ay1-e6-OpV" customClass="studContactTableViewController" sceneMemberID="viewController">
@@ -552,7 +554,7 @@
             </objects>
             <point key="canvasLocation" x="2814" y="874"/>
         </scene>
-        <!--Navigation Controller - Map-->
+        <!--Map-->
         <scene sceneID="1hF-xc-bIL">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jou-14-ZdQ" sceneMemberID="viewController">
@@ -611,15 +613,6 @@
                                 </state>
                                 <connections>
                                     <action selector="toggleText:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="w2l-6X-K1F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRg-yH-D9G">
-                                <rect key="frame" x="140" y="70" width="38" height="30"/>
-                                <state key="normal" title="blank">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleBlank:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="hXw-h5-bJf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -836,11 +829,11 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
-                                <rect key="frame" x="0.0" y="798" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="530.5" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kow-1w-BTS"/>
                                     <barButtonItem systemItem="rewind" id="MS9-XW-M3E">
@@ -872,7 +865,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="656"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -912,35 +905,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-vs-dJG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">We are Team NoMacs, or Team 13, a 5 person group comprised of student developers from CMPT 275. This term, we are fortunate to develop the official SFU mobile app thanks to our sponsor Mark McLaughlin from SFU Ancillary Services.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
-                                <rect key="frame" x="43" y="318" width="55" height="30"/>
-                                <state key="normal" title="Website">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openWebsite:" destination="2yi-F0-w5H" eventType="touchUpInside" id="Rso-ti-C2a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
-                                <rect key="frame" x="221" y="318" width="61" height="30"/>
-                                <state key="normal" title="Email Us">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openemail:" destination="2yi-F0-w5H" eventType="touchUpInside" id="vTC-2A-oLw"/>
-                                </connections>
-                            </button>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-Fh-Qc6">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1490"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2U-3z-xIS">
+                                                <rect key="frame" x="132" y="1400" width="55" height="30"/>
+                                                <state key="normal" title="Website">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openWebsite:" destination="2yi-F0-w5H" eventType="touchUpInside" id="Rso-ti-C2a"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-n8-SG4">
+                                                <rect key="frame" x="129" y="1400" width="61" height="30"/>
+                                                <state key="normal" title="Email Us">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openemail:" destination="2yi-F0-w5H" eventType="touchUpInside" id="vTC-2A-oLw"/>
+                                                </connections>
+                                            </button>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Serena Chan" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R8s-qa-dg7">
+                                                <rect key="frame" x="40" y="125" width="240" height="27"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Serena" translatesAutoresizingMaskIntoConstraints="NO" id="zoA-Db-dHs">
+                                                <rect key="frame" x="-83" y="160" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Steven Zhou" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-C8-qYA">
+                                                <rect key="frame" x="40" y="1123" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Arjun Rathee" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tND-HN-0dh">
+                                                <rect key="frame" x="40" y="621" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="James Leong" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1yl-YQ-2lb">
+                                                <rect key="frame" x="40" y="370" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arjun" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-q2-3ZM">
+                                                <rect key="frame" x="-83" y="662" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Tyler Wong" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="akO-68-XXs">
+                                                <rect key="frame" x="40" y="872" width="240" height="33"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tyler" translatesAutoresizingMaskIntoConstraints="NO" id="9Wl-Ps-LZI">
+                                                <rect key="frame" x="-83" y="913" width="486" height="202"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Steven" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-yW-ajs">
+                                                <rect key="frame" x="-83" y="1164" width="486" height="202"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="James" translatesAutoresizingMaskIntoConstraints="NO" id="wn9-Vd-eVq">
+                                                <rect key="frame" x="-83" y="411" width="486" height="202"/>
+                                            </imageView>
+                                            <textView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmb-IB-6nS">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">We are Team NoMacs, a 5 person group comprised of student developers from CMPT 275. This term, we are fortunate enough to develop the official SFU mobile app thanks to our sponsor Mark McLaughlin, head of SFU Ancillary Services.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                        <size key="value" width="320" height="1490"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="z7x-Cg-ka7"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailusButton" destination="rla-n8-SG4" id="eue-Rw-Uo1"/>
                         <outlet property="websiteButton" destination="V2U-3z-xIS" id="74S-te-Qww"/>
@@ -1022,6 +1077,92 @@
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
+        <!--News Table View Controller - News-->
+        <scene sceneID="huF-X4-7G5">
+            <objects>
+                <tableViewController id="Dd1-u1-XmG" customClass="NewsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PVb-HR-ujS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="yaa-Lp-iTM" style="IBUITableViewCellStyleDefault" id="EGI-Hb-NgR">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EGI-Hb-NgR" id="oPe-4W-uZ7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yaa-Lp-iTM">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dd1-u1-XmG" id="MB0-s4-RM3"/>
+                            <outlet property="delegate" destination="Dd1-u1-XmG" id="evp-Hu-hBk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="UeF-7R-379"/>
+                    <connections>
+                        <segue destination="ws0-Pi-Xf3" kind="push" identifier="NewsLink" id="Sbz-FA-axC"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQa-Si-9Wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794" y="2338"/>
+        </scene>
+        <!--News Web View Controller-->
+        <scene sceneID="EHL-pO-KIO">
+            <objects>
+                <viewController id="ws0-Pi-Xf3" customClass="NewsWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kHG-Fk-Eb8"/>
+                        <viewControllerLayoutGuide type="bottom" id="gD4-7r-jgi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O30-oj-ZEi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-eU-pLC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gbd-vW-RyH"/>
+                    <connections>
+                        <outlet property="Newswebview" destination="1pU-eU-pLC" id="nnh-VO-tSN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1h7-Ui-Al5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="2322"/>
+        </scene>
+        <!--Navigation Controller - News-->
+        <scene sceneID="ITK-PO-uNb">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="EMH-eS-sVh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" id="D6a-kh-ww7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Egq-uw-AqY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dd1-u1-XmG" kind="relationship" relationship="rootViewController" id="VEF-6e-OCF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1X-a7-W6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1386" y="2338"/>
+        </scene>
         <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
@@ -1038,7 +1179,7 @@
             </objects>
             <point key="canvasLocation" x="-1107" y="1026"/>
         </scene>
-        <!--Navigation Controller - Transit-->
+        <!--Transit-->
         <scene sceneID="v4f-zr-j2I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFP-uG-4vk" sceneMemberID="viewController">
@@ -1155,7 +1296,7 @@
                                                         <action selector="refreshAction:" destination="hYB-sD-pmv" eventType="touchUpInside" id="Y36-QU-NbG"/>
                                                     </connections>
                                                 </button>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
                                                     <rect key="frame" x="251" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
@@ -1257,7 +1398,7 @@
             </objects>
             <point key="canvasLocation" x="384" y="862"/>
         </scene>
-        <!--Navigation Controller - Weather-->
+        <!--Weather-->
         <scene sceneID="EuP-yQ-EoZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lMh-T6-J6f" sceneMemberID="viewController">
@@ -1276,7 +1417,7 @@
             </objects>
             <point key="canvasLocation" x="725" y="271"/>
         </scene>
-        <!--Navigation Controller - About Us-->
+        <!--About Us-->
         <scene sceneID="RD8-Yg-qWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S08-0G-b9P" sceneMemberID="viewController">
@@ -1295,7 +1436,7 @@
             </objects>
             <point key="canvasLocation" x="-1299" y="1670"/>
         </scene>
-        <!--Srs Contact Table View Controller - Safety & Risk Services-->
+        <!--Safety & Risk Services-->
         <scene sceneID="Bax-L5-MuW">
             <objects>
                 <tableViewController id="GBW-xe-UeT" customClass="srsContactTableViewController" sceneMemberID="viewController">
@@ -1371,17 +1512,21 @@
     </scenes>
     <resources>
         <image name="AboutUsicon" width="62" height="62"/>
+        <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
+        <image name="James" width="250" height="300"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Refresh_Grey" width="70" height="62"/>
+        <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
+        <image name="Steven" width="250" height="300"/>
         <image name="Transiticon" width="70" height="62"/>
+        <image name="Tyler" width="250" height="300"/>
         <image name="Weathericon" width="70" height="62"/>
         <image name="burnaby.png" width="881" height="1200"/>
         <image name="harbourcenter.png" width="1200" height="782"/>
         <image name="surrey.png" width="1024" height="1539"/>
     </resources>
-    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1389,6 +1534,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YuH-DV-njh"/>
-        <segue reference="rhp-dj-yhr"/>
+        <segue reference="Pov-Lm-lJD"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
