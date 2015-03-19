@@ -1066,7 +1066,93 @@
             </objects>
             <point key="canvasLocation" x="-265" y="1415"/>
         </scene>
-        <!--mySFU-->
+        <!--News Table View Controller - News-->
+        <scene sceneID="huF-X4-7G5">
+            <objects>
+                <tableViewController id="Dd1-u1-XmG" customClass="NewsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PVb-HR-ujS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="yaa-Lp-iTM" style="IBUITableViewCellStyleDefault" id="EGI-Hb-NgR">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EGI-Hb-NgR" id="oPe-4W-uZ7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yaa-Lp-iTM">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dd1-u1-XmG" id="MB0-s4-RM3"/>
+                            <outlet property="delegate" destination="Dd1-u1-XmG" id="evp-Hu-hBk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="UeF-7R-379"/>
+                    <connections>
+                        <segue destination="ws0-Pi-Xf3" kind="push" identifier="NewsLink" id="Sbz-FA-axC"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQa-Si-9Wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794" y="2338"/>
+        </scene>
+        <!--News Web View Controller-->
+        <scene sceneID="EHL-pO-KIO">
+            <objects>
+                <viewController id="ws0-Pi-Xf3" customClass="NewsWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kHG-Fk-Eb8"/>
+                        <viewControllerLayoutGuide type="bottom" id="gD4-7r-jgi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O30-oj-ZEi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-eU-pLC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gbd-vW-RyH"/>
+                    <connections>
+                        <outlet property="Newswebview" destination="1pU-eU-pLC" id="nnh-VO-tSN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1h7-Ui-Al5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="2322"/>
+        </scene>
+        <!--Navigation Controller - News-->
+        <scene sceneID="ITK-PO-uNb">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="EMH-eS-sVh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" id="D6a-kh-ww7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Egq-uw-AqY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dd1-u1-XmG" kind="relationship" relationship="rootViewController" id="VEF-6e-OCF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1X-a7-W6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1386" y="2338"/>
+        </scene>
+        <!--Navigation Controller - mySFU-->
         <scene sceneID="ezb-aA-t3O">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VNn-TJ-YfH" sceneMemberID="viewController">
