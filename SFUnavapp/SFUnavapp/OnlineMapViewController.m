@@ -221,6 +221,57 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self.searchBar resignFirstResponder];
+    BuildLatLong* build;
+    
+    if(_isFiltered)
+    {
+        build = [_filteredTableData objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        build = [_allTableData objectAtIndex:indexPath.row];
+    }
+    GMSMarker *selectMarker = [[GMSMarker alloc] init];
+    selectMarker.appearAnimation = kGMSMarkerAnimationPop;
+    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
+    
+    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
+    selectMarker.map = _sfumapView;
+    self.testTable.hidden = YES;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.searchBar resignFirstResponder];
+    BuildLatLong* build;
+    
+    if(_isFiltered)
+    {
+        build = [_filteredTableData objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        build = [_allTableData objectAtIndex:indexPath.row];
+    }
+    GMSMarker *selectMarker = [[GMSMarker alloc] init];
+    selectMarker.appearAnimation = kGMSMarkerAnimationPop;
+    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
+    
+    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
+    selectMarker.map = _sfumapView;
+    self.testTable.hidden = YES;
+}
+
+
+/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}*/
+
 /*- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     [self showDetailsForIndexPath:indexPath];
@@ -229,6 +280,25 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self showDetailsForIndexPath:indexPath];
+}
+
+-(void) showDetailsForIndexPath:(NSIndexPath*)indexPath
+{
+    [self.searchBar resignFirstResponder];
+    DetailsViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    Food* food;
+    
+    if(isFiltered)
+    {
+        food = [filteredTableData objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        food = [allTableData objectAtIndex:indexPath.row];
+    }
+    
+    vc.food = food;
+    [self.navigationController pushViewController:vc animated:true];
 }*/
 
 /*
