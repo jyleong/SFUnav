@@ -8,6 +8,7 @@
 
 #import "OnlineMapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "BuildLatLong.h"
 
 @interface OnlineMapViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *clrBtn;
@@ -16,6 +17,10 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property (nonatomic) GMSMapView *sfumapView;
+
+@property (strong, nonatomic) NSMutableArray* allTableData;
+@property (strong, nonatomic) NSMutableArray* filteredTableData;
+@property (nonatomic, assign) bool isFiltered;
 
 @end
 
@@ -76,6 +81,14 @@
     marker.title = @"SFU";
     marker.snippet = @"Burnaby";
     marker.map = _sfumapView;
+    _testTable.hidden = YES;
+    
+    //concept to load latitude and longitude ibjects, should use plist
+    
+    _allTableData = [[NSMutableArray alloc] initWithObjects:
+                     [[BuildLatLong alloc] initWithBuildLL:@"Academic Quadrangle" latitude:49.278710 longitude:-122.916278],
+                     [[BuildLatLong alloc] initWithBuildLL:@"Applied Science Building" latitude:49.277506 longitude:-122.914240],
+                     nil ];
     
 }
 
@@ -90,8 +103,13 @@
 }
 
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar {
+    self.testTable.hidden = NO;
+    return YES;
+}
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    self.testTable.hidden =YES;
     [searchBar resignFirstResponder];
 }
 
@@ -112,6 +130,7 @@
     //This'll Hide The cancelButton with Animation
     [searchBar setShowsCancelButton:NO animated:YES];
     //remaining Code'll go here
+    self.testTable.hidden =YES;
     [searchBar resignFirstResponder];
 }
 
@@ -134,6 +153,83 @@
     [_sfumapView clear];
 }
 
+
+//table and search view methods here
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    int rowCount;
+    if(self.isFiltered)
+        rowCount = _filteredTableData.count;
+    else
+        rowCount = _allTableData.count;
+    
+    return rowCount;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    
+    BuildLatLong* build;
+    if(_isFiltered)
+        build = [_filteredTableData objectAtIndex:indexPath.row];
+    else
+        build = [_allTableData objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = build.buildingName;
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
+{
+    if(text.length == 0)
+    {
+        _isFiltered = FALSE;
+    }
+    else
+    {
+        _isFiltered = true;
+        _filteredTableData = [[NSMutableArray alloc] init];
+        
+        for (BuildLatLong* build in _allTableData)
+        {
+            NSRange nameRange = [build.buildingName rangeOfString:text options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound)
+            {
+                [_filteredTableData addObject:build
+                 ];
+            }
+        }
+    }
+    
+    [self.testTable reloadData];
+}
+
+
+/*- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self showDetailsForIndexPath:indexPath];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self showDetailsForIndexPath:indexPath];
+}*/
 
 /*
 #pragma mark - Navigation
