@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "List.h"
 @interface Parser : NSObject<NSXMLParserDelegate>{
-    AppDelegate *app;
+    //AppDelegate *app;
     List *thelist;
     NSMutableString *currentelementvalue;
+  
     int count; 
 }
 
+@property NSMutableArray* listArray;
+-(NSMutableArray *) getlist; 
 
--(id) initParser;
 @end

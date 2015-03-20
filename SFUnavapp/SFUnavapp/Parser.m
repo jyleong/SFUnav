@@ -7,22 +7,15 @@
 //
 
 #import "Parser.h"
-#import "Appdelegate.h"
+//#import "Appdelegate.h"
 @implementation Parser
--(id) initParser{
-    if (self == [super init]){
-      
-        app = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-        
-    }
-    return self;
-}
 
 
+@synthesize listArray;
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     
     if ([elementName isEqualToString:@"rss"]){
-        app.listArray = [[NSMutableArray alloc]init];
+        listArray = [[NSMutableArray alloc]init];
         NSLog(@"BEGIN");
         
     }
@@ -59,7 +52,7 @@
 
 -(void) parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock{
     
-  //  NSLog(@"FOUND CDATA");
+    //NSLog(@"FOUND CDATA");
     NSMutableString* newStr = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
     currentelementvalue=newStr;
   //  NSLog(newStr);
@@ -79,7 +72,7 @@
         
         
         
-        [app.listArray addObject:thelist];
+        [listArray addObject:thelist];
        thelist = nil;
     }
     
@@ -131,7 +124,11 @@
     }
 }
 
-
+-(NSMutableArray*) getlist{
+    
+    
+    return self.listArray; 
+}
 
 
 

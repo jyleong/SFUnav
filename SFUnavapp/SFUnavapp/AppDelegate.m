@@ -36,55 +36,7 @@
     [GMSServices provideAPIKey:@"AIzaSyBFtiNNbmwLpkIwusvkDV9rWPDCU9zcP18"];
     // to use google maps sdk
     
-    
-    
-    
-    NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
-    //NSString *storage;
-    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
-    
-    NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
-    
-    
-    
-    
-    Parser *theparser = [[Parser alloc]initParser];
-    
-    [xmlparser setDelegate:theparser];
-    
-    
-    BOOL worked = [xmlparser parse];
-    
-    if (worked){
-        
-        
-        NSLog(@"amount %i",[listArray count]);
-    }
-    else{
-        
-        NSLog(@"boo");
-    }
-    
-    for (int i=0; i<[listArray count]; i++){
-       // NSLog( [listArray[i] title]);
-        //NSLog([listArray[i] description]);
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
     
     return YES;
 }

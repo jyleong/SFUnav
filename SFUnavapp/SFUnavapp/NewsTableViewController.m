@@ -7,14 +7,14 @@
 //
 
 #import "NewsTableViewController.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "Parser.h"
 #import "NewsWebViewController.h"
 @interface NewsTableViewController ()
 @end
 
 @implementation NewsTableViewController
-@synthesize app,theList;
+@synthesize listArray,theList;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -29,13 +29,47 @@
     [super viewDidLoad];
     
     
-    app = [[UIApplication sharedApplication]delegate];
+    //app = [[UIApplication sharedApplication]delegate];
+    
+   // [self.tableView reloadData];
+    
+    
+    
+    
+    NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
+    //NSString *storage;
+    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
+    
+    NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
+    
+    
+    
+    
+    Parser *theparser = [[Parser alloc]init];
+    
+    [xmlparser setDelegate:theparser];
+    
+    
+    BOOL worked = [xmlparser parse];
+    listArray = theparser.listArray;
+    if (worked){
+        
+        
+        NSLog(@"amount %i",[listArray count]);
+    }
+    else{
+        
+        NSLog(@"boo");
+    }
+    
+    for (int i=0; i<[listArray count]; i++){
+        // NSLog( [listArray[i] title]);
+        //NSLog([listArray[i] description]);
+        
+    }
+    
     
     [self.tableView reloadData];
-    
-    
-    
-    
     
     
     
@@ -65,7 +99,7 @@
 {
 
     // Return the number of rows in the section.
-    return [app.listArray count];
+    return [listArray count];
 }
 
 
@@ -76,8 +110,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    theList = [app.listArray objectAtIndex:indexPath.row];
+   // for (int i=0; i<[listArray count]; i++){
+        // NSLog( [listArray[i] title]);
+        //NSLog([listArray[i] description]);
+        
+    //}
+    
+    
+    
+    
+    
+    theList = [listArray objectAtIndex:indexPath.row];
     NSString *input = theList.title;
+    //NSLog(input);
     NSString* result = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     NSString *inputdate = theList.pubDate;
