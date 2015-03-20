@@ -12,13 +12,13 @@
 
 #import "AppDelegate.h"
 
-#import "Parser.h"
+//#import "Parser.h"
 // defined this to manipulate colors for navbar - James
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation AppDelegate
-@synthesize listArray;
-@synthesize window = _window;
+//@synthesize listArray;
+//@synthesize window = _window;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //code to manipulate navbar - James B5111B
