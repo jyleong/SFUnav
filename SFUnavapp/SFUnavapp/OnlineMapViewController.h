@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface OnlineMapViewController : UIViewController <GMSMapViewDelegate, UISearchBarDelegate>
+@interface OnlineMapViewController : UIViewController <GMSMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate>
 
 
 @end

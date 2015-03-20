@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *clrBtn;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 @property (nonatomic) GMSMapView *sfumapView;
 
 @end
@@ -36,7 +38,16 @@
     // Do any additional setup after loading the view.
     
     self.navigationController.navigationBar.topItem.title = @"";
-    
+    //// this block enables iOS 8 to use location services, will  not buliding in xcode,
+    //comment the block out to test proj in xcode 5
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    //////////////////////////////////////////
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.278094
                                                             longitude:-122.919883
                                                                  zoom:15];
@@ -72,7 +83,11 @@
     [super viewDidAppear:animated];
     self.navigationItem.title=@"Google Maps";
 }
-
+// Location Manager Delegate Methods, comment out to test in xcodd 5.1.1/ iOS 7
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"%@", [locations lastObject]);
+}
 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -82,12 +97,6 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    /*self.navigationController.navigationBar.hidden=TRUE;
-    CGRect r=self.view.frame;
-    r.origin.y=-44;
-    r.size.height+=44;
-    
-    self.view.frame=r;*/
     
     [searchBar setShowsCancelButton:YES animated:YES];
 }
