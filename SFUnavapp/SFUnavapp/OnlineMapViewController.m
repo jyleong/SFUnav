@@ -81,7 +81,11 @@
     [super viewDidAppear:animated];
     self.navigationItem.title=@"Google Maps";
 }
-
+// Location Manager Delegate Methods, comment out to test in xcodd 5.1.1/ iOS 7
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"%@", [locations lastObject]);
+}
 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
