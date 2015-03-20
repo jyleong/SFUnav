@@ -42,7 +42,6 @@
                                                                  zoom:15];
 
     self.sfumapView = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-    //[self.view addSubview:self.sfumapView];
     [self.view insertSubview:_sfumapView atIndex:0];
     
     _sfumapView.myLocationEnabled = YES;
@@ -57,8 +56,9 @@
     [self.sfumapView addSubview:_clrBtn];
     //[self.sfumapView addSubview:_searchBar];
     [self.view insertSubview:_searchBar aboveSubview:_sfumapView];
-    //_searchBar.delegate = self;
+
     
+    [self.sfumapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(49.278094, -122.919883);
@@ -72,6 +72,8 @@
     [super viewDidAppear:animated];
     self.navigationItem.title=@"Google Maps";
 }
+
+
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
