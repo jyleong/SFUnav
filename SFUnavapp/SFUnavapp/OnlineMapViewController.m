@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *clrBtn;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 @property (nonatomic) GMSMapView *sfumapView;
 
 @end
@@ -36,7 +38,16 @@
     // Do any additional setup after loading the view.
     
     self.navigationController.navigationBar.topItem.title = @"";
-    
+    //// this block enables iOS 8 to use location services, will  not buliding in xcode,
+    //comment the block out to test proj in xcode 5
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    //////////////////////////////////////////
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.278094
                                                             longitude:-122.919883
                                                                  zoom:15];
