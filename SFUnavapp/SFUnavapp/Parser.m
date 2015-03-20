@@ -16,7 +16,7 @@
     
     if ([elementName isEqualToString:@"rss"]){
         listArray = [[NSMutableArray alloc]init];
-        NSLog(@"BEGIN");
+        //NSLog(@"BEGIN");
         
     }
     else if ([elementName isEqualToString:@"item"]){
@@ -64,7 +64,7 @@
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
     if ([elementName isEqualToString:@"rss"]){
-        NSLog(@"END");
+        //NSLog(@"END");
         return;
     }
     

@@ -211,6 +211,46 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+- (IBAction)ReloadPage:(id)sender {
+    NSLog(@"RELOAD");
+    NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
+    //NSString *storage;
+    NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
+    
+    NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
+    
+    
+    
+    
+    Parser *theparser = [[Parser alloc]init];
+    
+    [xmlparser setDelegate:theparser];
+    
+    
+    BOOL worked = [xmlparser parse];
+    listArray = theparser.listArray;
+    if (worked){
+        
+        
+        NSLog(@"amount %i",[listArray count]);
+    }
+    else{
+        
+        NSLog(@"boo");
+    }
+    
+    for (int i=0; i<[listArray count]; i++){
+        // NSLog( [listArray[i] title]);
+        //NSLog([listArray[i] description]);
+        
+    }
+    
+    
+    [self.tableView reloadData];
+    
+
+    
+}
 
 
 @end

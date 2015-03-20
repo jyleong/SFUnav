@@ -58,7 +58,7 @@
     [self.view insertSubview:_searchBar aboveSubview:_sfumapView];
 
     
-    [self.sfumapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
+    //[self.sfumapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(49.278094, -122.919883);
