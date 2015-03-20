@@ -68,8 +68,6 @@
     //[self.sfumapView addSubview:_searchBar];
     [self.view insertSubview:_searchBar aboveSubview:_sfumapView];
 
-    
-    [self.sfumapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(49.278094, -122.919883);
@@ -93,12 +91,6 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    /*self.navigationController.navigationBar.hidden=TRUE;
-    CGRect r=self.view.frame;
-    r.origin.y=-44;
-    r.size.height+=44;
-    
-    self.view.frame=r;*/
     
     [searchBar setShowsCancelButton:YES animated:YES];
 }
