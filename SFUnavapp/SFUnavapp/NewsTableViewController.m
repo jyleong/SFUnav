@@ -213,7 +213,8 @@
 - (IBAction)reload:(id)sender {
     
     NSLog(@"RELOAD");
-    NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
+    NSString *inputurlstring =_channel.channelurl;
+    //NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
     //NSString *storage;
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
     
