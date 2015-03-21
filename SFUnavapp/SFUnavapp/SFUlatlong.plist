@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Building</key>
+		<string>Education Building</string>
+		<key>Latitude</key>
+		<string>49.279984</string>
+		<key>Longitude</key>
+		<string>-122.915610</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>W.A.C Bennet Library</string>
+		<key>Latitude</key>
+		<string>49.279372</string>
+		<key>Longitude</key>
+		<string>-122.918755</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Technology and Science Complex I</string>
+		<key>Latitude</key>
+		<string>49.276755</string>
+		<key>Longitude</key>
+		<string>-122.914537</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Saywell Hall</string>
+		<key>Latitude</key>
+		<string>49.279420</string>
+		<key>Longitude</key>
+		<string>-122.914417</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Academic Quadrangle</string>
+		<key>Latitude</key>
+		<string>49.278710</string>
+		<key>Longitude</key>
+		<string>-122.916278</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Applied Science Building</string>
+		<key>Latitude</key>
+		<string>49.277506</string>
+		<key>Longitude</key>
+		<string>-122.914240</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Robert C Brown Hall</string>
+		<key>Latitude</key>
+		<string>49.280117</string>
+		<key>Longitude</key>
+		<string>-122.916868</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Blusson Hall</string>
+		<key>Latitude</key>
+		<string>49.279196</string>
+		<key>Longitude</key>
+		<string>-122.912807</string>
+	</dict>
+</array>
+</plist>
