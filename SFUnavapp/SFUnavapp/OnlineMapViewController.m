@@ -52,7 +52,7 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
-    //////////////////////////////////////////
+    //
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:49.278094
                                                             longitude:-122.919883
                                                                  zoom:15];
