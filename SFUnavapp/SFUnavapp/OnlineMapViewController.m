@@ -8,7 +8,6 @@
 
 #import "OnlineMapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "BuildLatLong.h"
 
 @interface OnlineMapViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *clrBtn;
@@ -82,12 +81,8 @@
     
     _testTable.hidden = YES;
     
-    //concept to load latitude and longitude ibjects, should use plist
-    
-    _allTableData = [[NSMutableArray alloc] initWithObjects:
-                     [[BuildLatLong alloc] initWithBuildLL:@"Academic Quadrangle" latitude:49.278710 longitude:-122.916278],
-                     [[BuildLatLong alloc] initWithBuildLL:@"Applied Science Building" latitude:49.277506 longitude:-122.914240],
-                     nil ];
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"SFUlatlong" ofType:@"plist"];
+    _allTableData = [NSMutableArray arrayWithContentsOfFile:path];
     
 }
 
@@ -98,7 +93,7 @@
 // Location Manager Delegate Methods, comment out to test in xcodd 5.1.1/ iOS 7
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"%@", [locations lastObject]);
+    //NSLog(@"%@", [locations lastObject]);
 }
 
 
@@ -173,6 +168,7 @@
     return rowCount;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -181,13 +177,13 @@
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
-    BuildLatLong* build;
+    NSDictionary *singleD;
     if(_isFiltered)
-        build = [_filteredTableData objectAtIndex:indexPath.row];
+        singleD = [_filteredTableData objectAtIndex:indexPath.row];
     else
-        build = [_allTableData objectAtIndex:indexPath.row];
+        singleD = [_allTableData objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = build.buildingName;
+    cell.textLabel.text = singleD[@"Building"];
     
     return cell;
 }
@@ -205,12 +201,12 @@
         _isFiltered = true;
         _filteredTableData = [[NSMutableArray alloc] init];
         
-        for (BuildLatLong* build in _allTableData)
+        for (NSDictionary* singleD in _allTableData)
         {
-            NSRange nameRange = [build.buildingName rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange nameRange = [singleD[@"Building"] rangeOfString:text options:NSCaseInsensitiveSearch];
             if(nameRange.location != NSNotFound)
             {
-                [_filteredTableData addObject:build
+                [_filteredTableData addObject:singleD
                  ];
             }
         }
@@ -235,22 +231,30 @@
 -(void) showDetailsForIndexPath:(NSIndexPath*)indexPath
 {
     [self.searchBar resignFirstResponder];
-    BuildLatLong* build;
-    
+    NSDictionary* singleD;
     if(_isFiltered)
-    {
-        build = [_filteredTableData objectAtIndex:indexPath.row];
-    }
+        singleD = [_filteredTableData objectAtIndex:indexPath.row];
     else
-    {
-        build = [_allTableData objectAtIndex:indexPath.row];
-    }
+        singleD = [_allTableData objectAtIndex:indexPath.row];
+    
+    // convert the latitude longitude strings to doubles
+    
+    //NSLog(@"%@ %@ %@", singleD[@"Building"],singleD[@"Latitude"], singleD[@"Longitude"]);
+    
+    NSString *trimlat = [singleD[@"Latitude"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *trimlon = [singleD[@"Longitude"]  stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    //Convert to double
+    double latdouble = [trimlat doubleValue];
+    double londouble = [trimlon doubleValue];
+    
     GMSMarker *selectMarker = [[GMSMarker alloc] init];
     selectMarker.appearAnimation = kGMSMarkerAnimationPop;
-    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
+    selectMarker.position = CLLocationCoordinate2DMake((latdouble), (londouble));
     
-    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
+    selectMarker.title = [NSString stringWithFormat:@"%@", singleD[@"Building"]];
     selectMarker.map = _sfumapView;
+    NSLog(@"dropped marker at %f, %f", latdouble, londouble);
     self.testTable.hidden = YES;
 }
 
