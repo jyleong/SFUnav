@@ -2,6 +2,10 @@
 
 This README contains the information contributors and other users who require to use the repository
 
+### Running the code ###
+* Current Deployment Target: iOS: 8.1
+* Suggested X-Code version to avoid issues: X-Code 6.1.1
+
 ### What is this repository for? ###
 * This is the parent repo for SFUNav by Team NoMacs
 

@@ -181,7 +181,7 @@
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSLog(@"hahah");
-    
+    theList = [listArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"NewsLink" sender:self];
     //[self performSegueWithIdentifier:@"linktoWeb" sender:self];
     
@@ -197,7 +197,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    
     if ([[segue identifier] isEqualToString:@"NewsLink"]) {
         NewsWebViewController *webcont = [segue destinationViewController];
         
@@ -211,7 +210,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-- (IBAction)ReloadPage:(id)sender {
+- (IBAction)reload:(id)sender {
+    
     NSLog(@"RELOAD");
     NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
     //NSString *storage;
@@ -247,9 +247,7 @@
     
     
     [self.tableView reloadData];
-    
 
-    
 }
 
 
