@@ -10,6 +10,9 @@
 
 @implementation BuildLatLong
 
+//custom object for latitude and longitude
+//note, could add to BuildingObject as a latitude and longitude version to optimize code
+
 -(id) initWithBuildLL: (NSString *) name latitude: (double) lat longitude: (double) longi {
     self = [super init];
     self.buildingName = name;

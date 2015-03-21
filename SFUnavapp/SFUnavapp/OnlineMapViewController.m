@@ -73,14 +73,13 @@
     //[self.sfumapView addSubview:_searchBar];
     [self.view insertSubview:_searchBar aboveSubview:_sfumapView];
 
-    
-    //[self.sfumapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(49.278094, -122.919883);
     marker.title = @"SFU";
     marker.snippet = @"Burnaby";
     marker.map = _sfumapView;
+    
     _testTable.hidden = YES;
     
     //concept to load latitude and longitude ibjects, should use plist
@@ -141,7 +140,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+// maybe not allow users to make markers by touch to avoid clustering
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
     GMSMarker *usertapMarker = [[GMSMarker alloc] init];
     usertapMarker.appearAnimation = kGMSMarkerAnimationPop;
@@ -223,83 +222,37 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    
-    [self.searchBar resignFirstResponder];
-    BuildLatLong* build;
-    
-    if(_isFiltered)
-    {
-        build = [_filteredTableData objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        build = [_allTableData objectAtIndex:indexPath.row];
-    }
-    GMSMarker *selectMarker = [[GMSMarker alloc] init];
-    selectMarker.appearAnimation = kGMSMarkerAnimationPop;
-    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
-    
-    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
-    selectMarker.map = _sfumapView;
-    self.testTable.hidden = YES;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.searchBar resignFirstResponder];
-    BuildLatLong* build;
-    
-    if(_isFiltered)
-    {
-        build = [_filteredTableData objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        build = [_allTableData objectAtIndex:indexPath.row];
-    }
-    GMSMarker *selectMarker = [[GMSMarker alloc] init];
-    selectMarker.appearAnimation = kGMSMarkerAnimationPop;
-    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
-    
-    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
-    selectMarker.map = _sfumapView;
-    self.testTable.hidden = YES;
-}
-
-
-/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}*/
-
-/*- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
     [self showDetailsForIndexPath:indexPath];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     [self showDetailsForIndexPath:indexPath];
 }
 
+// the method to handle selection in the filterable table
 -(void) showDetailsForIndexPath:(NSIndexPath*)indexPath
 {
     [self.searchBar resignFirstResponder];
-    DetailsViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    Food* food;
+    BuildLatLong* build;
     
-    if(isFiltered)
+    if(_isFiltered)
     {
-        food = [filteredTableData objectAtIndex:indexPath.row];
+        build = [_filteredTableData objectAtIndex:indexPath.row];
     }
     else
     {
-        food = [allTableData objectAtIndex:indexPath.row];
+        build = [_allTableData objectAtIndex:indexPath.row];
     }
+    GMSMarker *selectMarker = [[GMSMarker alloc] init];
+    selectMarker.appearAnimation = kGMSMarkerAnimationPop;
+    selectMarker.position = CLLocationCoordinate2DMake(build.lati, build.longi);
     
-    vc.food = food;
-    [self.navigationController pushViewController:vc animated:true];
-}*/
+    selectMarker.title = [NSString stringWithFormat:@"%@", build.buildingName];
+    selectMarker.map = _sfumapView;
+    self.testTable.hidden = YES;
+}
 
 /*
 #pragma mark - Navigation
