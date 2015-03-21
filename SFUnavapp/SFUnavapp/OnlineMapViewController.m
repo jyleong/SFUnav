@@ -10,8 +10,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface OnlineMapViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *clrBtn;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clrbtn;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
@@ -63,13 +63,14 @@
     //Controls the type of map tiles that should be displayed.
     _sfumapView.mapType = kGMSTypeNormal;
     //Shows the compass button on the map
+    //header bar coers the compass for some reason
     _sfumapView.settings.compassButton = YES;
     //Shows the my location button on the map
     _sfumapView.settings.myLocationButton = YES;
     //Sets the view controller to be the GMSMapView delegate
     _sfumapView.delegate = self;
-    [self.sfumapView addSubview:_clrBtn];
-    //[self.sfumapView addSubview:_searchBar];
+
+    
     [self.view insertSubview:_searchBar aboveSubview:_sfumapView];
 
     // Creates a marker in the center of the map.
@@ -94,6 +95,9 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     //NSLog(@"%@", [locations lastObject]);
+}
+- (IBAction)clearMark:(id)sender {
+    [_sfumapView clear];
 }
 
 
@@ -142,9 +146,6 @@
     usertapMarker.position = coordinate;
     usertapMarker.title = [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
     usertapMarker.map = _sfumapView;
-}
-- (IBAction)clearMark:(id)sender {
-    [_sfumapView clear];
 }
 
 
