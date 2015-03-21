@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface OnlineMapViewController : UIViewController <GMSMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate>
+@interface OnlineMapViewController : UIViewController <GMSMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *testTable;
 
 
 @end
