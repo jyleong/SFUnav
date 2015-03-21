@@ -542,9 +542,9 @@
                                     <outlet property="delegate" destination="c8a-cf-Ykq" id="g9K-X1-PNo"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
-                                <rect key="frame" x="20" y="70" width="48" height="30"/>
-                                <state key="normal" title="Search">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
+                                <rect key="frame" x="210" y="72" width="28" height="28"/>
+                                <state key="normal" image="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -571,11 +571,9 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="6" id="7d0-6O-1kc"/>
                             <constraint firstItem="LZa-qe-xya" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" id="MBF-vd-bbR"/>
                             <constraint firstAttribute="trailing" secondItem="LZa-qe-xya" secondAttribute="trailing" id="NWw-nz-q5w"/>
                             <constraint firstItem="LZa-qe-xya" firstAttribute="top" secondItem="6S5-tf-uYO" secondAttribute="top" id="fab-O7-4F4"/>
-                            <constraint firstItem="S1d-ay-bj0" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" constant="20" symbolic="YES" id="j0d-3z-lHO"/>
                             <constraint firstAttribute="bottom" secondItem="LZa-qe-xya" secondAttribute="bottom" id="ofr-j9-8oz"/>
                         </constraints>
                     </view>
@@ -1563,6 +1561,7 @@
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
         <image name="Refresh_Grey" width="70" height="62"/>
+        <image name="Search" width="56" height="56"/>
         <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
         <image name="Steven" width="250" height="300"/>
