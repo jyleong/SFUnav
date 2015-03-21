@@ -210,7 +210,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-- (IBAction)ReloadPage:(id)sender {
+- (IBAction)reload:(id)sender {
+    
     NSLog(@"RELOAD");
     NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
     //NSString *storage;
@@ -246,9 +247,7 @@
     
     
     [self.tableView reloadData];
-    
 
-    
 }
 
 
