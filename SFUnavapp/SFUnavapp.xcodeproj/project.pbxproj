@@ -95,6 +95,8 @@
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 		EE9A4CD91ABA23F9008AE555 /* NewsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */; };
 		EEC408AA1AB2604400B825E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC408A91AB2604400B825E3 /* News.m */; };
+		EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */; };
+		EEC6B1311ABCDB660017E966 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B1301ABCDB660017E966 /* Channel.m */; };
 		EEC7864B1AB79312004AF041 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC786481AB79312004AF041 /* List.m */; };
 		EEC7864C1AB79312004AF041 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864A1AB79312004AF041 /* Parser.m */; };
 		EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864E1AB79588004AF041 /* NewsTableViewController.m */; };
@@ -230,6 +232,10 @@
 		EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWebViewController.m; sourceTree = SOURCE_ROOT; };
 		EEC408A81AB2604400B825E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		EEC408A91AB2604400B825E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		EEC6B12C1ABCD6890017E966 /* NewsChannelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannelTableViewController.h; sourceTree = "<group>"; };
+		EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannelTableViewController.m; sourceTree = "<group>"; };
+		EEC6B12F1ABCDB660017E966 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		EEC6B1301ABCDB660017E966 /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		EEC786471AB79312004AF041 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		EEC786481AB79312004AF041 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		EEC786491AB79312004AF041 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Parser.h; path = SFUnavapp/Parser.h; sourceTree = SOURCE_ROOT; };
@@ -366,7 +372,6 @@
 		B01BE6781A8D425E0013D9EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0A3826E1AB6D9C700FD23ED /* MapUI_button_text.png */,
 				045E5E731AB0144200FDF7BC /* burnaby.png */,
 				045E5E741AB0144200FDF7BC /* harbourcenter.png */,
 				045E5E751AB0144200FDF7BC /* surrey.png */,
@@ -523,9 +528,13 @@
 		EE9A4CDA1ABA2FE0008AE555 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				EEC6B12C1ABCD6890017E966 /* NewsChannelTableViewController.h */,
+				EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */,
 				EE9A4CD81ABA23F9008AE555 /* NewsWebViewController.m */,
 				EE9A4CD71ABA23F9008AE555 /* NewsWebViewController.h */,
 				EEC786471AB79312004AF041 /* List.h */,
+				EEC6B12F1ABCDB660017E966 /* Channel.h */,
+				EEC6B1301ABCDB660017E966 /* Channel.m */,
 				EEC786481AB79312004AF041 /* List.m */,
 				EEC7864A1AB79312004AF041 /* Parser.m */,
 				EEC786491AB79312004AF041 /* Parser.h */,
@@ -652,7 +661,6 @@
 				B0DB77E91AB2A44800EFDB83 /* all_campus_map.png in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
-				B0A3826F1AB6D9C700FD23ED /* MapUI_button_text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +684,7 @@
 				D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
+				EEC6B1311ABCDB660017E966 /* Channel.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
 				B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */,
 				B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */,
@@ -701,6 +710,7 @@
 				B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */,
 				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
 				EEC7864B1AB79312004AF041 /* List.m in Sources */,
+				EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */,
 				DC566CD31AA6A44B006AA2D9 /* Reachability.m in Sources */,
 				DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */,
 			);
