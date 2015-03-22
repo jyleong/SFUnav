@@ -2,6 +2,9 @@
 
 This README contains the information contributors and other users who require to use the repository
 
+### Version Submissions ###
+* Version 2 Branch Name: [Version2SubmissionBranch](https://bitbucket.org/20151cmpt_275/2015-1-cmpt_275_team_13/branch/Version2SubmissionBranch)
+
 ### Running the code ###
 * Current Deployment Target: iOS: 8.1
 * Suggested X-Code version to avoid issues: X-Code 6.1.1
