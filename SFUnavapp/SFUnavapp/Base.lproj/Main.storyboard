@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -542,7 +543,7 @@
                                     <outlet property="delegate" destination="c8a-cf-Ykq" id="g9K-X1-PNo"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
                                 <rect key="frame" x="210" y="72" width="28" height="28"/>
                                 <state key="normal" image="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -551,7 +552,7 @@
                                     <segue destination="uek-Ao-sUV" kind="push" id="5Um-q0-XlR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-0l-CtE">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-0l-CtE">
                                 <rect key="frame" x="246" y="72" width="28" height="28"/>
                                 <state key="normal" image="icons">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -560,7 +561,7 @@
                                     <action selector="toggleIcon:" destination="c8a-cf-Ykq" eventType="touchUpInside" id="Ear-tg-Wbz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2D-2n-1fE">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2D-2n-1fE">
                                 <rect key="frame" x="282" y="72" width="28" height="28"/>
                                 <state key="normal" image="text">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -571,10 +572,16 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="s2D-2n-1fE" secondAttribute="trailing" constant="-6" id="7D9-Ui-lLj"/>
+                            <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="8" id="Kd5-5G-LBp"/>
                             <constraint firstItem="LZa-qe-xya" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" id="MBF-vd-bbR"/>
+                            <constraint firstItem="7BQ-0l-CtE" firstAttribute="leading" secondItem="S1d-ay-bj0" secondAttribute="trailing" constant="8" id="MT7-7N-ye4"/>
                             <constraint firstAttribute="trailing" secondItem="LZa-qe-xya" secondAttribute="trailing" id="NWw-nz-q5w"/>
+                            <constraint firstItem="s2D-2n-1fE" firstAttribute="leading" secondItem="7BQ-0l-CtE" secondAttribute="trailing" constant="8" id="bSc-Tk-Awa"/>
                             <constraint firstItem="LZa-qe-xya" firstAttribute="top" secondItem="6S5-tf-uYO" secondAttribute="top" id="fab-O7-4F4"/>
                             <constraint firstAttribute="bottom" secondItem="LZa-qe-xya" secondAttribute="bottom" id="ofr-j9-8oz"/>
+                            <constraint firstItem="7BQ-0l-CtE" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="8" id="zeR-ME-rwx"/>
+                            <constraint firstItem="s2D-2n-1fE" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="8" id="ztb-3A-eeC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QNM-Ay-pqU">
@@ -1630,8 +1637,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="L0D-jd-wNt"/>
         <segue reference="Pov-Lm-lJD"/>
+        <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>

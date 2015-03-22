@@ -57,8 +57,10 @@
                                                                  zoom:15];
 
     self.sfumapView = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-    [self.view insertSubview:_sfumapView atIndex:0];
     
+    [self.view insertSubview:_sfumapView atIndex:0];
+    //code to autoresize the map in different orientations
+    _sfumapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _sfumapView.myLocationEnabled = YES;
     //Controls the type of map tiles that should be displayed.
     _sfumapView.mapType = kGMSTypeNormal;
