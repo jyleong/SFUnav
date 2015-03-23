@@ -17,6 +17,7 @@
     bool icons;
     bool text;
 }
+@property (strong, nonatomic) NSArray* arrBuildings;
 
 @end
 
@@ -60,9 +61,9 @@ NSMutableArray * BuildingObjects;
     //Use services like GIMP to generate coordintaes with appropriate origins
     self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
     
-    NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
-    NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
-    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+    _arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
+    NSLog(@"arr size %lu",(unsigned long)[_arrBuildings count]);
+    [_viewImageMap setMapping:_arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
     
     icons = YES;
     text = YES;
@@ -88,13 +89,8 @@ NSMutableArray * BuildingObjects;
     [self.scrollView setMinimumZoomScale:.2];
     [self.scrollView setZoomScale:[self.scrollView minimumZoomScale]];
     
-    //Loads building names and coordintaes into an array from the plist file specified
-    //Use services like GIMP to generate coordintaes with appropriate origins
-    self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
-    
-    NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
-    NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
-    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
+    //NSLog(@"arr size %lu",(unsigned long)[_arrBuildings count]);
+    [_viewImageMap setMapping:_arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
 }
 
 /*- (void) loadMTI: (NSString *) imageName {
