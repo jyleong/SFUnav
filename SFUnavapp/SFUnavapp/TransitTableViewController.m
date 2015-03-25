@@ -29,8 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *quicklinksPicker;
 @property (weak, nonatomic) IBOutlet UILabel *quicklinkLabel;
 @property (strong, nonatomic) NSArray *busstopNames; // trivially to set up dictionary
-@property (strong, nonatomic) NSString *stopID; // stopID and busNUm to keep track of current stopid and busnum
-@property (strong, nonatomic) NSString *busNum;
+@property (weak, nonatomic) NSString *stopID; // stopID and busNUm to keep track of current stopid and busnum
+@property (weak, nonatomic) NSString *busNum;
 @property (strong, nonatomic) NSArray *fivedigitID; // trivially to set up dictionary
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
 
@@ -397,6 +397,7 @@
     [_busDisplaytextView setText:_stringofTimes];
     // call to method to display the time remaining for next bus
     [self setTimer];
+    [_textSwitch setOn:YES];
 }
 
 -(void) setTimer {
@@ -427,82 +428,6 @@
     }
     [_timerLabel setText:displayTimerString];
 }
-/*-(void) setTimer {
-    NSString *key;
-    NSString *displayTimerString; // text to display in label
-    NSMutableArray *holds_from_d = [[NSMutableArray alloc] init]; //get from dictionary
-    
-    for(key in self.retrieveInfo.dictionary) // to get first item of dictionary
-    { // this loop will not execute if the dictionary is empty
-        [holds_from_d addObject:self.retrieveInfo.dictionary[key][0]]; //holds first string from the dictonary
-    }
-    //this block here gets the string from array
-    NSMutableArray *modifiedArr = [[NSMutableArray alloc] init]; // will hold those new strings;
-    // must cut out the and leave only the minutes of each item, 5:47pm -> 5:47
-    NSString *elem;
-    for(elem in holds_from_d) {
-        elem = [elem substringToIndex:[elem length] -2];
-        //NSLog(elem);
-        [modifiedArr addObject:elem];
-    }
-    // this block sorts the array
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm"];
-    
-    NSMutableArray *dates = [NSMutableArray arrayWithCapacity:modifiedArr.count];
-    for (NSString *timeString in modifiedArr)
-    {
-        NSDate *date = [dateFormatter dateFromString:timeString];
-        [dates addObject:date];
-    }
-    
-    [dates sortUsingSelector:@selector(compare:)];
-    
-    NSMutableArray *sortedTimes = [NSMutableArray arrayWithCapacity:dates.count]; // sorted times
-    for (NSDate *date in dates)
-    {
-        NSString *timeString = [dateFormatter stringFromDate:date];
-        [sortedTimes addObject:timeString];
-    }
-    ///////////////////////////////////////////
-    
-    if ([sortedTimes count] != 0) {
-        NSString *firstTime = sortedTimes[0];
-        NSLog(@"%@", firstTime);
-        
-        if (firstTime != nil) {
-            
-            NSDate *date = [NSDate date]; // block of code helps to get the minutes into int from NSString
-            NSCalendar *calendar = [NSCalendar currentCalendar];
-            NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-            // this part will do same function but for the firstTime String
-            NSDate *busDate = [dateFormatter dateFromString:firstTime];
-            NSDateComponents *buscomponents = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:busDate];
-            
-            
-            int dateminute = [components minute]; //this holds the minutes from urrent phone
-            NSLog(@"%i dateminute",dateminute);
-            
-            int busMinutes = [buscomponents minute];
-            NSLog(@"%i busminutes", busMinutes);
-            
-            int resultMinutes; // holds the minutes to didspaly
-            if (busMinutes < dateminute) {
-                busMinutes += 60;
-                resultMinutes = busMinutes - dateminute;
-            }
-            else {
-                resultMinutes = busMinutes - dateminute;
-            }
-            displayTimerString = [NSString stringWithFormat:@"%i min", resultMinutes];
-        }
-    }
-    else { //dictionary is empty
-        displayTimerString = @"";
-    }
-    
-    [_timerLabel setText:displayTimerString];
-}*/
 
 
 - (void) initialDisplay { // error check when initial loading app from clean state (userdefaults has no saved busID)
