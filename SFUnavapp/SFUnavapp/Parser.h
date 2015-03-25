@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "AppDelegate.h"
 #import "List.h"
 @interface Parser : NSObject<NSXMLParserDelegate>{
-    //AppDelegate *app;
     List *thelist;
     NSMutableString *currentelementvalue;
   

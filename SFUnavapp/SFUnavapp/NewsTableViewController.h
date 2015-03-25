@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 #import "List.h"
 #import "Channel.h"
 #import "ServicesURL.h"
 #import "ServicesWebViewController.h"
 @interface NewsTableViewController : UITableViewController
-@property (nonatomic,retain)AppDelegate *app;
 @property (nonatomic,retain) List *theList;
 
 @property (strong, nonatomic) NSMutableArray *listArray;

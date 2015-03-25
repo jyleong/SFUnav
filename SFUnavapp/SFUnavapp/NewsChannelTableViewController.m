@@ -66,6 +66,10 @@
     
     [self.tableView reloadData];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationItem.title = @"News";
+}
 
 - (void)didReceiveMemoryWarning
 {
