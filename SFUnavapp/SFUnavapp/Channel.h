@@ -17,3 +17,4 @@
 
 -(id) initWithchannelname: (NSString *)channelname andlink: (NSString*) channelurl;
 @end
+

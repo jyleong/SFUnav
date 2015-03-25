@@ -25,3 +25,5 @@
 @property (nonatomic, retain) NSString *guid; 
 
 @end
+
+//these are all the properties that are returned from the rss news feed. The parser stores 

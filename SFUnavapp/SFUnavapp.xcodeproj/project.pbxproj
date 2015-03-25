@@ -98,6 +98,7 @@
 		EEC7864B1AB79312004AF041 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC786481AB79312004AF041 /* List.m */; };
 		EEC7864C1AB79312004AF041 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864A1AB79312004AF041 /* Parser.m */; };
 		EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864E1AB79588004AF041 /* NewsTableViewController.m */; };
+		EEC87AAD1AC360260095861F /* Channel.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEC87AAC1AC360260095861F /* Channel.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +237,7 @@
 		EEC7864A1AB79312004AF041 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Parser.m; path = SFUnavapp/Parser.m; sourceTree = SOURCE_ROOT; };
 		EEC7864D1AB79588004AF041 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = SFUnavapp/NewsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = SFUnavapp/NewsTableViewController.m; sourceTree = SOURCE_ROOT; };
+		EEC87AAC1AC360260095861F /* Channel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Channel.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,13 +527,14 @@
 				EEC6B12C1ABCD6890017E966 /* NewsChannelTableViewController.h */,
 				EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */,
 				EEC786471AB79312004AF041 /* List.h */,
+				EEC786481AB79312004AF041 /* List.m */,
 				EEC6B12F1ABCDB660017E966 /* Channel.h */,
 				EEC6B1301ABCDB660017E966 /* Channel.m */,
-				EEC786481AB79312004AF041 /* List.m */,
 				EEC7864A1AB79312004AF041 /* Parser.m */,
 				EEC786491AB79312004AF041 /* Parser.h */,
 				EEC7864E1AB79588004AF041 /* NewsTableViewController.m */,
 				EEC7864D1AB79588004AF041 /* NewsTableViewController.h */,
+				EEC87AAC1AC360260095861F /* Channel.plist */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */,
 				B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */,
+				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
 				049B5C091AB216EC001521D4 /* Financial.plist in Resources */,
 				0456CFB71AB4CC33002548B5 /* Security.plist in Resources */,
 				B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */,

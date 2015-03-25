@@ -39,35 +39,28 @@
     
     
     
-    
+    //initiates the parser object and parses the xml document from within the parser object
     Parser *theparser = [[Parser alloc]init];
-    
     [xmlparser setDelegate:theparser];
-    
-    
     BOOL worked = [xmlparser parse];
     listArray = theparser.listArray;
+    
+    /*
+    //nslogs the number of articles found, if none, boo
     if (worked){
-        
-        
         NSLog(@"amount %i",[listArray count]);
     }
     else{
-        
         NSLog(@"boo");
     }
     
     for (int i=0; i<[listArray count]; i++){
-        // NSLog( [listArray[i] title]);
-        //NSLog([listArray[i] description]);
-        
+         NSLog( [listArray[i] title]);
+        NSLog([listArray[i] description]);
     }
-    
+    */
     
     [self.tableView reloadData];
-    
-    
-    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -118,7 +111,7 @@
     
     
     
-    
+    //retrieves the title of the selected article and link from the list array and displays them in a table
     
     theList = [listArray objectAtIndex:indexPath.row];
     NSString *input = theList.title;
@@ -127,7 +120,6 @@
     
     NSString *inputdate = theList.pubDate;
     cell.textLabel.text = result;
-    
     
     
     NSString *result2 = [inputdate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -180,15 +172,8 @@
 }
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSLog(@"hahah");
     theList = [listArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"NewsLink" sender:self];
-    //[self performSegueWithIdentifier:@"linktoWeb" sender:self];
-    
-    
-    
-    
-    
 }
 
 #pragma mark - Navigation
@@ -210,6 +195,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+
+//the reload button reloads the data by parsing the xml document another time and reloading the table with the new results
 - (IBAction)reload:(id)sender {
     
     NSLog(@"RELOAD");
@@ -219,33 +206,25 @@
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
     
     NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
-    
-    
-    
-    
     Parser *theparser = [[Parser alloc]init];
-    
     [xmlparser setDelegate:theparser];
-    
-    
     BOOL worked = [xmlparser parse];
     listArray = theparser.listArray;
+    
+    /*
     if (worked){
-        
-        
         NSLog(@"amount %i",[listArray count]);
     }
     else{
-        
         NSLog(@"boo");
     }
-    
+   
     for (int i=0; i<[listArray count]; i++){
         // NSLog( [listArray[i] title]);
         //NSLog([listArray[i] description]);
         
     }
-    
+     */
     
     [self.tableView reloadData];
 
