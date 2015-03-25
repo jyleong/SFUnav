@@ -7,7 +7,7 @@
 //
 
 #import "NewsTableViewController.h"
-//#import "AppDelegate.h"
+
 #import "Parser.h"
 
 @interface NewsTableViewController ()
