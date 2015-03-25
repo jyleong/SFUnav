@@ -29,12 +29,7 @@
     [super viewDidLoad];
     
     
-    //app = [[UIApplication sharedApplication]delegate];
-    
-   // [self.tableView reloadData];
-    
-    
-    
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
     NSString *inputurlstring =_channel.channelurl;
     //NSString *storage;
@@ -79,6 +74,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationItem.title = _channel.channelName;
 }
 
 - (void)didReceiveMemoryWarning
