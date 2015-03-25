@@ -9,7 +9,7 @@
 #import "NewsTableViewController.h"
 //#import "AppDelegate.h"
 #import "Parser.h"
-#import "NewsWebViewController.h"
+
 @interface NewsTableViewController ()
 @end
 
@@ -198,13 +198,13 @@
 {
     
     if ([[segue identifier] isEqualToString:@"NewsLink"]) {
-        NewsWebViewController *webcont = [segue destinationViewController];
+        ServicesWebViewController *webcont = [segue destinationViewController];
         
-       // ServicesURL *send = [[ServicesURL alloc] init];
-        //send.serviceName=@"About Us";
-        //send.serviceURL=@"https://cmpt275g13.wordpress.com/";
-        //webcont.hidesBottomBarWhenPushed = YES;
-        [webcont setCurrentURL:theList];
+        ServicesURL *send = [[ServicesURL alloc] init];
+        send.serviceName=theList.title;
+        send.serviceURL=[theList.link stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
+        webcont.hidesBottomBarWhenPushed = YES;
+        [webcont setCurrentURL:send];
     }
     
     // Get the new view controller using [segue destinationViewController].
