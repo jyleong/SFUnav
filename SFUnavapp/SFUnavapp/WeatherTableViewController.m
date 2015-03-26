@@ -8,6 +8,8 @@
 
 #import "WeatherTableViewController.h"
 #import "Reachability.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface WeatherTableViewController ()
 
 {
@@ -39,7 +41,7 @@
     
     // Initialize the refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor purpleColor];
+    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
@@ -52,7 +54,6 @@
     self.navigationController.navigationBarHidden=NO;
     [self webcamGen];
 }
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -115,11 +116,46 @@
     //NSLog(@"\n\nIn gendata\n\n");
     if (parsingResult)
     {
-        [self CampusInfoGen];
+        /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+            // code executed in background
+            
+            NSData *roadData = [NSData dataWithContentsOfURL:
+                                [NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/api/2/current"]];
+            NSDictionary *json = nil;
+            if (roadData) {
+                json = [NSJSONSerialization JSONObjectWithData:roadData options:kNilOptions error:nil];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //[self updateWithDict: json];
+                [self CampusInfoGen: json];
+                [self BurnabyParaGen];
+            });
+        });*/
+        NSData *roadData = [NSData dataWithContentsOfURL:
+                            [NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/api/2/current"]];
+        NSDictionary *json = nil;
+        if (roadData) {
+            json = [NSJSONSerialization JSONObjectWithData:roadData options:kNilOptions error:nil];
+        }
+        //[self CampusInfoGen];
+        //[self BurnabyParaGen];
+        [self CampusInfoGen: json];
         [self BurnabyParaGen];
     }
     return;
 }
+
+/*-(void) genData
+{
+    parsingResult=[self checkInternet];
+    //NSLog(@"\n\nIn gendata\n\n");
+    if (parsingResult)
+    {
+        [self CampusInfoGen];
+        [self BurnabyParaGen];
+    }
+    return;
+}*/
 
 -(BOOL) checkInternet
 {
@@ -134,6 +170,82 @@
     
 }
 
+// test json feed
+/*- (void) updateWithDict: (NSDictionary*) json
+{
+    @try {
+        NSString *jsonfeed = [NSString stringWithFormat:@"Burnaby Campus: campus status %@ \n classes and exams %@ \n buses %@ \n roads %@ \n",
+                              json[@"conditions"][@"burnaby"][@"campus"][@"status"],
+                              json[@"conditions"][@"burnaby"][@"classes_exams"][@"status"],
+                              json[@"conditions"][@"burnaby"][@"transit"][@"status"],
+                              json[@"conditions"][@"burnaby"][@"roads"][@"status"], nil];
+        NSLog(@"%@", jsonfeed);
+    }
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Coud not parse json" delegate:nil cancelButtonTitle:@"close" otherButtonTitles:nil] show];
+        NSLog(@"exception : %@", exception);
+    }
+}*/
+
+- (void) CampusInfoGen: (NSDictionary*) json
+{
+    
+    if (parsingResult==NO)
+    {    return;
+        
+    }
+    collection=[[NSMutableArray alloc]init];
+    Campus *info = [[Campus alloc] init];
+    
+    //burnaby
+    info.name=@"Burnaby Campus";
+    info.status= json[@"conditions"][@"burnaby"][@"campus"][@"status"];
+    
+    info.ClassExam=json[@"conditions"][@"burnaby"][@"classes_exams"][@"status"];
+    //write bus status
+    info.translink=json[@"conditions"][@"burnaby"][@"transit"][@"status"];
+    info.road=json[@"conditions"][@"burnaby"][@"roads"][@"status"];
+    [collection addObject:info];
+    
+    //Surrey Campus
+    info = [[Campus alloc] init];
+    info.name= @"Surrey Campus";
+    info.status=json[@"conditions"][@"surrey"][@"campus"][@"status"];
+    
+    info.ClassExam= json[@"conditions"][@"surrey"][@"classes_exams"][@"status"];
+    info.translink= @"NODATA";
+    info.road=@"NODATA";
+    //NSLog(@"Class Exma sur%@",info.name);
+    [collection addObject:info];
+    
+    //Vancouver Campus
+    info = [[Campus alloc] init];
+    info.name=@"Vancouver Campus";
+    
+    info.status=json[@"conditions"][@"vancouver"][@"campus"][@"status"];
+    
+    info.ClassExam= json[@"conditions"][@"vancouver"][@"classes_exams"][@"status"];
+    //NSLog(@"Class Exma van%@",info.ClassExam);
+    info.translink= @"NODATA";
+    info.road=@"NODATA";
+    
+    [collection addObject:info];
+    
+    
+}
+
+//unnecessary
+/*- (void) BurnabyParaGen: (NSDictionary*) json
+{
+    @try {
+        NSArray *jsonfeed = [json objectForKey:@"announcements"];
+        NSLog(@"%@", jsonfeed[0]);
+    }
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Coud not parse json" delegate:nil cancelButtonTitle:@"close" otherButtonTitles:nil] show];
+        NSLog(@"exception : %@", exception);
+    }
+}*/
 - (void) BurnabyParaGen
 {
 //    if (parsingResult==NO)
@@ -161,7 +273,7 @@
     
 }
 
-- (void) CampusInfoGen
+/*- (void) CampusInfoGen
 {
     
     if (parsingResult==NO)
@@ -249,7 +361,7 @@
     
     [collection addObject:info];
     
-}
+}*/
 
 
 - (void)didReceiveMemoryWarning
@@ -283,6 +395,8 @@
     return @"SFU Webcams";
 }
 
+
+
 //Configure cells for each section
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -304,15 +418,17 @@
         }
         // Configure the cell...
         Campus* current= [collection objectAtIndex:indexPath.row];
-        if ([current.status isEqual:@"Open"] && [current.ClassExam isEqual:@"On Schedule"] )
+        //NSLog(@"curent name %@, current status %@, curr sche %@", current.name, current.status, current.ClassExam);
+        if ([current.status isEqual:@"open"] && [current.ClassExam isEqual:@"on schedule"] )
         {
-            if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"On Schedule"])
+            if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"on schedule"])
                 cell.detailTextLabel.text=@"Open";
            // NSLog(@"adjusting cell label\n");
         }
         else
             cell.detailTextLabel.text= @"Close";
         cell.textLabel.text= [current name];
+        
         //cell.textLabel.textColor= [UIColor whiteColor];
         //cell.detailTextLabel.textColor= [UIColor grayColor];
         //if (cell.backgroundColor==open)

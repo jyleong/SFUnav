@@ -48,6 +48,7 @@
 		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
 		B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */; };
 		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
+		B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */; };
 		B0A1E6391AB7959300B5D60C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */; };
 		B0A1E6401AB795C400B5D60C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */; };
 		B0A1E6411AB795C400B5D60C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63D1AB795C400B5D60C /* CoreData.framework */; };
@@ -165,6 +166,8 @@
 		B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
 		B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
 		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
+		B08D859D1AC46AA700335A19 /* RoadReportTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadReportTableCell.h; sourceTree = "<group>"; };
+		B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadReportTableCell.m; sourceTree = "<group>"; };
 		B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B0A1E63D1AB795C400B5D60C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -498,6 +501,8 @@
 			children = (
 				DC86568E1A97165500D908C9 /* Websites */,
 				D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */,
+				B08D859D1AC46AA700335A19 /* RoadReportTableCell.h */,
+				B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */,
 				D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */,
 				DC8656841A97164C00D908C9 /* Webcam.h */,
 				DC8656851A97164C00D908C9 /* Webcam.m */,
@@ -694,6 +699,7 @@
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
+				B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
