@@ -1,14 +1,18 @@
 //
 //  WeatherTableViewController.m
 //  SFUnavapp
-//
+//  Team NoMacs
 //  Created by Arjun Rathee on 2015-03-05.
+//
+//	Edited by James Leong
+//  Edited by Arjun Rathee
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
 #import "WeatherTableViewController.h"
 #import "Reachability.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "RoadReportTableCell.h"
 
 @interface WeatherTableViewController ()
 
@@ -110,41 +114,27 @@
     [links addObject:url];
 }
 
+//parsing json happens here
 -(void) genData
 {
     parsingResult=[self checkInternet];
-    //NSLog(@"\n\nIn gendata\n\n");
     if (parsingResult)
     {
-        /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            // code executed in background
-            
-            NSData *roadData = [NSData dataWithContentsOfURL:
-                                [NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/api/2/current"]];
-            NSDictionary *json = nil;
-            if (roadData) {
-                json = [NSJSONSerialization JSONObjectWithData:roadData options:kNilOptions error:nil];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                //[self updateWithDict: json];
-                [self CampusInfoGen: json];
-                [self BurnabyParaGen];
-            });
-        });*/
+
         NSData *roadData = [NSData dataWithContentsOfURL:
                             [NSURL URLWithString:@"http://www.sfu.ca/security/sfuroadconditions/api/2/current"]];
         NSDictionary *json = nil;
         if (roadData) {
             json = [NSJSONSerialization JSONObjectWithData:roadData options:kNilOptions error:nil];
         }
-        //[self CampusInfoGen];
-        //[self BurnabyParaGen];
         [self CampusInfoGen: json];
         [self BurnabyParaGen];
     }
     return;
 }
 
+
+//Arjun's previous method
 /*-(void) genData
 {
     parsingResult=[self checkInternet];
@@ -187,6 +177,8 @@
     }
 }*/
 
+
+//this method sets te objects for each campus from the json dictionary
 - (void) CampusInfoGen: (NSDictionary*) json
 {
     
@@ -372,6 +364,21 @@
 
 #pragma mark - Table view data source
 
+// table height depending on section
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat height = self.tableView.rowHeight;
+    
+    // in the roadreport section
+    if (indexPath.section == 0){
+        
+        height = 110;
+        
+    }
+    
+    return height;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -396,8 +403,72 @@
 }
 
 
-
+//shows the status INSIDE the cell rather than alertview
 //Configure cells for each section
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0)
+    {
+        RoadReportTableCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"RoadReportTableCell" forIndexPath:indexPath];
+        //[rowsToReload addObject:indexPath.row];
+        
+        //cell.detailTextLabel.text=@"YES";
+        if (parsingResult==NO)
+        {
+            //cell.backgroundColor=close;
+            cell.titleLabel.text=@"Internet Connection Is Required";
+            cell.detailsLabel.text = @"";
+
+            cell.openstatusLabel.hidden = YES;
+            return cell;
+        }
+        // Configure the cell...
+        Campus* current= [collection objectAtIndex:indexPath.row];
+        cell.openstatusLabel.hidden = NO;
+        if ([current.status isEqual:@"open"] && [current.ClassExam isEqual:@"on schedule"] )
+        {
+            if ([current.translink isEqual:@"NODATA"] || [current.translink isEqual:@"on schedule"]) {
+                //cell.detailsLabel.text=@"Open";
+                cell.openstatusLabel.text = @"Open";
+                cell.openstatusLabel.backgroundColor = [UIColor greenColor];
+            
+            }
+            // NSLog(@"adjusting cell label\n");
+        }
+        else {
+            cell.openstatusLabel.text =@"Close";
+            cell.openstatusLabel.backgroundColor = [UIColor redColor];
+            //cell.detailsLabel.text= @"Close";
+        }
+        cell.titleLabel.text= [current name];
+        if ([current.name isEqual: @"Burnaby Campus"])
+        {
+            NSString * detailText= [NSString stringWithFormat:@"Campus Status: %@ \nClass and Exams: %@ \nBuses: %@ \nRoads: %@",[current status],[current ClassExam], [current translink], [current road]];
+            cell.detailsLabel.text =detailText;
+            
+        }
+        else
+        {
+            NSString* detailText= [NSString stringWithFormat:@"Campus Status: %@ \nClass and Exams: %@",[current status],[current ClassExam]];
+            cell.detailsLabel.text = detailText;
+            
+        }
+        return cell;
+        
+    }
+    else
+    {
+        UITableViewCell *cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.detailTextLabel.text=@"";
+        Webcam* current= [links objectAtIndex:indexPath.row];
+        // cell.textLabel.font = [UIFont fontWithName:@"Arial" size:12];
+        cell.textLabel.text= [current location];
+        cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }
+}
+/*//Configure cells for each section
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
@@ -455,9 +526,10 @@
         cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
-}
+}*/
+
 //Accessory action for Burnaby campus cell to display extra announcements from the website
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+/*- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     //Create alert when accessory button is clicked
    
     if (parsingResult==NO)
@@ -469,8 +541,9 @@
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Announcements" message: extraPara delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
-}
+}*/
 
+/*
 //Create AlertViews to show parsing result on cell click for campus rows
 //or perform segue to UIWebView when a webcam name is selected
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -503,6 +576,32 @@
             
         }
         return;
+    }
+    if (indexPath.section==1)
+    {
+        [self performSegueWithIdentifier:@"webcamDisplay" sender:self];
+        return;
+    }
+}*/
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Campus* current= [collection objectAtIndex:indexPath.row];
+    if (indexPath.section==0 && [current.name isEqual: @"Burnaby Campus"])
+    {
+        if (parsingResult==NO)
+        {
+            //NSLog(@"Parsing result was no\n");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"Internet Connection Required" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [current name] message: extraPara delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }
     if (indexPath.section==1)
     {
