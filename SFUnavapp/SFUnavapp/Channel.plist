@@ -10,21 +10,21 @@
 	</dict>
 	<dict>
 		<key>channelname</key>
-		<string></string>
+		<string>Academic Advising</string>
 		<key>channelurl</key>
-		<string></string>
+		<string>https://events.sfu.ca/rss/calendar_id/29.xml</string>
 	</dict>
 	<dict>
 		<key>channelname</key>
-		<string></string>
+		<string>Dates, Holidays, and Closures</string>
 		<key>channelurl</key>
-		<string></string>
+		<string>https://events.sfu.ca/rss/calendar_id/4.xml</string>
 	</dict>
 	<dict>
 		<key>channelname</key>
-		<string></string>
+		<string>Special Events</string>
 		<key>channelurl</key>
-		<string></string>
+		<string>https://events.sfu.ca/rss/item_type_id/12.xml</string>
 	</dict>
 </array>
 </plist>
