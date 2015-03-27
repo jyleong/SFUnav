@@ -68,7 +68,7 @@
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
     //to map the keys to objects
-    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 135", @"Transit Hub - 143", @"Transit Hub - 144", @"Production Way",@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
+    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 135", @"Transit Hub - 143", @"Transit Hub - 144", @"Production Way",@"Tower Rd", @"S Campus Rd", @"Transportation Centre", @"University Dr W"];
     self.fivedigitID = @[@"51861",@"53096",@"52998",@"52807", @"59314",@"59044", @"51862",@"51863", @"51864"];
     
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
