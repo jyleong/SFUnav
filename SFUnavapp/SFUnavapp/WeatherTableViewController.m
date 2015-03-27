@@ -584,6 +584,20 @@
     }
 }*/
 
+- (NSIndexPath *)tableView:(UITableView *)tv willSelectRowAtIndexPath:(NSIndexPath *)path
+{
+    // Determine if row is selectable based on the NSIndexPath.
+    Campus* current= [collection objectAtIndex:path.row];
+    if (path.section == 0 && [current.name isEqual: @"Burnaby Campus"])
+    {
+        return path;
+    }
+    else if (path.section == 1)
+    {
+        return path;
+    }
+    return nil;
+}
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Campus* current= [collection objectAtIndex:indexPath.row];
