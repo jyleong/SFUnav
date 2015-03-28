@@ -41,7 +41,7 @@
   
     
     self.searchResult = [NSMutableArray arrayWithCapacity:[BuildingObjects count]];
-    NSLog(@"Size of extern-- number of floor plans%lu",[BuildingObjects count]);
+    //NSLog(@"Size of extern-- number of floor plans%lu",[BuildingObjects count]);
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
 }
 
