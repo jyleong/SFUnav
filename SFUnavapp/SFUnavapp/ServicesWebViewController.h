@@ -16,6 +16,6 @@
 #import "ServicesTableViewController.h"
 @interface ServicesWebViewController : UIViewController
 
-@property (weak, nonatomic) ServicesURL *currentURL;
+@property (nonatomic) ServicesURL *currentURL;
 
 @end

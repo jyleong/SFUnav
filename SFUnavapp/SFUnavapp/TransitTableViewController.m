@@ -455,8 +455,6 @@
     if ([[segue identifier] isEqualToString:@"passUps"]) {
         send.serviceName=@"Pass Ups";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
-        webcont.hidesBottomBarWhenPushed = YES;
-        [webcont setCurrentURL:send];
     }
     else if ([[segue identifier] isEqualToString:@"viewBus"]) {
         
@@ -467,15 +465,13 @@
         
         if (currentstring.length ==5) {
             send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@", _stopID];
-            webcont.hidesBottomBarWhenPushed = YES;
-            [webcont setCurrentURL:send];
         }
         else if (currentstring.length >=5) {
             send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@/Route/%@", _stopID,_busNum];
-            webcont.hidesBottomBarWhenPushed = YES;
-            [webcont setCurrentURL:send];
         }
     }
+    webcont.hidesBottomBarWhenPushed = YES;
+    [webcont setCurrentURL:send];
     
     
     
