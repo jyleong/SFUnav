@@ -64,7 +64,6 @@
 
 -(void)webViewLoading:(NSTimer *)timer{
     if (_currentlink.loading) {
-        
     }
     else
     {
