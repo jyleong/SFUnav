@@ -208,7 +208,7 @@
     NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
     Parser *theparser = [[Parser alloc]init];
     [xmlparser setDelegate:theparser];
-    BOOL worked = [xmlparser parse];
+    //BOOL worked = [xmlparser parse];
     listArray = theparser.listArray;
     
     /*

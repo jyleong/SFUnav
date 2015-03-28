@@ -392,7 +392,7 @@
     // Return the number of rows in the section.
     if(section==0)
         return 3;
-    return 5;
+    return links.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -587,10 +587,13 @@
 - (NSIndexPath *)tableView:(UITableView *)tv willSelectRowAtIndexPath:(NSIndexPath *)path
 {
     // Determine if row is selectable based on the NSIndexPath.
-    Campus* current= [collection objectAtIndex:path.row];
-    if (path.section == 0 && [current.name isEqual: @"Burnaby Campus"])
+    if (path.section == 0)
     {
-        return path;
+        Campus* current= [collection objectAtIndex:path.row];
+        if ([current.name isEqual: @"Burnaby Campus"]) {
+            return path;
+        }
+        //return path;
     }
     else if (path.section == 1)
     {
@@ -598,10 +601,11 @@
     }
     return nil;
 }
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Campus* current= [collection objectAtIndex:indexPath.row];
-    if (indexPath.section==0 && [current.name isEqual: @"Burnaby Campus"])
+    //only have the burnaby campus selectable for alertview
+    if (indexPath.section==0)
     {
         if (parsingResult==NO)
         {
@@ -611,19 +615,23 @@
             return;
         }
         
-        else
+        Campus* current= [collection objectAtIndex:indexPath.row];
+        
+        if ([current.name isEqual: @"Burnaby Campus"])
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle: [current name] message: extraPara delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+            
         }
+        return;
     }
+    // webcame section transitions to webview
     if (indexPath.section==1)
     {
         [self performSegueWithIdentifier:@"webcamDisplay" sender:self];
         return;
     }
 }
-
 
 #pragma mark - Navigation
 
