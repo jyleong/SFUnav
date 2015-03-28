@@ -88,7 +88,6 @@ NSMutableArray * BuildingObjects;
     NSString* imgPath = [bundle pathForResource:newIm ofType:@"png"];
     //Create UIImage Object with file data and change _viewImageMap's image
     UIImage*img= [[UIImage alloc] initWithContentsOfFile:imgPath];
-    NSLog(@"Changing to %@",imgPath);
     [self.viewImageMap setImage:img];
 
     [self.scrollView setContentSize:[self.viewImageMap frame].size];
@@ -219,19 +218,14 @@ NSMutableArray * BuildingObjects;
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    NSLog(@"view will disap");
     [self deallocer];
 }
 //Custom deallocater called by ARC. Forcing image deallocations and setting arrays to nil
 -(void) deallocer
 {
-    
-    NSLog(@"Deallocating map");
     _viewImageMap.image=nil;
     _viewImageMap=nil;
     _BuildingNames=nil;
-    
-    
 }
 
 #pragma mark - Navigation
