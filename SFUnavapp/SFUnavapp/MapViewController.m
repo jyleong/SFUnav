@@ -33,9 +33,9 @@ NSMutableArray * BuildingObjects;
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+
     // Do any additional setup after loading the view.
     UIColor * bgrnd = [UIColor colorWithRed:182/255.0f green:189/255.0f blue:147/255.0f alpha:1.0f];
     _scrollView.backgroundColor=bgrnd;
@@ -44,9 +44,13 @@ NSMutableArray * BuildingObjects;
     self.scrollView.maximumZoomScale=0.65;
     
     //[_scrollView setDelegate:self];
-    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString* imgPath = [bundle pathForResource:@"all_campus_map" ofType:@"png"];
+    UIImage*img= [[UIImage alloc] initWithContentsOfFile:imgPath];
+    if (img==nil)
+        NSLog(@"img was nil");
     //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
-    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:@"all_campus_map.png"]];
+    _viewImageMap =[[MTImageMapView alloc] initWithImage: img];
     
     [_viewImageMap setDelegate:self];
     
@@ -79,8 +83,14 @@ NSMutableArray * BuildingObjects;
 
 -(void) changeImage: (NSString *) newIm {
     [self.scrollView setZoomScale:0.65];
-    [self.viewImageMap setImage:[UIImage imageNamed:newIm]];
-    //[self.viewImageMap setFrame:rect];
+    //Create file bundle with content of image file
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString* imgPath = [bundle pathForResource:newIm ofType:@"png"];
+    //Create UIImage Object with file data and change _viewImageMap's image
+    UIImage*img= [[UIImage alloc] initWithContentsOfFile:imgPath];
+    NSLog(@"Changing to %@",imgPath);
+    [self.viewImageMap setImage:img];
+
     [self.scrollView setContentSize:[self.viewImageMap frame].size];
     CGFloat minZoomScale = [self.scrollView frame].size.width / [self.viewImageMap frame].size.width;
     if (minZoomScale < [self.scrollView frame].size.height / [self.viewImageMap frame].size.height) {
@@ -89,67 +99,46 @@ NSMutableArray * BuildingObjects;
     [self.scrollView setMinimumZoomScale:.2];
     [self.scrollView setZoomScale:[self.scrollView minimumZoomScale]];
     
-    //NSLog(@"arr size %lu",(unsigned long)[_arrBuildings count]);
-    [_viewImageMap setMapping:_arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
 }
 
-/*- (void) loadMTI: (NSString *) imageName {
-    //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
-    _viewImageMap =[[MTImageMapView alloc] initWithImage: [UIImage imageNamed:imageName]];
-    
-    [_viewImageMap setDelegate:self];
-    
-    [self.scrollView addSubview:_viewImageMap];
-    
-    //sets scrollview size to be the same as imagemap size to allow scrolling
-    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
-    self.scrollView.contentSize = _viewImageMap.frame.size;
-    self.scrollView.zoomScale=0.1;
-    
-    //Loads building names and coordintaes into an array from the plist file specified
-    //Use services like GIMP to generate coordintaes with appropriate origins
-    self.BuildingNames = [NSArray arrayWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"Buildings_name" ofType:@"plist"]];
-    
-    NSArray *arrBuildings =[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Buildings_coord"ofType:@"plist"]];
-    NSLog(@"arr size %lu",(unsigned long)[arrBuildings count]);
-    [_viewImageMap setMapping:arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
-}*/
 
+//Function to load names of current building objects. Floorplans images are only loaded during segue preparation
+//Order should be the same as that of the 'Buildings_name.plist'
 - (void)loadBuildingObjects
 {
     BuildingObjects = [[NSMutableArray alloc]init];
     
-    BuildingObject *ASBplan = [[BuildingObject alloc] initWithbuildingObj: @"Applied Science Building" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    BuildingObject *ASBplan = [[BuildingObject alloc] initWithbuildingObj: @"Applied Science Building" floorPlan:nil];
     [BuildingObjects addObject:ASBplan];
     
-    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    BuildingObject *Blussonplan = [[BuildingObject alloc] initWithbuildingObj: @"Blusson Hall" floorPlan:nil];
     [BuildingObjects addObject:Blussonplan];
     
-    BuildingObject *AQplan = [[BuildingObject alloc] initWithbuildingObj: @"Academic Quadrangle" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+    BuildingObject *AQplan = [[BuildingObject alloc] initWithbuildingObj: @"Academic Quadrangle" floorPlan:nil];
     [BuildingObjects addObject:AQplan];
     
-    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Bennett Library" floorPlan:[UIImage imageNamed:@"Library_floorplan.png"]];
+    BuildingObject *Libraryplan = [[BuildingObject alloc] initWithbuildingObj:@"Bennett Library" floorPlan:nil];
     [BuildingObjects addObject:Libraryplan];
 	
-	BuildingObject *Shellplan = [[BuildingObject alloc] initWithbuildingObj: @"Shell House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Shellplan = [[BuildingObject alloc] initWithbuildingObj: @"Shell House" floorPlan:nil];
     [BuildingObjects addObject:Shellplan];
 	
-	BuildingObject *Louisplan = [[BuildingObject alloc] initWithbuildingObj: @"Louis Riel House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Louisplan = [[BuildingObject alloc] initWithbuildingObj: @"Louis Riel House" floorPlan:nil];
     [BuildingObjects addObject:Louisplan];
 	
-	BuildingObject *Hamiltonplan = [[BuildingObject alloc] initWithbuildingObj: @"Hamilton Hall" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Hamiltonplan = [[BuildingObject alloc] initWithbuildingObj: @"Hamilton Hall" floorPlan:nil];
     [BuildingObjects addObject:Hamiltonplan];
 	
-	BuildingObject *Paulineplan = [[BuildingObject alloc] initWithbuildingObj: @"Pauline Jewett House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Paulineplan = [[BuildingObject alloc] initWithbuildingObj: @"Pauline Jewett House" floorPlan:nil];
     [BuildingObjects addObject:Paulineplan];
 	
-	BuildingObject *Barbaraplan = [[BuildingObject alloc] initWithbuildingObj: @"Barbara Rae House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Barbaraplan = [[BuildingObject alloc] initWithbuildingObj: @"Barbara Rae House" floorPlan:nil];
     [BuildingObjects addObject:Barbaraplan];
 	
-	BuildingObject *Shadboltplan = [[BuildingObject alloc] initWithbuildingObj: @"Shadbolt House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *Shadboltplan = [[BuildingObject alloc] initWithbuildingObj: @"Shadbolt House" floorPlan:nil];
     [BuildingObjects addObject:Shadboltplan];
 	
-	BuildingObject *McTaggartplan = [[BuildingObject alloc] initWithbuildingObj: @"McTaggart-Cowan House" floorPlan:[UIImage imageNamed:@"Blusson_floorplan.png"]];
+	BuildingObject *McTaggartplan = [[BuildingObject alloc] initWithbuildingObj: @"McTaggart-Cowan House" floorPlan:nil];
     [BuildingObjects addObject:McTaggartplan];
 }
 
@@ -171,57 +160,78 @@ NSMutableArray * BuildingObjects;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//UIAlert segue call for showing plans
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1)
         [self performSegueWithIdentifier:@"ShowPlans" sender:self];
 }
 
+//IBAction to toggle icon display on map
 - (IBAction)toggleIcon:(id)sender {
     if (icons && text) {
-        [self changeImage:@"text_campus_map.png"];
+        [self changeImage:@"text_campus_map"];
         icons = NO;
         text =  YES;
     }
     else if (!icons && text) {
-        [self changeImage:@"all_campus_map.png"];
+        [self changeImage:@"all_campus_map"];
         icons = YES;
         text =  YES;
     }
     else if (icons && !text) {
-        [self changeImage:@"none_campus_map.png"];
+        [self changeImage:@"none_campus_map"];
         icons = NO;
         text =  NO;
     }
     else if (!icons && !text) {
-        [self changeImage:@"icons_campus_map.png"];
+        [self changeImage:@"icons_campus_map"];
         icons = YES;
         text =  NO;
     }
 }
 
+//IBAction to toggle text display on map
 - (IBAction)toggleText:(id)sender {
     
     if (icons && text) {
-        [self changeImage:@"icons_campus_map.png"];
+        [self changeImage:@"icons_campus_map"];
         icons = YES;
         text =  NO;
     }
     else if (!icons && text) {
-        [self changeImage:@"none_campus_map.png"];
+        [self changeImage:@"none_campus_map"];
         icons = NO;
         text =  NO;
     }
     else if (icons && !text) {
-        [self changeImage:@"all_campus_map.png"];
+        [self changeImage:@"all_campus_map"];
         icons = YES;
         text =  YES;
     }
     else if (!icons && !text) {
-        [self changeImage:@"text_campus_map.png"];
+        [self changeImage:@"text_campus_map"];
         icons = NO;
         text =  YES;
     }
+}
+
+//Call deallocator and prepare to leave viewcontroller
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    NSLog(@"view will disap");
+    [self deallocer];
+}
+//Custom deallocater called by ARC. Forcing image deallocations and setting arrays to nil
+-(void) deallocer
+{
+    
+    NSLog(@"Deallocating map");
+    _viewImageMap.image=nil;
+    _viewImageMap=nil;
+    _BuildingNames=nil;
+    
+    
 }
 
 #pragma mark - Navigation
@@ -232,11 +242,20 @@ NSMutableArray * BuildingObjects;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ShowPlans"]) {
-            FloorImageViewController *fivc = [segue destinationViewController];
-            //NSIndexPath *path =[self.tableView indexPathForSelectedRow];
-            BuildingObject *send = BuildingObjects[_currentIndex]; //should map key to custom object
-            fivc.hidesBottomBarWhenPushed = YES;
-            [fivc setCurrentBuilding:send];
+        FloorImageViewController *fivc = [segue destinationViewController];
+        NSBundle *bundle = [NSBundle mainBundle];
+        BuildingObject *send = BuildingObjects[_currentIndex]; //should map key to custom object
+        //Load image file with path name specified, if condition to check for placeholder requirements
+        NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
+        if (imgPath==nil)
+        {
+            imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+        }
+        //create UIImage object with specified file contents and assign it to current object
+        UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];
+        send.floorPlanImage=floorPlan;
+        fivc.hidesBottomBarWhenPushed = YES;
+        [fivc setCurrentBuilding:send];
     }
 
 }

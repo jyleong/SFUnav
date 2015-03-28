@@ -21,6 +21,6 @@ extern NSMutableArray *BuildingObjects;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *BuildingNames;
 @property MTImageMapView *viewImageMap;
-@property unsigned int currentIndex;
+@property unsigned long int currentIndex;
 
 @end

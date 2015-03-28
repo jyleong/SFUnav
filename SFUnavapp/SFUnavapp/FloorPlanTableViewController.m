@@ -183,16 +183,35 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"FloorImageDetail"]) {
         FloorImageViewController *fivc = [segue destinationViewController];
+        NSBundle *bundle = [NSBundle mainBundle];
         
         if (sender == self.searchDisplayController.searchResultsTableView) {
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             BuildingObject *send = [_searchResult objectAtIndex:[indexPath row]];
+            //Load image file with path name specified, if condition to check for placeholder requirements
+            NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
+            if (imgPath==nil)
+            {
+                imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+            }
+            //create UIImage object with specified file contents and assign it to current object
+            UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];
+            send.floorPlanImage=floorPlan;
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
         }
         else {
             NSIndexPath *path =[self.tableView indexPathForSelectedRow];
             BuildingObject *send = BuildingObjects[path.row]; //should map key to custom object
+            //Load image file with path name specified, if condition to check for placeholder requirements
+            NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
+            if (imgPath==nil)
+            {
+                imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+            }
+            //create UIImage object with specified file contents and assign it to current object
+            UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];
+            send.floorPlanImage=floorPlan;
             fivc.hidesBottomBarWhenPushed = YES;
             [fivc setCurrentBuilding:send];
         }
