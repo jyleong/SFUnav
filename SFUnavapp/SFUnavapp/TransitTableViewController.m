@@ -473,11 +473,6 @@
     webcont.hidesBottomBarWhenPushed = YES;
     [webcont setCurrentURL:send];
     
-    
-    
-    
-    
 }
-
 
 @end
