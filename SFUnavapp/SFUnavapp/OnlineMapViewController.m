@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableArray* allTableData;
 @property (strong, nonatomic) NSMutableArray* filteredTableData;
 @property (nonatomic, assign) bool isFiltered;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (strong, nonatomic) CLPlacemark *placemark;
 
 @end
 
@@ -45,6 +47,7 @@
     //// this block enables iOS 8 to use location services, will  not buliding in xcode,
     //comment the block out to test proj in xcode 5
     self.locationManager = [[CLLocationManager alloc] init];
+    self.geocoder = [[CLGeocoder alloc] init];
     self.locationManager.delegate = self;
     // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
@@ -141,12 +144,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/*NSLog(@"Resolving the Address");
+[geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+    NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+    if (error == nil && [placemarks count] > 0) {
+        placemark = [placemarks lastObject];
+        addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                             placemark.subThoroughfare, placemark.thoroughfare,
+                             placemark.postalCode, placemark.locality,
+                             placemark.administrativeArea,
+                             placemark.country];
+    } else {
+        NSLog(@"%@", error.debugDescription);
+    }
+} ];*/
 // maybe not allow users to make markers by touch to avoid clustering
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
     GMSMarker *usertapMarker = [[GMSMarker alloc] init];
     usertapMarker.appearAnimation = kGMSMarkerAnimationPop;
     usertapMarker.position = coordinate;
-    usertapMarker.title = [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
+    CLLocation *taploc = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    NSLog(@"Resolving the Address");
+    [_geocoder reverseGeocodeLocation:taploc completionHandler:^(NSArray *placemarks, NSError *error) {
+        //NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            _placemark = [placemarks lastObject];
+            usertapMarker.title = [NSString stringWithFormat:@"%@ %@",
+                                   _placemark.subThoroughfare, _placemark.thoroughfare];
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
+    //usertapMarker.title = [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
     usertapMarker.map = _sfumapView;
 }
 
