@@ -73,7 +73,7 @@
     
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
-    [self showbusnumcontents];
+    //[self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
     _busDisplaytextView.layer.cornerRadius = 8;
@@ -123,7 +123,7 @@
     
     // End the refreshing
     if (self.refreshControl) {
-        
+        // shows last refresh time
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM d, h:mm a"];
         NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
@@ -300,16 +300,8 @@
         
         //Tylers custom class
         self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
-        //test output terminal
-        /*NSString *key;
-         
-         for(key in self.retrieveInfo.dictionary) {
-         NSLog(key);
-         NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
-         for(NSString *elem in temparray) {
-         NSLog(@"time: %@",elem);
-         }
-         }*/
+
+        // updates the display
         [self displayBusroutes];
     }
     
@@ -361,15 +353,17 @@
     [self displayBusroutes];
     [_transitTextField resignFirstResponder];
 }
-// test method to display userdefaults
+// test method to display userdefaults commented out
+/*
 - (void) showbusnumcontents {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *currentstring = [userDefaults objectForKey:@"currentstopID"];
     NSLog(@"current: %@", currentstring);
-}
+}*/
 
 # pragma mark - displaymethods
 -(void) displayBusroutes {
+    // block of code to format the textview with bus infroamtion
     NSString *currstring = @"";
     NSString *key;
     for(key in self.retrieveInfo.dictionary) {
@@ -459,6 +453,7 @@
         send.serviceName=@"Pass Ups";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
     }
+    // translink webservice must have cases
     else if ([[segue identifier] isEqualToString:@"viewBus"]) {
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

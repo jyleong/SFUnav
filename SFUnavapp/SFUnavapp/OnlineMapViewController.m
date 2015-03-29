@@ -164,8 +164,11 @@
     GMSMarker *usertapMarker = [[GMSMarker alloc] init];
     usertapMarker.appearAnimation = kGMSMarkerAnimationPop;
     usertapMarker.position = coordinate;
+    
+    // make location object
     CLLocation *taploc = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-    NSLog(@"Resolving the Address");
+    //NSLog(@"Resolving the Address");
+    //initialize geocoder with google's data for addresses
     [_geocoder reverseGeocodeLocation:taploc completionHandler:^(NSArray *placemarks, NSError *error) {
         //NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
         if (error == nil && [placemarks count] > 0) {
