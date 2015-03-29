@@ -836,7 +836,7 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
@@ -872,7 +872,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="592"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -1389,20 +1389,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PoK-cC-aya">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="quicklinkcell" id="PoK-cC-aya">
                                         <rect key="frame" x="0.0" y="108" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PoK-cC-aya" id="x2P-K2-eNt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quick links" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6e-D5-aCy">
-                                                    <rect key="frame" x="20" y="11" width="84" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6e-D5-aCy">
+                                                    <rect key="frame" x="20" y="7" width="135" height="30"/>
+                                                    <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Vd-tCp">
-                                                    <rect key="frame" x="248" y="7" width="55" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrY-Vd-tCp">
+                                                    <rect key="frame" x="235" y="7" width="55" height="30"/>
                                                     <state key="normal" title="Done">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1410,10 +1411,10 @@
                                                         <action selector="selectedpicker:" destination="hYB-sD-pmv" eventType="touchUpInside" id="GLr-4t-sqd"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Downward_table_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="6Ot-K5-s4O">
+                                                    <rect key="frame" x="285" y="15" width="17" height="11"/>
+                                                </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="DrY-Vd-tCp" secondAttribute="trailing" constant="17" id="4bg-Ez-phY"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="163" id="LDF-RW-6E6">
@@ -1670,7 +1671,7 @@
         <scene sceneID="wIU-5n-qO2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jGC-o2-TGd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="QR" id="Lag-Ae-Bvl"/>
+                    <tabBarItem key="tabBarItem" title="QR" image="QR" id="Lag-Ae-Bvl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP7-Jt-DMd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1690,9 +1691,11 @@
         <image name="AboutUsicon" width="62" height="62"/>
         <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
+        <image name="Downward_table_arrow" width="27" height="18"/>
         <image name="James" width="250" height="300"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
+        <image name="QR" width="60" height="60"/>
         <image name="Refresh_Grey" width="70" height="62"/>
         <image name="Search" width="56" height="56"/>
         <image name="Serena" width="250" height="300"/>
@@ -1717,8 +1720,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Pov-Lm-lJD"/>
         <segue reference="YuH-DV-njh"/>
+        <segue reference="rhp-dj-yhr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>

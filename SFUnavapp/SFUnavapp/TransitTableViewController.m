@@ -77,6 +77,7 @@
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
     _busDisplaytextView.layer.cornerRadius = 8;
+    _quicklinkLabel.layer.cornerRadius = 8;
     
     [self.quicklinksPicker selectRow:4 inComponent:0 animated:YES]; // so the first component in picker defaulted at production way
     [self initialDisplay];
@@ -247,6 +248,7 @@
 - (void)showPickerCell {
     
     self.PickerIsShowing = YES;
+    self.quicklinkLabel.text = @"Close Quick links"; // change text of quicklinklabel
     
     [self.tableView beginUpdates];
     
@@ -266,6 +268,7 @@
 - (void)hidePickerCell {
     
     self.PickerIsShowing = NO;
+    self.quicklinkLabel.text = @"Open Quick links";
     
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
