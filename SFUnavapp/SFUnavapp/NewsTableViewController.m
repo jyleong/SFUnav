@@ -7,7 +7,7 @@
 //
 
 #import "NewsTableViewController.h"
-
+#import "NewsTableViewCell.h"
 #import "Parser.h"
 
 @interface NewsTableViewController ()
@@ -100,9 +100,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-     static NSString *cellidentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
+     //static NSString *cellidentifier = @"cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     
+    NewsTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableCell" forIndexPath:indexPath];
     // Configure the cell...
    // for (int i=0; i<[listArray count]; i++){
         // NSLog( [listArray[i] title]);
@@ -121,7 +122,13 @@
     
     NSString *inputdate = theList.pubDate;
    // NSLog(inputdate);
-    cell.textLabel.text = result;
+    //cell.textLabel.text = result;
+    cell.title.text = result;
+   cell.pubDate.text = [theList.pubDate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    //NSLog(theList.pubDate);
+    cell.author.text=[theList.author stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  
+    NSLog(theList.author);
     
     
     NSString *result2 = [inputdate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
