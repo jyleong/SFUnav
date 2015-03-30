@@ -61,13 +61,7 @@
     
    
 }
--(void) parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(NSString *)type defaultValue:(NSString *)defaultValue{
-    
-    
-    NSLog(@"FOUND ATTRIBUTE KDSJFAL;DJF;LADSJFL;AS");
-    
-    
-}
+
 
 -(void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     
