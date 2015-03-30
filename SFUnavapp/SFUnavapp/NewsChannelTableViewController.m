@@ -63,8 +63,29 @@
     //NSLog(_currentchannel.channelName);
     [_channelList addObject:_currentchannel];
     
+    _currentchannel = [[Channel alloc]init];
+    _currentchannel.channelurl = @"http://www.sfu.ca/content/sfu/sfunews/community/jcr:content/main_content/list.feed";
+    _currentchannel.channelName = @"Community";
+    //NSLog(_currentchannel.channelName);
+    [_channelList addObject:_currentchannel];
     
+    _currentchannel = [[Channel alloc]init];
+    _currentchannel.channelurl = @"http://www.sfu.ca/content/sfu/sfunews/sports/jcr:content/main_content/list.feed";
+    _currentchannel.channelName = @"Sports";
+    //NSLog(_currentchannel.channelName);
+    [_channelList addObject:_currentchannel];
     
+    _currentchannel = [[Channel alloc]init];
+    _currentchannel.channelurl = @"http://www.sfu.ca/content/sfu/sfunews/learning/jcr:content/main_content/list.feed";
+    _currentchannel.channelName = @"Learning";
+    //NSLog(_currentchannel.channelName);
+    [_channelList addObject:_currentchannel];
+    
+    _currentchannel = [[Channel alloc]init];
+    _currentchannel.channelurl = @"http://www.sfu.ca/content/sfu/sfunews/research/jcr:content/main_content/list.feed";
+    _currentchannel.channelName = @"Research";
+    //NSLog(_currentchannel.channelName);
+    [_channelList addObject:_currentchannel];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

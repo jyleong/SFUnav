@@ -32,7 +32,7 @@
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
     NSString *inputurlstring =_channel.channelurl;
-    NSLog(inputurlstring);
+    
     //NSString *storage;
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
     
@@ -43,7 +43,7 @@
     //initiates the parser object and parses the xml document from within the parser object
     Parser *theparser = [[Parser alloc]init];
     [xmlparser setDelegate:theparser];
-    BOOL worked = [xmlparser parse];
+    [xmlparser parse];
     listArray = theparser.listArray;
     
     /*
@@ -189,8 +189,8 @@
         
         ServicesURL *send = [[ServicesURL alloc] init];
         send.serviceName=theList.title;
-        NSLog(@"SENDING LINK");
-        NSLog([theList.link stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]);
+        
+     
         send.serviceURL=[theList.link stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];
@@ -212,7 +212,7 @@
     NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
     Parser *theparser = [[Parser alloc]init];
     [xmlparser setDelegate:theparser];
-    //BOOL worked = [xmlparser parse];
+    [xmlparser parse];
     listArray = theparser.listArray;
     
     /*
