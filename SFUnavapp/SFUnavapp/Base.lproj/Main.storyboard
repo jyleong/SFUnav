@@ -1706,6 +1706,7 @@
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
         <image name="QR" width="60" height="60"/>
+        <image name="Refreshicon" width="70" height="62"/>
         <image name="Search" width="56" height="56"/>
         <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
