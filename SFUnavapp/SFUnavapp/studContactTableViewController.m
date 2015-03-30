@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.topItem.title = @"";
+    
     NSString *path = [[NSBundle mainBundle]pathForResource:@"Registrar" ofType:@"plist"];
     registrarArray = [NSArray arrayWithContentsOfFile:path];
     

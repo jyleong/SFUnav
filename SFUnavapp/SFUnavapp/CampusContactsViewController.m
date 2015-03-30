@@ -39,6 +39,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.topItem.title = @"";
     campusContacts = [[NSArray alloc] initWithObjects:@"Switchboard", @"Student Services", @"Security Services", @"Emergency", nil];
     burnabyNumbers = [[NSArray alloc] initWithObjects:@"778-782-3111", @"778-782-6930", @"778-782-3100", @"778-782-4500",nil];
     surreyNumbers = [[NSArray alloc] initWithObjects:@"778-782-7400", @"778-782-6930", @"778-782-7070", @"778-782-7511",nil];

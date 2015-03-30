@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.topItem.title = @"";
     
     NSString *path = [[NSBundle mainBundle]pathForResource:@"Security" ofType:@"plist"];
     securityArray = [NSArray arrayWithContentsOfFile:path];
