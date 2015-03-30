@@ -110,16 +110,19 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   // NSLog(@"haha");
-    // Return the number of rows in the section.
-    //int x = [_channelList count];
-   // NSLog(@"the number is %i", x);
-    return [_channelList count];
+    
+    if (section == 0)
+    {   return 4;   }
+    if (section == 1)
+    {   return 5;    }
+
+    return 0;
+  //  return [_channelList count];
     
 }
 
@@ -128,15 +131,24 @@
     static NSString *cellidentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     
+    if (indexPath.section == 0)
+    {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }
+    if (indexPath.section == 1)
+    {    _currentchannel = [_channelList objectAtIndex:indexPath.row+4];    }
     
-    
-   _currentchannel = [_channelList objectAtIndex:indexPath.row];
+   //_currentchannel = [_channelList objectAtIndex:indexPath.row];
    // NSLog(@"haha");
     //NSLog(_currentchannel.channelName);
     cell.textLabel.text = _currentchannel.channelName;
     return cell;
 }
-
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0)
+    {   return @"Events"; }
+    if (section == 1)
+    {   return @"News";   }
+    return 0;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -176,8 +188,11 @@
 }
 */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    _currentchannel = [_channelList objectAtIndex:indexPath.row];
+    if (indexPath.section == 0)
+    {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }
+    if (indexPath.section == 1)
+    {    _currentchannel = [_channelList objectAtIndex:indexPath.row+4];    }
+   // _currentchannel = [_channelList objectAtIndex:indexPath.row];
     
     [self performSegueWithIdentifier:@"ChannelLink" sender:self];
     //[self performSegueWithIdentifier:@"linktoWeb" sender:self];
