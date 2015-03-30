@@ -12,7 +12,6 @@
 
 #import "AppDelegate.h"
 
-//#import "Parser.h"
 // defined this to manipulate colors for navbar - James
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -27,7 +26,6 @@
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];// changes all titles in navbar to white
     //code to manipulate tabbar - James
-    //UIImage *tabBarBackground = [UIImage imageNamed:@"CustomUITabbar.png"];
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];

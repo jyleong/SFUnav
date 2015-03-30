@@ -125,6 +125,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Custom deallocater called by ARC. Forcing image deallocation
+-(void) dealloc
+{
+    
+    _currentBuilding.floorPlanImage=nil;
+}
 /*
 #pragma mark - Navigation
 

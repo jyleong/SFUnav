@@ -47,10 +47,10 @@
         [self.busroutereturnvalues addObject:routeinfo];//this should create the array of busroutes servicing at the given busstopnumber
         
         NSString *query = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedleavetime",routeinfo];
-        NSMutableArray *expleavetime = [xmldocument searchWithXPathQuery:query];
+        NSArray *expleavetime = [xmldocument searchWithXPathQuery:query];
         
         NSString *querycountDown = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedcountdown",routeinfo];
-        NSMutableArray *countDownarr = [xmldocument searchWithXPathQuery:querycountDown];
+        NSArray *countDownarr = [xmldocument searchWithXPathQuery:querycountDown];
         
         
         //this loops through the

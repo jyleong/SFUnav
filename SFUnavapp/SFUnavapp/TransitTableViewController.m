@@ -68,15 +68,16 @@
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
     //to map the keys to objects
-    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 135", @"Transit Hub - 143", @"Transit Hub - 144", @"Production Way",@"Tower Rd", @"S Campus Rd", @"SFU Transportation Centre", @"University Dr W"];
+    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 135", @"Transit Hub - 143", @"Transit Hub - 144", @"Production Way",@"Tower Rd", @"S Campus Rd", @"Transportation Centre", @"University Dr W"];
     self.fivedigitID = @[@"51861",@"53096",@"52998",@"52807", @"59314",@"59044", @"51862",@"51863", @"51864"];
     
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
-    [self showbusnumcontents];
+    //[self showbusnumcontents];
     [self hidePickerCell]; // picker needs to be initially hidden state
     self.tableView.tableFooterView = [[UIView alloc] init];
     _busDisplaytextView.layer.cornerRadius = 8;
+    _quicklinkLabel.layer.cornerRadius = 8;
     
     [self.quicklinksPicker selectRow:4 inComponent:0 animated:YES]; // so the first component in picker defaulted at production way
     [self initialDisplay];
@@ -122,7 +123,7 @@
     
     // End the refreshing
     if (self.refreshControl) {
-        
+        // shows last refresh time
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM d, h:mm a"];
         NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
@@ -247,6 +248,7 @@
 - (void)showPickerCell {
     
     self.PickerIsShowing = YES;
+    self.quicklinkLabel.text = @"Close Quick links"; // change text of quicklinklabel
     
     [self.tableView beginUpdates];
     
@@ -266,6 +268,7 @@
 - (void)hidePickerCell {
     
     self.PickerIsShowing = NO;
+    self.quicklinkLabel.text = @"Open Quick links";
     
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
@@ -297,16 +300,8 @@
         
         //Tylers custom class
         self.retrieveInfo = [[BusRouteStorage alloc] initWithbusroute:_busNum andbusid:_stopID];
-        //test output terminal
-        /*NSString *key;
-         
-         for(key in self.retrieveInfo.dictionary) {
-         NSLog(key);
-         NSArray *temparray = [self.retrieveInfo.dictionary objectForKey:key];
-         for(NSString *elem in temparray) {
-         NSLog(@"time: %@",elem);
-         }
-         }*/
+
+        // updates the display
         [self displayBusroutes];
     }
     
@@ -358,15 +353,17 @@
     [self displayBusroutes];
     [_transitTextField resignFirstResponder];
 }
-// test method to display userdefaults
+// test method to display userdefaults commented out
+/*
 - (void) showbusnumcontents {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *currentstring = [userDefaults objectForKey:@"currentstopID"];
     NSLog(@"current: %@", currentstring);
-}
+}*/
 
 # pragma mark - displaymethods
 -(void) displayBusroutes {
+    // block of code to format the textview with bus infroamtion
     NSString *currstring = @"";
     NSString *key;
     for(key in self.retrieveInfo.dictionary) {
@@ -455,9 +452,8 @@
     if ([[segue identifier] isEqualToString:@"passUps"]) {
         send.serviceName=@"Pass Ups";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
-        webcont.hidesBottomBarWhenPushed = YES;
-        [webcont setCurrentURL:send];
     }
+    // translink webservice must have cases
     else if ([[segue identifier] isEqualToString:@"viewBus"]) {
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -467,21 +463,14 @@
         
         if (currentstring.length ==5) {
             send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@", _stopID];
-            webcont.hidesBottomBarWhenPushed = YES;
-            [webcont setCurrentURL:send];
         }
         else if (currentstring.length >=5) {
             send.serviceURL=[NSString stringWithFormat:@"http://nb.translink.ca/Map/Stop/%@/Route/%@", _stopID,_busNum];
-            webcont.hidesBottomBarWhenPushed = YES;
-            [webcont setCurrentURL:send];
         }
     }
-    
-    
-    
-    
+    webcont.hidesBottomBarWhenPushed = YES;
+    [webcont setCurrentURL:send];
     
 }
-
 
 @end

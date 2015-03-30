@@ -38,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=_currentURL.serviceName;
+    self.view.window.rootViewController=self;
     //_currentlink.delegate=self;
     //Loads the url provided in custom object and assigns the title to the navigation bar
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
@@ -63,7 +64,6 @@
 
 -(void)webViewLoading:(NSTimer *)timer{
     if (_currentlink.loading) {
-        
     }
     else
     {
@@ -82,7 +82,18 @@
     [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('PSPUSHBUTTON')[5].click()"]];
   
 }
-
+-(void)dealloc{
+    NSLog(@"in services delloc");
+    [_currentlink loadHTMLString:@"" baseURL:nil];
+    [_currentlink stopLoading];
+    [_currentlink setDelegate:nil];
+    [_currentlink removeFromSuperview];
+    
+    [[NSURLCache sharedURLCache]removeAllCachedResponses];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
