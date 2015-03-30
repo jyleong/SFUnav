@@ -32,7 +32,7 @@
     
     _currentchannel = [[Channel alloc]init];
     _channelList = [[NSMutableArray alloc]init];
-    Channel *newchannel = [[Channel alloc]initWithchannelname:@"Events Calendar" andlink:@"https://events.sfu.ca/rss/calendar_id/2.xml"];
+    //Channel *newchannel = [[Channel alloc]initWithchannelname:@"Events Calendar" andlink:@"https://events.sfu.ca/rss/calendar_id/2.xml"];
     _currentchannel.channelurl = @"https://events.sfu.ca/rss/calendar_id/2.xml";
     _currentchannel.channelName = @"Events Calendar";
     [_channelList addObject:_currentchannel];
