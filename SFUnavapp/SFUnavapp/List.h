@@ -22,7 +22,9 @@
 @property (nonatomic, retain) NSString *eventStartDate;
 @property (nonatomic, retain) NSString *eventEndDate;
 @property (nonatomic, retain) NSString *lastModified;
-@property (nonatomic, retain) NSString *guid; 
+@property (nonatomic, retain) NSString *guid;
+
+
 
 @end
 

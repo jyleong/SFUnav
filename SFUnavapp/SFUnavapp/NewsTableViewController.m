@@ -32,6 +32,7 @@
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
     NSString *inputurlstring =_channel.channelurl;
+    NSLog(inputurlstring);
     //NSString *storage;
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
     
@@ -58,8 +59,8 @@
          NSLog( [listArray[i] title]);
         NSLog([listArray[i] description]);
     }
-    */
     
+    */
     [self.tableView reloadData];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -119,6 +120,7 @@
     NSString* result = [input stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     NSString *inputdate = theList.pubDate;
+   // NSLog(inputdate);
     cell.textLabel.text = result;
     
     
@@ -187,6 +189,8 @@
         
         ServicesURL *send = [[ServicesURL alloc] init];
         send.serviceName=theList.title;
+        NSLog(@"SENDING LINK");
+        NSLog([theList.link stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]);
         send.serviceURL=[theList.link stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         webcont.hidesBottomBarWhenPushed = YES;
         [webcont setCurrentURL:send];

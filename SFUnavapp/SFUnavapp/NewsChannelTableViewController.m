@@ -57,6 +57,12 @@
     //NSLog(_currentchannel.channelName);
     [_channelList addObject:_currentchannel];
     
+    _currentchannel = [[Channel alloc]init];
+    _currentchannel.channelurl = @"http://www.sfu.ca/content/sfu/sfunews/people/jcr:content/main_content/list.feed";
+    _currentchannel.channelName = @"People";
+    //NSLog(_currentchannel.channelName);
+    [_channelList addObject:_currentchannel];
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -88,10 +94,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"haha");
+   // NSLog(@"haha");
     // Return the number of rows in the section.
-    int x = [_channelList count];
-    NSLog(@"the number is %i", x);
+    //int x = [_channelList count];
+   // NSLog(@"the number is %i", x);
     return [_channelList count];
     
 }
@@ -104,8 +110,8 @@
     
     
    _currentchannel = [_channelList objectAtIndex:indexPath.row];
-    NSLog(@"haha");
-    NSLog(_currentchannel.channelName);
+   // NSLog(@"haha");
+    //NSLog(_currentchannel.channelName);
     cell.textLabel.text = _currentchannel.channelName;
     return cell;
 }

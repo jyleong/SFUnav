@@ -93,6 +93,7 @@
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
+		EEC4FD081AC6507B00F7715D /* NewsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC4FD071AC6507B00F7715D /* NewsTableCell.m */; };
 		EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */; };
 		EEC6B1311ABCDB660017E966 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B1301ABCDB660017E966 /* Channel.m */; };
 		EEC7864B1AB79312004AF041 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC786481AB79312004AF041 /* List.m */; };
@@ -227,6 +228,8 @@
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
+		EEC4FD061AC6507B00F7715D /* NewsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableCell.h; sourceTree = "<group>"; };
+		EEC4FD071AC6507B00F7715D /* NewsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableCell.m; sourceTree = "<group>"; };
 		EEC6B12C1ABCD6890017E966 /* NewsChannelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannelTableViewController.h; sourceTree = "<group>"; };
 		EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannelTableViewController.m; sourceTree = "<group>"; };
 		EEC6B12F1ABCDB660017E966 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
@@ -535,6 +538,8 @@
 				EEC7864E1AB79588004AF041 /* NewsTableViewController.m */,
 				EEC7864D1AB79588004AF041 /* NewsTableViewController.h */,
 				EEC87AAC1AC360260095861F /* Channel.plist */,
+				EEC4FD061AC6507B00F7715D /* NewsTableCell.h */,
+				EEC4FD071AC6507B00F7715D /* NewsTableCell.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				04971CF91AA383EA00AE1F6E /* CampusContactsViewController.m in Sources */,
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
+				EEC4FD081AC6507B00F7715D /* NewsTableCell.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
