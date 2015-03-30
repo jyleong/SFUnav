@@ -4,6 +4,7 @@
 //
 //  Created by James Leong on 2015-03-04.
 //  Edited by Arjun Rathee
+//            Steven Zhou
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -31,8 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.scrollView.minimumZoomScale=0.1;
-    self.scrollView.maximumZoomScale=2.0;
+    //self.scrollView.minimumZoomScale=0.4348;
+    //self.scrollView.maximumZoomScale=0.75;
     //[_scrollView setDelegate:self];
     self.scrollView.contentSize = _FloorImage.frame.size;
     
@@ -45,8 +46,19 @@
     
     [self.scrollView addSubview:_FloorImage];
     
-    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
-    self.scrollView.zoomScale=0.5;
+    //_scrollView.contentOffset = CGPointMake(950.0, 990.0);
+    //self.scrollView.zoomScale=0.5;
+    
+    // 4
+    //CGRect scrollViewFrame = _FloorImage.frame;
+    CGFloat scaleWidth = 320 / _FloorImage.frame.size.width;
+    CGFloat scaleHeight = 320 / _FloorImage.frame.size.height;
+    CGFloat minScale = MAX(scaleWidth, scaleHeight);
+    self.scrollView.minimumZoomScale = minScale;
+    
+    // 5
+    self.scrollView.maximumZoomScale = 0.7;
+    self.scrollView.zoomScale = minScale;
     
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;

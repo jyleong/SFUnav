@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
+        <development version="6100" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -981,8 +982,11 @@
                                                     <constraint firstAttribute="height" constant="202" id="S27-yC-kW1"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Steven" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-yW-ajs">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Steven" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-yW-ajs">
                                                 <rect key="frame" x="-83" y="1164" width="486" height="202"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="202" id="5e0-GA-V7E"/>
+                                                </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="James" translatesAutoresizingMaskIntoConstraints="NO" id="wn9-Vd-eVq">
                                                 <rect key="frame" x="-83" y="411" width="486" height="202"/>
@@ -1539,7 +1543,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="3fr-VK-224">
-                        <barButtonItem key="rightBarButtonItem" image="Refreshicon" id="YPi-9w-gcI">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="YPi-9w-gcI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="refreshAction:" destination="hYB-sD-pmv" id="RPJ-oZ-dmv"/>
@@ -1726,8 +1730,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Pov-Lm-lJD"/>
         <segue reference="YuH-DV-njh"/>
-        <segue reference="eec-1e-lpz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>

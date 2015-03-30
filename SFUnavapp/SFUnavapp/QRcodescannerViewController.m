@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.navigationItem.title = @"QR Scanner";
+    self.navigationController.navigationBar.topItem.title = @"";
     _isReading = NO;
     _captureSession = nil;
     // Do any additional setup after loading the view.
