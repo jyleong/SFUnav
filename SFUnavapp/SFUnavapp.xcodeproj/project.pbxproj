@@ -50,6 +50,9 @@
 		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
 		B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0887C951AC627120047F200 /* QRcodescannerViewController.m */; };
 		B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */; };
+		B0A10C3E1ACA4ED000FC5F35 /* SocialTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A10C3D1ACA4ED000FC5F35 /* SocialTableViewController.m */; };
+		B0A10C411ACA4F4500FC5F35 /* SocialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A10C401ACA4F4500FC5F35 /* SocialTableViewCell.m */; };
+		B0A10C441ACA4F7F00FC5F35 /* Social.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0A10C431ACA4F7F00FC5F35 /* Social.plist */; };
 		B0A1E6391AB7959300B5D60C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */; };
 		B0A1E6401AB795C400B5D60C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */; };
 		B0A1E6411AB795C400B5D60C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A1E63D1AB795C400B5D60C /* CoreData.framework */; };
@@ -172,6 +175,11 @@
 		B0887C951AC627120047F200 /* QRcodescannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodescannerViewController.m; sourceTree = "<group>"; };
 		B08D859D1AC46AA700335A19 /* RoadReportTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadReportTableCell.h; sourceTree = "<group>"; };
 		B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadReportTableCell.m; sourceTree = "<group>"; };
+		B0A10C3C1ACA4ED000FC5F35 /* SocialTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialTableViewController.h; sourceTree = "<group>"; };
+		B0A10C3D1ACA4ED000FC5F35 /* SocialTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialTableViewController.m; sourceTree = "<group>"; };
+		B0A10C3F1ACA4F4500FC5F35 /* SocialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialTableViewCell.h; sourceTree = "<group>"; };
+		B0A10C401ACA4F4500FC5F35 /* SocialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialTableViewCell.m; sourceTree = "<group>"; };
+		B0A10C431ACA4F7F00FC5F35 /* Social.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Social.plist; sourceTree = "<group>"; };
 		B0A1E6381AB7959300B5D60C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B0A1E63C1AB795C400B5D60C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B0A1E63D1AB795C400B5D60C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -305,6 +313,7 @@
 		B01BE6651A8D425E0013D9EA = {
 			isa = PBXGroup;
 			children = (
+				B0A10C421ACA4F4C00FC5F35 /* Social */,
 				B01BE6771A8D425E0013D9EA /* SFUnavapp */,
 				B01BE6991A8D425F0013D9EA /* SFUnavappTests */,
 				B01BE6701A8D425E0013D9EA /* Frameworks */,
@@ -426,6 +435,18 @@
 				B0B0FC5F1A9F8AE700BE6964 /* BusRouteStorage.m */,
 			);
 			name = Transit;
+			sourceTree = "<group>";
+		};
+		B0A10C421ACA4F4C00FC5F35 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				B0A10C3D1ACA4ED000FC5F35 /* SocialTableViewController.m */,
+				B0A10C3C1ACA4ED000FC5F35 /* SocialTableViewController.h */,
+				B0A10C3F1ACA4F4500FC5F35 /* SocialTableViewCell.h */,
+				B0A10C401ACA4F4500FC5F35 /* SocialTableViewCell.m */,
+				B0A10C431ACA4F7F00FC5F35 /* Social.plist */,
+			);
+			name = Social;
 			sourceTree = "<group>";
 		};
 		D27E326D1A984E0000004735 /* hpple_parser */ = {
@@ -692,6 +713,7 @@
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
 				B0DB77E91AB2A44800EFDB83 /* all_campus_map.png in Resources */,
+				B0A10C441ACA4F7F00FC5F35 /* Social.plist in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
 				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
 			);
@@ -729,6 +751,7 @@
 				D27E32761A984E1A00004735 /* XPathQuery.m in Sources */,
 				D27E32741A984E1A00004735 /* TFHpple.m in Sources */,
 				B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */,
+				B0A10C411ACA4F4500FC5F35 /* SocialTableViewCell.m in Sources */,
 				B01BE6821A8D425E0013D9EA /* AppDelegate.m in Sources */,
 				04DD15831AB4EFC700714CFA /* studContactTableViewController.m in Sources */,
 				B01BE67E1A8D425E0013D9EA /* main.m in Sources */,
@@ -740,6 +763,7 @@
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
 				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
+				B0A10C3E1ACA4ED000FC5F35 /* SocialTableViewController.m in Sources */,
 				EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */,
 				B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */,
 				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
