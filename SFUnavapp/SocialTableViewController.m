@@ -12,6 +12,7 @@
 @interface SocialTableViewController ()
 
 @property (strong,nonatomic)NSArray *socialArray;
+@property (nonatomic, strong) NSArray *searchResult; //mutable array that holds results STRINGS
 @property (strong, nonatomic) NSDictionary *socialLink;
 
 @end
@@ -59,13 +60,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return _socialArray.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_searchResult count];
+    }
+    else {
+
+        return _socialArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SocialTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"socialCell" forIndexPath:indexPath];
+    // makes cell from actual self.table
+    static NSString *CellIdentifier=@"socialCell";
+    SocialTableViewCell *cell =
+    (SocialTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[SocialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    //checks for which array
+    if(tableView == self.searchDisplayController.searchResultsTableView) {
+        _socialLink = [_searchResult objectAtIndex:indexPath.row];
+        NSLog(@"%@", _socialLink[@"Name"]);
+    } else {
+        _socialLink = [_socialArray objectAtIndex:indexPath.row];
+    }
+    
     // to hold the one dicionary
-    _socialLink = _socialArray[indexPath.row];
+    //_socialLink = _socialArray[indexPath.row];
     NSString *name = _socialLink[@"Name"];
     //NSLog(@"%@", name);
     NSString *fb = _socialLink[@"Facebook"];
@@ -76,8 +98,11 @@
     
     //hides those buttons if those services dont have those social pages
     if ([fb isEqualToString:@"NODATA"]) { cell.fbButton.hidden = YES;}
+    else {cell.fbButton.hidden = NO;}
     if ([tw isEqualToString:@"NODATA"]) { cell.twButton.hidden = YES;}
+    else {cell.twButton.hidden = NO;}
     if ([yt isEqualToString:@"NODATA"]) { cell.ytButton.hidden = YES;}
+    else {cell.ytButton.hidden = NO;}
     
     // method calls for which button pressed
     // these methods will open to safari, not in app browser
@@ -89,6 +114,25 @@
     
     return cell;
 }
+
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"Name contains[cd] %@", searchText];
+    _searchResult = [_socialArray filteredArrayUsingPredicate:resultPredicate];
+    //NSLog(@"%@", _searchResult);
+}
+// method to update teh table as you type
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
 
 -(IBAction) fbButtonPressed:(UIButton *)sender{
     int selectedRow = [sender tag];

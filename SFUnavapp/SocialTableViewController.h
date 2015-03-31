@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SocialTableViewController : UITableViewController
+@interface SocialTableViewController : UITableViewController <UISearchDisplayDelegate>
 
 @end
