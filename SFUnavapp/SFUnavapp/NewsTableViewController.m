@@ -128,7 +128,7 @@
     //NSLog(theList.pubDate);
     cell.author.text=[theList.author stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
-    NSLog(theList.author);
+   // NSLog(theList.author);
     
     
     NSString *result2 = [inputdate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

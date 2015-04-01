@@ -84,7 +84,7 @@
 -(void) parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock{
     
     //NSLog(@"FOUND CDATA");
-    NSMutableString* newStr = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
+    NSMutableString* newStr = [[NSMutableString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
     currentelementvalue=newStr;
   //  NSLog(newStr);
     
