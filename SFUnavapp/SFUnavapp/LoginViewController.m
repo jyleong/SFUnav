@@ -144,6 +144,16 @@
     }
 }
 
+- (IBAction)loginGo:(id)sender {
+    if (_goSwitch.on)
+    {
+        goLogin=YES;
+        return;
+    }
+    goLogin=NO;
+}
+
+
 -(void) checkValidInfo
 {
 
