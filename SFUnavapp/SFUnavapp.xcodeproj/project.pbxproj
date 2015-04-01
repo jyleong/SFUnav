@@ -97,6 +97,8 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
+		DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */; };
+		DCE7A0951ACBAE13009B4209 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE7A0941ACBAE13009B4209 /* Course.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 		EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */; };
 		EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */; };
@@ -241,6 +243,10 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		DCB295CB1ACB476E00E6FEE1 /* PlannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerViewController.h; sourceTree = "<group>"; };
+		DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerViewController.m; sourceTree = "<group>"; };
+		DCE7A0931ACBAE13009B4209 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		DCE7A0941ACBAE13009B4209 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 		EE6CDB661AC9093200C6284A /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
@@ -313,7 +319,6 @@
 		B01BE6651A8D425E0013D9EA = {
 			isa = PBXGroup;
 			children = (
-				B0A10C421ACA4F4C00FC5F35 /* Social */,
 				B01BE6771A8D425E0013D9EA /* SFUnavapp */,
 				B01BE6991A8D425F0013D9EA /* SFUnavappTests */,
 				B01BE6701A8D425E0013D9EA /* Frameworks */,
@@ -364,6 +369,10 @@
 				D27E326D1A984E0000004735 /* hpple_parser */,
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
 				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
+				DCB295CB1ACB476E00E6FEE1 /* PlannerViewController.h */,
+				DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */,
+				DCE7A0931ACBAE13009B4209 /* Course.h */,
+				DCE7A0941ACBAE13009B4209 /* Course.m */,
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
 				D2B50E0E1AC679F300D255BC /* About Us */,
@@ -373,6 +382,7 @@
 				DC8656771A9715C600D908C9 /* Services */,
 				DC8656781A9715D300D908C9 /* Contacts */,
 				DC8656791A9715DC00D908C9 /* Map */,
+				B0A10C421ACA4F4C00FC5F35 /* Social */,
 				B01BE68C1A8D425E0013D9EA /* Images.xcassets */,
 				B01BE6781A8D425E0013D9EA /* Supporting Files */,
 				D2B50E0F1AC67A0100D255BC /* QR Scanner */,
@@ -447,6 +457,7 @@
 				B0A10C431ACA4F7F00FC5F35 /* Social.plist */,
 			);
 			name = Social;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D27E326D1A984E0000004735 /* hpple_parser */ = {
@@ -735,10 +746,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC86568C1A97164C00D908C9 /* Webcam.m in Sources */,
+				DCE7A0951ACBAE13009B4209 /* Course.m in Sources */,
 				B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */,
 				0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */,
 				D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
+				DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */,
 				EEC6B1311ABCDB660017E966 /* Channel.m in Sources */,
@@ -912,6 +925,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -937,6 +951,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
