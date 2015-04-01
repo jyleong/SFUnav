@@ -11,6 +11,9 @@
 
 
 @synthesize listArray;
+
+//SO WHEN PARSE IS CALLED, IT GOES THROUGH THE DOCUMENT, AND WHEN IT FINDS SOMETHING, DEPENDING ON WHAT IS FOUND (OPENING TAG, CLOSING TAG, CHARACTERS, CDATA), ONE OF THE FUNCTIONS BELOW WILL TRIGGER
+
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     //NSLog(@"found element");
     //NSLog(elementName);
