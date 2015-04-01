@@ -130,7 +130,11 @@
 {
     static NSString *cellidentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
+    cell.layer.cornerRadius = 10;
     
+    [cell.layer setMasksToBounds:YES];
+    [cell.layer setBorderWidth:2];
+
     if (indexPath.section == 0)
     {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }
     if (indexPath.section == 1)

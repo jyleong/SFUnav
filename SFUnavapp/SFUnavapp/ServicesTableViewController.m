@@ -143,7 +143,11 @@ BOOL autoLogin;
 {
     static NSString *CellIdentifier=@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.layer.cornerRadius = 10;
     
+    [cell.layer setMasksToBounds:YES];
+    [cell.layer setBorderWidth:2];
+
     // Configure the cell...
     ServicesURL* current= [links objectAtIndex:indexPath.row];
     cell.textLabel.text= [current serviceName];
