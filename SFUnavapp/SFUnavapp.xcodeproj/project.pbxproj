@@ -12,6 +12,8 @@
 		0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */; };
 		0456CFB71AB4CC33002548B5 /* Security.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFB61AB4CC33002548B5 /* Security.plist */; };
 		0456CFBB1AB4D050002548B5 /* access.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFBA1AB4D050002548B5 /* access.plist */; };
+		0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */; };
+		0458A3B71ACBB0BC009D0026 /* LibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */; };
 		045E5E761AB0144200FDF7BC /* burnaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E731AB0144200FDF7BC /* burnaby.png */; };
 		045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E741AB0144200FDF7BC /* harbourcenter.png */; };
 		045E5E781AB0144200FDF7BC /* surrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E751AB0144200FDF7BC /* surrey.png */; };
@@ -124,6 +126,10 @@
 		0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srsContactTableViewController.m; sourceTree = "<group>"; };
 		0456CFB61AB4CC33002548B5 /* Security.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Security.plist; sourceTree = "<group>"; };
 		0456CFBA1AB4D050002548B5 /* access.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = access.plist; sourceTree = "<group>"; };
+		0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTableViewCell.h; sourceTree = "<group>"; };
+		0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTableViewCell.m; sourceTree = "<group>"; };
+		0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTableViewController.h; sourceTree = "<group>"; };
+		0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryTableViewController.m; sourceTree = "<group>"; };
 		045E5E731AB0144200FDF7BC /* burnaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burnaby.png; sourceTree = "<group>"; };
 		045E5E741AB0144200FDF7BC /* harbourcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harbourcenter.png; sourceTree = "<group>"; };
 		045E5E751AB0144200FDF7BC /* surrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surrey.png; sourceTree = "<group>"; };
@@ -310,6 +316,17 @@
 			name = plists;
 			sourceTree = "<group>";
 		};
+		0458A3B11ACBAFB3009D0026 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */,
+				0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */,
+				0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */,
+				0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		B01BE6651A8D425E0013D9EA = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +377,7 @@
 		B01BE6771A8D425E0013D9EA /* SFUnavapp */ = {
 			isa = PBXGroup;
 			children = (
+				0458A3B11ACBAFB3009D0026 /* Library */,
 				DC566CC31AA67149006AA2D9 /* MTImageMapView */,
 				D27E326D1A984E0000004735 /* hpple_parser */,
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
@@ -763,9 +781,11 @@
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
 				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
+				0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */,
 				B0A10C3E1ACA4ED000FC5F35 /* SocialTableViewController.m in Sources */,
 				EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */,
 				B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */,
+				0458A3B71ACBB0BC009D0026 /* LibraryTableViewController.m in Sources */,
 				DC566CC61AA67308006AA2D9 /* MapViewController.m in Sources */,
 				EEC7864B1AB79312004AF041 /* List.m in Sources */,
 				EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */,
