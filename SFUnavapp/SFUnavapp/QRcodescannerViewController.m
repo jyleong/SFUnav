@@ -28,6 +28,8 @@
     self.navigationController.navigationBar.topItem.title = @"";
     _isReading = NO;
     _captureSession = nil;
+    // so text can detect links numbers and emails
+    _lblStatus.dataDetectorTypes = UIDataDetectorTypeAll;
     // Do any additional setup after loading the view.
 }
 
