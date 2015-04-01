@@ -40,7 +40,7 @@
                    JSONObjectWithData:data
                    options:NSJSONReadingMutableContainers
                    error:&error];
-    NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
+    //NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
     
     //get library equipment summary api information
     str = @"http://api.lib.sfu.ca/equipment/computers/free_summary";
@@ -54,7 +54,7 @@
     
     equipResults = [equipResults objectForKey:@"locations"];
     
-    NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
+    //NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
     
    
     //holds links
@@ -248,10 +248,10 @@
                            FBOX(benlaps/sum),
                            nil];
         
-        NSLog(@"%d out of %f is %f", [counts[1]intValue], sum, [ratios[1]floatValue]);
+        //NSLog(@"%d out of %f is %f", [counts[1]intValue], sum, [ratios[1]floatValue]);
         
         //labels
-        NSArray *floors = @[@"6th Floor PC",@"5th Floor", @"4th Floor", @"3rd Floor, West", @"3rd Floor, East", @"3rd Floor, East", @"2nd Floor", @""];
+        NSArray *floors = @[@"6th Floor",@"5th Floor", @"4th Floor", @"3rd Floor, West", @"3rd Floor, East", @"3rd Floor, East", @"2nd Floor", @""];
         NSArray *comps = @[@"PCs",@"PCs", @"PCs", @"PCs", @"PCs", @"Macs", @"PCs", @"laptops"];
         
         int size = 150;
