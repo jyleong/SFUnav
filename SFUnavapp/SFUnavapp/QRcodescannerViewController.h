@@ -11,7 +11,7 @@
 
 @interface QRcodescannerViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
-@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (weak, nonatomic) IBOutlet UITextView *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *buttonStart;
 
 @end

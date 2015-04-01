@@ -39,7 +39,7 @@ BOOL autoLogin;
 {
     [super viewDidLoad];
     // this is how to change titles in navbars - James
-    
+    //self.view.backgroundColor = [UIColor grayColor];
     
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
@@ -143,7 +143,11 @@ BOOL autoLogin;
 {
     static NSString *CellIdentifier=@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.layer.cornerRadius = 10;
     
+    [cell.layer setMasksToBounds:YES];
+    [cell.layer setBorderWidth:1];
+
     // Configure the cell...
     ServicesURL* current= [links objectAtIndex:indexPath.row];
     cell.textLabel.text= [current serviceName];
