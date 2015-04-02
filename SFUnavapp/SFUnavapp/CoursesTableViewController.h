@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CoursesTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UIWebView *web;
+
 
 @end
