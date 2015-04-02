@@ -104,6 +104,7 @@
 		EEC7864C1AB79312004AF041 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864A1AB79312004AF041 /* Parser.m */; };
 		EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864E1AB79588004AF041 /* NewsTableViewController.m */; };
 		EEC87AAD1AC360260095861F /* Channel.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEC87AAC1AC360260095861F /* Channel.plist */; };
+		F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		EEC7864D1AB79588004AF041 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = SFUnavapp/NewsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = SFUnavapp/NewsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		EEC87AAC1AC360260095861F /* Channel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Channel.plist; sourceTree = "<group>"; };
+		F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderConstruction_floorplan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 				B0DB77E71AB2A44800EFDB83 /* none_campus_map.png */,
 				B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */,
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
+				F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */,
 				D2B50E0C1AC6754F00D255BC /* Bennett Library.png */,
 				D2B50E081AC6742100D255BC /* Blusson Hall.png */,
 				04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */,
@@ -695,6 +698,7 @@
 				D2B50E091AC6742100D255BC /* Blusson Hall.png in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
+				F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */,
 				B0151B1F1ABD23D20092B0BB /* SFUlatlong.plist in Resources */,
 				04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */,
 				DC86567E1A97163500D908C9 /* AQSouthWest.html in Resources */,
