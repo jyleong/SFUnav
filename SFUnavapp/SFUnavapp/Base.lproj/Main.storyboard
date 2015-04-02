@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
@@ -574,31 +574,43 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhB-mg-kxM">
                                             <rect key="frame" x="15" y="5" width="290" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
-                                            <rect key="frame" x="55" y="51" width="30" height="30"/>
-                                            <state key="normal" title="FB">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
+                                            <rect key="frame" x="46" y="34" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="Ge5-Wl-seo"/>
+                                                <constraint firstAttribute="height" constant="48" id="f34-7b-R83"/>
+                                            </constraints>
+                                            <state key="normal" title="FB" image="FB logo">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="fbButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="lGI-KL-CVm"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
-                                            <rect key="frame" x="145" y="51" width="30" height="30"/>
-                                            <state key="normal" title="TW">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
+                                            <rect key="frame" x="136" y="34" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="fld-RE-Jfy"/>
+                                                <constraint firstAttribute="width" constant="48" id="wxl-8w-TNU"/>
+                                            </constraints>
+                                            <state key="normal" title="TW" image="Twitter logo">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="twButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="gj3-2I-7oW"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
-                                            <rect key="frame" x="235" y="51" width="30" height="30"/>
-                                            <state key="normal" title="YT">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
+                                            <rect key="frame" x="226" y="34" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="36x-36-fIn"/>
+                                                <constraint firstAttribute="height" constant="48" id="i5f-Sl-dpl"/>
+                                            </constraints>
+                                            <state key="normal" title="YT" image="Youtube logo">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -606,6 +618,14 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tND-uK-3Pk" firstAttribute="leading" secondItem="h8O-TK-mkZ" secondAttribute="trailing" constant="42" id="Es5-gN-RNy"/>
+                                        <constraint firstAttribute="bottom" secondItem="h8O-TK-mkZ" secondAttribute="bottom" constant="8" id="G6a-08-7Mi"/>
+                                        <constraint firstItem="h8O-TK-mkZ" firstAttribute="leading" secondItem="wsi-A2-UPC" secondAttribute="trailing" constant="42" id="dIs-mn-Wu9"/>
+                                        <constraint firstAttribute="bottom" secondItem="tND-uK-3Pk" secondAttribute="bottom" constant="8" id="fx9-SM-Bmx"/>
+                                        <constraint firstAttribute="bottom" secondItem="wsi-A2-UPC" secondAttribute="bottom" constant="8" id="p19-TX-rTY"/>
+                                        <constraint firstAttribute="centerX" secondItem="h8O-TK-mkZ" secondAttribute="centerX" id="vtf-qu-UdU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="fbButton" destination="wsi-A2-UPC" id="MGD-J4-RRX"/>
@@ -673,7 +693,7 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1d-ay-bj0">
-                                <rect key="frame" x="210" y="72" width="28" height="28"/>
+                                <rect key="frame" x="182" y="72" width="38" height="38"/>
                                 <state key="normal" image="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -682,7 +702,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-0l-CtE">
-                                <rect key="frame" x="246" y="72" width="28" height="28"/>
+                                <rect key="frame" x="228" y="72" width="38" height="38"/>
                                 <state key="normal" image="icons">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -691,7 +711,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2D-2n-1fE">
-                                <rect key="frame" x="282" y="72" width="28" height="28"/>
+                                <rect key="frame" x="274" y="72" width="38" height="38"/>
                                 <state key="normal" image="text">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -701,8 +721,8 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="s2D-2n-1fE" secondAttribute="trailing" constant="-6" id="7D9-Ui-lLj"/>
                             <constraint firstItem="S1d-ay-bj0" firstAttribute="top" secondItem="xLu-JV-hlQ" secondAttribute="bottom" constant="8" id="Kd5-5G-LBp"/>
+                            <constraint firstItem="s2D-2n-1fE" firstAttribute="trailing" secondItem="6S5-tf-uYO" secondAttribute="trailing" constant="-8" id="LFS-mN-br0"/>
                             <constraint firstItem="LZa-qe-xya" firstAttribute="leading" secondItem="6S5-tf-uYO" secondAttribute="leading" id="MBF-vd-bbR"/>
                             <constraint firstItem="7BQ-0l-CtE" firstAttribute="leading" secondItem="S1d-ay-bj0" secondAttribute="trailing" constant="8" id="MT7-7N-ye4"/>
                             <constraint firstAttribute="trailing" secondItem="LZa-qe-xya" secondAttribute="trailing" id="NWw-nz-q5w"/>
@@ -2181,27 +2201,30 @@ Mon - Fri</string>
         <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
         <image name="Downward_table_arrow" width="27" height="18"/>
+        <image name="FB logo" width="96" height="96"/>
         <image name="James" width="250" height="300"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
         <image name="QR" width="60" height="60"/>
-        <image name="Search" width="56" height="56"/>
+        <image name="Search" width="100" height="100"/>
         <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
         <image name="Shareicon" width="62" height="62"/>
         <image name="Steven" width="250" height="300"/>
         <image name="Transiticon" width="70" height="62"/>
+        <image name="Twitter logo" width="96" height="96"/>
         <image name="Tyler" width="250" height="300"/>
         <image name="Weathericon" width="70" height="62"/>
+        <image name="Youtube logo" width="96" height="96"/>
         <image name="back" width="48" height="48"/>
         <image name="burnaby.png" width="881" height="1200"/>
         <image name="cancel" width="48" height="48"/>
         <image name="forward" width="48" height="48"/>
         <image name="harbourcenter.png" width="1200" height="782"/>
-        <image name="icons" width="56" height="56"/>
+        <image name="icons" width="100" height="100"/>
         <image name="refresh" width="48" height="48"/>
         <image name="surrey.png" width="1024" height="1539"/>
-        <image name="text" width="56" height="56"/>
+        <image name="text" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
