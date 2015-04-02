@@ -43,6 +43,7 @@
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E40471AB6059500166904 /* OnlineMapViewController.m */; };
 		B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */; };
+		B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
 		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
@@ -72,6 +73,7 @@
 		B0DB77EB1AB2A44800EFDB83 /* none_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DB77E71AB2A44800EFDB83 /* none_campus_map.png */; };
 		B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */; };
 		B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DDA5321AAA63860027A81D /* AboutUsViewController.m */; };
+		B0F0A0C11ACD935300936C43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F0A0C01ACD935300936C43 /* Security.framework */; };
 		B0F981E51AAAAC4E00F9370E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F981E41AAAAC4E00F9370E /* MessageUI.framework */; };
 		B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
@@ -166,6 +168,8 @@
 		B01E40461AB6059500166904 /* OnlineMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineMapViewController.h; sourceTree = "<group>"; };
 		B01E40471AB6059500166904 /* OnlineMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineMapViewController.m; sourceTree = "<group>"; };
 		B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_campus_map_rotated.png; sourceTree = "<group>"; };
+		B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		B080DB451AA6BD7900C3F403 /* FloorPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorPlanTableViewController.h; sourceTree = "<group>"; };
 		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 		B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_campus_map.png; sourceTree = "<group>"; };
 		B0DDA5311AAA63860027A81D /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		B0DDA5321AAA63860027A81D /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		B0F0A0C01ACD935300936C43 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B0F981E41AAAAC4E00F9370E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B0FC019D1AA7C86900F67493 /* FloorImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorImageViewController.h; sourceTree = "<group>"; };
 		B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorImageViewController.m; sourceTree = "<group>"; };
@@ -268,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F0A0C11ACD935300936C43 /* Security.framework in Frameworks */,
 				DC566CD01AA6A1D0006AA2D9 /* SystemConfiguration.framework in Frameworks */,
 				B0A1E6511AB795FC00B5D60C /* QuartzCore.framework in Frameworks */,
 				B0A1E64F1AB795F100B5D60C /* libz.dylib in Frameworks */,
@@ -338,6 +344,7 @@
 		B01BE6701A8D425E0013D9EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0F0A0C01ACD935300936C43 /* Security.framework */,
 				B0BC90671AB7A0FA00135D51 /* GoogleMaps.bundle */,
 				B0A1E6501AB795FC00B5D60C /* QuartzCore.framework */,
 				B0A1E64E1AB795F100B5D60C /* libz.dylib */,
@@ -520,6 +527,8 @@
 				DC807F9C1A905E55008CA3DC /* ServicesURL.m */,
 				B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */,
 				B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */,
+				B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */,
+				B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -773,6 +782,7 @@
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
 				B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
+				B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
 				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
@@ -925,7 +935,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -951,7 +961,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

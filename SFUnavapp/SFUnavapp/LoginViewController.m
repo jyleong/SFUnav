@@ -9,12 +9,14 @@
 #import "LoginViewController.h"
 #import "ServicesTableViewController.h"
 #import "Reachability.h"
+#import "KeychainItemWrapper.h"
 
 @interface LoginViewController ()
 {
     NSString *js;
     BOOL buttonCall;
     BOOL internetStatus;
+    KeychainItemWrapper *keychain;
     
 }
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
@@ -48,7 +50,28 @@
     //    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
     NSLog(@"Loading webpage\n");
     [_web loadRequest:requestObj];
+    keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ApploginData" accessGroup:nil];
     
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    /*if (autoLogin) {
+        // if exists
+        [_userName setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+        NSLog(@"username: %@", [_userName text]);
+        
+        // Get password from keychain (if it exists)
+        [_passWord setText:[keychain objectForKey:(__bridge id)kSecAttrService]];
+        NSLog(@"password: %@", [_passWord text]);
+    }*/
+    [_userName setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+    NSLog(@"username: %@", [_userName text]);
+    
+    // Get password from keychain (if it exists)
+    [_passWord setText:[keychain objectForKey:(__bridge id)kSecAttrService]];
+    NSLog(@"password: %@", [_passWord text]);
     
 }
 
@@ -88,10 +111,23 @@
 }
 */
 
+// not sure if an action will do anything
+// view will load to check if keychain has stuff to inpu to text fields?
+
+- (IBAction)saveKeychain:(id)sender {
+    if (_keychainSwitch.on) {
+        
+    }
+    else {
+        
+    }
+}
+
 - (IBAction)loginButtonPress:(id)sender {
     
     [_passWord resignFirstResponder];
     [_userName resignFirstResponder];
+    
     internetStatus=[self checkInternet];
     
     buttonCall=YES;
@@ -169,6 +205,22 @@
             autoLogin=YES;
             username=_userName.text;
             password=_passWord.text;
+            
+            // now to save t keychain if switch is on
+            // saves to keychain if succesafully log onto CAS
+            if (_keychainSwitch.on) {
+                // save data when on
+                [keychain setObject:[_userName text] forKey:(__bridge id)kSecAttrAccount];
+                [keychain setObject:[_passWord text] forKey:(__bridge id)kSecAttrService];
+            }
+            //else dont bother saving
+            // or clear keychain
+            else {
+                [keychain resetKeychainItem];
+                // this line lears the keychain if the switch is turned off
+                //optional
+            }
+            
             return;
         }
         js= [NSString stringWithFormat:
