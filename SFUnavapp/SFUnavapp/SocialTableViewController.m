@@ -75,6 +75,11 @@
     SocialTableViewCell *cell =
     (SocialTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    cell.layer.cornerRadius = 10;
+    
+    [cell.layer setMasksToBounds:YES];
+    [cell.layer setBorderWidth:1];
+    //asfasfasf
     if (cell == nil) {
         cell = [[SocialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }

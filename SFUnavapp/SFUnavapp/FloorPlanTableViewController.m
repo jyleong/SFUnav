@@ -192,7 +192,7 @@
             NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
             if (imgPath==nil)
             {
-                imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+                imgPath = [bundle pathForResource:@"UnderConstruction_floorplan" ofType:@"png"];
             }
             //create UIImage object with specified file contents and assign it to current object
             UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];
@@ -207,7 +207,7 @@
             NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
             if (imgPath==nil)
             {
-                imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+                imgPath = [bundle pathForResource:@"UnderConstruction_floorplan" ofType:@"png"];
             }
             //create UIImage object with specified file contents and assign it to current object
             UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];
