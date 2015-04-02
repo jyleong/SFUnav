@@ -1,6 +1,7 @@
 //
 //  SocialTableViewCell.h
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by James Leong on 2015-03-30.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
