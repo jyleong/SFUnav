@@ -71,12 +71,25 @@
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://canvas.sfu.ca/courses"]];
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     Course *temp=[[Course alloc]init];
-    NSArray *data = [xpath searchWithXPathQuery:@"//*[@id='my_courses_table']/tr"];
+    NSArray *data = [xpath searchWithXPathQuery:@"//*[@id='my_courses_table']/tr/td/a/span/@title"];
+    
     for (int i=0; i<[data count]; i++)
     {
         TFHppleElement *item = data[i];
-        NSLog(@"%@",item.content);
+        NSLog(@"Content %@",item.content);
+        temp.name=[temp.name lowercaseString];
+        temp.name=[item.content substringFromIndex:[item.content length]-13];
+        temp.name=[temp.name stringByReplacingOccurrencesOfString:@" " withString:@""];
+        temp.name=@"cmpt376wd100";
+        temp.section=[temp.name substringFromIndex:[temp.name length]-4];
+        temp.name=[temp.name stringByReplacingOccurrencesOfString:temp.section withString:@""];
+        if ([temp.name characterAtIndex:[temp.name length]-1]=='w')
+        {
+            
+        }
+        NSLog(@"Temp name:%@, section:%@",temp.name,temp.section);
     }
+
 }
 -(void) parseCoursys{
     
