@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -929,7 +929,7 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
@@ -965,7 +965,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="64" width="320" height="642"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -2160,7 +2160,7 @@ Mon - Fri</string>
         <scene sceneID="gAQ-30-3DQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZYF-eQ-zhB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" id="7VW-6K-m70"/>
+                    <tabBarItem key="tabBarItem" title="Social" image="Shareicon" id="7VW-6K-m70"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ulY-pb-Rbr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2188,6 +2188,7 @@ Mon - Fri</string>
         <image name="Search" width="56" height="56"/>
         <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
+        <image name="Shareicon" width="62" height="62"/>
         <image name="Steven" width="250" height="300"/>
         <image name="Transiticon" width="70" height="62"/>
         <image name="Tyler" width="250" height="300"/>
