@@ -13,5 +13,7 @@
 @property NSString *name;
 @property NSMutableString *days;
 @property NSString *campus;
+//No-for coursys YES-for canvas
+@property BOOL location;
 
 @end

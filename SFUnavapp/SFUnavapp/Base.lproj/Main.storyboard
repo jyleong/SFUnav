@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
+        <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +34,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1574" y="204"/>
+            <point key="canvasLocation" x="-2515" y="-144"/>
         </scene>
         <!--Title-->
         <scene sceneID="7XG-3b-Vn6">
@@ -1227,7 +1228,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-VY-tet">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-VY-tet">
                                 <rect key="frame" x="40" y="407" width="229" height="104"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -1969,7 +1970,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgo-uH-VoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-420" y="-1153"/>
+            <point key="canvasLocation" x="221" y="-1163"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UUG-yR-6Vn">
@@ -1984,37 +1985,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5c-t8-161">
-                                <rect key="frame" x="16" y="34" width="63" height="21"/>
+                                <rect key="frame" x="16" y="86" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2a-yx-d9F">
-                                <rect key="frame" x="87" y="34" width="217" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-PM-xpc">
-                                <rect key="frame" x="16" y="63" width="83" height="21"/>
+                                <rect key="frame" x="16" y="124" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timings and Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-Su-3Po">
-                                <rect key="frame" x="16" y="92" width="174" height="21"/>
+                                <rect key="frame" x="16" y="164" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Q5U-R9-vPc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN4-Qz-Wzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="-1177"/>
+            <point key="canvasLocation" x="675" y="-1163"/>
         </scene>
         <!--Social-->
         <scene sceneID="gAQ-30-3DQ">
@@ -2047,12 +2042,92 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Cnq-7K-Pdk" kind="relationship" relationship="rootViewController" id="YOD-Us-60I"/>
+                        <segue destination="CFc-dY-2uR" kind="relationship" relationship="rootViewController" id="603-0f-rjh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdb-Z4-HC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-952" y="-1153"/>
+            <point key="canvasLocation" x="-797" y="-1163"/>
+        </scene>
+        <!--Courses Table View Controller-->
+        <scene sceneID="7eQ-cs-evP">
+            <objects>
+                <tableViewController id="CFc-dY-2uR" customClass="CoursesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VjS-7E-5c5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <webView key="tableFooterView" contentMode="scaleToFill" id="IUv-MJ-Np4">
+                            <rect key="frame" x="0.0" y="184" width="320" height="88"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </webView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseDisplayCell" rowHeight="60" id="qUh-KQ-kGl" customClass="CourseDisplayTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qUh-KQ-kGl" id="Ob8-vn-kbG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ln3-sM-GkB">
+                                            <rect key="frame" x="8" y="9" width="168" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campus" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTE-6R-Sg3">
+                                            <rect key="frame" x="209" y="36" width="103" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6V-tB-gfW">
+                                            <rect key="frame" x="8" y="30" width="30" height="30"/>
+                                            <accessibility key="accessibilityConfiguration" label=""/>
+                                            <state key="normal" backgroundImage="daysofweek_mon.png"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-sX-JQa">
+                                            <rect key="frame" x="38" y="30" width="30" height="30"/>
+                                            <state key="normal" backgroundImage="daysofweek_tue.png"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViU-j3-hzE">
+                                            <rect key="frame" x="68" y="30" width="30" height="30"/>
+                                            <state key="normal" backgroundImage="daysofweek_wed.png"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-8P-0yY">
+                                            <rect key="frame" x="98" y="30" width="30" height="30"/>
+                                            <state key="normal" backgroundImage="daysofweek_thu.png"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-iF-Mgi">
+                                            <rect key="frame" x="130" y="30" width="30" height="30"/>
+                                            <state key="normal" backgroundImage="daysofweek_fri.png"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="campusLocation" destination="RTE-6R-Sg3" id="HiX-pY-RYO"/>
+                                    <outlet property="courseName" destination="ln3-sM-GkB" id="5SZ-mW-tLX"/>
+                                    <outlet property="fridayButton" destination="eMa-iF-Mgi" id="Nib-KW-Ub3"/>
+                                    <outlet property="mondayButton" destination="K6V-tB-gfW" id="dU9-rb-gLl"/>
+                                    <outlet property="thursdayButton" destination="KYD-8P-0yY" id="62X-f8-2MK"/>
+                                    <outlet property="tuesdayButton" destination="3Et-sX-JQa" id="JZm-wF-3LP"/>
+                                    <outlet property="wednesdayButton" destination="ViU-j3-hzE" id="n7B-2r-fj4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CFc-dY-2uR" id="nUB-aT-v6M"/>
+                            <outlet property="delegate" destination="CFc-dY-2uR" id="4Cy-gi-nQI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="URy-oq-q4K"/>
+                    <connections>
+                        <outlet property="web" destination="IUv-MJ-Np4" id="rPU-bT-hfh"/>
+                        <segue destination="Cnq-7K-Pdk" kind="push" identifier="BrowseCourse" id="4zD-RK-FiF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R22-cv-a3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-301" y="-1165"/>
         </scene>
     </scenes>
     <resources>
@@ -2075,6 +2150,11 @@
         <image name="back" width="48" height="48"/>
         <image name="burnaby.png" width="881" height="1200"/>
         <image name="cancel" width="48" height="48"/>
+        <image name="daysofweek_fri.png" width="32" height="37"/>
+        <image name="daysofweek_mon.png" width="32" height="37"/>
+        <image name="daysofweek_thu.png" width="32" height="37"/>
+        <image name="daysofweek_tue.png" width="32" height="37"/>
+        <image name="daysofweek_wed.png" width="32" height="37"/>
         <image name="forward" width="48" height="48"/>
         <image name="harbourcenter.png" width="1200" height="782"/>
         <image name="icons" width="56" height="56"/>
