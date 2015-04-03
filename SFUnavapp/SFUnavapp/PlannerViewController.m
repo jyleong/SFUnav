@@ -8,13 +8,16 @@
 
 #import "PlannerViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) //1
+#define baseURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current"]
 #define currentDeptURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=current"]
 #define registrationDeptURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=registration"]
 
 @interface PlannerViewController ()
+@property (weak, nonatomic) IBOutlet UIPickerView *semesterPicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *departmentPicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *coursePicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *sectionPicker;
+- (IBAction)semesterDone:(id)sender;
 - (IBAction)deptDone:(id)sender;
 - (IBAction)courseDone:(id)sender;
 - (IBAction)sectionDone:(id)sender;
@@ -26,22 +29,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _semesterNames=[[NSMutableArray alloc]init];
+    [_semesterNames addObject:@"Current"];
+    [_semesterNames addObject:@"Registration"];
     _deptNames=[[NSMutableArray alloc]init];
     _courseNames=[[NSMutableArray alloc]init];
     _sectionNames=[[NSMutableArray alloc]init];
-    _courseDone.hidden=YES;
-    _sectionDone.hidden=YES;
+
+
 //    _departmentPicker.hidden=true;
 //    _coursePicker.hidden=true;
 //    _sectionPicker.hidden=true;
     // Do any additional setup after loading the view.
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentDeptURL]];
-        [self performSelectorOnMainThread:@selector(fetchedDept:)withObject:data waitUntilDone:YES];
-    });
+    
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _deptDone.hidden=YES;
+    _courseDone.hidden=YES;
+    _sectionDone.hidden=YES;
+    
+}
+//First call loads Department titles
 - (void)fetchedDept:(NSData *)responseData {
     //parse out the json data
     NSError* error;
@@ -56,8 +68,15 @@
         [_deptNames addObject:json[i][@"text"]];
     }
     [_departmentPicker reloadAllComponents];
+    _deptDone.hidden=NO;
+    [_departmentPicker setUserInteractionEnabled:YES];
+    _courseDone.hidden=YES;
+    _sectionPicker.hidden=YES;
+    _sectionDone.hidden=YES;
+    _coursePicker.hidden=YES;
+    
 }
-
+//Called after confirming department, loads course names
 - (void)fetchedCourse:(NSData *)responseData {
     //parse out the json data
     NSError* error;
@@ -74,7 +93,12 @@
 
     }
     [_coursePicker reloadAllComponents];
+    _deptDone.hidden=YES;
+    [_departmentPicker setUserInteractionEnabled:NO];
+    _coursePicker.hidden=NO;
     _courseDone.hidden=NO;
+    _sectionDone.hidden=YES;
+    [_coursePicker setUserInteractionEnabled:YES];
 }
 
 - (void)fetchedSections:(NSData *)responseData {
@@ -92,8 +116,12 @@
         [_sectionNames addObject:json[i][@"text"]];
 
     }
+    
     [_sectionPicker reloadAllComponents];
+    _sectionPicker.hidden=NO;
     _sectionDone.hidden=NO;
+    _courseDone.hidden=YES;
+    [_coursePicker setUserInteractionEnabled:NO];
 }
 
 - (void)fetchedInfo:(NSData *)responseData {
@@ -127,7 +155,9 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    if (pickerView==_departmentPicker)
+    if (pickerView==_semesterPicker)
+        return [_semesterNames count];
+    else if (pickerView==_departmentPicker)
     return [_deptNames count];
     else if (pickerView==_coursePicker)
         return [_courseNames count];
@@ -138,6 +168,10 @@ numberOfRowsInComponent:(NSInteger)component
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
+    if (pickerView==_semesterPicker)
+    {
+        return [_semesterNames objectAtIndex:row];
+    }
     if (pickerView==_departmentPicker)
     {
         if ([_deptNames count]>row)
@@ -181,11 +215,26 @@ numberOfRowsInComponent:(NSInteger)component
 */
 
 #pragma mark - API CALLS
-- (IBAction)deptDone:(id)sender {
-       dispatch_async(kBgQueue, ^{
+- (IBAction)semesterDone:(id)sender {
+    _semesterChoice=[_semesterNames objectAtIndex:[_semesterPicker selectedRowInComponent:0]];
+    dispatch_async(kBgQueue, ^{
         NSString *apiURL=[NSString stringWithFormat:
                           @"%@"
-                          @"&dept=%@",currentDeptURL,[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]]
+                          @"&term=%@",baseURL,_semesterChoice
+                          ];
+        apiURL=[apiURL lowercaseString];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:apiURL]];
+        [self performSelectorOnMainThread:@selector(fetchedDept:)withObject:data waitUntilDone:YES];
+    });
+}
+
+- (IBAction)deptDone:(id)sender {
+    _deptChoice=[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]];
+    dispatch_async(kBgQueue, ^{
+        NSString *apiURL=[NSString stringWithFormat:
+                          @"%@"
+                          @"&term=%@"
+                          @"&dept=%@",baseURL,_semesterChoice,[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]]
                           ];
         apiURL=[apiURL lowercaseString];
         NSLog(@"%@",apiURL);
@@ -196,11 +245,13 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 - (IBAction)courseDone:(id)sender {
+    _courseChoice=[_courseNames objectAtIndex:[_coursePicker selectedRowInComponent:0]];
     dispatch_async(kBgQueue, ^{
     NSString *apiURL=[NSString stringWithFormat:
                           @"%@"
+                          @"&term=%@"
                           @"&dept=%@"
-                          @"&number=%@",currentDeptURL,[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]],[_courseNames objectAtIndex:[_coursePicker selectedRowInComponent:0]]
+                          @"&number=%@",baseURL,_semesterChoice,_deptChoice,[_courseNames objectAtIndex:[_coursePicker selectedRowInComponent:0]]
                           ];
         apiURL=[apiURL lowercaseString];
         NSLog(@"%@",apiURL);
@@ -212,12 +263,14 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 - (IBAction)sectionDone:(id)sender {
+    _sectionChoice=[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]];
     dispatch_async(kBgQueue, ^{
     NSString *apiURL=[NSString stringWithFormat:
                           @"%@"
+                          @"&term=%@"
                           @"&dept=%@"
                           @"&number=%@"
-                          @"&section=%@",currentDeptURL,[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]],[_courseNames objectAtIndex:[_coursePicker selectedRowInComponent:0]],[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]]
+                          @"&section=%@",baseURL,_semesterChoice,_deptChoice,_courseChoice,[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]]
                           ];
     apiURL=[apiURL lowercaseString];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:apiURL ]];
@@ -226,4 +279,16 @@ numberOfRowsInComponent:(NSInteger)component
     });
 
 }
+
+#pragma mark -memory management
+-(void) dealloc
+{
+    
+    [_semesterNames removeAllObjects];
+    [_deptNames removeAllObjects];
+    [_courseNames removeAllObjects];
+    [_sectionNames removeAllObjects];
+    
+}
+
 @end

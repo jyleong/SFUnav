@@ -85,11 +85,7 @@
 -(void) genCourses{
     if ([self checkInternet])
     {
-        if ([courseCollection count]!=0)
-        {
-            
-            [courseCollection removeAllObjects];
-        }
+         [courseCollection removeAllObjects];
         courseCollection=[[NSMutableArray alloc]init];
         dispatch_async(kBgQueue, ^{
             [self parseCanvas];

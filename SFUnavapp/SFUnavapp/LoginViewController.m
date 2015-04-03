@@ -53,8 +53,8 @@
     NSLog(@"Loading webpage\n");
     [_web loadRequest:requestObj];
     keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ApploginData" accessGroup:nil];
-    _keychainSwitch.onTintColor = UIColorFromRGB(0xB5111B);
-    _goSwitch.onTintColor = UIColorFromRGB(0xB5111B);
+//    _keychainSwitch.onTintColor = UIColorFromRGB(0xB5111B);
+//    _goSwitch.onTintColor = UIColorFromRGB(0xB5111B);
     
     
     

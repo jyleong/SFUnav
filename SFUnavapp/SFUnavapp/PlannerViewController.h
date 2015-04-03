@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface PlannerViewController : UITableViewController
+
+@property NSMutableArray *semesterNames;
 @property NSMutableArray *deptNames;
 @property NSMutableArray *courseNames;
 @property NSMutableArray *sectionNames;
 @property unsigned int currentRow;
-@property (strong, nonatomic) IBOutlet UIButton *courseDone;
-@property (strong, nonatomic) IBOutlet UIButton *sectionDone;
+@property (weak, nonatomic) IBOutlet UIButton *courseDone;
+@property (weak, nonatomic) IBOutlet UIButton *sectionDone;
+@property (weak, nonatomic) IBOutlet UIButton *deptDone;
+@property (weak, nonatomic) NSString *semesterChoice;
+@property (weak, nonatomic) NSString *deptChoice;
+@property (weak, nonatomic) NSString *courseChoice;
+@property (weak, nonatomic) NSString *sectionChoice;
 
 @end
