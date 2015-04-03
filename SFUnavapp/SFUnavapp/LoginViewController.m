@@ -11,6 +11,8 @@
 #import "Reachability.h"
 #import "KeychainItemWrapper.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xFF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface LoginViewController ()
 {
     NSString *js;
@@ -51,6 +53,8 @@
     NSLog(@"Loading webpage\n");
     [_web loadRequest:requestObj];
     keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ApploginData" accessGroup:nil];
+    _keychainSwitch.onTintColor = UIColorFromRGB(0xB5111B);
+    _goSwitch.onTintColor = UIColorFromRGB(0xB5111B);
     
     
     

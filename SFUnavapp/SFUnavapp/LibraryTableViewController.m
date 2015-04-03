@@ -15,6 +15,8 @@
 #define FBOX(x) [NSNumber numberWithFloat:x]
 #define IBOX(x) [NSNumber numberWithInteger:x]
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xFF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @interface LibraryTableViewController ()
 {
@@ -39,7 +41,7 @@
     hasInternet =[self checkInternet];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
+    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
