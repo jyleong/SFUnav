@@ -1,6 +1,7 @@
 //
 //  DineTableViewController.h
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by Steven Zhou on 2015-04-01.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
