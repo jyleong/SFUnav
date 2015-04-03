@@ -6,14 +6,14 @@
 //
 //	Edited by James Leong
 //	Edited by Arjun Rathee
-//	Edited by <Your name>
+//	Edited by Steven Zhou
 //	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
 // defined this to manipulate colors for navbar - James
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xFF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation AppDelegate
 
@@ -21,12 +21,15 @@
 {
     //code to manipulate navbar - James B5111B
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    [[UINavigationBar appearance] setTranslucent:NO]; //corrects color washout
     //changing the navbar was done by chaning the RGB
+    
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];// changes all titles in navbar to white
     //code to manipulate tabbar - James
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    [[UITabBar appearance] setTranslucent:NO];
     
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     //[[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];

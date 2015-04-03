@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h> // handles the appearance of UI elements
 #import "ServicesURL.h"
-#import "ServicesWebViewController.h" // code to add bus pass ups segue
+#import "ServicesWebViewController.h" // code to add menu segue
 
 #define kPickerIndex 2
 #define kPickerCellHeight 163
