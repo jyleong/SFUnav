@@ -1199,7 +1199,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ED2-kI-efU" firstAttribute="leading" secondItem="L7t-mm-zwz" secondAttribute="leading" id="6kg-rt-Yz8"/>
-                            <constraint firstItem="ED2-kI-efU" firstAttribute="bottom" secondItem="sj6-1d-fXa" secondAttribute="top" constant="48" id="bCy-yK-ipc"/>
+                            <constraint firstItem="ED2-kI-efU" firstAttribute="bottom" secondItem="sj6-1d-fXa" secondAttribute="top" id="bCy-yK-ipc"/>
                             <constraint firstItem="ED2-kI-efU" firstAttribute="top" secondItem="TKF-2g-6gl" secondAttribute="bottom" id="j5e-ty-Rmo"/>
                             <constraint firstAttribute="trailing" secondItem="ED2-kI-efU" secondAttribute="trailing" id="jTf-FA-yud"/>
                         </constraints>

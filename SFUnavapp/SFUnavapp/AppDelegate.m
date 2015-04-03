@@ -21,7 +21,7 @@
 {
     //code to manipulate navbar - James B5111B
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
-    [[UINavigationBar appearance] setTranslucent:NO]; //corrects color washout
+    [[UINavigationBar appearance] setTranslucent:NO]; //corrects color washout, doesnt work if VC doesnt call appdelegate
     //changing the navbar was done by chaning the RGB
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
