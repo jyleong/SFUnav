@@ -67,11 +67,11 @@
         NSLog(@"password: %@", [_passWord text]);
     }*/
     [_userName setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
-    NSLog(@"username: %@", [_userName text]);
+    //NSLog(@"username: %@", [_userName text]);
     
     // Get password from keychain (if it exists)
     [_passWord setText:[keychain objectForKey:(__bridge id)kSecAttrService]];
-    NSLog(@"password: %@", [_passWord text]);
+    //NSLog(@"password: %@", [_passWord text]);
     
 }
 
