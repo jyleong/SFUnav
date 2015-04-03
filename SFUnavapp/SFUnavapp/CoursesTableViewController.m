@@ -241,7 +241,7 @@
 
     cell.layer.cornerRadius = 10;
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
+    //[cell.layer setBorderWidth:1];
     
     Course *temp=[courseCollection objectAtIndex:indexPath.row];
     cell.courseName.text=[[NSString stringWithFormat:
