@@ -23,6 +23,7 @@
 NSString *username;
 NSString *password;
 BOOL autoLogin;
+BOOL goLogin;
 
 @implementation ServicesTableViewController
 
@@ -113,6 +114,8 @@ BOOL autoLogin;
     [super viewWillAppear:animated];
     if (autoLogin)
         _LoginButton.title=@"Logout";
+    else
+        _LoginButton.title=@"Login";
    // NSLog(@"%@ %@",username,password);
 }
 
@@ -146,7 +149,7 @@ BOOL autoLogin;
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
+    //[cell.layer setBorderWidth:1];
 
     // Configure the cell...
     ServicesURL* current= [links objectAtIndex:indexPath.row];
@@ -224,35 +227,22 @@ BOOL autoLogin;
         NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
         NSLog(@"Logout coursys\n");
         [_web loadRequest:requestObj];
-       
-        
-//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
-//        requestObj= [NSURLRequest requestWithURL:url];
-//        NSLog(@"Logout connect\n");
-//        [_web loadRequest:requestObj];
-//
-//        url= [NSURL URLWithString:@"https://sfu-csm.symplicity.com/logout.php"];
-//        requestObj= [NSURLRequest requestWithURL:url];
-//        NSLog(@"Logout symplicity\n");
-//        [_web loadRequest:requestObj];
-//        
-//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?destination=https%3A%2F%2Fcanvas.sfu.ca%2Flogin%2Fcas&gateway=true"];
-//        requestObj= [NSURLRequest requestWithURL:url];
-//        NSLog(@"Logout canvas\n");
-//        [_web loadRequest:requestObj];
-        
+        url= [NSURL URLWithString:@"https://connect.sfu.ca/zimbra/m/zmain?loginOp=logout&client=mobile"];
+        requestObj= [NSURLRequest requestWithURL:url];
+        NSLog(@"Logout connect\n");
+        [_web2 loadRequest:requestObj];
         _LoginButton.title=@"Login";
         autoLogin=NO;
         username=@"";
         password=@"";
-         [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//        url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/logout?url=http://connect.sfu.ca&urltext=Click+here+to+return+to+SFU+Connect."];
-//        requestObj= [NSURLRequest requestWithURL:url];
-//        NSLog(@"Logout connect\n");
-//        [_web loadRequest:requestObj];
-    
-    
+        goLogin=NO;
+        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+        [[NSURLCache sharedURLCache] setDiskCapacity:0];
+        [[NSURLCache sharedURLCache] setMemoryCapacity:0];
+        
     }
     
 }
+
+
 @end

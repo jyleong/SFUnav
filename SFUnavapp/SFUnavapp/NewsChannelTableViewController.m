@@ -136,7 +136,7 @@
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
+    //[cell.layer setBorderWidth:1];
 
     if (indexPath.section == 0)
     {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }

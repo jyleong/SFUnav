@@ -9,12 +9,14 @@
 #import "LoginViewController.h"
 #import "ServicesTableViewController.h"
 #import "Reachability.h"
+#import "KeychainItemWrapper.h"
 
 @interface LoginViewController ()
 {
     NSString *js;
     BOOL buttonCall;
     BOOL internetStatus;
+    KeychainItemWrapper *keychain;
     
 }
 @property (strong, nonatomic) UIGestureRecognizer *tapper; // for the gesture to dismiss keyboard when tap out of textfield
@@ -34,21 +36,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+     // Do any additional setup after loading the view.
     buttonCall=NO;
     autoLogin=NO;
     _tapper = [[UITapGestureRecognizer alloc]
                initWithTarget:self action:@selector(handleSingleTap:)];
     _tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:_tapper];
+
     [self.view addSubview:_web];
-    //[_web setDelegate:self];
     NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/login?"];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     //    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
     NSLog(@"Loading webpage\n");
     [_web loadRequest:requestObj];
+    keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ApploginData" accessGroup:nil];
     
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    /*if (autoLogin) {
+        // if exists
+        [_userName setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+        NSLog(@"username: %@", [_userName text]);
+        
+        // Get password from keychain (if it exists)
+        [_passWord setText:[keychain objectForKey:(__bridge id)kSecAttrService]];
+        NSLog(@"password: %@", [_passWord text]);
+    }*/
+    [_userName setText:[keychain objectForKey:(__bridge id)kSecAttrAccount]];
+    //NSLog(@"username: %@", [_userName text]);
+    
+    // Get password from keychain (if it exists)
+    [_passWord setText:[keychain objectForKey:(__bridge id)kSecAttrService]];
+    //NSLog(@"password: %@", [_passWord text]);
     
 }
 
@@ -88,10 +111,23 @@
 }
 */
 
+// not sure if an action will do anything
+// view will load to check if keychain has stuff to inpu to text fields?
+
+- (IBAction)saveKeychain:(id)sender {
+    if (_keychainSwitch.on) {
+        
+    }
+    else {
+        
+    }
+}
+
 - (IBAction)loginButtonPress:(id)sender {
     
     [_passWord resignFirstResponder];
     [_userName resignFirstResponder];
+    
     internetStatus=[self checkInternet];
     
     buttonCall=YES;
@@ -109,6 +145,7 @@
         _errorDisplay.text=@"Both username and password fields are required";
         return;
     }
+
     //create javascript code as single string
     js= [NSString stringWithFormat:
     @"var usrname = document.getElementById('username');"
@@ -119,7 +156,6 @@
     @"form.submit();",_userName.text,_passWord.text];
     //inject javascript code
     [_web stringByEvaluatingJavaScriptFromString:js];
-    [self checkValidInfo];
     
 }
 
@@ -142,7 +178,18 @@
         
         [self checkValidInfo];
     }
+
 }
+
+- (IBAction)loginGo:(id)sender {
+    if (_goSwitch.on)
+    {
+        goLogin=YES;
+        return;
+    }
+    goLogin=NO;
+}
+
 
 -(void) checkValidInfo
 {
@@ -151,7 +198,7 @@
          @"var success = document.getElementsByTagName('h2');"
          @"success[1].innerHTML"
          ];
-        NSLog(@"%@",[_web stringByEvaluatingJavaScriptFromString:js]);
+        NSLog(@"HERE %@",[_web stringByEvaluatingJavaScriptFromString:js]);
         if([[_web stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"You have successfully logged into the Central Authentication Service."])
         {
             _errorDisplay.text=@"Successfully Logged In";
@@ -159,6 +206,22 @@
             autoLogin=YES;
             username=_userName.text;
             password=_passWord.text;
+            
+            // now to save t keychain if switch is on
+            // saves to keychain if succesafully log onto CAS
+            if (_keychainSwitch.on) {
+                // save data when on
+                [keychain setObject:[_userName text] forKey:(__bridge id)kSecAttrAccount];
+                [keychain setObject:[_passWord text] forKey:(__bridge id)kSecAttrService];
+            }
+            //else dont bother saving
+            // or clear keychain
+            else {
+                [keychain resetKeychainItem];
+                // this line lears the keychain if the switch is turned off
+                //optional
+            }
+            
             return;
         }
         js= [NSString stringWithFormat:
@@ -170,7 +233,7 @@
             NSLog(@"Failure");
             _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
             autoLogin=NO;
-    
+
         }
 
 }

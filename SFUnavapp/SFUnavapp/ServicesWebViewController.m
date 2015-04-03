@@ -41,6 +41,7 @@
     self.view.window.rootViewController=self;
     //_currentlink.delegate=self;
     //Loads the url provided in custom object and assigns the title to the navigation bar
+
     NSURL *url= [NSURL URLWithString:_currentURL.serviceURL];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
@@ -49,7 +50,7 @@
     [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
     
-    if (autoLogin && [_currentURL.serviceName isEqualToString:@"goSFU (SIS)"])
+    if (autoLogin && goLogin && [_currentURL.serviceName isEqualToString:@"goSFU (SIS)"])
     {
         NSTimer * timer;
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -81,6 +82,19 @@
     [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('pwd').value = '%@';", password]];
     [_currentlink stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByClassName('PSPUSHBUTTON')[5].click()"]];
   
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSString *url = webView.request.URL.absoluteString;
+    NSLog(@"current url: %@",url);
+    if ([url containsString:@"https://cas.sfu.ca/cas/logout"]) {
+        NSLog(@"logged out from browser");
+        autoLogin=NO;
+        username=@"";
+        password=@"";
+    }
+
 }
 -(void)dealloc{
     NSLog(@"in services delloc");

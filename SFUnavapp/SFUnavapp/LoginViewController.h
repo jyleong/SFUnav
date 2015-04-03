@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UIWebView *web;
+@property (weak, nonatomic) IBOutlet UISwitch *keychainSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *goSwitch;
+
 
 - (IBAction)loginButtonPress:(id)sender;
 

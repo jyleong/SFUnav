@@ -28,6 +28,7 @@
 		049B5C071AB21571001521D4 /* Registrar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C061AB21571001521D4 /* Registrar.plist */; };
 		049B5C091AB216EC001521D4 /* Financial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C081AB216EC001521D4 /* Financial.plist */; };
 		04DD15831AB4EFC700714CFA /* studContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD15821AB4EFC700714CFA /* studContactTableViewController.m */; };
+		7D5B6FAE1ACC82D00000B2F8 /* DineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */; };
 		B0151B1F1ABD23D20092B0BB /* SFUlatlong.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0151B1E1ABD23D20092B0BB /* SFUlatlong.plist */; };
 		B01BE6721A8D425E0013D9EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6711A8D425E0013D9EA /* Foundation.framework */; };
 		B01BE6741A8D425E0013D9EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01BE6731A8D425E0013D9EA /* CoreGraphics.framework */; };
@@ -44,12 +45,11 @@
 		B01BE6A01A8D425F0013D9EA /* SFUnavappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E40471AB6059500166904 /* OnlineMapViewController.m */; };
-		B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */; };
+		B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
 		B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */; };
 		B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */; };
-		B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */ = {isa = PBXBuildFile; fileRef = B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */; };
 		B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0887C951AC627120047F200 /* QRcodescannerViewController.m */; };
 		B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08D859E1AC46AA700335A19 /* RoadReportTableCell.m */; };
 		B0A10C3E1ACA4ED000FC5F35 /* SocialTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A10C3D1ACA4ED000FC5F35 /* SocialTableViewController.m */; };
@@ -74,6 +74,7 @@
 		B0DB77EB1AB2A44800EFDB83 /* none_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DB77E71AB2A44800EFDB83 /* none_campus_map.png */; };
 		B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */; };
 		B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DDA5321AAA63860027A81D /* AboutUsViewController.m */; };
+		B0F0A0C11ACD935300936C43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F0A0C01ACD935300936C43 /* Security.framework */; };
 		B0F981E51AAAAC4E00F9370E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F981E41AAAAC4E00F9370E /* MessageUI.framework */; };
 		B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */; };
 		B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC32741A956FFB00900E3A /* TransitTableViewController.m */; };
@@ -83,6 +84,15 @@
 		D27E32781A984EC900004735 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D27E32771A984EC900004735 /* libxml2.dylib */; };
 		D27E327B1A984EF900004735 /* Campus.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E327A1A984EF900004735 /* Campus.m */; };
 		D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E082A1AAFE93900B35F6B /* LoginViewController.m */; };
+		D294DE731ACCAD440005E20A /* daysofweek_fri.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6C1ACCAD440005E20A /* daysofweek_fri.png */; };
+		D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6D1ACCAD440005E20A /* daysofweek_mon.png */; };
+		D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6E1ACCAD440005E20A /* daysofweek_sat.png */; };
+		D294DE761ACCAD440005E20A /* daysofweek_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6F1ACCAD440005E20A /* daysofweek_sun.png */; };
+		D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE701ACCAD440005E20A /* daysofweek_thu.png */; };
+		D294DE781ACCAD440005E20A /* daysofweek_tue.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE711ACCAD440005E20A /* daysofweek_tue.png */; };
+		D294DE791ACCAD440005E20A /* daysofweek_wed.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE721ACCAD440005E20A /* daysofweek_wed.png */; };
+		D294DE7C1ACCAE830005E20A /* CourseDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D294DE7B1ACCAE830005E20A /* CourseDisplayTableViewCell.m */; };
+		D294DE7F1ACCB4BD0005E20A /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D294DE7E1ACCB4BD0005E20A /* CoursesTableViewController.m */; };
 		D2B50E091AC6742100D255BC /* Blusson Hall.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B50E081AC6742100D255BC /* Blusson Hall.png */; };
 		D2B50E0D1AC6754F00D255BC /* Bennett Library.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B50E0C1AC6754F00D255BC /* Bennett Library.png */; };
 		D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EBC4511AA9744C007540DE /* WeatherTableViewController.m */; };
@@ -99,6 +109,8 @@
 		DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */ = {isa = PBXBuildFile; fileRef = DC8656811A97164C00D908C9 /* UniversityDriveNorth.html */; };
 		DC86568C1A97164C00D908C9 /* Webcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656851A97164C00D908C9 /* Webcam.m */; };
 		DC86568D1A97164C00D908C9 /* WebcamWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8656871A97164C00D908C9 /* WebcamWebViewController.m */; };
+		DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */; };
+		DCE7A0951ACBAE13009B4209 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE7A0941ACBAE13009B4209 /* Course.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
 		EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */; };
 		EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */; };
@@ -107,6 +119,7 @@
 		EEC7864C1AB79312004AF041 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864A1AB79312004AF041 /* Parser.m */; };
 		EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864E1AB79588004AF041 /* NewsTableViewController.m */; };
 		EEC87AAD1AC360260095861F /* Channel.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEC87AAC1AC360260095861F /* Channel.plist */; };
+		F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +160,8 @@
 		049B5C081AB216EC001521D4 /* Financial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Financial.plist; sourceTree = "<group>"; };
 		04DD15811AB4EFC700714CFA /* studContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = studContactTableViewController.h; sourceTree = "<group>"; };
 		04DD15821AB4EFC700714CFA /* studContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = studContactTableViewController.m; sourceTree = "<group>"; };
+		7D5B6FAC1ACC82D00000B2F8 /* DineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DineTableViewController.h; sourceTree = "<group>"; };
+		7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DineTableViewController.m; sourceTree = "<group>"; };
 		B0151B1E1ABD23D20092B0BB /* SFUlatlong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SFUlatlong.plist; sourceTree = "<group>"; };
 		B01BE66E1A8D425E0013D9EA /* SFUnavapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFUnavapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01BE6711A8D425E0013D9EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,14 +184,14 @@
 		B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
 		B01E40461AB6059500166904 /* OnlineMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineMapViewController.h; sourceTree = "<group>"; };
 		B01E40471AB6059500166904 /* OnlineMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineMapViewController.m; sourceTree = "<group>"; };
-		B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_campus_map_rotated.png; sourceTree = "<group>"; };
+		B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		B080DB451AA6BD7900C3F403 /* FloorPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorPlanTableViewController.h; sourceTree = "<group>"; };
 		B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorPlanTableViewController.m; sourceTree = "<group>"; };
 		B080DB481AA6BDCC00C3F403 /* BuildingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingObject.h; sourceTree = "<group>"; };
 		B080DB491AA6BDCC00C3F403 /* BuildingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingObject.m; sourceTree = "<group>"; };
 		B08268DB1AB6CD1B0038F7A7 /* Buildings_coord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_coord.plist; sourceTree = "<group>"; };
 		B08268DD1AB6CD360038F7A7 /* Buildings_name.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Buildings_name.plist; sourceTree = "<group>"; };
-		B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Campus_Map(half res).png"; sourceTree = "<group>"; };
 		B0887C941AC627120047F200 /* QRcodescannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodescannerViewController.h; sourceTree = "<group>"; };
 		B0887C951AC627120047F200 /* QRcodescannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodescannerViewController.m; sourceTree = "<group>"; };
 		B08D859D1AC46AA700335A19 /* RoadReportTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadReportTableCell.h; sourceTree = "<group>"; };
@@ -207,6 +222,7 @@
 		B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_campus_map.png; sourceTree = "<group>"; };
 		B0DDA5311AAA63860027A81D /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		B0DDA5321AAA63860027A81D /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		B0F0A0C01ACD935300936C43 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B0F981E41AAAAC4E00F9370E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B0FC019D1AA7C86900F67493 /* FloorImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorImageViewController.h; sourceTree = "<group>"; };
 		B0FC019E1AA7C86900F67493 /* FloorImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorImageViewController.m; sourceTree = "<group>"; };
@@ -223,6 +239,17 @@
 		D27E327A1A984EF900004735 /* Campus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campus.m; sourceTree = "<group>"; };
 		D28E08291AAFE93900B35F6B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D28E082A1AAFE93900B35F6B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D294DE6C1ACCAD440005E20A /* daysofweek_fri.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_fri.png; sourceTree = "<group>"; };
+		D294DE6D1ACCAD440005E20A /* daysofweek_mon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_mon.png; sourceTree = "<group>"; };
+		D294DE6E1ACCAD440005E20A /* daysofweek_sat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_sat.png; sourceTree = "<group>"; };
+		D294DE6F1ACCAD440005E20A /* daysofweek_sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_sun.png; sourceTree = "<group>"; };
+		D294DE701ACCAD440005E20A /* daysofweek_thu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_thu.png; sourceTree = "<group>"; };
+		D294DE711ACCAD440005E20A /* daysofweek_tue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_tue.png; sourceTree = "<group>"; };
+		D294DE721ACCAD440005E20A /* daysofweek_wed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daysofweek_wed.png; sourceTree = "<group>"; };
+		D294DE7A1ACCAE830005E20A /* CourseDisplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDisplayTableViewCell.h; sourceTree = "<group>"; };
+		D294DE7B1ACCAE830005E20A /* CourseDisplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDisplayTableViewCell.m; sourceTree = "<group>"; };
+		D294DE7D1ACCB4BD0005E20A /* CoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTableViewController.h; sourceTree = "<group>"; };
+		D294DE7E1ACCB4BD0005E20A /* CoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableViewController.m; sourceTree = "<group>"; };
 		D2B50E081AC6742100D255BC /* Blusson Hall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blusson Hall.png"; sourceTree = "<group>"; };
 		D2B50E0C1AC6754F00D255BC /* Bennett Library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bennett Library.png"; sourceTree = "<group>"; };
 		D2EBC4501AA9744C007540DE /* WeatherTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableViewController.h; sourceTree = "<group>"; };
@@ -247,6 +274,10 @@
 		DC8656851A97164C00D908C9 /* Webcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webcam.m; sourceTree = "<group>"; };
 		DC8656861A97164C00D908C9 /* WebcamWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamWebViewController.h; sourceTree = "<group>"; };
 		DC8656871A97164C00D908C9 /* WebcamWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamWebViewController.m; sourceTree = "<group>"; };
+		DCB295CB1ACB476E00E6FEE1 /* PlannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerViewController.h; sourceTree = "<group>"; };
+		DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerViewController.m; sourceTree = "<group>"; };
+		DCE7A0931ACBAE13009B4209 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		DCE7A0941ACBAE13009B4209 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
 		EE6CDB661AC9093200C6284A /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
@@ -261,6 +292,7 @@
 		EEC7864D1AB79588004AF041 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewController.h; path = SFUnavapp/NewsTableViewController.h; sourceTree = SOURCE_ROOT; };
 		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = SFUnavapp/NewsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		EEC87AAC1AC360260095861F /* Channel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Channel.plist; sourceTree = "<group>"; };
+		F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderConstruction_floorplan.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F0A0C11ACD935300936C43 /* Security.framework in Frameworks */,
 				DC566CD01AA6A1D0006AA2D9 /* SystemConfiguration.framework in Frameworks */,
 				B0A1E6511AB795FC00B5D60C /* QuartzCore.framework in Frameworks */,
 				B0A1E64F1AB795F100B5D60C /* libz.dylib in Frameworks */,
@@ -349,6 +382,7 @@
 		B01BE6701A8D425E0013D9EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0F0A0C01ACD935300936C43 /* Security.framework */,
 				B0BC90671AB7A0FA00135D51 /* GoogleMaps.bundle */,
 				B0A1E6501AB795FC00B5D60C /* QuartzCore.framework */,
 				B0A1E64E1AB795F100B5D60C /* libz.dylib */,
@@ -384,6 +418,7 @@
 				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
 				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
 				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
+				7D5B6FAB1ACC82BB0000B2F8 /* Dine */,
 				D2B50E0E1AC679F300D255BC /* About Us */,
 				EE9A4CDA1ABA2FE0008AE555 /* News */,
 				B0887C931AC626E20047F200 /* Transit */,
@@ -391,6 +426,8 @@
 				DC8656771A9715C600D908C9 /* Services */,
 				DC8656781A9715D300D908C9 /* Contacts */,
 				DC8656791A9715DC00D908C9 /* Map */,
+				B0A10C421ACA4F4C00FC5F35 /* Social */,
+				D294DE6B1ACCAD270005E20A /* Planner */,
 				B01BE68C1A8D425E0013D9EA /* Images.xcassets */,
 				B01BE6781A8D425E0013D9EA /* Supporting Files */,
 				D2B50E0F1AC67A0100D255BC /* QR Scanner */,
@@ -406,14 +443,13 @@
 				045E5E751AB0144200FDF7BC /* surrey.png */,
 				04971D441AA389F600AE1F6E /* Contacts - dial.png */,
 				04971D451AA389F600AE1F6E /* Contacts - email.png */,
-				B0859CAE1AACDA3300DA0A4D /* Campus_Map(half res).png */,
 				04971D461AA389F600AE1F6E /* Contacts - Weblink.png */,
 				B0DB77E51AB2A44800EFDB83 /* all_campus_map.png */,
 				B0DB77E61AB2A44800EFDB83 /* icons_campus_map.png */,
 				B0DB77E71AB2A44800EFDB83 /* none_campus_map.png */,
-				B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */,
 				B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */,
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
+				F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */,
 				D2B50E0C1AC6754F00D255BC /* Bennett Library.png */,
 				D2B50E081AC6742100D255BC /* Blusson Hall.png */,
 				04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */,
@@ -481,6 +517,28 @@
 			name = hpple_parser;
 			sourceTree = "<group>";
 		};
+		D294DE6B1ACCAD270005E20A /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				DCB295CB1ACB476E00E6FEE1 /* PlannerViewController.h */,
+				DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */,
+				D294DE7D1ACCB4BD0005E20A /* CoursesTableViewController.h */,
+				D294DE7E1ACCB4BD0005E20A /* CoursesTableViewController.m */,
+				D294DE7A1ACCAE830005E20A /* CourseDisplayTableViewCell.h */,
+				D294DE7B1ACCAE830005E20A /* CourseDisplayTableViewCell.m */,
+				DCE7A0931ACBAE13009B4209 /* Course.h */,
+				DCE7A0941ACBAE13009B4209 /* Course.m */,
+				D294DE6C1ACCAD440005E20A /* daysofweek_fri.png */,
+				D294DE6D1ACCAD440005E20A /* daysofweek_mon.png */,
+				D294DE6E1ACCAD440005E20A /* daysofweek_sat.png */,
+				D294DE6F1ACCAD440005E20A /* daysofweek_sun.png */,
+				D294DE701ACCAD440005E20A /* daysofweek_thu.png */,
+				D294DE711ACCAD440005E20A /* daysofweek_tue.png */,
+				D294DE721ACCAD440005E20A /* daysofweek_wed.png */,
+			);
+			name = Planner;
+			sourceTree = "<group>";
+		};
 		D2B50E0E1AC679F300D255BC /* About Us */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +586,8 @@
 				DC807F9C1A905E55008CA3DC /* ServicesURL.m */,
 				B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */,
 				B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */,
+				B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */,
+				B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -701,33 +761,38 @@
 				B0DB77EB1AB2A44800EFDB83 /* none_campus_map.png in Resources */,
 				B08268DC1AB6CD1B0038F7A7 /* Buildings_coord.plist in Resources */,
 				B01BE68D1A8D425E0013D9EA /* Images.xcassets in Resources */,
-				B0859CAF1AACDA3300DA0A4D /* Campus_Map(half res).png in Resources */,
 				B0DB77EA1AB2A44800EFDB83 /* icons_campus_map.png in Resources */,
 				B01BE67C1A8D425E0013D9EA /* InfoPlist.strings in Resources */,
 				D2B50E091AC6742100D255BC /* Blusson Hall.png in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
+				F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */,
 				B0151B1F1ABD23D20092B0BB /* SFUlatlong.plist in Resources */,
 				04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */,
+				D294DE761ACCAD440005E20A /* daysofweek_sun.png in Resources */,
 				DC86567E1A97163500D908C9 /* AQSouthWest.html in Resources */,
 				049B5C071AB21571001521D4 /* Registrar.plist in Resources */,
 				0456CFBB1AB4D050002548B5 /* access.plist in Resources */,
+				D294DE781ACCAD440005E20A /* daysofweek_tue.png in Resources */,
+				D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */,
 				0456CFAC1AB4C264002548B5 /* Career.plist in Resources */,
 				045E5E781AB0144200FDF7BC /* surrey.png in Resources */,
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
+				D294DE791ACCAD440005E20A /* daysofweek_wed.png in Resources */,
 				D2B50E0D1AC6754F00D255BC /* Bennett Library.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
 				045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */,
 				B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
-				B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */,
 				B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */,
 				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
 				049B5C091AB216EC001521D4 /* Financial.plist in Resources */,
+				D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */,
 				0456CFB71AB4CC33002548B5 /* Security.plist in Resources */,
 				B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
+				D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */,
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
 				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
@@ -754,20 +819,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC86568C1A97164C00D908C9 /* Webcam.m in Sources */,
+				DCE7A0951ACBAE13009B4209 /* Course.m in Sources */,
 				B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */,
 				0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */,
+				7D5B6FAE1ACC82D00000B2F8 /* DineTableViewController.m in Sources */,
 				D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
+				DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
 				EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */,
 				EEC6B1311ABCDB660017E966 /* Channel.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
 				B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */,
+				D294DE7F1ACCB4BD0005E20A /* CoursesTableViewController.m in Sources */,
 				B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */,
 				B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */,
 				DC566CC21AA67135006AA2D9 /* MTImageMapView.m in Sources */,
 				DC807FA01A905F5A008CA3DC /* ServicesWebViewController.m in Sources */,
 				D27E32761A984E1A00004735 /* XPathQuery.m in Sources */,
+				D294DE7C1ACCAE830005E20A /* CourseDisplayTableViewCell.m in Sources */,
 				D27E32741A984E1A00004735 /* TFHpple.m in Sources */,
 				B0B0FC601A9F8AE700BE6964 /* BusRouteStorage.m in Sources */,
 				B0A10C411ACA4F4500FC5F35 /* SocialTableViewCell.m in Sources */,
@@ -779,6 +849,7 @@
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
 				B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
+				B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
 				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
@@ -933,6 +1004,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -958,6 +1030,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "SFUnavapp/SFUnavapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

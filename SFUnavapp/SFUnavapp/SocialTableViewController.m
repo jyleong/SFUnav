@@ -1,6 +1,7 @@
 //
 //  SocialTableViewController.m
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by James Leong on 2015-03-30.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
@@ -78,7 +79,7 @@
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
+    //[cell.layer setBorderWidth:1];
     
     if (cell == nil) {
         cell = [[SocialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];

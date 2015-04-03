@@ -18,7 +18,10 @@
 extern NSString *username;
 extern NSString *password;
 extern BOOL autoLogin;
+extern BOOL goLogin;
 
 @interface ServicesTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIWebView *web;
+@property (strong, nonatomic) IBOutlet UIWebView *web2;
+
 @end
