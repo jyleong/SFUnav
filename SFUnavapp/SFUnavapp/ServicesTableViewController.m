@@ -149,7 +149,7 @@ BOOL goLogin;
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
+    //[cell.layer setBorderWidth:1];
 
     // Configure the cell...
     ServicesURL* current= [links objectAtIndex:indexPath.row];

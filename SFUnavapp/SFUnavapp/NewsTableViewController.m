@@ -114,14 +114,7 @@
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
-    //[cell.layer setBackgroundColor:(__bridge CGColorRef)([UIColor blueColor])];
-    /*
-    CALayer* layer = cell.layer;
-    [layer setCornerRadius:8.0f];
-    [layer setMasksToBounds:YES];
-    [layer setBorderWidth:2.0f];
-    */
+    //[cell.layer setBorderWidth:1];
     
     //retrieves the title of the selected article and link from the list array and displays them in a table
     
