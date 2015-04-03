@@ -43,7 +43,7 @@
     [super viewWillAppear:animated];
     if (autoLogin!=YES)
         [self notlogin];
-    [self genCourses];
+        [self genCourses];
     
 }
 - (void)reload
@@ -85,6 +85,11 @@
 -(void) genCourses{
     if ([self checkInternet])
     {
+        if ([courseCollection count]!=0)
+        {
+            
+            [courseCollection removeAllObjects];
+        }
         courseCollection=[[NSMutableArray alloc]init];
         dispatch_async(kBgQueue, ^{
             [self parseCanvas];
@@ -244,21 +249,43 @@
                      @"%@ "
                      @"%@ ", temp.dept, temp.number, temp.section
                      ]uppercaseString];
-    if ([temp.days rangeOfString:@"mo"].location != NSNotFound) {
+    if ([temp.days rangeOfString:@"mo"].location == NSNotFound) {
+        cell.mondayButton.hidden=YES;
+    }
+    else
+    {
         cell.mondayButton.hidden=NO;
     }
-    if ([temp.days rangeOfString:@"tu"].location != NSNotFound) {
+    if ([temp.days rangeOfString:@"tu"].location == NSNotFound) {
+        cell.tuesdayButton.hidden=YES;
+    }
+    else
+    {
         cell.tuesdayButton.hidden=NO;
     }
-    if ([temp.days rangeOfString:@"we"].location != NSNotFound) {
+    if ([temp.days rangeOfString:@"we"].location == NSNotFound) {
+        cell.wednesdayButton.hidden=YES;
+    }
+    else
+    {
         cell.wednesdayButton.hidden=NO;
     }
-    if ([temp.days rangeOfString:@"th"].location != NSNotFound) {
+    
+    if ([temp.days rangeOfString:@"th"].location == NSNotFound) {
+        cell.thursdayButton.hidden=YES;
+    }
+    else
+    {
         cell.thursdayButton.hidden=NO;
     }
-    if ([temp.days rangeOfString:@"fr"].location != NSNotFound) {
+    if ([temp.days rangeOfString:@"fr"].location == NSNotFound) {
+        cell.fridayButton.hidden=YES;
+    }
+    else
+    {
         cell.fridayButton.hidden=NO;
     }
+    
     int campusFound=0;
     if ([temp.campus rangeOfString:@"burnaby"].location != NSNotFound) {
         cell.campusLocation.text=@"Burnaby";
