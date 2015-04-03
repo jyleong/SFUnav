@@ -32,6 +32,7 @@
     // so text can detect links numbers and emails
     _lblStatus.dataDetectorTypes = UIDataDetectorTypeAll;
     // Do any additional setup after loading the view.
+    _lblStatus.layer.cornerRadius = 8;
 }
 
 - (void)didReceiveMemoryWarning {

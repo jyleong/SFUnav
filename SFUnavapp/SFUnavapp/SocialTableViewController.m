@@ -79,8 +79,8 @@
     cell.layer.cornerRadius = 10;
     
     [cell.layer setMasksToBounds:YES];
-    [cell.layer setBorderWidth:1];
-    //asfasfasf
+    //[cell.layer setBorderWidth:1];
+    
     if (cell == nil) {
         cell = [[SocialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
