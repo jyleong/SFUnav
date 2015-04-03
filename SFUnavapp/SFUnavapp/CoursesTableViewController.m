@@ -350,11 +350,11 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqual:@"BrowseCourse"])
     {
-        
+    
     }
     else if([[segue identifier] isEqualToString:@"Login"])
     {
-        
+        //request login to access canvas and coursys courses
     }
 }
 
