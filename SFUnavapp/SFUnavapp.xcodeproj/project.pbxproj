@@ -42,7 +42,6 @@
 		B01BE6A01A8D425F0013D9EA /* SFUnavappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE69F1A8D425F0013D9EA /* SFUnavappTests.m */; };
 		B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */; };
 		B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E40471AB6059500166904 /* OnlineMapViewController.m */; };
-		B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */; };
 		B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */; };
 		B080DB471AA6BD7900C3F403 /* FloorPlanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB461AA6BD7900C3F403 /* FloorPlanTableViewController.m */; };
 		B080DB4A1AA6BDCC00C3F403 /* BuildingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B080DB491AA6BDCC00C3F403 /* BuildingObject.m */; };
@@ -167,7 +166,6 @@
 		B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
 		B01E40461AB6059500166904 /* OnlineMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineMapViewController.h; sourceTree = "<group>"; };
 		B01E40471AB6059500166904 /* OnlineMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineMapViewController.m; sourceTree = "<group>"; };
-		B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_campus_map_rotated.png; sourceTree = "<group>"; };
 		B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		B0344D341ACD004F009F3F1F /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		B080DB451AA6BD7900C3F403 /* FloorPlanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorPlanTableViewController.h; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				B0DB77E51AB2A44800EFDB83 /* all_campus_map.png */,
 				B0DB77E61AB2A44800EFDB83 /* icons_campus_map.png */,
 				B0DB77E71AB2A44800EFDB83 /* none_campus_map.png */,
-				B01E404E1AB6076F00166904 /* all_campus_map_rotated.png */,
 				B0DB77E81AB2A44800EFDB83 /* text_campus_map.png */,
 				04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */,
 				D2B50E0C1AC6754F00D255BC /* Bennett Library.png */,
@@ -722,7 +719,6 @@
 				B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
-				B01E404F1AB6076F00166904 /* all_campus_map_rotated.png in Resources */,
 				B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */,
 				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
 				049B5C091AB216EC001521D4 /* Financial.plist in Resources */,
