@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -31,6 +31,7 @@
                         <segue destination="ZYF-eQ-zhB" kind="relationship" relationship="viewControllers" id="GOk-4b-Cjz"/>
                         <segue destination="frr-16-TLS" kind="relationship" relationship="viewControllers" id="FbQ-1t-DFc"/>
                         <segue destination="eU2-sU-GVj" kind="relationship" relationship="viewControllers" id="zFo-y7-7pB"/>
+                        <segue destination="Vv1-8v-ZJl" kind="relationship" relationship="viewControllers" id="4i0-oQ-aMD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -2209,6 +2210,83 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="-1914" y="1007"/>
         </scene>
+        <!--Library-->
+        <scene sceneID="y6Q-FL-tiF">
+            <objects>
+                <navigationController id="Vv1-8v-ZJl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" selectedImage="Libraryicon" id="rPY-cF-WbO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="99i-xI-4By">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6Lf-G0-mr8" kind="relationship" relationship="rootViewController" id="4sT-gq-vMO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsy-5x-BZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1638" y="-1037"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="KY5-L1-xww">
+            <objects>
+                <tableViewController id="6Lf-G0-mr8" customClass="LibraryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HyI-Xp-0Is">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="libraryCell" id="c1P-oB-oca" customClass="LibraryHoursTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c1P-oB-oca" id="1Sg-XA-2Pn">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="libraryName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdN-Pa-x8R">
+                                            <rect key="frame" x="8" y="11" width="304" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="openTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-SY-bie">
+                                            <rect key="frame" x="125" y="6" width="77" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="closeTime" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj1-Ir-Yy3">
+                                            <rect key="frame" x="255" y="6" width="57" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="libraryStatus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CW-5z-yVN">
+                                            <rect key="frame" x="8" y="25" width="304" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="closeTime" destination="xj1-Ir-Yy3" id="Ewl-UD-TVg"/>
+                                    <outlet property="libraryName" destination="HdN-Pa-x8R" id="ejc-7y-NeC"/>
+                                    <outlet property="libraryStatus" destination="4CW-5z-yVN" id="84G-BB-LkE"/>
+                                    <outlet property="openTime" destination="g9O-SY-bie" id="qFc-yU-nK0"/>
+                                    <segue destination="2os-sd-hNf" kind="push" identifier="openWebpage" id="sg3-Pv-Wpn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Lf-G0-mr8" id="9qv-iD-OeR"/>
+                            <outlet property="delegate" destination="6Lf-G0-mr8" id="on4-af-XTp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Library" id="Bz1-hn-sVB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEw-Sr-W60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1052" y="-1111"/>
+        </scene>
         <!--Planner View Controller-->
         <scene sceneID="qRz-bY-pUv">
             <objects>
@@ -2529,6 +2607,7 @@ Mon - Fri</string>
         <image name="Downward_table_arrow" width="27" height="18"/>
         <image name="FB logo" width="96" height="96"/>
         <image name="James" width="250" height="300"/>
+        <image name="Libraryicon" width="70" height="62"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
         <image name="QR" width="60" height="60"/>
@@ -2563,10 +2642,10 @@ Mon - Fri</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="L0D-jd-wNt"/>
-        <segue reference="eec-1e-lpz"/>
-        <segue reference="UCx-U3-Lfo"/>
         <segue reference="UVK-gw-bAs"/>
+        <segue reference="UCx-U3-Lfo"/>
+        <segue reference="YuH-DV-njh"/>
+        <segue reference="sg3-Pv-Wpn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
