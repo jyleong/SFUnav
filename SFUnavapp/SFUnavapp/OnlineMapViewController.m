@@ -1,6 +1,7 @@
 //
 //  OnlineMapViewController.m
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by James Leong on 2015-03-15.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
@@ -145,20 +146,6 @@
 }
 
 
-/*NSLog(@"Resolving the Address");
-[geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-    NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-    if (error == nil && [placemarks count] > 0) {
-        placemark = [placemarks lastObject];
-        addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                             placemark.subThoroughfare, placemark.thoroughfare,
-                             placemark.postalCode, placemark.locality,
-                             placemark.administrativeArea,
-                             placemark.country];
-    } else {
-        NSLog(@"%@", error.debugDescription);
-    }
-} ];*/
 // maybe not allow users to make markers by touch to avoid clustering
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate {
     GMSMarker *usertapMarker = [[GMSMarker alloc] init];

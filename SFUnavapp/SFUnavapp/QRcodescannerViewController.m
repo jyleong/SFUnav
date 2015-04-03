@@ -1,6 +1,7 @@
 //
 //  QRcodescannerViewController.m
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by James Leong on 2015-03-27.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
@@ -28,7 +29,10 @@
     self.navigationController.navigationBar.topItem.title = @"";
     _isReading = NO;
     _captureSession = nil;
+    // so text can detect links numbers and emails
+    _lblStatus.dataDetectorTypes = UIDataDetectorTypeAll;
     // Do any additional setup after loading the view.
+    _lblStatus.layer.cornerRadius = 8;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     
+    //self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
     NSString *inputurlstring =_channel.channelurl;
@@ -110,8 +111,10 @@
         //NSLog([listArray[i] description]);
         
     //}
+    cell.layer.cornerRadius = 10;
     
-    
+    [cell.layer setMasksToBounds:YES];
+    //[cell.layer setBorderWidth:1];
     
     //retrieves the title of the selected article and link from the list array and displays them in a table
     

@@ -36,15 +36,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+     // Do any additional setup after loading the view.
     buttonCall=NO;
     autoLogin=NO;
     _tapper = [[UITapGestureRecognizer alloc]
                initWithTarget:self action:@selector(handleSingleTap:)];
     _tapper.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:_tapper];
+
     [self.view addSubview:_web];
-    //[_web setDelegate:self];
     NSURL *url= [NSURL URLWithString:@"https://cas.sfu.ca/cas/login?"];
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     //    [requestObj setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/536.26.17 (KHTML, like Gecko) Version/6.0.2 Safari/536.26.17" forHTTPHeaderField:@"User-Agent"];
@@ -145,6 +145,7 @@
         _errorDisplay.text=@"Both username and password fields are required";
         return;
     }
+
     //create javascript code as single string
     js= [NSString stringWithFormat:
     @"var usrname = document.getElementById('username');"
@@ -155,7 +156,6 @@
     @"form.submit();",_userName.text,_passWord.text];
     //inject javascript code
     [_web stringByEvaluatingJavaScriptFromString:js];
-    [self checkValidInfo];
     
 }
 
@@ -178,6 +178,7 @@
         
         [self checkValidInfo];
     }
+
 }
 
 - (IBAction)loginGo:(id)sender {
@@ -197,7 +198,7 @@
          @"var success = document.getElementsByTagName('h2');"
          @"success[1].innerHTML"
          ];
-        NSLog(@"%@",[_web stringByEvaluatingJavaScriptFromString:js]);
+        NSLog(@"HERE %@",[_web stringByEvaluatingJavaScriptFromString:js]);
         if([[_web stringByEvaluatingJavaScriptFromString:js] isEqualToString:@"You have successfully logged into the Central Authentication Service."])
         {
             _errorDisplay.text=@"Successfully Logged In";
@@ -232,7 +233,7 @@
             NSLog(@"Failure");
             _errorDisplay.text=@"The credentials you provided cannot be determined to be authentic.";
             autoLogin=NO;
-    
+
         }
 
 }

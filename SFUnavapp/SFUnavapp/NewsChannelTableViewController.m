@@ -9,6 +9,8 @@
 #import "NewsChannelTableViewController.h"
 #import "NewsTableViewController.h"
 
+
+
 @interface NewsChannelTableViewController ()
 
 @end
@@ -28,6 +30,7 @@
     [super viewDidLoad];
     
     
+    //self.view.backgroundColor = UIColorFromRGB(0xE7E7E7);
     //the following lines of code creates channel objects consisting of the name and the weblink of the channel, then adding them to the list of channels, which are presented in the view
     
     _currentchannel = [[Channel alloc]init];
@@ -130,7 +133,11 @@
 {
     static NSString *cellidentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
+    cell.layer.cornerRadius = 10;
     
+    [cell.layer setMasksToBounds:YES];
+    //[cell.layer setBorderWidth:1];
+
     if (indexPath.section == 0)
     {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }
     if (indexPath.section == 1)

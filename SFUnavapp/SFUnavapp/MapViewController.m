@@ -57,9 +57,8 @@ NSMutableArray * BuildingObjects;
     [self.scrollView addSubview:_viewImageMap];
     
     //sets scrollview size to be the same as imagemap size to allow scrolling
-    _scrollView.contentOffset = CGPointMake(950.0, 990.0);
     self.scrollView.contentSize = _viewImageMap.frame.size;
-    self.scrollView.zoomScale=0.1;
+    self.scrollView.zoomScale=0.27;
     
     //Loads building names and coordintaes into an array from the plist file specified
     //Use services like GIMP to generate coordintaes with appropriate origins
@@ -78,6 +77,7 @@ NSMutableArray * BuildingObjects;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.scrollView.contentOffset = CGPointMake(491, -23);
     self.navigationItem.title=@"Map";
 }
 
@@ -102,6 +102,7 @@ NSMutableArray * BuildingObjects;
 
 
 //Function to load names of current building objects. Floorplans images are only loaded during segue preparation
+//Note your building name assigned here must match your image file name
 //Order should be the same as that of the 'Buildings_name.plist'
 - (void)loadBuildingObjects
 {
@@ -243,7 +244,7 @@ NSMutableArray * BuildingObjects;
         NSString* imgPath = [bundle pathForResource:[send buildingName] ofType:@"png"];
         if (imgPath==nil)
         {
-            imgPath = [bundle pathForResource:@"Blusson Hall" ofType:@"png"];
+            imgPath = [bundle pathForResource:@"UnderConstruction_floorplan" ofType:@"png"];
         }
         //create UIImage object with specified file contents and assign it to current object
         UIImage*floorPlan= [[UIImage alloc] initWithContentsOfFile:imgPath];

@@ -105,23 +105,16 @@
                      options:kNilOptions
                      error:&error];
     
-    NSString *info=[[json objectForKey:@"info"] objectForKey:@"description"];
-
-//    UIAlertController * alert=   [UIAlertController
-//                                  alertControllerWithTitle:@"My Title"
-//                                  message:info
-//                                  preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction* cancel = [UIAlertAction
-//                             actionWithTitle:@"Ok"
-//                             style:UIAlertActionStyleDefault
-//                             handler:^(UIAlertAction * action)
-//                             {
-//                                 [alert dismissViewControllerAnimated:YES completion:nil];
-//                                 
-//                             }];
-//    [alert addAction:cancel];
-//    [self presentViewController:alert animated:YES completion:nil];
-
+    NSArray *info=[json objectForKey:@"courseSchedule"];
+    
+    NSString* days=@"";
+    for (int i=0;i<[info count];i++)
+    {
+        NSLog(@"%@",[info[i] objectForKey:@"days"]);
+        days=[days stringByAppendingString:[info[i] objectForKey:@"days"]];
+    }
+    NSLog(@"days are:%@",days);
+    
 }
 #pragma mark - PickerView Modifiers
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -215,6 +208,7 @@ numberOfRowsInComponent:(NSInteger)component
         [self performSelectorOnMainThread:@selector(fetchedSections:)withObject:data waitUntilDone:YES];
 
     });
+
 }
 
 - (IBAction)sectionDone:(id)sender {

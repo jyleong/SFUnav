@@ -10,8 +10,12 @@
 
 @interface Course : NSObject
 
-@property NSString *name;
-@property NSMutableString *days;
+@property NSString *dept;
+@property NSString *number;
+@property NSString *section;
+@property NSString *days;
 @property NSString *campus;
+//No-for coursys YES-for canvas
+@property BOOL location;
 
 @end

@@ -66,5 +66,85 @@
 		<key>Longitude</key>
 		<string>-122.912807</string>
 	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Maggie Benston Centre</string>
+		<key>Latitude</key>
+		<string>49.279017</string>
+		<key>Longitude</key>
+		<string>-122.919189</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>West Mall Centre</string>
+		<key>Latitude</key>
+		<string>49.279841</string>
+		<key>Longitude</key>
+		<string>-122.922215</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Lorne Davies Complex</string>
+		<key>Latitude</key>
+		<string>49.279426</string>
+		<key>Longitude</key>
+		<string>-122.922200</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Dining Hall</string>
+		<key>Latitude</key>
+		<string>49.279914</string>
+		<key>Longitude</key>
+		<string>-122.924540</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Nester&apos;s Market</string>
+		<key>Latitude</key>
+		<string>49.277779</string>
+		<key>Longitude</key>
+		<string>-122.910230</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Facilities Services</string>
+		<key>Latitude</key>
+		<string>49.275879</string>
+		<key>Longitude</key>
+		<string>-122.913207</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Transportation Centre</string>
+		<key>Latitude</key>
+		<string>49.279503</string>
+		<key>Longitude</key>
+		<string>-122.920285</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Tim Hortons</string>
+		<key>Latitude</key>
+		<string>49.279787</string>
+		<key>Longitude</key>
+		<string>-122.921437</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Jugo Juice</string>
+		<key>Latitude</key>
+		<string>49.279402</string>
+		<key>Longitude</key>
+		<string>-122.915716</string>
+	</dict>
+	<dict>
+		<key>Building</key>
+		<string>Makenzie Cafe</string>
+		<key>Latitude</key>
+		<string>49.278779</string>
+		<key>Longitude</key>
+		<string>-122.915482</string>
+	</dict>
 </array>
 </plist>

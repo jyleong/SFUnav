@@ -1,6 +1,7 @@
 //
 //  QRcodescannerViewController.h
 //  SFUnavapp
+//  Team NoMacs
 //
 //  Created by James Leong on 2015-03-27.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
@@ -11,7 +12,7 @@
 
 @interface QRcodescannerViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
-@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (weak, nonatomic) IBOutlet UITextView *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *buttonStart;
 
 @end
