@@ -360,6 +360,15 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
+7D5B6FAB1ACC82BB0000B2F8 /* Dine */ = {
+isa = PBXGroup;
+children = (
+7D5B6FAC1ACC82D00000B2F8 /* DineTableViewController.h */,
+7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */,
+);
+name = Dine;
+sourceTree = "<group>";
+};
 		B01BE6651A8D425E0013D9EA = {
 			isa = PBXGroup;
 			children = (

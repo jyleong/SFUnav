@@ -8,9 +8,9 @@
 
 #import "LibraryTableViewController.h"
 #import "LibraryHoursTableViewCell.h"
-#import "ServicesURL.h"
-#import "ServicesWebViewController.h"
-#import "Reachability.h"
+#import "ServicesURL.h"                 //from Arjun
+#import "ServicesWebViewController.h"   //from Arjun
+#import "Reachability.h"                //from Arjun
 
 #define FBOX(x) [NSNumber numberWithFloat:x]
 #define IBOX(x) [NSNumber numberWithInteger:x]
@@ -37,6 +37,11 @@
     
     //check for internet connection - from Arjun
     hasInternet =[self checkInternet];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
     
     //get library equipment summary api information
@@ -98,6 +103,26 @@
     
 }
 
+- (void)reload
+{
+    // Reload table data
+    [self.tableView reloadData];
+    
+    // End the refreshing
+    if (self.refreshControl) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -114,13 +139,6 @@
     // Return the number of rows in the section.
     if (section == 2){
         return links.count;
-    }
-    else if (hasInternet) {
-        if (section == 0) {
-            return 1;
-        }
-        else if (section == 1)
-        {   return 1; }
     }
     return 1;
 }
@@ -196,8 +214,8 @@
                 hoursBox = [[UIView alloc] initWithFrame:CGRectMake(125, 27, 187, 10)];
             }
             else {
-                int start = 187/23*open;
-                int width = 187/23*close - start;
+                int start = 187/24*open;
+                int width = 187/24*close - start;
                 hoursBox = [[UIView alloc] initWithFrame:CGRectMake(125+start, 27, width, 10)];
             }
             //colour of box
@@ -319,9 +337,14 @@
     }
     
     //if no internet
-    if (indexPath.section == 1 || indexPath.section == 0) {
-        cell.libraryName.text = @"Internet required";
-        cell.libraryName.textColor = [UIColor grayColor];
+    if (indexPath.section == 0 || indexPath.section == 1) {
+        if (indexPath.section == 0) {
+            cell.libraryName.text = @"Bennett Library";
+        }
+        else {
+            cell.libraryName.text = @"Internet connection is required.";
+            cell.libraryName.textColor = [UIColor grayColor];
+        }
         cell.libraryStatus.hidden = YES;
         cell.openTime.hidden = YES;
         cell.closeTime.hidden = YES;
@@ -354,7 +377,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 1 && indexPath.row == 0 && hasInternet) {
-        return 164;
+        return 172;
     }
     // "Else"
     return 44;
