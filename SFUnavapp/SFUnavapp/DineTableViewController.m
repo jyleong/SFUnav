@@ -9,7 +9,7 @@
 
 #import "DineTableViewController.h"
 #import "ServicesURL.h"
-#import "ServicesWebViewController.h" // code to add bus pass ups segue
+#import "ServicesWebViewController.h" // code to add menu segue
 
 @interface DineTableViewController ()
 

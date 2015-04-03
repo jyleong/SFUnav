@@ -7,6 +7,7 @@
 //	Edited by James Leong
 //	Edited by Tyler Wong
 //  Edited by Arjun Rathee
+//  Edited by Steven Zhou
 //	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -24,6 +25,8 @@
 
 @interface TransitTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *picker_updown_arrow;
+@property (weak, nonatomic) IBOutlet UIButton *picker_done_btn;
 @property (assign) BOOL PickerIsShowing;
 @property (weak, nonatomic) IBOutlet UITextField *transitTextField;
 @property (weak, nonatomic) IBOutlet UIPickerView *quicklinksPicker;
@@ -82,7 +85,7 @@
     [self.quicklinksPicker selectRow:4 inComponent:0 animated:YES]; // so the first component in picker defaulted at production way
     [self initialDisplay];
     [self displayBusroutes]; // load up last inputed valid stop id
-    self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
+    //self.tableView.separatorColor = [UIColor clearColor]; // hides the separator lines in table cells, cant seem to only get rid of the last one
     
     // this block of code makes the done and cancel buttons for the numpad
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
@@ -100,7 +103,7 @@
     self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
-    
+
     _textSwitch.onTintColor=UIColorFromRGB(0xB5111B);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -248,6 +251,8 @@
 - (void)showPickerCell {
     
     self.PickerIsShowing = YES;
+    self.picker_done_btn.hidden = NO;
+    self.picker_updown_arrow.image = [UIImage imageNamed:@"Upward_table_arrow"];
     self.quicklinkLabel.text = @"Close Quick links"; // change text of quicklinklabel
     
     [self.tableView beginUpdates];
@@ -268,6 +273,8 @@
 - (void)hidePickerCell {
     
     self.PickerIsShowing = NO;
+    self.picker_done_btn.hidden = YES;
+    self.picker_updown_arrow.image = [UIImage imageNamed:@"Downward_table_arrow"];
     self.quicklinkLabel.text = @"Open Quick links";
     
     [self.tableView beginUpdates];

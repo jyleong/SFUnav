@@ -6,7 +6,7 @@
 //
 //	Edited by James Leong
 //	Edited by Arjun Rathee
-//	Edited by <Your name>
+//	Edited by Steven Zhou
 //	Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -21,12 +21,15 @@
 {
     //code to manipulate navbar - James B5111B
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    [[UINavigationBar appearance] setTranslucent:NO]; //corrects color washout
     //changing the navbar was done by chaning the RGB
+    
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]]; 
     NSDictionary *textTitleOptions = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [[UINavigationBar appearance] setTitleTextAttributes:textTitleOptions];// changes all titles in navbar to white
     //code to manipulate tabbar - James
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
+    [[UITabBar appearance] setTranslucent:NO];
     
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     //[[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
