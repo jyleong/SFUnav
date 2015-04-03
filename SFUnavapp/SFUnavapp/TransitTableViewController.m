@@ -97,7 +97,7 @@
     _transitTextField.inputAccessoryView = numberToolbar;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
+    self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
