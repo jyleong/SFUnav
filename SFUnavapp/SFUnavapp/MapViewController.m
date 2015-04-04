@@ -49,7 +49,7 @@ NSMutableArray * BuildingObjects;
     UIImage*img= [[UIImage alloc] initWithContentsOfFile:imgPath];
     if (img==nil)
         NSLog(@"img was nil");
-    //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend
+    //Change name to Campus_Map.png for labels and legend in the image, map-Campus-01.png for no lables and no legend 
     _viewImageMap =[[MTImageMapView alloc] initWithImage: img];
     
     [_viewImageMap setDelegate:self];
