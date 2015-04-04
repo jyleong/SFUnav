@@ -7,16 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFA71AB4BBEE002548B5 /* Health.plist */; };
-		0456CFAC1AB4C264002548B5 /* Career.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFAB1AB4C264002548B5 /* Career.plist */; };
-		0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */; };
-		0456CFB71AB4CC33002548B5 /* Security.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFB61AB4CC33002548B5 /* Security.plist */; };
-		0456CFBB1AB4D050002548B5 /* access.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0456CFBA1AB4D050002548B5 /* access.plist */; };
 		0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */; };
 		0458A3B71ACBB0BC009D0026 /* LibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */; };
-		045E5E761AB0144200FDF7BC /* burnaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E731AB0144200FDF7BC /* burnaby.png */; };
-		045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E741AB0144200FDF7BC /* harbourcenter.png */; };
-		045E5E781AB0144200FDF7BC /* surrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 045E5E751AB0144200FDF7BC /* surrey.png */; };
 		04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */; };
 		04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */; };
 		04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF31AA381B400AE1F6E /* VancouverCampus-sm.png */; };
@@ -25,8 +17,8 @@
 		04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971D451AA389F600AE1F6E /* Contacts - email.png */; };
 		04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971D461AA389F600AE1F6E /* Contacts - Weblink.png */; };
 		049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049B5C001AB1FE1C001521D4 /* ContactsTableViewCell.m */; };
-		049B5C071AB21571001521D4 /* Registrar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C061AB21571001521D4 /* Registrar.plist */; };
-		049B5C091AB216EC001521D4 /* Financial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049B5C081AB216EC001521D4 /* Financial.plist */; };
+		04B893491ACF5D5A00BB8BD5 /* contactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B893481ACF5D5A00BB8BD5 /* contactsTableViewController.m */; };
+		04B8934B1ACFCC3300BB8BD5 /* Safety&Risk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B8934A1ACFCC3300BB8BD5 /* Safety&Risk.plist */; };
 		04DD15831AB4EFC700714CFA /* studContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD15821AB4EFC700714CFA /* studContactTableViewController.m */; };
 		7D5B6FAE1ACC82D00000B2F8 /* DineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */; };
 		B0151B1F1ABD23D20092B0BB /* SFUlatlong.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0151B1E1ABD23D20092B0BB /* SFUlatlong.plist */; };
@@ -84,7 +76,6 @@
 		D27E32781A984EC900004735 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D27E32771A984EC900004735 /* libxml2.dylib */; };
 		D27E327B1A984EF900004735 /* Campus.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E327A1A984EF900004735 /* Campus.m */; };
 		D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E082A1AAFE93900B35F6B /* LoginViewController.m */; };
-		D294DE731ACCAD440005E20A /* daysofweek_fri.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6C1ACCAD440005E20A /* daysofweek_fri.png */; };
 		D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6D1ACCAD440005E20A /* daysofweek_mon.png */; };
 		D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6E1ACCAD440005E20A /* daysofweek_sat.png */; };
 		D294DE761ACCAD440005E20A /* daysofweek_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6F1ACCAD440005E20A /* daysofweek_sun.png */; };
@@ -133,19 +124,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0456CFA71AB4BBEE002548B5 /* Health.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Health.plist; sourceTree = "<group>"; };
-		0456CFAB1AB4C264002548B5 /* Career.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Career.plist; sourceTree = "<group>"; };
-		0456CFB31AB4CAD6002548B5 /* srsContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srsContactTableViewController.h; sourceTree = "<group>"; };
-		0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srsContactTableViewController.m; sourceTree = "<group>"; };
-		0456CFB61AB4CC33002548B5 /* Security.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Security.plist; sourceTree = "<group>"; };
-		0456CFBA1AB4D050002548B5 /* access.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = access.plist; sourceTree = "<group>"; };
 		0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTableViewCell.h; sourceTree = "<group>"; };
 		0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTableViewCell.m; sourceTree = "<group>"; };
 		0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTableViewController.h; sourceTree = "<group>"; };
 		0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryTableViewController.m; sourceTree = "<group>"; };
-		045E5E731AB0144200FDF7BC /* burnaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burnaby.png; sourceTree = "<group>"; };
-		045E5E741AB0144200FDF7BC /* harbourcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = harbourcenter.png; sourceTree = "<group>"; };
-		045E5E751AB0144200FDF7BC /* surrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surrey.png; sourceTree = "<group>"; };
 		04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BurnabyCampus-sm.png"; sourceTree = "<group>"; };
 		04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SurreyCampus-sm.png"; sourceTree = "<group>"; };
 		04971CF31AA381B400AE1F6E /* VancouverCampus-sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VancouverCampus-sm.png"; sourceTree = "<group>"; };
@@ -156,8 +138,9 @@
 		04971D461AA389F600AE1F6E /* Contacts - Weblink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacts - Weblink.png"; sourceTree = "<group>"; };
 		049B5BFF1AB1FE1C001521D4 /* ContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewCell.h; sourceTree = "<group>"; };
 		049B5C001AB1FE1C001521D4 /* ContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewCell.m; sourceTree = "<group>"; };
-		049B5C061AB21571001521D4 /* Registrar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Registrar.plist; sourceTree = "<group>"; };
-		049B5C081AB216EC001521D4 /* Financial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Financial.plist; sourceTree = "<group>"; };
+		04B893471ACF5D5A00BB8BD5 /* contactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactsTableViewController.h; sourceTree = "<group>"; };
+		04B893481ACF5D5A00BB8BD5 /* contactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactsTableViewController.m; sourceTree = "<group>"; };
+		04B8934A1ACFCC3300BB8BD5 /* Safety&Risk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Safety&Risk.plist"; sourceTree = "<group>"; };
 		04DD15811AB4EFC700714CFA /* studContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = studContactTableViewController.h; sourceTree = "<group>"; };
 		04DD15821AB4EFC700714CFA /* studContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = studContactTableViewController.m; sourceTree = "<group>"; };
 		7D5B6FAC1ACC82D00000B2F8 /* DineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DineTableViewController.h; sourceTree = "<group>"; };
@@ -338,13 +321,8 @@
 		0456CFBC1AB4ECDE002548B5 /* plists */ = {
 			isa = PBXGroup;
 			children = (
-				049B5C061AB21571001521D4 /* Registrar.plist */,
-				049B5C081AB216EC001521D4 /* Financial.plist */,
-				0456CFA71AB4BBEE002548B5 /* Health.plist */,
-				0456CFAB1AB4C264002548B5 /* Career.plist */,
-				0456CFB61AB4CC33002548B5 /* Security.plist */,
-				0456CFBA1AB4D050002548B5 /* access.plist */,
 				E7D969521AB25F24008F6796 /* StudentServices.plist */,
+				04B8934A1ACFCC3300BB8BD5 /* Safety&Risk.plist */,
 			);
 			name = plists;
 			sourceTree = "<group>";
@@ -360,15 +338,15 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
-7D5B6FAB1ACC82BB0000B2F8 /* Dine */ = {
-isa = PBXGroup;
-children = (
-7D5B6FAC1ACC82D00000B2F8 /* DineTableViewController.h */,
-7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */,
-);
-name = Dine;
-sourceTree = "<group>";
-};
+		7D5B6FAB1ACC82BB0000B2F8 /* Dine */ = {
+			isa = PBXGroup;
+			children = (
+				7D5B6FAC1ACC82D00000B2F8 /* DineTableViewController.h */,
+				7D5B6FAD1ACC82D00000B2F8 /* DineTableViewController.m */,
+			);
+			name = Dine;
+			sourceTree = "<group>";
+		};
 		B01BE6651A8D425E0013D9EA = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +397,6 @@ sourceTree = "<group>";
 		B01BE6771A8D425E0013D9EA /* SFUnavapp */ = {
 			isa = PBXGroup;
 			children = (
-				B0A10C421ACA4F4C00FC5F35 /* Social */,
 				0458A3B11ACBAFB3009D0026 /* Library */,
 				DC566CC31AA67149006AA2D9 /* MTImageMapView */,
 				D27E326D1A984E0000004735 /* hpple_parser */,
@@ -447,9 +424,6 @@ sourceTree = "<group>";
 		B01BE6781A8D425E0013D9EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				045E5E731AB0144200FDF7BC /* burnaby.png */,
-				045E5E741AB0144200FDF7BC /* harbourcenter.png */,
-				045E5E751AB0144200FDF7BC /* surrey.png */,
 				04971D441AA389F600AE1F6E /* Contacts - dial.png */,
 				04971D451AA389F600AE1F6E /* Contacts - email.png */,
 				04971D461AA389F600AE1F6E /* Contacts - Weblink.png */,
@@ -608,11 +582,11 @@ sourceTree = "<group>";
 				04971CF81AA383EA00AE1F6E /* CampusContactsViewController.m */,
 				04DD15811AB4EFC700714CFA /* studContactTableViewController.h */,
 				04DD15821AB4EFC700714CFA /* studContactTableViewController.m */,
-				0456CFB31AB4CAD6002548B5 /* srsContactTableViewController.h */,
-				0456CFB41AB4CAD6002548B5 /* srsContactTableViewController.m */,
 				049B5BFF1AB1FE1C001521D4 /* ContactsTableViewCell.h */,
 				049B5C001AB1FE1C001521D4 /* ContactsTableViewCell.m */,
 				0456CFBC1AB4ECDE002548B5 /* plists */,
+				04B893471ACF5D5A00BB8BD5 /* contactsTableViewController.h */,
+				04B893481ACF5D5A00BB8BD5 /* contactsTableViewController.m */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -777,38 +751,30 @@ sourceTree = "<group>";
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
 				F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */,
 				B0151B1F1ABD23D20092B0BB /* SFUlatlong.plist in Resources */,
+				04B8934B1ACFCC3300BB8BD5 /* Safety&Risk.plist in Resources */,
 				04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */,
 				D294DE761ACCAD440005E20A /* daysofweek_sun.png in Resources */,
 				DC86567E1A97163500D908C9 /* AQSouthWest.html in Resources */,
-				049B5C071AB21571001521D4 /* Registrar.plist in Resources */,
-				0456CFBB1AB4D050002548B5 /* access.plist in Resources */,
 				D294DE781ACCAD440005E20A /* daysofweek_tue.png in Resources */,
 				D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */,
-				0456CFAC1AB4C264002548B5 /* Career.plist in Resources */,
-				045E5E781AB0144200FDF7BC /* surrey.png in Resources */,
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				D294DE791ACCAD440005E20A /* daysofweek_wed.png in Resources */,
 				D2B50E0D1AC6754F00D255BC /* Bennett Library.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
-				045E5E771AB0144200FDF7BC /* harbourcenter.png in Resources */,
 				B08268DE1AB6CD360038F7A7 /* Buildings_name.plist in Resources */,
 				DC8656881A97164C00D908C9 /* ConvocationMall.html in Resources */,
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */,
 				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
-				049B5C091AB216EC001521D4 /* Financial.plist in Resources */,
 				D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */,
-				0456CFB71AB4CC33002548B5 /* Security.plist in Resources */,
 				B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
 				D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */,
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,
 				B01BE6851A8D425E0013D9EA /* Main.storyboard in Resources */,
-				0456CFA81AB4BBEE002548B5 /* Health.plist in Resources */,
 				B0DB77E91AB2A44800EFDB83 /* all_campus_map.png in Resources */,
 				B0A10C441ACA4F7F00FC5F35 /* Social.plist in Resources */,
 				E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */,
-				045E5E761AB0144200FDF7BC /* burnaby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,7 +796,6 @@ sourceTree = "<group>";
 				DC86568C1A97164C00D908C9 /* Webcam.m in Sources */,
 				DCE7A0951ACBAE13009B4209 /* Course.m in Sources */,
 				B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */,
-				0456CFB51AB4CAD6002548B5 /* srsContactTableViewController.m in Sources */,
 				7D5B6FAE1ACC82D00000B2F8 /* DineTableViewController.m in Sources */,
 				D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
@@ -857,6 +822,7 @@ sourceTree = "<group>";
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
 				B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */,
+				04B893491ACF5D5A00BB8BD5 /* contactsTableViewController.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */,
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,

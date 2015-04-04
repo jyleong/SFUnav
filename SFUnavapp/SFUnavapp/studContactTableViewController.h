@@ -10,8 +10,8 @@
 #import <MessageUI/MessageUI.h>
 
 @interface studContactTableViewController : UITableViewController
-<UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
-
+<UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
+@property (strong,nonatomic)NSString *service;
 - (IBAction)makeCall:(NSString *)phoneNumber;
 - (IBAction)showEmail:(id)sender;
 - (void)showSMS:(NSString*)recipient;

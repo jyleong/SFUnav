@@ -39,6 +39,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //navigation name
+    self.navigationItem.title=@"Campuses";
+    
     self.navigationController.navigationBar.topItem.title = @"";
     campusContacts = [[NSArray alloc] initWithObjects:@"Switchboard", @"Student Services", @"Security Services", @"Emergency", nil];
     burnabyNumbers = [[NSArray alloc] initWithObjects:@"778-782-3111", @"778-782-6930", @"778-782-3100", @"778-782-4500",nil];
@@ -154,6 +158,7 @@
      }
      else
      {  //section 1 contains the address
+         cell.selectionStyle = UITableViewCellSelectionStyleNone;
          if (tableView == burnabyTable) {
              cell.textLabel.text = @"8888 University Drive\nBurnaby, B.C. Canada. V5A 1S6";
              cell.detailTextLabel.text = nil;

@@ -337,7 +337,7 @@
     }
     
     //if no internet
-    if (indexPath.section == 0 || indexPath.section == 1) {
+    else if (indexPath.section == 0 || indexPath.section == 1) {
         if (indexPath.section == 0) {
             cell.libraryName.text = @"Bennett Library";
         }
@@ -350,7 +350,7 @@
         cell.closeTime.hidden = YES;
     }
     
-    else if (indexPath.section == 2) {
+    if (indexPath.section == 2) {
         ServicesURL* url= [links objectAtIndex:indexPath.row];
         cell.libraryName.text = [url serviceName];
         cell.libraryStatus.hidden = YES;
@@ -367,7 +367,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0)
-    {   return @"Hours of Operation"; }
+    {   return @"Hours Open -- pull down to refresh --"; }
     if (section == 1)
     {   return @"Available Equipment";   }
     if (section == 2)
