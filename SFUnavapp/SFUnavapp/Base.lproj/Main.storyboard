@@ -957,7 +957,7 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
@@ -1441,7 +1441,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="2os-sd-hNf" kind="push" identifier="dinemap" id="Uxx-yB-kYG"/>
+                                            <segue destination="2os-sd-hNf" kind="push" identifier="dinemap" id="xE5-sE-bYz"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2721,9 +2721,9 @@ Mon - Fri</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YuH-DV-njh"/>
-        <segue reference="UVK-gw-bAs"/>
+        <segue reference="xE5-sE-bYz"/>
         <segue reference="UCx-U3-Lfo"/>
-        <segue reference="Pov-Lm-lJD"/>
+        <segue reference="UVK-gw-bAs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
