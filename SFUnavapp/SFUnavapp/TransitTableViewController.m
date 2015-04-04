@@ -71,8 +71,8 @@
     
     self.busNumbers = @[@"",@"135",@"143",@"144", @"145"];
     //to map the keys to objects
-    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 144", @"Transit Hub - 143", @"Transit Hub - 135", @"Tower Rd", @"S Campus Rd", @"Transportation Centre", @"University Dr W"];
-    self.fivedigitID = @[@"51861",@"52807",@"52998",@"53096", @"59044", @"51862",@"51863", @"51864"];
+    self.busstopNames = @[@"Transit Hub - 145", @"Transit Hub - 144", @"Transit Hub - 143", @"Transit Hub - 135", @"Production Way", @"Tower Rd", @"S Campus Rd", @"Transportation Centre", @"University Dr W"];
+    self.fivedigitID = @[@"51861",@"52807",@"52998",@"53096",@"59314", @"59044", @"51862",@"51863", @"51864"];
     
     self.busStopID = [NSDictionary dictionaryWithObjects:self.fivedigitID forKeys:self.busstopNames];
     // need to keep list of keys to display in picker
