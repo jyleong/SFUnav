@@ -8,14 +8,8 @@
 //
 
 #import "DineTableViewController.h"
-#import "AppDelegate.h"
-#import <QuartzCore/QuartzCore.h> // handles the appearance of UI elements
 #import "ServicesURL.h"
-#import "ServicesWebViewController.h" // code to add bus pass ups segue
-
-#define kPickerIndex 2
-#define kPickerCellHeight 163
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "ServicesWebViewController.h" // code to add menu segue
 
 @interface DineTableViewController ()
 
@@ -41,7 +35,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.navigationItem.title = @"Transit";
 }
 
 
@@ -51,12 +44,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (void)handleSingleTap:(UITapGestureRecognizer *) sender
-{
-    [self.view endEditing:YES]; // so the keyboard will always resign when you click ANYWHERE
 }
 
 #pragma mark - Navigation

@@ -68,6 +68,7 @@ NSMutableArray * BuildingObjects;
     NSLog(@"arr size %lu",(unsigned long)[_arrBuildings count]);
     [_viewImageMap setMapping:_arrBuildings doneBlock:^(MTImageMapView *imageMapView) {NSLog(@"Areas are all mapped"); }];
     
+    self.scrollView.contentOffset = CGPointMake(491, 0);
     icons = YES;
     text = YES;
     
@@ -77,7 +78,6 @@ NSMutableArray * BuildingObjects;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.scrollView.contentOffset = CGPointMake(491, -23);
     self.navigationItem.title=@"Map";
 }
 
