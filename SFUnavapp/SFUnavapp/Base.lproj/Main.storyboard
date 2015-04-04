@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
@@ -580,7 +580,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
                                             <rect key="frame" x="46" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="Ge5-Wl-seo"/>
@@ -593,7 +593,7 @@
                                                 <action selector="fbButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="lGI-KL-CVm"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
                                             <rect key="frame" x="136" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="fld-RE-Jfy"/>
@@ -606,7 +606,7 @@
                                                 <action selector="twButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="gj3-2I-7oW"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
                                             <rect key="frame" x="226" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="36x-36-fIn"/>
@@ -871,8 +871,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S16-iD-HI3">
-                                <rect key="frame" x="0.0" y="0.0" width="325" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S16-iD-HI3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="3Kh-Bm-ceF" id="sTa-Tr-6Sm"/>
                                 </connections>
@@ -880,7 +880,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="S16-iD-HI3" secondAttribute="trailing" constant="-5" id="8rd-vr-8iT"/>
+                            <constraint firstAttribute="trailing" secondItem="S16-iD-HI3" secondAttribute="trailing" id="8rd-vr-8iT"/>
                             <constraint firstAttribute="bottom" secondItem="S16-iD-HI3" secondAttribute="bottom" id="M13-CT-msj"/>
                             <constraint firstItem="S16-iD-HI3" firstAttribute="leading" secondItem="caI-Hy-PoB" secondAttribute="leading" id="bPW-W1-0ni"/>
                             <constraint firstItem="S16-iD-HI3" firstAttribute="top" secondItem="caI-Hy-PoB" secondAttribute="top" id="cbk-qX-Vr4"/>
@@ -957,7 +957,7 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
@@ -1033,7 +1033,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
                                 <rect key="frame" x="0.0" y="64" width="320" height="1404"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-Fh-Qc6">
@@ -1761,11 +1761,11 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="1142" y="2213"/>
         </scene>
-        <!--Dine-->
+        <!--Dining-->
         <scene sceneID="r2w-hc-vQ0">
             <objects>
                 <navigationController id="eU2-sU-GVj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dine" id="dGg-1x-bW7"/>
+                    <tabBarItem key="tabBarItem" title="Dining" image="Diningicon" id="dGg-1x-bW7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mwz-0U-gVt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2267,7 +2267,7 @@ Mon - Fri</string>
         <scene sceneID="wIU-5n-qO2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jGC-o2-TGd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="QR" image="QR" id="Lag-Ae-Bvl"/>
+                    <tabBarItem key="tabBarItem" title="QR" image="QRicon" id="Lag-Ae-Bvl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP7-Jt-DMd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2575,7 +2575,7 @@ Mon - Fri</string>
         <scene sceneID="CqY-cl-e2l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="frr-16-TLS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Planner" id="V0S-Y2-vgO"/>
+                    <tabBarItem key="tabBarItem" title="My Planner" image="Plannericon" id="V0S-Y2-vgO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k0f-1s-DGA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2673,9 +2673,10 @@ Mon - Fri</string>
         </scene>
     </scenes>
     <resources>
-        <image name="AboutUsicon" width="62" height="62"/>
+        <image name="AboutUsicon" width="70" height="62"/>
         <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
+        <image name="Diningicon" width="62" height="62"/>
         <image name="Donebackground" width="110" height="60"/>
         <image name="Downward_table_arrow" width="27" height="18"/>
         <image name="FB logo" width="96" height="96"/>
@@ -2683,8 +2684,9 @@ Mon - Fri</string>
         <image name="Libraryicon" width="70" height="62"/>
         <image name="Loginbackground" width="92" height="60"/>
         <image name="Mapicon" width="70" height="62"/>
-        <image name="Newsicon" width="62" height="54"/>
-        <image name="QR" width="60" height="60"/>
+        <image name="Newsicon" width="70" height="62"/>
+        <image name="Plannericon" width="70" height="62"/>
+        <image name="QRicon" width="70" height="62"/>
         <image name="Search" width="100" height="100"/>
         <image name="Serena" width="250" height="300"/>
         <image name="Servicesicon" width="70" height="62"/>
@@ -2717,10 +2719,9 @@ Mon - Fri</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="eec-1e-lpz"/>
-        <segue reference="YuH-DV-njh"/>
-        <segue reference="xE5-sE-bYz"/>
-        <segue reference="UCx-U3-Lfo"/>
         <segue reference="UVK-gw-bAs"/>
+        <segue reference="UCx-U3-Lfo"/>
+        <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
