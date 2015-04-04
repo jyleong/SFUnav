@@ -487,7 +487,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
                                             <rect key="frame" x="46" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="Ge5-Wl-seo"/>
@@ -500,7 +500,7 @@
                                                 <action selector="fbButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="lGI-KL-CVm"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
                                             <rect key="frame" x="136" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="fld-RE-Jfy"/>
@@ -513,7 +513,7 @@
                                                 <action selector="twButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="gj3-2I-7oW"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
                                             <rect key="frame" x="226" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="36x-36-fIn"/>
@@ -778,8 +778,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S16-iD-HI3">
-                                <rect key="frame" x="0.0" y="0.0" width="325" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S16-iD-HI3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="3Kh-Bm-ceF" id="sTa-Tr-6Sm"/>
                                 </connections>
@@ -787,7 +787,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="S16-iD-HI3" secondAttribute="trailing" constant="-5" id="8rd-vr-8iT"/>
+                            <constraint firstAttribute="trailing" secondItem="S16-iD-HI3" secondAttribute="trailing" id="8rd-vr-8iT"/>
                             <constraint firstAttribute="bottom" secondItem="S16-iD-HI3" secondAttribute="bottom" id="M13-CT-msj"/>
                             <constraint firstItem="S16-iD-HI3" firstAttribute="leading" secondItem="caI-Hy-PoB" secondAttribute="leading" id="bPW-W1-0ni"/>
                             <constraint firstItem="S16-iD-HI3" firstAttribute="top" secondItem="caI-Hy-PoB" secondAttribute="top" id="cbk-qX-Vr4"/>
@@ -940,7 +940,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-kI-efU">
                                 <rect key="frame" x="0.0" y="64" width="320" height="1404"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-Fh-Qc6">
@@ -1668,7 +1668,7 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="-2356" y="1497"/>
         </scene>
-        <!--Dine-->
+        <!--Dining-->
         <scene sceneID="r2w-hc-vQ0">
             <objects>
                 <navigationController id="eU2-sU-GVj" sceneMemberID="viewController">
@@ -2101,7 +2101,7 @@ Mon - Fri</string>
         <scene sceneID="wIU-5n-qO2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jGC-o2-TGd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="QR" image="QR" id="Lag-Ae-Bvl"/>
+                    <tabBarItem key="tabBarItem" title="QR" image="QRicon" id="Lag-Ae-Bvl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FP7-Jt-DMd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2507,7 +2507,7 @@ Mon - Fri</string>
         </scene>
     </scenes>
     <resources>
-        <image name="AboutUsicon" width="62" height="62"/>
+        <image name="AboutUsicon" width="70" height="62"/>
         <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
         <image name="Diningicon" width="62" height="62"/>
@@ -2556,6 +2556,8 @@ Mon - Fri</string>
         <segue reference="L0D-jd-wNt"/>
         <segue reference="UCx-U3-Lfo"/>
         <segue reference="UVK-gw-bAs"/>
+        <segue reference="UCx-U3-Lfo"/>
+        <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
