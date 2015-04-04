@@ -1672,7 +1672,7 @@ Mon - Fri</string>
         <scene sceneID="r2w-hc-vQ0">
             <objects>
                 <navigationController id="eU2-sU-GVj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dine" id="dGg-1x-bW7"/>
+                    <tabBarItem key="tabBarItem" title="Dine" image="Diningicon" selectedImage="Diningicon" id="dGg-1x-bW7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mwz-0U-gVt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2409,7 +2409,7 @@ Mon - Fri</string>
         <scene sceneID="CqY-cl-e2l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="frr-16-TLS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Planner" id="V0S-Y2-vgO"/>
+                    <tabBarItem key="tabBarItem" title="My Planner" image="Plannericon" selectedImage="Plannericon" id="V0S-Y2-vgO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k0f-1s-DGA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2510,6 +2510,7 @@ Mon - Fri</string>
         <image name="AboutUsicon" width="62" height="62"/>
         <image name="Arjun" width="250" height="300"/>
         <image name="Contactsicon" width="70" height="62"/>
+        <image name="Diningicon" width="62" height="62"/>
         <image name="Donebackground" width="110" height="60"/>
         <image name="Downward_table_arrow" width="27" height="18"/>
         <image name="FB logo" width="96" height="96"/>
@@ -2518,6 +2519,7 @@ Mon - Fri</string>
         <image name="Loginbackground" width="92" height="60"/>
         <image name="Mapicon" width="70" height="62"/>
         <image name="Newsicon" width="62" height="54"/>
+        <image name="Plannericon" width="70" height="62"/>
         <image name="QR" width="60" height="60"/>
         <image name="Search" width="100" height="100"/>
         <image name="Serena" width="250" height="300"/>
