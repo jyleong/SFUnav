@@ -110,7 +110,6 @@
 		EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC7864E1AB79588004AF041 /* NewsTableViewController.m */; };
 		EEC87AAD1AC360260095861F /* Channel.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEC87AAC1AC360260095861F /* Channel.plist */; };
 		F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */ = {isa = PBXBuildFile; fileRef = F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */; };
-		F662225A1ACF3D2F005ECE81 /* dining_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66222591ACF3D2F005ECE81 /* dining_map.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,7 +273,6 @@
 		EEC7864E1AB79588004AF041 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewController.m; path = SFUnavapp/NewsTableViewController.m; sourceTree = SOURCE_ROOT; };
 		EEC87AAC1AC360260095861F /* Channel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Channel.plist; sourceTree = "<group>"; };
 		F66222571ACD659B005ECE81 /* UnderConstruction_floorplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderConstruction_floorplan.png; sourceTree = "<group>"; };
-		F66222591ACF3D2F005ECE81 /* dining_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dining_map.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -744,7 +742,6 @@
 				B0DB77EA1AB2A44800EFDB83 /* icons_campus_map.png in Resources */,
 				B01BE67C1A8D425E0013D9EA /* InfoPlist.strings in Resources */,
 				D2B50E091AC6742100D255BC /* Blusson Hall.png in Resources */,
-				F662225A1ACF3D2F005ECE81 /* dining_map.jpg in Resources */,
 				DC86568A1A97164C00D908C9 /* UniversityDriveNorth.html in Resources */,
 				04971D471AA389F600AE1F6E /* Contacts - dial.png in Resources */,
 				F66222581ACD659B005ECE81 /* UnderConstruction_floorplan.png in Resources */,
