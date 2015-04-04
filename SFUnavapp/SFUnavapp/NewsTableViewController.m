@@ -7,7 +7,6 @@
 //
 
 #import "NewsTableViewController.h"
-#import "NewsTableViewCell.h"
 #import "Parser.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) //1
@@ -31,14 +30,13 @@
     [super viewDidLoad];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    //self.refreshControl.backgroundColor = [UIColor purpleColor];
+    
      self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
                   forControlEvents:UIControlEventValueChanged];
 
-    //self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
     NSString *inputurlstring =_channel.channelurl;
@@ -272,18 +270,11 @@ listArray = theparser.listArray;
    
     
     [self.tableView reloadData];
-    
-   
-    
-
-
 }
 
 -(void) reloadtable
 {
     [self.tableView reloadData];
-    
-    
     
 }
 
