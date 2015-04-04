@@ -111,7 +111,6 @@
 		DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB295CC1ACB476E00E6FEE1 /* PlannerViewController.m */; };
 		DCE7A0951ACBAE13009B4209 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE7A0941ACBAE13009B4209 /* Course.m */; };
 		E7D969531AB25F24008F6796 /* StudentServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7D969521AB25F24008F6796 /* StudentServices.plist */; };
-		EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */; };
 		EEC6B12E1ABCD6890017E966 /* NewsChannelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */; };
 		EEC6B1311ABCDB660017E966 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC6B1301ABCDB660017E966 /* Channel.m */; };
 		EEC7864B1AB79312004AF041 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC786481AB79312004AF041 /* List.m */; };
@@ -279,8 +278,6 @@
 		DCE7A0931ACBAE13009B4209 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		DCE7A0941ACBAE13009B4209 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E7D969521AB25F24008F6796 /* StudentServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StudentServices.plist; sourceTree = "<group>"; };
-		EE6CDB661AC9093200C6284A /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
-		EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		EEC6B12C1ABCD6890017E966 /* NewsChannelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannelTableViewController.h; sourceTree = "<group>"; };
 		EEC6B12D1ABCD6890017E966 /* NewsChannelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannelTableViewController.m; sourceTree = "<group>"; };
 		EEC6B12F1ABCDB660017E966 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
@@ -682,8 +679,6 @@
 				EEC7864E1AB79588004AF041 /* NewsTableViewController.m */,
 				EEC7864D1AB79588004AF041 /* NewsTableViewController.h */,
 				EEC87AAC1AC360260095861F /* Channel.plist */,
-				EE6CDB661AC9093200C6284A /* NewsTableViewCell.h */,
-				EE6CDB671AC9093200C6284A /* NewsTableViewCell.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -838,7 +833,6 @@
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
 				DCB295CD1ACB476E00E6FEE1 /* PlannerViewController.m in Sources */,
 				B01BE6B71A8D4E8A0013D9EA /* ServicesTableViewController.m in Sources */,
-				EE6CDB681AC9093200C6284A /* NewsTableViewCell.m in Sources */,
 				EEC6B1311ABCDB660017E966 /* Channel.m in Sources */,
 				D27E32751A984E1A00004735 /* TFHppleElement.m in Sources */,
 				B0FC019F1AA7C86900F67493 /* FloorImageViewController.m in Sources */,
