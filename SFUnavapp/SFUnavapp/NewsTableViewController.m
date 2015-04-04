@@ -10,6 +10,8 @@
 #import "NewsTableViewCell.h"
 #import "Parser.h"
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) //1
+
 @interface NewsTableViewController ()
 @end
 
@@ -28,7 +30,14 @@
 {
     [super viewDidLoad];
     
-    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    //self.refreshControl.backgroundColor = [UIColor purpleColor];
+     self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(reloadData)
+                  forControlEvents:UIControlEventValueChanged];
+
     //self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     
@@ -44,8 +53,16 @@
     //initiates the parser object and parses the xml document from within the parser object
     Parser *theparser = [[Parser alloc]init];
     [xmlparser setDelegate:theparser];
-    [xmlparser parse];
-    listArray = theparser.listArray;
+   
+    
+    
+    dispatch_async(kBgQueue, ^{
+       
+         [xmlparser parse];
+        listArray = theparser.listArray;
+
+        [self performSelectorOnMainThread:@selector(reloadtable)withObject:nil waitUntilDone:YES];
+    });
     
     /*
     //nslogs the number of articles found, if none, boo
@@ -104,7 +121,7 @@
      //static NSString *cellidentifier = @"cell";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     
-    NewsTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableCell" forIndexPath:indexPath];
+    UITableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableCell" forIndexPath:indexPath];
     // Configure the cell...
    // for (int i=0; i<[listArray count]; i++){
         // NSLog( [listArray[i] title]);
@@ -126,10 +143,10 @@
     NSString *inputdate = theList.pubDate;
    // NSLog(inputdate);
     //cell.textLabel.text = result;
-    cell.title.text = result;
-   cell.pubDate.text = [theList.pubDate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    cell.textLabel.text = result;
+   cell.detailTextLabel.text = [theList.pubDate stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     //NSLog(theList.pubDate);
-    cell.author.text=[theList.author stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+   // cell.author.text=[theList.author stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   
    // NSLog(theList.author);
     
@@ -210,9 +227,36 @@
     // Pass the selected object to the new view controller.
 }
 
-//the reload button reloads the data by parsing the xml document another time and reloading the table with the new results
+//the reload button reloads the data by parsing the xml document another time and reloading the table with the new results-(void) reloadData{
+-(void) reloadData{
+NSString *inputurlstring =_channel.channelurl;
+//NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
+//NSString *storage;
+NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
+
+NSXMLParser *xmlparser = [[NSXMLParser alloc]initWithData:result];
+Parser *theparser = [[Parser alloc]init];
+[xmlparser setDelegate:theparser];
+[xmlparser parse];
+listArray = theparser.listArray;
+    [self.tableView reloadData];
+    if (self.refreshControl) {
+        // shows last refresh time
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                    forKey:NSForegroundColorAttributeName];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+        self.refreshControl.attributedTitle = attributedTitle;
+        
+        [self.refreshControl endRefreshing];
+
+    }
+}
+
 - (IBAction)reload:(id)sender {
-    
+ 
     NSLog(@"RELOAD");
     NSString *inputurlstring =_channel.channelurl;
     //NSString *inputurlstring =@"https://events.sfu.ca/rss/calendar_id/2.xml";
@@ -225,24 +269,22 @@
     [xmlparser parse];
     listArray = theparser.listArray;
     
-    /*
-    if (worked){
-        NSLog(@"amount %i",[listArray count]);
-    }
-    else{
-        NSLog(@"boo");
-    }
    
-    for (int i=0; i<[listArray count]; i++){
-        // NSLog( [listArray[i] title]);
-        //NSLog([listArray[i] description]);
-        
-    }
-     */
     
     [self.tableView reloadData];
+    
+   
+    
+
 
 }
 
+-(void) reloadtable
+{
+    [self.tableView reloadData];
+    
+    
+    
+}
 
 @end
