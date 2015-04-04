@@ -2546,7 +2546,13 @@ Mon - Fri</string>
                             <outlet property="delegate" destination="Cnq-7K-Pdk" id="iyP-Gi-AQV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Browse Courses" id="CKF-La-SkL"/>
+                    <navigationItem key="navigationItem" title="Browse Courses" id="CKF-La-SkL">
+                        <barButtonItem key="rightBarButtonItem" title="My Cart" id="GP0-Rn-pyW">
+                            <connections>
+                                <segue destination="nNI-ls-ohM" kind="push" id="obj-XB-1Fc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="courseDone" destination="VbS-yg-qUa" id="peL-zR-aA9"/>
                         <outlet property="coursePicker" destination="4tI-IJ-ra2" id="fFp-un-drS"/>
@@ -2560,6 +2566,34 @@ Mon - Fri</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgo-uH-VoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="221" y="-1163"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="xUj-xx-V54">
+            <objects>
+                <tableViewController id="nNI-ls-ohM" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dyk-CS-MJt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="luo-H0-ESU">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="luo-H0-ESU" id="nLG-GY-GOe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="nNI-ls-ohM" id="qez-vw-dh1"/>
+                            <outlet property="delegate" destination="nNI-ls-ohM" id="oir-3u-or6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Jpj-F2-shb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FiY-n0-gYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="-1775"/>
         </scene>
         <!--Course Details-->
         <scene sceneID="UUG-yR-6Vn">
@@ -2583,7 +2617,7 @@ Mon - Fri</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-PM-xpc">
                                 <rect key="frame" x="16" y="124" width="83" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="83" id="Dw4-Wd-fxJ"/>
+                                    <constraint firstAttribute="width" constant="83" id="vdn-dz-lTa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
@@ -2592,7 +2626,7 @@ Mon - Fri</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timings and Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-Su-3Po">
                                 <rect key="frame" x="16" y="164" width="184" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="184" id="YTj-eZ-zt9"/>
+                                    <constraint firstAttribute="width" constant="184" id="5MO-Aa-SNe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
@@ -2601,7 +2635,7 @@ Mon - Fri</string>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Course Timings and locations" translatesAutoresizingMaskIntoConstraints="NO" id="v9M-PI-Boz">
                                 <rect key="frame" x="16" y="193" width="288" height="122"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="122" id="8iQ-tB-UJW"/>
+                                    <constraint firstAttribute="height" constant="122" id="F84-vp-L8A"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
@@ -2629,7 +2663,10 @@ Mon - Fri</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0k-qI-n3a">
                                 <rect key="frame" x="199" y="507" width="104" height="30"/>
                                 <color key="backgroundColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="More Details....">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="Ck4-YO-aoy"/>
+                                </constraints>
+                                <state key="normal" title="More Details">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2643,35 +2680,45 @@ Mon - Fri</string>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVt-ww-DeE">
+                                <rect key="frame" x="16" y="507" width="112" height="30"/>
+                                <color key="backgroundColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add to Cart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Sgm-4e-S7T" firstAttribute="top" secondItem="Y0k-qI-n3a" secondAttribute="bottom" constant="31" id="3gX-PC-Ogn"/>
-                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="top" secondItem="ohv-nQ-mUv" secondAttribute="bottom" constant="12" id="59s-9z-Doo"/>
-                            <constraint firstItem="bAo-PM-xpc" firstAttribute="top" secondItem="u5c-t8-161" secondAttribute="bottom" constant="17" id="6Mt-5m-iau"/>
-                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="ttt-mn-cbY" secondAttribute="trailingMargin" id="73B-T6-mX0"/>
-                            <constraint firstItem="u5c-t8-161" firstAttribute="leading" secondItem="bAo-PM-xpc" secondAttribute="leading" id="8Fp-Wf-PbB"/>
-                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="bAo-PM-xpc" secondAttribute="bottom" constant="19" id="CMI-30-Kun"/>
-                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="B4w-P4-t5I" secondAttribute="leading" id="DQp-95-gyI"/>
-                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="top" secondItem="v9M-PI-Boz" secondAttribute="bottom" constant="8" symbolic="YES" id="Duy-TV-8nr"/>
-                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="v9M-PI-Boz" secondAttribute="trailing" id="IWA-45-xb9"/>
-                            <constraint firstItem="OS9-Su-3Po" firstAttribute="leading" secondItem="v9M-PI-Boz" secondAttribute="leading" id="JDY-gp-uTW"/>
-                            <constraint firstItem="B4w-P4-t5I" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" constant="79" id="L6U-ck-6T9"/>
-                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="B4w-P4-t5I" secondAttribute="bottom" constant="1" id="Rex-tw-80z"/>
-                            <constraint firstItem="u5c-t8-161" firstAttribute="baseline" secondItem="TCC-Dw-0WH" secondAttribute="baseline" id="VrD-Sm-A25"/>
-                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="trailing" secondItem="OS9-Su-3Po" secondAttribute="trailing" id="ZRC-Vb-61S"/>
-                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="leading" secondItem="ohv-nQ-mUv" secondAttribute="leading" id="ao7-lv-4qP"/>
-                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="trailing" secondItem="yvH-Oh-Vl9" secondAttribute="trailing" id="dvn-ON-Onk"/>
-                            <constraint firstItem="OS9-Su-3Po" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" id="hm5-16-fIc"/>
-                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="trailing" secondItem="Y0k-qI-n3a" secondAttribute="trailing" id="jKs-hV-DJv"/>
-                            <constraint firstItem="B4w-P4-t5I" firstAttribute="centerX" secondItem="TCC-Dw-0WH" secondAttribute="centerX" id="l4z-bm-zLF"/>
-                            <constraint firstItem="u5c-t8-161" firstAttribute="top" secondItem="BSk-ZB-mtD" secondAttribute="bottom" constant="22" id="mBi-K9-Hgl"/>
-                            <constraint firstItem="v9M-PI-Boz" firstAttribute="leading" secondItem="ohv-nQ-mUv" secondAttribute="leading" id="oLs-Y7-eAU"/>
-                            <constraint firstItem="bAo-PM-xpc" firstAttribute="leading" secondItem="OS9-Su-3Po" secondAttribute="leading" id="q0X-Ca-WhS"/>
-                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="u5c-t8-161" secondAttribute="trailing" constant="6" id="rDC-5g-03w"/>
-                            <constraint firstItem="B4w-P4-t5I" firstAttribute="top" secondItem="TCC-Dw-0WH" secondAttribute="bottom" constant="8" symbolic="YES" id="uAN-6j-U2Z"/>
-                            <constraint firstItem="v9M-PI-Boz" firstAttribute="top" secondItem="OS9-Su-3Po" secondAttribute="bottom" constant="8" symbolic="YES" id="ytq-Ph-Sac"/>
-                            <constraint firstItem="Y0k-qI-n3a" firstAttribute="top" secondItem="yvH-Oh-Vl9" secondAttribute="bottom" constant="8" symbolic="YES" id="z4m-jQ-Ztf"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="baseline" secondItem="u5c-t8-161" secondAttribute="baseline" id="43o-p4-aCn"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="u5c-t8-161" secondAttribute="trailing" constant="6" id="5Fc-yp-dav"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="bAo-PM-xpc" secondAttribute="bottom" constant="19" id="5L3-bs-g6F"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" id="Ajf-jV-nKb"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="trailing" secondItem="Y0k-qI-n3a" secondAttribute="trailing" id="BuZ-bP-yrp"/>
+                            <constraint firstItem="eVt-ww-DeE" firstAttribute="top" secondItem="yvH-Oh-Vl9" secondAttribute="bottom" constant="8" symbolic="YES" id="C7J-01-xDm"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="top" secondItem="TCC-Dw-0WH" secondAttribute="bottom" constant="8" symbolic="YES" id="CLf-Lj-L0i"/>
+                            <constraint firstItem="v9M-PI-Boz" firstAttribute="leading" secondItem="OS9-Su-3Po" secondAttribute="leading" id="FBZ-2W-InX"/>
+                            <constraint firstItem="u5c-t8-161" firstAttribute="top" secondItem="BSk-ZB-mtD" secondAttribute="bottom" constant="22" id="Fh2-D8-yzp"/>
+                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="leading" secondItem="v9M-PI-Boz" secondAttribute="leading" id="IsT-vh-rDV"/>
+                            <constraint firstItem="v9M-PI-Boz" firstAttribute="top" secondItem="OS9-Su-3Po" secondAttribute="bottom" constant="8" symbolic="YES" id="IvC-5X-6st"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="leading" secondItem="ohv-nQ-mUv" secondAttribute="leading" id="Jnv-am-FK2"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="ttt-mn-cbY" secondAttribute="trailingMargin" id="KDt-tW-8wT"/>
+                            <constraint firstItem="Y0k-qI-n3a" firstAttribute="leading" secondItem="eVt-ww-DeE" secondAttribute="trailing" constant="71" id="Lgn-36-Jhz"/>
+                            <constraint firstItem="bAo-PM-xpc" firstAttribute="top" secondItem="u5c-t8-161" secondAttribute="bottom" constant="17" id="NaN-zR-7aK"/>
+                            <constraint firstItem="Sgm-4e-S7T" firstAttribute="top" secondItem="eVt-ww-DeE" secondAttribute="bottom" constant="31" id="Q3W-R1-cjG"/>
+                            <constraint firstItem="eVt-ww-DeE" firstAttribute="baseline" secondItem="Y0k-qI-n3a" secondAttribute="baseline" id="Ten-KX-fKq"/>
+                            <constraint firstItem="bAo-PM-xpc" firstAttribute="leading" secondItem="OS9-Su-3Po" secondAttribute="leading" id="W3S-od-UtB"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="centerX" secondItem="TCC-Dw-0WH" secondAttribute="centerX" id="XlM-Mi-Nfm"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" constant="79" id="YVQ-CH-jtm"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="B4w-P4-t5I" secondAttribute="leading" id="b14-HA-aqw"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="v9M-PI-Boz" secondAttribute="trailing" id="b9H-ME-Ao8"/>
+                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="top" secondItem="v9M-PI-Boz" secondAttribute="bottom" constant="8" symbolic="YES" id="bpN-CI-Gbl"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="trailing" secondItem="ohv-nQ-mUv" secondAttribute="trailing" id="ceb-Ps-a43"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="leading" secondItem="eVt-ww-DeE" secondAttribute="leading" id="i5N-WW-Mzv"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="top" secondItem="ohv-nQ-mUv" secondAttribute="bottom" constant="12" id="mVV-i0-E6w"/>
+                            <constraint firstItem="bAo-PM-xpc" firstAttribute="leading" secondItem="u5c-t8-161" secondAttribute="leading" id="wQX-2k-kHV"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="B4w-P4-t5I" secondAttribute="bottom" constant="1" id="x0N-n0-ZJm"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="trailing" secondItem="TCC-Dw-0WH" secondAttribute="trailing" id="xqC-Mo-UJ6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Course Details" id="Q5U-R9-vPc"/>

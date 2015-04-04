@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     _moreDetails.layer.cornerRadius = 4;
     _moreDetails.layer.borderWidth = 0;
     _moreDetails.layer.borderColor = [UIColor clearColor].CGColor;

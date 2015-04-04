@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     _semesterNames=[[NSMutableArray alloc]init];
     [_semesterNames addObject:@"Current"];
     [_semesterNames addObject:@"Registration"];

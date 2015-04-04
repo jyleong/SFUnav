@@ -46,7 +46,7 @@
     NSURLRequest *requestObj= [NSURLRequest requestWithURL:url];
     [_currentlink loadRequest:requestObj];
 
-    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
+    //self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     [[UIToolbar appearance] setBarTintColor:UIColorFromRGB(0xB5111B)];
     [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
     
