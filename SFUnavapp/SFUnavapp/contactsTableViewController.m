@@ -8,11 +8,13 @@
 
 #import "contactsTableViewController.h"
 #import "studContactTableViewController.h"
+#import "ServicesURL.h"                 //from Arjun
+#import "ServicesWebViewController.h"   //from Arjun
 
 @interface contactsTableViewController ()
 
 @property (strong,nonatomic)NSArray *services;
-@property (strong,nonatomic)NSArray *links;
+@property (strong,nonatomic)NSMutableArray *links;
 
 @end
 
@@ -25,15 +27,32 @@
     //navigation name
     self.navigationItem.title=@"Contacts";
     
-    services = [[NSArray alloc]initWithObjects:@"Student Services", @"Safety & Risk Services", nil];
+    services = [[NSArray alloc]initWithObjects:@"Student Services", @"Safety & Risk Services", @"Technical Services", @"Meeting, Events, and Conferencing Services", nil];
     
     //background image
-    
     [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SFUcrest"]]];
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
     //clear table background colour
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
+    
+    //holds links
+    links = [[NSMutableArray alloc] init];
+    
+    ServicesURL *linkURL = [[ServicesURL alloc] init];
+    linkURL.serviceName= @"SFU Directory";
+    linkURL.serviceURL = @"https://amaint.sfu.ca/cgi-bin/WebObjects/Directory.woa/9?casredirect=yes";
+    [links addObject:linkURL];
+    
+    linkURL = [[ServicesURL alloc]init];
+    linkURL.serviceName = @"Academic Advisors";
+    linkURL.serviceURL = @"https://www.sfu.ca/students/academicadvising/contact_us/sfu_advisors.html";
+    [links addObject:linkURL];
+    
+    linkURL = [[ServicesURL alloc]init];
+    linkURL.serviceName = @"Maintenance Request";
+    linkURL.serviceURL = @"https://fmrequests.sfu.ca/ServiceRequest.aspx";
+    [links addObject:linkURL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,12 +64,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1) {
         return services.count;
+    }
+    else if (section == 2){
+        return links.count;
     }
     return 1;
 }
@@ -74,6 +96,14 @@
     else if (indexPath.section == 1) {
         cell.textLabel.text = services[indexPath.row];
     }
+    else if (indexPath.section == 2) {
+        ServicesURL* url= [links objectAtIndex:indexPath.row];
+        cell.textLabel.text = [url serviceName];
+        
+        //format cell
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.hidden = YES;
+    }
     return cell;
 }
 
@@ -85,8 +115,13 @@
         id sender = self;
         [self performSegueWithIdentifier:segueIdentifier sender:sender];
     }
-    if (indexPath.section == 1) {
+    else if (indexPath.section == 1 && indexPath.row != 3) {
         segueIdentifier = @"openService";
+        id sender = self;
+        [self performSegueWithIdentifier:segueIdentifier sender:sender];
+    }
+    else if (indexPath.section == 2 || (indexPath.section == 1 && indexPath.row == 3)) {
+        segueIdentifier = @"openWebpage";
         id sender = self;
         [self performSegueWithIdentifier:segueIdentifier sender:sender];
     }
@@ -138,6 +173,26 @@
         
         //NSLog(@"Sent: %@", [services objectAtIndex:indexPath.row]);
     }
+    else if([[segue identifier] isEqual:@"openWebpage"])
+    { // Get the new view controller using [segue destinationViewController].
+        ServicesWebViewController *webcont = [segue destinationViewController];
+        // Pass the selected object to the new view controller.
+        
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        if (path.section == 1) {
+            ServicesURL *send = [[ServicesURL alloc] init];
+            send.serviceName= @"SFU Meeting, Event and Conference Services";
+            send.serviceURL = @"http://www.sfu.ca/mecs.html";
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
+        else{
+            ServicesURL *send = links[path.row];
+            webcont.hidesBottomBarWhenPushed = YES;
+            [webcont setCurrentURL:send];
+        }
+    }
 }
 
 @end
+

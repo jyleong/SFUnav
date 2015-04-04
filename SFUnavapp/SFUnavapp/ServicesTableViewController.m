@@ -66,11 +66,6 @@ BOOL goLogin;
     [links addObject:url];
     
     url=[[ServicesURL alloc] init];
-    url.serviceName=@"SFU Library Search";
-    url.serviceURL = @"http://fastsearch.lib.sfu.ca";
-    [links addObject:url];
-    
-    url=[[ServicesURL alloc] init];
     url.serviceName=@"Canvas";
     url.serviceURL = @"http://canvas.sfu.ca";
     [links addObject:url];

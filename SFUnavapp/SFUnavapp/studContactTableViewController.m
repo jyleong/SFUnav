@@ -8,6 +8,7 @@
 
 #import "studContactTableViewController.h"
 #import "ContactsTableViewCell.h"
+#import "ServicesWebViewController.h"
 
 @interface studContactTableViewController ()
 
@@ -34,6 +35,9 @@
     }
     else if ([service isEqualToString: @"Safety & Risk Services"]){
         url = [[NSBundle mainBundle] URLForResource:@"Safety&Risk" withExtension:@"plist"];
+    }
+    else if ([service isEqualToString: @"Technical Services"]){
+        url = [[NSBundle mainBundle] URLForResource:@"Technical" withExtension:@"plist"];
     }
     
     serviceArray = [NSArray arrayWithContentsOfURL:url];
@@ -95,18 +99,28 @@
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    
+    if ([cell.contactType.text isEqualToString:@"Online"]) {
+        cell.contactDetails.hidden = YES;
+    }
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSArray *studServices = [[NSArray alloc] initWithObjects:@"Registrar & Information Services", @"Career Services", @"Financial Advising", @"Health & Counselling Services (HCS)", nil];
     NSArray *srServices = [[NSArray alloc] initWithObjects:@"Campus Security", @"Access Control (keys & cards)", nil];
+    NSArray *techServices = [[NSArray alloc] initWithObjects:@"Audio Visual Services", @"Videoconferencing", @"Computer Labs", nil];
+
     if ([service isEqualToString: @"Student Services"]) {
         return studServices[section];
     }
     else if ([service isEqualToString:@"Safety & Risk Services"]){
         return srServices[section];
     }
+    else if ([service isEqualToString:@"Technical Services"]){
+        return techServices[section];
+    }
+
     return 0;
 }
 
@@ -136,7 +150,11 @@
     else if ([type isEqualToString:@"Text"]) {
         [self showSMS:info];
     }
-
+    else if ([type isEqualToString:@"Online"]) {
+        NSString *segueIdentifier = @"openWebpage";
+        id sender = self;
+        [self performSegueWithIdentifier:segueIdentifier sender:sender];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView
@@ -274,11 +292,29 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
  
  return NO;
  }
- 
+ */
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
+     if([[segue identifier] isEqual:@"openWebpage"])
+     { // Get the new view controller using [segue destinationViewController].
+         ServicesWebViewController *webcont = [segue destinationViewController];
+
+         //get URL details
+         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+         NSDictionary *linkInfo = serviceArray[path.section][path.row];
+        
+         //store it as a SerivesURL
+         ServicesURL *linkURL = [[ServicesURL alloc] init];
+         linkURL.serviceName = [linkInfo valueForKey:@"contactInfo"];
+         linkURL.serviceURL = [linkInfo valueForKey:@"contactDetail"];
+         NSLog(@"%@",linkURL);
+         
+         //segue
+         webcont.hidesBottomBarWhenPushed = YES;
+         [webcont setCurrentURL:linkURL];
+     }
  
  }
- */
+ 
 
 @end

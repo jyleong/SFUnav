@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0426DC051AD05CC100F09F57 /* Technical.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0426DC041AD05CC100F09F57 /* Technical.plist */; };
 		0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */; };
 		0458A3B71ACBB0BC009D0026 /* LibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */; };
 		04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */; };
@@ -123,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0426DC041AD05CC100F09F57 /* Technical.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Technical.plist; sourceTree = "<group>"; };
 		0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTableViewCell.h; sourceTree = "<group>"; };
 		0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTableViewCell.m; sourceTree = "<group>"; };
 		0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTableViewController.h; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				E7D969521AB25F24008F6796 /* StudentServices.plist */,
 				04B8934A1ACFCC3300BB8BD5 /* Safety&Risk.plist */,
+				0426DC041AD05CC100F09F57 /* Technical.plist */,
 			);
 			name = plists;
 			sourceTree = "<group>";
@@ -562,8 +565,8 @@
 				D28E082A1AAFE93900B35F6B /* LoginViewController.m */,
 				DC807F9E1A905F5A008CA3DC /* ServicesWebViewController.h */,
 				DC807F9F1A905F5A008CA3DC /* ServicesWebViewController.m */,
-				DC807F9B1A905E55008CA3DC /* ServicesURL.h */,
 				DC807F9C1A905E55008CA3DC /* ServicesURL.m */,
+				DC807F9B1A905E55008CA3DC /* ServicesURL.h */,
 				B01BE6B51A8D4E8A0013D9EA /* ServicesTableViewController.h */,
 				B01BE6B61A8D4E8A0013D9EA /* ServicesTableViewController.m */,
 				B0344D331ACD004F009F3F1F /* KeychainItemWrapper.h */,
@@ -763,6 +766,7 @@
 				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
 				D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */,
 				B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */,
+				0426DC051AD05CC100F09F57 /* Technical.plist in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
 				D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */,
 				04971CF61AA381B400AE1F6E /* VancouverCampus-sm.png in Resources */,

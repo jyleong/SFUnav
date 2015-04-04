@@ -159,7 +159,7 @@
         <!--Contacts-->
         <scene sceneID="EcB-aN-HtM">
             <objects>
-                <navigationController definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
+                <navigationController title="Contacts" definesPresentationContext="YES" id="TkD-xP-h0k" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacts" image="Contactsicon" id="2kH-6a-4Oc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cRa-8s-tJ4">
                         <autoresizingMask key="autoresizingMask"/>
@@ -206,6 +206,7 @@
                     <connections>
                         <segue destination="RBu-ZI-ztG" kind="push" identifier="openCampuses" id="xNp-Rt-n9O"/>
                         <segue destination="ay1-e6-OpV" kind="push" identifier="openService" id="sdh-aP-5Iz"/>
+                        <segue destination="2os-sd-hNf" kind="push" identifier="openWebpage" id="yTY-Gs-IaK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXC-aR-c5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,10 +387,10 @@
             </objects>
             <point key="canvasLocation" x="-4868" y="2848"/>
         </scene>
-        <!--Student Services-->
+        <!--Contact Services Table View Controller-->
         <scene sceneID="wlY-Cd-jQk">
             <objects>
-                <tableViewController id="ay1-e6-OpV" customClass="studContactTableViewController" sceneMemberID="viewController">
+                <tableViewController id="ay1-e6-OpV" userLabel="Contact Services Table View Controller" customClass="studContactTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" id="gVa-Vl-MnQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,6 +455,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Student Services" id="TlQ-jv-k4r"/>
+                    <connections>
+                        <segue destination="2os-sd-hNf" kind="push" identifier="openWebpage" id="Lks-Ea-p4o"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToQ-0D-a3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,7 +491,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-A2-UPC">
                                             <rect key="frame" x="46" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="Ge5-Wl-seo"/>
@@ -500,7 +504,7 @@
                                                 <action selector="fbButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="lGI-KL-CVm"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-TK-mkZ">
                                             <rect key="frame" x="136" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="fld-RE-Jfy"/>
@@ -513,7 +517,7 @@
                                                 <action selector="twButtonPressed:" destination="lve-QF-Gel" eventType="touchUpInside" id="gj3-2I-7oW"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tND-uK-3Pk">
                                             <rect key="frame" x="226" y="34" width="48" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="36x-36-fIn"/>
@@ -900,7 +904,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="64" width="320" height="592"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -2552,12 +2556,9 @@ Mon - Fri</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eec-1e-lpz"/>
-        <segue reference="rhp-dj-yhr"/>
-        <segue reference="L0D-jd-wNt"/>
+        <segue reference="yTY-Gs-IaK"/>
         <segue reference="UCx-U3-Lfo"/>
         <segue reference="UVK-gw-bAs"/>
-        <segue reference="UCx-U3-Lfo"/>
         <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
