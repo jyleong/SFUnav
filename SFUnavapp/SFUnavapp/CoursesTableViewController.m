@@ -19,6 +19,7 @@
 @interface CoursesTableViewController ()
 {
     NSMutableArray *courseCollection;
+    int flag;
 }
 @end
 
@@ -26,10 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
-    self.refreshControl.tintColor = [UIColor whiteColor];
-    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+//    self.refreshControl = [[UIRefreshControl alloc] init];
+//    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
+//    self.refreshControl.tintColor = [UIColor whiteColor];
+//    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,41 +42,49 @@
 -(void) viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
+    flag=0;
     if (autoLogin!=YES)
         [self notlogin];
+    else
         [self genCourses];
-    
 }
-- (void)reload
-{
-    // Reload table data
-    [self genCourses];
-    
-    // End the refreshing
-    if (self.refreshControl) {
-        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MMM d, h:mm a"];
-        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
-        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
-                                                                    forKey:NSForegroundColorAttributeName];
-        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
-        self.refreshControl.attributedTitle = attributedTitle;
-        
-        [self.refreshControl endRefreshing];
-    }
-}
+//- (void)reload
+//{
+//    // Reload table data
+//    [self genCourses];
+//    
+//    // End the refreshing
+//    if (self.refreshControl) {
+//        
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        [formatter setDateFormat:@"MMM d, h:mm a"];
+//        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+//        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+//                                                                    forKey:NSForegroundColorAttributeName];
+//        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+//        self.refreshControl.attributedTitle = attributedTitle;
+//        
+//        [self.refreshControl endRefreshing];
+//    }
+//}
 -(void) reloadtable
 {
     [self.tableView reloadData];
 }
 #pragma mark - Course Parsing
 -(void) notlogin{
-    UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:@"Not Logged In" message:@"Login is required to see your current courses. You can browse all courses without login" delegate:self cancelButtonTitle:@"Return" otherButtonTitles:@"Browse", @"LogIn",nil];
-    [Alert show];
+    if (flag!=1)
+    {
+        UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:@"Not Logged In" message:@"Login is required to see your current courses. You can browse all courses without login" delegate:self cancelButtonTitle:@"Return" otherButtonTitles:@"Browse", @"LogIn",nil];
+        [Alert show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqual:@"No Internet"])
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
     if (buttonIndex==1)
         [self performSegueWithIdentifier:@"BrowseCourse" sender:self];
     if (buttonIndex==2)
@@ -94,8 +103,9 @@
         });
     }
     else{
-        UIAlertView *NoIntAlert = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Internet Connection is required. Reconnect and pull down to Refresh" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        UIAlertView *NoIntAlert = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Internet Connection is required. Reconnect and try again" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [NoIntAlert show];
+        flag=1;
     }
 }
 

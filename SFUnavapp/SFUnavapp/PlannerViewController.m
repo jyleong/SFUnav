@@ -9,8 +9,6 @@
 #import "PlannerViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0) //1
 #define baseURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current"]
-#define currentDeptURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=current"]
-#define registrationDeptURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=registration"]
 
 @interface PlannerViewController ()
 @property (weak, nonatomic) IBOutlet UIPickerView *semesterPicker;
@@ -20,7 +18,7 @@
 - (IBAction)semesterDone:(id)sender;
 - (IBAction)deptDone:(id)sender;
 - (IBAction)courseDone:(id)sender;
-- (IBAction)sectionDone:(id)sender;
+
 
 
 @end
@@ -124,26 +122,6 @@
     [_coursePicker setUserInteractionEnabled:NO];
 }
 
-- (void)fetchedInfo:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                     JSONObjectWithData:responseData //1
-                     
-                     options:kNilOptions
-                     error:&error];
-    
-    NSArray *info=[json objectForKey:@"courseSchedule"];
-    
-    NSString* days=@"";
-    for (int i=0;i<[info count];i++)
-    {
-        NSLog(@"%@",[info[i] objectForKey:@"days"]);
-        days=[days stringByAppendingString:[info[i] objectForKey:@"days"]];
-    }
-    NSLog(@"days are:%@",days);
-    
-}
 #pragma mark - PickerView Modifiers
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -262,23 +240,23 @@ numberOfRowsInComponent:(NSInteger)component
 
 }
 
-- (IBAction)sectionDone:(id)sender {
-    _sectionChoice=[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]];
-    dispatch_async(kBgQueue, ^{
-    NSString *apiURL=[NSString stringWithFormat:
-                          @"%@"
-                          @"&term=%@"
-                          @"&dept=%@"
-                          @"&number=%@"
-                          @"&section=%@",baseURL,_semesterChoice,_deptChoice,_courseChoice,[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]]
-                          ];
-    apiURL=[apiURL lowercaseString];
-    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:apiURL ]];
-    NSLog(@"info url:%@",apiURL);
-    [self performSelectorOnMainThread:@selector(fetchedInfo:)withObject:data waitUntilDone:YES];
-    });
-
+#pragma mark - Prepare for segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqual:@"detailsView"])
+    {
+        _sectionChoice=[_sectionNames objectAtIndex:[_sectionPicker selectedRowInComponent:0]];
+        CourseDetailViewController *fivc=[segue destinationViewController];
+        fivc.courseTerm=_semesterChoice;
+        fivc.courseDept=_deptChoice;
+        fivc.courseNumber=_courseChoice;
+        fivc.courseSection=_sectionChoice;
+        fivc.hidesBottomBarWhenPushed=YES;
+    }
+    
 }
+
 
 #pragma mark -memory management
 -(void) dealloc

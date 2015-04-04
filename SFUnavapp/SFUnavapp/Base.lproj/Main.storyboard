@@ -899,10 +899,10 @@
         <scene sceneID="4ym-nv-pvi">
             <objects>
                 <tableViewController id="NWL-ZQ-IUF" customClass="ServicesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8nn-pi-IpP">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="8nn-pi-IpP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xmw-V8-8SN">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -1286,7 +1286,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N6l-nz-VOc">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6l-nz-VOc">
                                 <rect key="frame" x="204" y="311" width="51" height="31"/>
                                 <connections>
                                     <action selector="saveKeychain:" destination="xKj-0m-iS0" eventType="valueChanged" id="R6K-nv-k4B"/>
@@ -2301,7 +2301,7 @@ Mon - Fri</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsy-5x-BZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1638" y="-1037"/>
+            <point key="canvasLocation" x="-1750" y="-1377"/>
         </scene>
         <!--Library-->
         <scene sceneID="KY5-L1-xww">
@@ -2361,9 +2361,9 @@ Mon - Fri</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEw-Sr-W60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1052" y="-1111"/>
+            <point key="canvasLocation" x="-1192" y="-1343"/>
         </scene>
-        <!--Planner View Controller-->
+        <!--Browse Courses-->
         <scene sceneID="qRz-bY-pUv">
             <objects>
                 <tableViewController id="Cnq-7K-Pdk" customClass="PlannerViewController" sceneMemberID="viewController">
@@ -2511,7 +2511,7 @@ Mon - Fri</string>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="sectionDone:" destination="Cnq-7K-Pdk" eventType="touchUpInside" id="Hoj-Xt-CiI"/>
+                                                        <segue destination="yTn-XX-qVz" kind="push" identifier="detailsView" id="MCM-h2-i9P"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Section" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dm-Ce-mWQ">
@@ -2546,7 +2546,7 @@ Mon - Fri</string>
                             <outlet property="delegate" destination="Cnq-7K-Pdk" id="iyP-Gi-AQV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CKF-La-SkL"/>
+                    <navigationItem key="navigationItem" title="Browse Courses" id="CKF-La-SkL"/>
                     <connections>
                         <outlet property="courseDone" destination="VbS-yg-qUa" id="peL-zR-aA9"/>
                         <outlet property="coursePicker" destination="4tI-IJ-ra2" id="fFp-un-drS"/>
@@ -2561,44 +2561,132 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="221" y="-1163"/>
         </scene>
-        <!--View Controller-->
+        <!--Course Details-->
         <scene sceneID="UUG-yR-6Vn">
             <objects>
-                <viewController id="yTn-XX-qVz" sceneMemberID="viewController">
+                <viewController title="Course Details" id="yTn-XX-qVz" customClass="CourseDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BSk-ZB-mtD"/>
                         <viewControllerLayoutGuide type="bottom" id="Sgm-4e-S7T"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="ttt-mn-cbY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5c-t8-161">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5c-t8-161">
                                 <rect key="frame" x="16" y="86" width="73" height="21"/>
+                                <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-PM-xpc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAo-PM-xpc">
                                 <rect key="frame" x="16" y="124" width="83" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="Dw4-Wd-fxJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timings and Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-Su-3Po">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timings and Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-Su-3Po">
                                 <rect key="frame" x="16" y="164" width="184" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="YTj-eZ-zt9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Course Timings and locations" translatesAutoresizingMaskIntoConstraints="NO" id="v9M-PI-Boz">
+                                <rect key="frame" x="16" y="193" width="288" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="8iQ-tB-UJW"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCC-Dw-0WH">
+                                <rect key="frame" x="95" y="86" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohv-nQ-mUv">
+                                <rect key="frame" x="16" y="323" width="184" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Exam Information (timings + location)" translatesAutoresizingMaskIntoConstraints="NO" id="yvH-Oh-Vl9">
+                                <rect key="frame" x="16" y="356" width="287" height="143"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0k-qI-n3a">
+                                <rect key="frame" x="199" y="507" width="104" height="30"/>
+                                <color key="backgroundColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="More Details....">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="moreDetailsPress:" destination="yTn-XX-qVz" eventType="touchUpInside" id="mdY-DF-m2R"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" text="Instructor Names" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-P4-t5I">
+                                <rect key="frame" x="95" y="115" width="209" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sgm-4e-S7T" firstAttribute="top" secondItem="Y0k-qI-n3a" secondAttribute="bottom" constant="31" id="3gX-PC-Ogn"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="top" secondItem="ohv-nQ-mUv" secondAttribute="bottom" constant="12" id="59s-9z-Doo"/>
+                            <constraint firstItem="bAo-PM-xpc" firstAttribute="top" secondItem="u5c-t8-161" secondAttribute="bottom" constant="17" id="6Mt-5m-iau"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="ttt-mn-cbY" secondAttribute="trailingMargin" id="73B-T6-mX0"/>
+                            <constraint firstItem="u5c-t8-161" firstAttribute="leading" secondItem="bAo-PM-xpc" secondAttribute="leading" id="8Fp-Wf-PbB"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="bAo-PM-xpc" secondAttribute="bottom" constant="19" id="CMI-30-Kun"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="B4w-P4-t5I" secondAttribute="leading" id="DQp-95-gyI"/>
+                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="top" secondItem="v9M-PI-Boz" secondAttribute="bottom" constant="8" symbolic="YES" id="Duy-TV-8nr"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="trailing" secondItem="v9M-PI-Boz" secondAttribute="trailing" id="IWA-45-xb9"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="leading" secondItem="v9M-PI-Boz" secondAttribute="leading" id="JDY-gp-uTW"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" constant="79" id="L6U-ck-6T9"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="top" secondItem="B4w-P4-t5I" secondAttribute="bottom" constant="1" id="Rex-tw-80z"/>
+                            <constraint firstItem="u5c-t8-161" firstAttribute="baseline" secondItem="TCC-Dw-0WH" secondAttribute="baseline" id="VrD-Sm-A25"/>
+                            <constraint firstItem="ohv-nQ-mUv" firstAttribute="trailing" secondItem="OS9-Su-3Po" secondAttribute="trailing" id="ZRC-Vb-61S"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="leading" secondItem="ohv-nQ-mUv" secondAttribute="leading" id="ao7-lv-4qP"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="trailing" secondItem="yvH-Oh-Vl9" secondAttribute="trailing" id="dvn-ON-Onk"/>
+                            <constraint firstItem="OS9-Su-3Po" firstAttribute="leading" secondItem="ttt-mn-cbY" secondAttribute="leadingMargin" id="hm5-16-fIc"/>
+                            <constraint firstItem="yvH-Oh-Vl9" firstAttribute="trailing" secondItem="Y0k-qI-n3a" secondAttribute="trailing" id="jKs-hV-DJv"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="centerX" secondItem="TCC-Dw-0WH" secondAttribute="centerX" id="l4z-bm-zLF"/>
+                            <constraint firstItem="u5c-t8-161" firstAttribute="top" secondItem="BSk-ZB-mtD" secondAttribute="bottom" constant="22" id="mBi-K9-Hgl"/>
+                            <constraint firstItem="v9M-PI-Boz" firstAttribute="leading" secondItem="ohv-nQ-mUv" secondAttribute="leading" id="oLs-Y7-eAU"/>
+                            <constraint firstItem="bAo-PM-xpc" firstAttribute="leading" secondItem="OS9-Su-3Po" secondAttribute="leading" id="q0X-Ca-WhS"/>
+                            <constraint firstItem="TCC-Dw-0WH" firstAttribute="leading" secondItem="u5c-t8-161" secondAttribute="trailing" constant="6" id="rDC-5g-03w"/>
+                            <constraint firstItem="B4w-P4-t5I" firstAttribute="top" secondItem="TCC-Dw-0WH" secondAttribute="bottom" constant="8" symbolic="YES" id="uAN-6j-U2Z"/>
+                            <constraint firstItem="v9M-PI-Boz" firstAttribute="top" secondItem="OS9-Su-3Po" secondAttribute="bottom" constant="8" symbolic="YES" id="ytq-Ph-Sac"/>
+                            <constraint firstItem="Y0k-qI-n3a" firstAttribute="top" secondItem="yvH-Oh-Vl9" secondAttribute="bottom" constant="8" symbolic="YES" id="z4m-jQ-Ztf"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5U-R9-vPc"/>
+                    <navigationItem key="navigationItem" title="Course Details" id="Q5U-R9-vPc"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="courseTimes" destination="v9M-PI-Boz" id="eeY-pQ-Pwz"/>
+                        <outlet property="courseTitle" destination="TCC-Dw-0WH" id="sBg-eR-VXk"/>
+                        <outlet property="examTimes" destination="yvH-Oh-Vl9" id="Oni-OD-nkk"/>
+                        <outlet property="instructorName" destination="B4w-P4-t5I" id="6Ou-eg-VKC"/>
+                        <outlet property="moreDetails" destination="Y0k-qI-n3a" id="rK6-tn-9vZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN4-Qz-Wzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-1163"/>
+            <point key="canvasLocation" x="709" y="-1163"/>
         </scene>
         <!--Social-->
         <scene sceneID="gAQ-30-3DQ">
@@ -2619,11 +2707,11 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="-1329" y="-491"/>
         </scene>
-        <!--My Planner-->
+        <!--Course Cart-->
         <scene sceneID="CqY-cl-e2l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="frr-16-TLS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Planner" id="V0S-Y2-vgO"/>
+                    <tabBarItem key="tabBarItem" title="Course Cart" id="V0S-Y2-vgO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k0f-1s-DGA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2638,11 +2726,11 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="-797" y="-1163"/>
         </scene>
-        <!--Courses Table View Controller-->
+        <!--My Courses-->
         <scene sceneID="7eQ-cs-evP">
             <objects>
                 <tableViewController id="CFc-dY-2uR" customClass="CoursesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="VjS-7E-5c5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="VjS-7E-5c5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -2667,23 +2755,23 @@ Mon - Fri</string>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6V-tB-gfW">
                                             <rect key="frame" x="8" y="30" width="30" height="30"/>
                                             <accessibility key="accessibilityConfiguration" label=""/>
-                                            <state key="normal" backgroundImage="daysofweek_mon.png"/>
+                                            <state key="normal" backgroundImage="daysofweek_mon"/>
                                         </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-sX-JQa">
                                             <rect key="frame" x="38" y="30" width="30" height="30"/>
-                                            <state key="normal" backgroundImage="daysofweek_tue.png"/>
+                                            <state key="normal" backgroundImage="daysofweek_tue"/>
                                         </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViU-j3-hzE">
                                             <rect key="frame" x="68" y="30" width="30" height="30"/>
-                                            <state key="normal" backgroundImage="daysofweek_wed.png"/>
+                                            <state key="normal" backgroundImage="daysofweek_wed"/>
                                         </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-8P-0yY">
                                             <rect key="frame" x="98" y="30" width="30" height="30"/>
-                                            <state key="normal" backgroundImage="daysofweek_thu.png"/>
+                                            <state key="normal" backgroundImage="daysofweek_thu"/>
                                         </button>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-iF-Mgi">
                                             <rect key="frame" x="130" y="30" width="30" height="30"/>
-                                            <state key="normal" backgroundImage="daysofweek_fri.png"/>
+                                            <state key="normal" backgroundImage="daysofweek_fri"/>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -2703,7 +2791,7 @@ Mon - Fri</string>
                             <outlet property="delegate" destination="CFc-dY-2uR" id="4Cy-gi-nQI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="URy-oq-q4K">
+                    <navigationItem key="navigationItem" title="My Courses" id="URy-oq-q4K">
                         <barButtonItem key="rightBarButtonItem" title="Browse" id="pmD-4I-LmD">
                             <connections>
                                 <segue destination="Cnq-7K-Pdk" kind="push" id="UCx-U3-Lfo"/>
@@ -2746,11 +2834,11 @@ Mon - Fri</string>
         <image name="back" width="48" height="48"/>
         <image name="burnaby.png" width="881" height="1200"/>
         <image name="cancel" width="48" height="48"/>
-        <image name="daysofweek_fri.png" width="32" height="37"/>
-        <image name="daysofweek_mon.png" width="32" height="37"/>
-        <image name="daysofweek_thu.png" width="32" height="37"/>
-        <image name="daysofweek_tue.png" width="32" height="37"/>
-        <image name="daysofweek_wed.png" width="32" height="37"/>
+        <image name="daysofweek_fri" width="32" height="37"/>
+        <image name="daysofweek_mon" width="32" height="37"/>
+        <image name="daysofweek_thu" width="32" height="37"/>
+        <image name="daysofweek_tue" width="32" height="37"/>
+        <image name="daysofweek_wed" width="32" height="37"/>
         <image name="forward" width="48" height="48"/>
         <image name="harbourcenter.png" width="1200" height="782"/>
         <image name="icons" width="100" height="100"/>
@@ -2764,10 +2852,10 @@ Mon - Fri</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YuH-DV-njh"/>
         <segue reference="UVK-gw-bAs"/>
         <segue reference="UCx-U3-Lfo"/>
-        <segue reference="Pov-Lm-lJD"/>
+        <segue reference="peE-4i-7qa"/>
+        <segue reference="YuH-DV-njh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
