@@ -146,9 +146,8 @@
         //NSString *dateString = [dateFormat stringFromDate:dte];
         
         // back to string
-        
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-        [dateFormat2 setDateFormat:@"MMMM-dd-YYYY"];
+        [dateFormat2 setDateFormat:@"ccc, MMMM-dd-YYYY"];
         //[dateFormat2 setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSString *dateString = [dateFormat2 stringFromDate:dte];
         NSLog(@"DateString: %@", dateString);
@@ -162,20 +161,14 @@
         //NSString *newString = [currentelementvalue substringToIndex:10];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         // ignore +11 and use timezone name instead of seconds from gmt
-        [dateFormat setDateFormat:@"EEE, d MMM YYYY mm:ss Z"];
+        [dateFormat setDateFormat:@"ccc, dd MMM yyyy mm:ss Z"];
         //[dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSDate *dte = [dateFormat dateFromString:newString];
-        NSLog(@"Date: %@", dte);
-        NSLog(newString);
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-        [dateFormat2 setDateFormat:@"MMMM-dd-YYYY"];
+        [dateFormat2 setDateFormat:@"ccc, MMMM-dd-yyyy "];
         //[dateFormat2 setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSString *dateString = [dateFormat2 stringFromDate:dte];
-        //NSLog(@"DateString: %@", dateString);
-        
-        
-        
-        
+
         [thelist setValue:dateString forKey:@"pubDate"];
         currentelementvalue = nil;
         
