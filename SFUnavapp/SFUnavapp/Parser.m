@@ -106,6 +106,10 @@
         [thelist setValue:currentelementvalue forKey:@"lastModified"];
         currentelementvalue = nil;
     }
+     else if ([elementName isEqualToString:@"summary"]){
+     [thelist setValue:currentelementvalue forKey:@"description"];
+     currentelementvalue = nil;
+     }
    */
     else if ([elementName isEqualToString:@"published"]){
         NSString *newString = [currentelementvalue substringToIndex:10];
@@ -145,11 +149,8 @@
         currentelementvalue = nil;
     }
   
-    else if ([elementName isEqualToString:@"summary"]){
-        [thelist setValue:currentelementvalue forKey:@"description"];
-        currentelementvalue = nil;
-    }
-    
+ 
+  
     else{
         if (![elementName isEqualToString:@"channel"]){
             if (![elementName isEqualToString:@"id"]){
