@@ -9,5 +9,8 @@
 #import "List.h"
 
 @implementation List
-@synthesize title, link, description, author, category, pubDate, contactInfo, contactName,addlInfoURL, eventEndDate,eventStartDate,lastModified,guid;
+@synthesize title, link, pubDate
+/*
+,description, author, category,  contactInfo, contactName,addlInfoURL, eventEndDate,eventStartDate,lastModified,guid*/
+ ;
 @end
