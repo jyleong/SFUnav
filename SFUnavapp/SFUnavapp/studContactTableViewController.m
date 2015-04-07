@@ -8,42 +8,44 @@
 
 #import "studContactTableViewController.h"
 #import "ContactsTableViewCell.h"
+#import "ServicesWebViewController.h"
 
 @interface studContactTableViewController ()
 
-@property (strong,nonatomic)NSArray *registrarArray;
-@property (strong,nonatomic)NSArray *financialArray;
-@property (strong,nonatomic)NSArray *healthArray;
-@property (strong,nonatomic)NSArray *careerArray;
 @property (strong,nonatomic)NSDictionary *contact;
 
-@property (strong,nonatomic)NSArray *contactsArray;
+@property (strong,nonatomic)NSArray *serviceArray;
+
 
 @end
 
 @implementation studContactTableViewController
-@synthesize contactsArray, registrarArray, financialArray, healthArray, careerArray, contact;
+@synthesize serviceArray, contact, service;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = service;
     self.navigationController.navigationBar.topItem.title = @"";
     
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"Registrar" ofType:@"plist"];
-    registrarArray = [NSArray arrayWithContentsOfFile:path];
+    NSURL *url;
+    if ([service isEqualToString: @"Student Services"]) {
+        url = [[NSBundle mainBundle] URLForResource:@"StudentServices" withExtension:@"plist"];
+    }
+    else if ([service isEqualToString: @"Safety & Risk Services"]){
+        url = [[NSBundle mainBundle] URLForResource:@"Safety&Risk" withExtension:@"plist"];
+    }
+    else if ([service isEqualToString: @"Technical Services"]){
+        url = [[NSBundle mainBundle] URLForResource:@"Technical" withExtension:@"plist"];
+    }
     
-    path = [[NSBundle mainBundle]pathForResource:@"Financial" ofType:@"plist"];
-    financialArray = [NSArray arrayWithContentsOfFile:path];
+    serviceArray = [NSArray arrayWithContentsOfURL:url];
     
-    path = [[NSBundle mainBundle]pathForResource:@"Health" ofType:@"plist"];
-    healthArray = [NSArray arrayWithContentsOfFile:path];
     
-    path = [[NSBundle mainBundle]pathForResource:@"Career" ofType:@"plist"];
-    careerArray = [NSArray arrayWithContentsOfFile:path];
+    //NSLog(@"%@",serviceArray);
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"StudentServices" withExtension:@"plist"];
-    contactsArray = [NSArray arrayWithContentsOfURL:url];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,20 +59,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 4;
+    return serviceArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (section == 0)
-    {   return registrarArray.count;    }
-    if (section == 1)
-    {   return careerArray.count;    }
-    if (section == 2)
-    {   return financialArray.count;       }
-    if (section == 3)
-    {   return healthArray.count;       }
+    return [[serviceArray objectAtIndex:section]count];
     
     return 0;
 }
@@ -81,14 +76,7 @@
     ContactsTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"contactsTableCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    if (indexPath.section == 0)
-    {   contact = registrarArray[indexPath.row];    }
-    if (indexPath.section == 1)
-    {   contact = careerArray[indexPath.row];    }
-    if (indexPath.section == 2)
-    {   contact = financialArray[indexPath.row];       }
-    if (indexPath.section == 3)
-    {   contact = healthArray[indexPath.row];       }
+    contact = serviceArray[indexPath.section][indexPath.row];
     
     /* unload array */
     NSString *contactDetail = contact[@"contactDetail"];
@@ -105,20 +93,34 @@
     
     if ([cell.contactType.text isEqualToString:@"In Person"]) {
         cell.contactDetails.hidden = YES;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
+    if ([cell.contactType.text isEqualToString:@"Online"]) {
+        cell.contactDetails.hidden = YES;
+    }
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0)
-    {   return @"Registrar & Information Services"; }
-    if (section == 1)
-    {   return @"Career Services";   }
-    if (section == 2)
-    {   return @"Financial Advising";  }
-    if (section == 3)
-    {   return @"Health & Counselling Services (HCS)";  }
+    NSArray *studServices = [[NSArray alloc] initWithObjects:@"Registrar & Information Services", @"Career Services", @"Financial Advising", @"Health & Counselling Services (HCS)", nil];
+    NSArray *srServices = [[NSArray alloc] initWithObjects:@"Campus Security", @"Access Control (keys & cards)", nil];
+    NSArray *techServices = [[NSArray alloc] initWithObjects:@"Audio Visual Services", @"Videoconferencing", @"Computer Labs", nil];
+
+    if ([service isEqualToString: @"Student Services"]) {
+        return studServices[section];
+    }
+    else if ([service isEqualToString:@"Safety & Risk Services"]){
+        return srServices[section];
+    }
+    else if ([service isEqualToString:@"Technical Services"]){
+        return techServices[section];
+    }
+
     return 0;
 }
 
@@ -132,7 +134,15 @@
     NSString *info = cell.contactInfo.text;
     
     if ([type  isEqualToString: @"Phone"]) {
-        [self makeCall:info];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:cell.contactInfo.text
+                              message:@""
+                              delegate:self
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:@"Call", nil];
+        
+        // Display Alert Message
+        [alert show];
     }
     else if ([type isEqualToString:@"Email"]) {
         [self showEmail:info];
@@ -140,7 +150,26 @@
     else if ([type isEqualToString:@"Text"]) {
         [self showSMS:info];
     }
-    else if ([type isEqualToString:@"In Person"]) {
+    else if ([type isEqualToString:@"Online"]) {
+        NSString *segueIdentifier = @"openWebpage";
+        id sender = self;
+        [self performSegueWithIdentifier:segueIdentifier sender:sender];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        //cancel clicked ...do your action
+    }else{
+        [self makeCall:alertView.title];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    ContactsTableViewCell *cell = (ContactsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+
+    if ([cell.contactType.text isEqualToString:@"In Person"]) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Hours of Operation"
                               message:cell.contactDetails.text
@@ -151,9 +180,8 @@
         // Display Alert Message
         [alert show];
     }
-    //NSLog(cell.contactInfo.text);
-    
 }
+
 
 /*  - - - - - - contact functions - - - - - - */
 
@@ -264,11 +292,29 @@
  
  return NO;
  }
- 
+ */
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
+     if([[segue identifier] isEqual:@"openWebpage"])
+     { // Get the new view controller using [segue destinationViewController].
+         ServicesWebViewController *webcont = [segue destinationViewController];
+
+         //get URL details
+         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+         NSDictionary *linkInfo = serviceArray[path.section][path.row];
+        
+         //store it as a SerivesURL
+         ServicesURL *linkURL = [[ServicesURL alloc] init];
+         linkURL.serviceName = [linkInfo valueForKey:@"contactInfo"];
+         linkURL.serviceURL = [linkInfo valueForKey:@"contactDetail"];
+         NSLog(@"%@",linkURL);
+         
+         //segue
+         webcont.hidesBottomBarWhenPushed = YES;
+         [webcont setCurrentURL:linkURL];
+     }
  
  }
- */
+ 
 
 @end

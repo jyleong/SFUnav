@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>A/V Service Request</string>
+			<key>contactDetail</key>
+			<string>http://www.sfu.ca/itservices/technical/av_services/burnaby/requests.html</string>
+			<key>contactType</key>
+			<string>Online</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>West Mall Centre 2262</string>
+			<key>contactDetail</key>
+			<string>A/V Office (for CCC, DH, GYM, LB, MBC, TC, WMC)</string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>Shrum Science Centre - Physics 9301</string>
+			<key>contactDetail</key>
+			<string>A/V Office (for ASB, AQ, BLU, CM, DAC, EDB, HC, RCB, SH, SSB, SSC, SWH, TASC)</string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>Videoconferencing Options</string>
+			<key>contactDetail</key>
+			<string>http://www.sfu.ca/itservices/technical/videoconferencing.html</string>
+			<key>contactType</key>
+			<string>Online</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>contactInfo</key>
+			<string>FAQ</string>
+			<key>contactDetail</key>
+			<string>http://www.sfu.ca/itservices/technical/computerlabs/burnaby_labs/frequently_askedquestions.html</string>
+			<key>contactType</key>
+			<string>Online</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>AQ3145 (CIC Lab)</string>
+			<key>contactDetail</key>
+			<string>Monday to Friday:
+8:30am - 7:30pm
+Saturday: 10:30am - 6:00pm
+Sunday: 10:30am - 6:00pm
+            </string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>AQ3155 (East Concourse Lab)</string>
+			<key>contactDetail</key>
+			<string>Monday to Friday:
+8:30am - 7:30pm
+Saturday: 10:30am - 6:00pm
+Sunday: 10:30am - 6:00pm
+            </string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>AQ3148 (MicroComputer Facility/Help Desk)</string>
+			<key>contactDetail</key>
+			<string>Monday to Friday:
+8:30am - 6:30pm
+[Closes at 4:30pm in the Summer]
+            </string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+		<dict>
+			<key>contactInfo</key>
+			<string>WMX2502 (West Mall Lab)</string>
+			<key>contactDetail</key>
+			<string>Monday to Friday:
+8:30am - 7:30pm
+Saturday: 10:30am - 6:00pm
+Sunday: 10:30am - 6:00pm
+            </string>
+			<key>contactType</key>
+			<string>In Person</string>
+		</dict>
+	</array>
+</array>
+</plist>

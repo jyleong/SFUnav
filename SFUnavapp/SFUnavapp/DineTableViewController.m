@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // initialize tapper in viewdidload
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -56,9 +55,11 @@
     ServicesURL *send = [[ServicesURL alloc] init];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    
     if ([[segue identifier] isEqualToString:@"dinemap"]) {
         send.serviceName=@"Dining Map";
-        send.serviceURL=@"http://www.dineoncampus.ca/sfu/menus/dining-map";
+        send.serviceURL=@"http://cdn.agilitycms.com/dine-on-campus/SimonFraser/Images/CampusDiningMapwSbux-Large.jpg";
     }
     if ([[segue identifier] isEqualToString:@"DACmenu"]) {
         send.serviceName=@"DAC Menu";

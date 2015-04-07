@@ -28,9 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    //self.view.backgroundColor = UIColorFromRGB(0xE7E7E7);
+
     //the following lines of code creates channel objects consisting of the name and the weblink of the channel, then adding them to the list of channels, which are presented in the view
     
     _currentchannel = [[Channel alloc]init];

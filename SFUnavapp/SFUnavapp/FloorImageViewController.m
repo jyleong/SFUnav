@@ -50,9 +50,9 @@
     //self.scrollView.zoomScale=0.5;
     
     // 4
-    //CGRect scrollViewFrame = _FloorImage.frame;
-    CGFloat scaleWidth = 320 / _FloorImage.frame.size.width;
-    CGFloat scaleHeight = 320 / _FloorImage.frame.size.height;
+    CGRect scrollViewFrame = self.scrollView.frame;
+    CGFloat scaleWidth = scrollViewFrame.size.width / _FloorImage.frame.size.width;
+    CGFloat scaleHeight = scrollViewFrame.size.height / _FloorImage.frame.size.height;
     CGFloat minScale = MAX(scaleWidth, scaleHeight);
     self.scrollView.minimumZoomScale = minScale;
     
