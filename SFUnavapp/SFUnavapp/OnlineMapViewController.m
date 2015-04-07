@@ -184,9 +184,9 @@
 {
     int rowCount;
     if(self.isFiltered)
-        rowCount = _filteredTableData.count;
+        rowCount = (int) _filteredTableData.count;
     else
-        rowCount = _allTableData.count;
+        rowCount = (int)_allTableData.count;
     
     return rowCount;
 }

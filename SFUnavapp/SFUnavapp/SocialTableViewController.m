@@ -141,21 +141,21 @@
 
 
 -(IBAction) fbButtonPressed:(UIButton *)sender{
-    int selectedRow = [sender tag];
+    int selectedRow = (int)[sender tag];
     _socialLink = _socialArray[selectedRow];
     NSURL * soc = [NSURL URLWithString:_socialLink[@"Facebook"]];
     [[UIApplication sharedApplication] openURL:soc];
 }
 
 -(IBAction) twButtonPressed:(UIButton *)sender{
-    int selectedRow = [sender tag];
+    int selectedRow = (int)[sender tag];
     _socialLink = _socialArray[selectedRow];
     NSURL * soc = [NSURL URLWithString:_socialLink[@"Twitter"]];
     [[UIApplication sharedApplication] openURL:soc];
 }
 
 -(IBAction) ytButtonPressed:(UIButton *)sender{
-    int selectedRow = [sender tag];
+    int selectedRow = (int)[sender tag];
     _socialLink = _socialArray[selectedRow];
     NSURL * soc = [NSURL URLWithString:_socialLink[@"Youtube"]];
     [[UIApplication sharedApplication] openURL:soc];
