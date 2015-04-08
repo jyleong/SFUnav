@@ -12,6 +12,7 @@
 #import "TFHpple.h"
 #import "Reachability.h"
 #import "CourseDisplayTableViewCell.h"
+#import "CourseDetailViewController.h"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
 #define baseURL [NSString stringWithFormat:@"http://www.sfu.ca/bin/wcm/course-outlines?year=current&term=current"]
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green: ((float)((rgbValue & 0xFF00) >> 8))/255.0 blue: ((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -20,6 +21,7 @@
 {
     NSMutableArray *courseCollection;
     int flag;
+    NSInteger indexNumber;
 }
 @end
 
@@ -27,10 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    self.refreshControl.backgroundColor = UIColorFromRGB(0xB5111B);
-//    self.refreshControl.tintColor = [UIColor whiteColor];
-//    [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -350,7 +349,12 @@
 */
 
 #pragma mark - Navigation
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    indexNumber=indexPath.row;
+    [self performSegueWithIdentifier:@"showDetails" sender:self];
+    
+}
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
@@ -362,6 +366,16 @@
     else if([[segue identifier] isEqualToString:@"Login"])
     {
         //request login to access canvas and coursys courses
+    }
+    else if ([[segue identifier] isEqualToString:@"showDetails"])
+    {
+        CourseDetailViewController *fivc=[segue destinationViewController];
+        Course *temp=[courseCollection objectAtIndex:indexNumber];
+        fivc.courseTerm=@"current";
+        fivc.courseDept=[temp.dept lowercaseString];
+        fivc.courseNumber=[temp.number lowercaseString];
+        fivc.courseSection=[temp.section lowercaseString];
+        fivc.hidesBottomBarWhenPushed=YES;
     }
 }
 

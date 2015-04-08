@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     _moreDetails.layer.cornerRadius = 4;
     _moreDetails.layer.borderWidth = 0;
     _moreDetails.layer.borderColor = [UIColor clearColor].CGColor;
@@ -157,7 +156,6 @@
         }
         if (addCourse==YES)
         {
-            NSLog(@"object not found at %lu",(unsigned long)[currentCourses indexOfObjectIdenticalTo:currentCourse]);
             _addToCart.hidden=YES;
             [currentCourses addObject:currentCourse];
             _resultDisplay.text=@"   Added to Cart";
@@ -178,15 +176,14 @@
         if (addCourse==NO)
         {
             _addToCart.hidden=YES;
-            _resultDisplay.text=@"Course already in Cart";
+            _resultDisplay.text=@"   Course already in Cart";
             _resultDisplay.hidden=NO;
         }
         else
         {
-            NSLog(@"object not found at %lu",(unsigned long)[registrationCourses indexOfObjectIdenticalTo:currentCourse]);
             _addToCart.hidden=YES;
             [registrationCourses addObject:currentCourse];
-            _resultDisplay.text=@"Added to Cart";
+            _resultDisplay.text=@"   Added to Cart";
             _resultDisplay.hidden=NO;
         }
         

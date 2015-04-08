@@ -106,6 +106,21 @@
 
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    
+    CourseCartObject *courseToMove;
+    if (fromIndexPath.section==1)
+    {
+        courseToMove= [currentCourses objectAtIndex:fromIndexPath.row];
+        [currentCourses removeObjectAtIndex:fromIndexPath.row];
+        [currentCourses insertObject:courseToMove atIndex:toIndexPath.row];
+    }
+    else
+    {
+        courseToMove= [registrationCourses objectAtIndex:fromIndexPath.row];
+        [registrationCourses removeObjectAtIndex:fromIndexPath.row];
+        [registrationCourses insertObject:courseToMove atIndex:toIndexPath.row];
+
+    }
 }
 
 
@@ -137,6 +152,23 @@
     [self performSegueWithIdentifier:@"displayDetails" sender:self];
 
 }
+#pragma mark - NSUserDefaults Handlers
+- (void)saveCustomObject:(NSMutableArray *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self saveCustomObject:currentCourses key:@"currentCourses"];
+    [self saveCustomObject:registrationCourses key:@"registrationCourses"];
+
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -147,10 +179,6 @@
     {
         CourseDetailViewController *fivc=[segue destinationViewController];
         CourseCartObject *temp;
-//        fivc.courseTerm=@"";
-//        fivc.courseDept=@"";
-//        fivc.courseNumber=@"";
-//        fivc.courseSection=@"";
         if (sectionNumber==1)
             temp=[currentCourses objectAtIndex:indexNumber];
         else

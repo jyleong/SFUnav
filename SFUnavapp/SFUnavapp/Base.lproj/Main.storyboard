@@ -2401,7 +2401,7 @@ Mon - Fri</string>
             </objects>
             <point key="canvasLocation" x="-885" y="2122"/>
         </scene>
-        <!--Course Cart Table View Controller-->
+        <!--Course Cart-->
         <scene sceneID="xUj-xx-V54">
             <objects>
                 <tableViewController id="nNI-ls-ohM" customClass="CourseCartTableViewController" sceneMemberID="viewController">
@@ -2437,7 +2437,7 @@ Mon - Fri</string>
                             <outlet property="delegate" destination="nNI-ls-ohM" id="oir-3u-or6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Jpj-F2-shb"/>
+                    <navigationItem key="navigationItem" title="Course Cart" id="Jpj-F2-shb"/>
                     <connections>
                         <segue destination="yTn-XX-qVz" kind="push" identifier="displayDetails" id="yiU-CD-Hvk"/>
                     </connections>
@@ -2541,7 +2541,7 @@ Mon - Fri</string>
                                     <action selector="addToCartPress:" destination="yTn-XX-qVz" eventType="touchUpInside" id="vS8-mY-cp9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Added to Cart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHS-UV-pTj">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Added to Cart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHS-UV-pTj">
                                 <rect key="frame" x="16" y="463" width="287" height="21"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2602,7 +2602,7 @@ Mon - Fri</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IN4-Qz-Wzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-631" y="2848"/>
+            <point key="canvasLocation" x="-661" y="2848"/>
         </scene>
         <!--Social-->
         <scene sceneID="gAQ-30-3DQ">
@@ -2646,7 +2646,7 @@ Mon - Fri</string>
         <scene sceneID="7eQ-cs-evP">
             <objects>
                 <tableViewController id="CFc-dY-2uR" customClass="CoursesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="VjS-7E-5c5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="62" sectionHeaderHeight="10" sectionFooterHeight="10" id="VjS-7E-5c5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -2717,6 +2717,7 @@ Mon - Fri</string>
                     <connections>
                         <segue destination="Cnq-7K-Pdk" kind="push" identifier="BrowseCourse" id="4zD-RK-FiF"/>
                         <segue destination="xKj-0m-iS0" kind="push" identifier="LogIn" id="UVK-gw-bAs"/>
+                        <segue destination="yTn-XX-qVz" kind="push" identifier="showDetails" id="Deu-Xm-vDE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R22-cv-a3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2771,9 +2772,9 @@ Mon - Fri</string>
     <inferredMetricsTieBreakers>
         <segue reference="YuH-DV-njh"/>
         <segue reference="peE-4i-7qa"/>
+        <segue reference="Deu-Xm-vDE"/>
         <segue reference="UCx-U3-Lfo"/>
         <segue reference="UVK-gw-bAs"/>
-        <segue reference="yiU-CD-Hvk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>

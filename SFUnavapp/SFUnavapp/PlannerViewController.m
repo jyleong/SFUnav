@@ -28,13 +28,14 @@ NSMutableArray *registrationCourses;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    currentCourses=[self loadCustomObjectWithKey:@"currentCourses"];
+    registrationCourses=[self loadCustomObjectWithKey:@"registrationCourses"];
     if (currentCourses==nil)
         currentCourses=[[NSMutableArray alloc]init];
 
     if (registrationCourses==nil)
         registrationCourses=[[NSMutableArray alloc]init];
 
-    self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     _semesterNames=[[NSMutableArray alloc]init];
     [_semesterNames addObject:@"Current"];
     [_semesterNames addObject:@"Registration"];
@@ -259,6 +260,12 @@ numberOfRowsInComponent:(NSInteger)component
     
 }
 
+- (NSMutableArray *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    NSMutableArray *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
 
 #pragma mark -memory management
 -(void) dealloc
