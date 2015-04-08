@@ -275,7 +275,7 @@
     self.PickerIsShowing = NO;
     self.picker_done_btn.hidden = YES;
     self.picker_updown_arrow.image = [UIImage imageNamed:@"Downward_table_arrow"];
-    self.quicklinkLabel.text = @"SFU Bus Stops";
+    self.quicklinkLabel.text = @"Show SFU Bus Stops";
     
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
