@@ -132,18 +132,11 @@
     static NSString *cellidentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     cell.layer.cornerRadius = 10;
-    
     [cell.layer setMasksToBounds:YES];
-    //[cell.layer setBorderWidth:1];
-
     if (indexPath.section == 0)
     {    _currentchannel = [_channelList objectAtIndex:indexPath.row];    }
     if (indexPath.section == 1)
     {    _currentchannel = [_channelList objectAtIndex:indexPath.row+4];    }
-    
-   //_currentchannel = [_channelList objectAtIndex:indexPath.row];
-   // NSLog(@"haha");
-    //NSLog(_currentchannel.channelName);
     cell.textLabel.text = _currentchannel.channelName;
     return cell;
 }
@@ -201,10 +194,6 @@
     
     [self performSegueWithIdentifier:@"ChannelLink" sender:self];
     //[self performSegueWithIdentifier:@"linktoWeb" sender:self];
-    
-    
-    
-    
 }
 
 #pragma mark - Navigation
@@ -212,18 +201,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    
     if ([[segue identifier] isEqualToString:@"ChannelLink"]) {
         NewsTableViewController *webcont = [segue destinationViewController];
-        
-        // ServicesURL *send = [[ServicesURL alloc] init];
-        //send.serviceName=@"About Us";
-        //send.serviceURL=@"https://cmpt275g13.wordpress.com/";
-        //webcont.hidesBottomBarWhenPushed = YES;
         [webcont setChannel:_currentchannel];
     }
-    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     // Get the new view controller using [segue destinationViewController].
