@@ -57,6 +57,8 @@ NSMutableArray *registrationCourses;
 //First call loads Department titles
 - (void)fetchedDept:(NSData *)responseData {
     //parse out the json data
+    if (responseData==nil)
+        return;
     NSError* error;
     NSArray* json = [NSJSONSerialization
                           JSONObjectWithData:responseData //1
@@ -80,6 +82,8 @@ NSMutableArray *registrationCourses;
 //Called after confirming department, loads course names
 - (void)fetchedCourse:(NSData *)responseData {
     //parse out the json data
+    if (responseData==nil)
+        return;
     NSError* error;
     NSArray* json = [NSJSONSerialization
                      JSONObjectWithData:responseData //1
@@ -104,6 +108,8 @@ NSMutableArray *registrationCourses;
 
 - (void)fetchedSections:(NSData *)responseData {
     //parse out the json data
+    if (responseData==nil)
+        return;
     NSError* error;
     NSArray* json = [NSJSONSerialization
                      JSONObjectWithData:responseData //1
