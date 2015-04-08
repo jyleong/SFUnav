@@ -149,6 +149,7 @@
         temp.campus=[temp.campus lowercaseString];
         [courseCollection addObject:temp];
     }
+
 }
 -(void) parseCoursys{
 
@@ -190,6 +191,8 @@
         NSLog(@"%@",apiURL);
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:apiURL ]];
         NSLog(@"info url:%@",apiURL);
+        if (data==nil)
+            return;
         NSError* error;
         NSDictionary* json = [NSJSONSerialization
                               JSONObjectWithData:data //1
