@@ -51,6 +51,7 @@
     // Return the number of rows in the section.
     if (section==1)
         return [currentCourses count];
+    //section=0
     return [registrationCourses count];
 }
 
