@@ -80,6 +80,12 @@
 		D27E32781A984EC900004735 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D27E32771A984EC900004735 /* libxml2.dylib */; };
 		D27E327B1A984EF900004735 /* Campus.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E327A1A984EF900004735 /* Campus.m */; };
 		D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28E082A1AAFE93900B35F6B /* LoginViewController.m */; };
+		D294DE741ACCAD440005E20A /* daysofweek_mon.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6D1ACCAD440005E20A /* daysofweek_mon.png */; };
+		D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6E1ACCAD440005E20A /* daysofweek_sat.png */; };
+		D294DE761ACCAD440005E20A /* daysofweek_sun.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE6F1ACCAD440005E20A /* daysofweek_sun.png */; };
+		D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE701ACCAD440005E20A /* daysofweek_thu.png */; };
+		D294DE781ACCAD440005E20A /* daysofweek_tue.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE711ACCAD440005E20A /* daysofweek_tue.png */; };
+		D294DE791ACCAD440005E20A /* daysofweek_wed.png in Resources */ = {isa = PBXBuildFile; fileRef = D294DE721ACCAD440005E20A /* daysofweek_wed.png */; };
 		D294DE7C1ACCAE830005E20A /* CourseDisplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D294DE7B1ACCAE830005E20A /* CourseDisplayTableViewCell.m */; };
 		D294DE7F1ACCB4BD0005E20A /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D294DE7E1ACCB4BD0005E20A /* CoursesTableViewController.m */; };
 		D2B50E091AC6742100D255BC /* Blusson Hall.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B50E081AC6742100D255BC /* Blusson Hall.png */; };
@@ -747,10 +753,8 @@
 				04B8934B1ACFCC3300BB8BD5 /* Safety&Risk.plist in Resources */,
 				04971D491AA389F600AE1F6E /* Contacts - Weblink.png in Resources */,
 				DC86567E1A97163500D908C9 /* AQSouthWest.html in Resources */,
-				049B5C071AB21571001521D4 /* Registrar.plist in Resources */,
-				0456CFBB1AB4D050002548B5 /* access.plist in Resources */,
-				0456CFAC1AB4C264002548B5 /* Career.plist in Resources */,
-				045E5E781AB0144200FDF7BC /* surrey.png in Resources */,
+				D294DE781ACCAD440005E20A /* daysofweek_tue.png in Resources */,
+				D294DE751ACCAD440005E20A /* daysofweek_sat.png in Resources */,
 				04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */,
 				D2B50E0D1AC6754F00D255BC /* Bennett Library.png in Resources */,
 				04971D481AA389F600AE1F6E /* Contacts - email.png in Resources */,
@@ -759,8 +763,7 @@
 				DC8656891A97164C00D908C9 /* Gaglardi.html in Resources */,
 				B0DB77EC1AB2A44800EFDB83 /* text_campus_map.png in Resources */,
 				EEC87AAD1AC360260095861F /* Channel.plist in Resources */,
-				049B5C091AB216EC001521D4 /* Financial.plist in Resources */,
-				0456CFB71AB4CC33002548B5 /* Security.plist in Resources */,
+				D294DE771ACCAD440005E20A /* daysofweek_thu.png in Resources */,
 				B0BC90681AB7A0FA00135D51 /* GoogleMaps.bundle in Resources */,
 				0426DC051AD05CC100F09F57 /* Technical.plist in Resources */,
 				04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */,
@@ -816,6 +819,7 @@
 				DC807F9D1A905E55008CA3DC /* ServicesURL.m in Sources */,
 				EEC7864C1AB79312004AF041 /* Parser.m in Sources */,
 				B08D859F1AC46AA700335A19 /* RoadReportTableCell.m in Sources */,
+				04B893491ACF5D5A00BB8BD5 /* contactsTableViewController.m in Sources */,
 				D243FBDB1ACF7F0200D6513C /* CourseCartObject.m in Sources */,
 				D27E327B1A984EF900004735 /* Campus.m in Sources */,
 				B0344D351ACD004F009F3F1F /* KeychainItemWrapper.m in Sources */,

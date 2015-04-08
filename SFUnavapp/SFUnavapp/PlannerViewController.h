@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CourseDetailViewController.h"
 
+//Mutable arrays to hold the current and registration term courses for the course cart data source
+extern NSMutableArray *currentCourses;
+extern NSMutableArray *registrationCourses;
+
 @interface PlannerViewController : UITableViewController
 
 @property NSMutableArray *semesterNames;

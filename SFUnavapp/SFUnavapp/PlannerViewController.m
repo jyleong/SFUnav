@@ -19,14 +19,21 @@
 - (IBAction)deptDone:(id)sender;
 - (IBAction)courseDone:(id)sender;
 
-
-
 @end
+
+NSMutableArray *currentCourses;
+NSMutableArray *registrationCourses;
 
 @implementation PlannerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (currentCourses==nil)
+        currentCourses=[[NSMutableArray alloc]init];
+
+    if (registrationCourses==nil)
+        registrationCourses=[[NSMutableArray alloc]init];
+
     self.navigationController.navigationBar.topItem.title = @""; // line to hide back button text
     _semesterNames=[[NSMutableArray alloc]init];
     [_semesterNames addObject:@"Current"];
@@ -34,13 +41,6 @@
     _deptNames=[[NSMutableArray alloc]init];
     _courseNames=[[NSMutableArray alloc]init];
     _sectionNames=[[NSMutableArray alloc]init];
-
-
-//    _departmentPicker.hidden=true;
-//    _coursePicker.hidden=true;
-//    _sectionPicker.hidden=true;
-    // Do any additional setup after loading the view.
-    
     
 }
 
@@ -50,6 +50,7 @@
     _deptDone.hidden=YES;
     _courseDone.hidden=YES;
     _sectionDone.hidden=YES;
+    self.navigationController.title=@"Browse";
     
 }
 //First call loads Department titles

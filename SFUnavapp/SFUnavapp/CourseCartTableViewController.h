@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlannerViewController.h"
+#import "CourseCartObject.h"
+#import "CourseDetailViewController.h"
 
 @interface CourseCartTableViewController : UITableViewController
 

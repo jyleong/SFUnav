@@ -9,7 +9,10 @@
 #import "CourseCartTableViewController.h"
 
 @interface CourseCartTableViewController ()
-
+{
+    NSInteger indexNumber;
+    NSInteger sectionNumber;
+}
 @end
 
 @implementation CourseCartTableViewController
@@ -21,7 +24,13 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+        self.navigationController.title=@"Course Cart";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,21 +47,40 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    if (section==1)
+        return [currentCourses count];
+    return [registrationCourses count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.layer.cornerRadius=10;
     
     // Configure the cell...
-    
+    if (indexPath.section==1)
+    {
+        CourseCartObject *current=[currentCourses objectAtIndex:indexPath.row];
+        cell.textLabel.text=[NSString stringWithFormat:@"%@ %@", current.courseDept, current.courseNumber];
+        cell.detailTextLabel.text=current.courseSection;
+    }
+    else
+    {
+        CourseCartObject *current=[registrationCourses objectAtIndex:indexPath.row];
+        cell.textLabel.text=[NSString stringWithFormat:@"%@ %@", current.courseDept, current.courseNumber];
+        cell.detailTextLabel.text=current.courseSection;
+    }
     return cell;
 }
-*/
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==1)
+        return @"Current Term";
+    return @"Next/Registration Term";//section=0
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,23 +89,38 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        if (indexPath.section==1)
+            [currentCourses removeObjectAtIndex:indexPath.row];
+        else
+            [registrationCourses removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
-*/
+
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (sourceIndexPath.section != proposedDestinationIndexPath.section) {
+        NSInteger row = 0;
+        if (sourceIndexPath.section < proposedDestinationIndexPath.section) {
+            row = [tableView numberOfRowsInSection:sourceIndexPath.section] - 1;
+        }
+        return [NSIndexPath indexPathForRow:row inSection:sourceIndexPath.section];
+    }
+    
+    return proposedDestinationIndexPath;
+}
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -87,14 +130,38 @@
 }
 */
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    indexNumber=indexPath.row;
+    sectionNumber=indexPath.section;
+    [self performSegueWithIdentifier:@"displayDetails" sender:self];
+
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier]isEqualToString:@"displayDetails"])
+    {
+        CourseDetailViewController *fivc=[segue destinationViewController];
+        CourseCartObject *temp;
+//        fivc.courseTerm=@"";
+//        fivc.courseDept=@"";
+//        fivc.courseNumber=@"";
+//        fivc.courseSection=@"";
+        if (sectionNumber==1)
+            temp=[currentCourses objectAtIndex:indexNumber];
+        else
+            temp=[registrationCourses objectAtIndex:indexNumber];
+        fivc.courseTerm=temp.courseTerm;
+        fivc.courseDept=temp.courseDept;
+        fivc.courseNumber=temp.courseNumber;
+        fivc.courseSection=temp.courseSection;
+        fivc.hidesBottomBarWhenPushed=YES;
+    }
 }
-*/
+
 
 @end

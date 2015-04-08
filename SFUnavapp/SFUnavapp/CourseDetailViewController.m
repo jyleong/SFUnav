@@ -23,6 +23,12 @@
     _moreDetails.layer.cornerRadius = 4;
     _moreDetails.layer.borderWidth = 0;
     _moreDetails.layer.borderColor = [UIColor clearColor].CGColor;
+    _addToCart.layer.cornerRadius = 4;
+    _addToCart.layer.borderWidth = 0;
+    _addToCart.layer.borderColor = [UIColor clearColor].CGColor;
+    _resultDisplay.layer.cornerRadius = 4;
+    _resultDisplay.layer.borderWidth = 0;
+
     _moreDetails.hidden=YES;
     _nodePath=@"";
     _courseTimesText=@"";
@@ -32,15 +38,29 @@
     [self genData];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _moreDetails.hidden=YES;
+    _addToCart.hidden=YES;
+    self.navigationController.title=@"Course Details";
+}
+
+#pragma mark - JSON return handler
+
 - (void)fetchedInfo:(NSData *)responseData {
+    if (responseData==nil)
+        return;
     //parse out the json data
+    
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
                           JSONObjectWithData:responseData //1
                           
                           options:kNilOptions
                           error:&error];
-    
+    if (json==nil)
+        return;
     NSArray *info=[json objectForKey:@"courseSchedule"];
     
     for (int i=0;i<[info count];i++)
@@ -84,8 +104,10 @@
     _nodePath=[NSString stringWithFormat:@"%@%@",onlineDisplayBaseURL,temp];
     
     _moreDetails.hidden=NO;
+    _addToCart.hidden=NO;
 }
 
+#pragma mark - JSON Calls
 -(void) genData{
     dispatch_async(kBgQueue, ^{
         NSString *apiURL=[NSString stringWithFormat:
@@ -108,6 +130,69 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_nodePath]];
 }
 
+#pragma mark - Manage Course Cart
+
+- (IBAction)addToCartPress:(id)sender {
+    BOOL addCourse=YES;
+    CourseCartObject *currentCourse=[[CourseCartObject alloc]init];
+    currentCourse.courseTerm=_courseTerm;
+    currentCourse.courseDept=_courseDept;
+    currentCourse.courseNumber=_courseNumber;
+    currentCourse.courseSection=_courseSection;
+    if ([currentCourse.courseTerm isEqualToString:@"Current"])
+    {
+        for (int i=0; i<[currentCourses count]; i++) {
+            CourseCartObject *temp=currentCourses[i];
+            if ([[currentCourse courseTerm] isEqualToString:[temp courseTerm]] && [[currentCourse courseDept] isEqualToString:[temp courseDept]] && [[currentCourse courseNumber] isEqualToString:[temp courseNumber]] &&[[currentCourse courseSection] isEqualToString:[temp courseSection]])
+            {
+                addCourse=NO;
+                break;
+            }
+        }
+        if (addCourse==NO)
+        {
+            _addToCart.hidden=YES;
+            _resultDisplay.text=@"   Course already in Cart";
+            _resultDisplay.hidden=NO;
+        }
+        if (addCourse==YES)
+        {
+            NSLog(@"object not found at %lu",(unsigned long)[currentCourses indexOfObjectIdenticalTo:currentCourse]);
+            _addToCart.hidden=YES;
+            [currentCourses addObject:currentCourse];
+            _resultDisplay.text=@"   Added to Cart";
+            _resultDisplay.hidden=NO;
+        }
+
+    }
+    if ([currentCourse.courseTerm isEqualToString:@"Registration"])
+    {
+        for (int i=0; i<[registrationCourses count]; i++) {
+            CourseCartObject *temp=registrationCourses[i];
+            if ([[currentCourse courseTerm] isEqualToString:[temp courseTerm]] && [[currentCourse courseDept] isEqualToString:[temp courseDept]] && [[currentCourse courseNumber] isEqualToString:[temp courseNumber]] &&[[currentCourse courseSection] isEqualToString:[temp courseSection]])
+            {
+                addCourse=NO;
+                break;
+            }
+        }
+        if (addCourse==NO)
+        {
+            _addToCart.hidden=YES;
+            _resultDisplay.text=@"Course already in Cart";
+            _resultDisplay.hidden=NO;
+        }
+        else
+        {
+            NSLog(@"object not found at %lu",(unsigned long)[registrationCourses indexOfObjectIdenticalTo:currentCourse]);
+            _addToCart.hidden=YES;
+            [registrationCourses addObject:currentCourse];
+            _resultDisplay.text=@"Added to Cart";
+            _resultDisplay.hidden=NO;
+        }
+        
+    }
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

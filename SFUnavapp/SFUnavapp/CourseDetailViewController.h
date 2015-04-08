@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CourseCartObject.h"
+#import "PlannerViewController.h"
 
 @interface CourseDetailViewController : UIViewController
 
@@ -23,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *courseTimes;
 @property (weak, nonatomic) IBOutlet UITextView *examTimes;
 @property (weak, nonatomic) IBOutlet UIButton *moreDetails;
+@property (weak, nonatomic) IBOutlet UIButton *addToCart;
+@property (weak, nonatomic) IBOutlet UILabel *resultDisplay;
 
 
 @end

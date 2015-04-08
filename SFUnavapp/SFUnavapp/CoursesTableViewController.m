@@ -42,6 +42,7 @@
 -(void) viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
+        self.navigationController.title=@"My Courses";
     flag=0;
     if (autoLogin!=YES)
         [self notlogin];
