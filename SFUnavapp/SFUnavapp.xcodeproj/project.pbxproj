@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0426234E1AD5041100F37D05 /* LibraryHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426234D1AD5041100F37D05 /* LibraryHoursTableViewCell.m */; };
 		0426DC051AD05CC100F09F57 /* Technical.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0426DC041AD05CC100F09F57 /* Technical.plist */; };
-		0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */; };
 		0458A3B71ACBB0BC009D0026 /* LibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */; };
 		04971CF41AA381B400AE1F6E /* BurnabyCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */; };
 		04971CF51AA381B400AE1F6E /* SurreyCampus-sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 04971CF21AA381B400AE1F6E /* SurreyCampus-sm.png */; };
@@ -124,9 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0426234C1AD5041100F37D05 /* LibraryHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTableViewCell.h; sourceTree = "<group>"; };
+		0426234D1AD5041100F37D05 /* LibraryHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTableViewCell.m; sourceTree = "<group>"; };
 		0426DC041AD05CC100F09F57 /* Technical.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Technical.plist; sourceTree = "<group>"; };
-		0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryHoursTableViewCell.h; sourceTree = "<group>"; };
-		0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryHoursTableViewCell.m; sourceTree = "<group>"; };
 		0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryTableViewController.h; sourceTree = "<group>"; };
 		0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryTableViewController.m; sourceTree = "<group>"; };
 		04971CF11AA381B400AE1F6E /* BurnabyCampus-sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BurnabyCampus-sm.png"; sourceTree = "<group>"; };
@@ -330,10 +330,10 @@
 		0458A3B11ACBAFB3009D0026 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0458A3B21ACBB0BC009D0026 /* LibraryHoursTableViewCell.h */,
-				0458A3B31ACBB0BC009D0026 /* LibraryHoursTableViewCell.m */,
 				0458A3B41ACBB0BC009D0026 /* LibraryTableViewController.h */,
 				0458A3B51ACBB0BC009D0026 /* LibraryTableViewController.m */,
+				0426234C1AD5041100F37D05 /* LibraryHoursTableViewCell.h */,
+				0426234D1AD5041100F37D05 /* LibraryHoursTableViewCell.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -397,13 +397,13 @@
 		B01BE6771A8D425E0013D9EA /* SFUnavapp */ = {
 			isa = PBXGroup;
 			children = (
+				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
+				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
+				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
 				0458A3B11ACBAFB3009D0026 /* Library */,
 				DC566CC31AA67149006AA2D9 /* MTImageMapView */,
 				D27E326D1A984E0000004735 /* hpple_parser */,
 				DC566CD41AA6A45B006AA2D9 /* Reachability */,
-				B01BE6831A8D425E0013D9EA /* Main.storyboard */,
-				B01BE6801A8D425E0013D9EA /* AppDelegate.h */,
-				B01BE6811A8D425E0013D9EA /* AppDelegate.m */,
 				7D5B6FAB1ACC82BB0000B2F8 /* Dine */,
 				D2B50E0E1AC679F300D255BC /* About Us */,
 				EE9A4CDA1ABA2FE0008AE555 /* News */,
@@ -795,6 +795,7 @@
 				DC86568C1A97164C00D908C9 /* Webcam.m in Sources */,
 				DCE7A0951ACBAE13009B4209 /* Course.m in Sources */,
 				B0887C961AC627120047F200 /* QRcodescannerViewController.m in Sources */,
+				0426234E1AD5041100F37D05 /* LibraryHoursTableViewCell.m in Sources */,
 				7D5B6FAE1ACC82D00000B2F8 /* DineTableViewController.m in Sources */,
 				D28E082B1AAFE93900B35F6B /* LoginViewController.m in Sources */,
 				B0FC32751A956FFB00900E3A /* TransitTableViewController.m in Sources */,
@@ -826,7 +827,6 @@
 				D2EBC4521AA9744C007540DE /* WeatherTableViewController.m in Sources */,
 				049B5C011AB1FE1C001521D4 /* ContactsTableViewCell.m in Sources */,
 				B0DDA5331AAA63860027A81D /* AboutUsViewController.m in Sources */,
-				0458A3B61ACBB0BC009D0026 /* LibraryHoursTableViewCell.m in Sources */,
 				B0A10C3E1ACA4ED000FC5F35 /* SocialTableViewController.m in Sources */,
 				EEC7864F1AB79588004AF041 /* NewsTableViewController.m in Sources */,
 				B01E40481AB6059500166904 /* OnlineMapViewController.m in Sources */,

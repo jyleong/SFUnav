@@ -253,7 +253,7 @@
     self.PickerIsShowing = YES;
     self.picker_done_btn.hidden = NO;
     self.picker_updown_arrow.image = [UIImage imageNamed:@"Upward_table_arrow"];
-    self.quicklinkLabel.text = @"Close Quick links"; // change text of quicklinklabel
+    self.quicklinkLabel.text = @""; // change text of quicklinklabel
     
     [self.tableView beginUpdates];
     
@@ -275,7 +275,7 @@
     self.PickerIsShowing = NO;
     self.picker_done_btn.hidden = YES;
     self.picker_updown_arrow.image = [UIImage imageNamed:@"Downward_table_arrow"];
-    self.quicklinkLabel.text = @"Open Quick links";
+    self.quicklinkLabel.text = @"Show SFU Bus Stops";
     
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
@@ -457,8 +457,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"passUps"]) {
-        send.serviceName=@"Pass Ups";
+        send.serviceName=@"Report a bus pass up";
         send.serviceURL=@"http://www.sfu.ca/busstop.html";
+    }
+    else if ([[segue identifier] isEqualToString:@"translink"]) {
+        send.serviceName=@"Translink";
+        send.serviceURL=@"http://m.translink.ca/";
     }
     // translink webservice must have cases
     else if ([[segue identifier] isEqualToString:@"viewBus"]) {

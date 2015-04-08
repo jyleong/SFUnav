@@ -150,12 +150,18 @@
 {
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    if (networkStatus == NotReachable) {
-        NSLog(@"There IS NO internet connection");
-        return NO;
+    switch (networkStatus) {
+        case NotReachable:
+            NSLog(@"There IS NO internet connection");
+            return NO;
+            break;
+            
+        default:
+            NSLog(@"There IS internet connection");
+            return  YES;
+            break;
     }
-    NSLog(@"There IS internet connection");
-    return  YES;
+    
     
 }
 

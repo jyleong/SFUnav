@@ -187,22 +187,26 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.detailTextLabel.text != nil) {
-        [self makeCall:(cell.detailTextLabel.text)];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:cell.detailTextLabel.text
+                              message:@""
+                              delegate:self
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:@"Call", nil];
+        
+        // Display Alert Message
+        [alert show];
     }
-    /*
-    // Show details of cell in alert
-    UIAlertView *alert = [[UIAlertView alloc]
-                                 initWithTitle:cell.textLabel.text
-                                 message:cell.detailTextLabel.text
-                                 delegate:nil
-                                 cancelButtonTitle:@"Cancel"
-                                 otherButtonTitles:@"Call", nil];
-    
-    // Display Alert Message
-    [alert show];
-    */
 }
 
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        //cancel clicked ...do your action
+    }else{
+        [self makeCall:alertView.title];
+    }
+}
 
 
 @end

@@ -8,30 +8,20 @@
 
 #import "Parser.h"
 @implementation Parser
-
-
 @synthesize listArray;
 
 //SO WHEN PARSE IS CALLED, IT GOES THROUGH THE DOCUMENT, AND WHEN IT FINDS SOMETHING, DEPENDING ON WHAT IS FOUND (OPENING TAG, CLOSING TAG, CHARACTERS, CDATA), ONE OF THE FUNCTIONS BELOW WILL TRIGGER
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-    //NSLog(@"found element");
-    //NSLog(elementName);
-    
-   // NSLog(attributeDict.description);
     //rss and item is for events
     if ([elementName isEqualToString:@"rss"]){
         listArray = [[NSMutableArray alloc]init];
         //NSLog(@"BEGIN");
     }
-    
     else if ([elementName isEqualToString:@"feed"]){
         listArray = [[NSMutableArray alloc]init];
         //NSLog(@"BEGIN");
     }
-    
-    
-    
     else if ([elementName isEqualToString:@"item"]){
         thelist = [[List alloc]init];
        // NSLog(@"foundITEM");
@@ -51,44 +41,27 @@
             [scanner scanUpToString:@"\"" intoString:NULL];
             [scanner scanString:@"\"" intoString:NULL];
             [scanner scanUpToString:@"\"" intoString:&tmp];
-            
             [scanner scanString:@"\"" intoString:NULL];
         }
-       
         if (currentelementvalue== nil){
             currentelementvalue = [[NSMutableString alloc]initWithString:tmp];
         //[currentelementvalue appendString:tmp];
         }
-        
     }
-    
-   
 }
-
-
 -(void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     
     if (!currentelementvalue){
-        
-        
-        
-        
         currentelementvalue = [[NSMutableString alloc]initWithString:string];
     }
     else{
-   
         [currentelementvalue appendString:string];
     }
 }
 
 -(void) parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock{
-    
-    //NSLog(@"FOUND CDATA");
     NSMutableString* newStr = [[NSMutableString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
     currentelementvalue=newStr;
-  //  NSLog(newStr);
-    
-    
 }
 
 
@@ -103,7 +76,7 @@
         [listArray addObject:thelist];
        thelist = nil;
     }
-    
+    /*
     else if ([elementName isEqualToString:@"cdaily:contactName"]||[elementName isEqualToString:@"name"]){
         [thelist setValue:currentelementvalue forKey:@"contactName"];
         currentelementvalue = nil;
@@ -132,9 +105,12 @@
     else if ([elementName isEqualToString:@"cdaily:lastModified" ]||[elementName isEqualToString:@"updated"]){
         [thelist setValue:currentelementvalue forKey:@"lastModified"];
         currentelementvalue = nil;
-        
     }
-   
+     else if ([elementName isEqualToString:@"summary"]){
+     [thelist setValue:currentelementvalue forKey:@"description"];
+     currentelementvalue = nil;
+     }
+   */
     else if ([elementName isEqualToString:@"published"]){
         NSString *newString = [currentelementvalue substringToIndex:10];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -146,9 +122,8 @@
         //NSString *dateString = [dateFormat stringFromDate:dte];
         
         // back to string
-        
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-        [dateFormat2 setDateFormat:@"MMMM-dd-YYYY"];
+        [dateFormat2 setDateFormat:@"ccc, MMMM-dd-YYYY"];
         //[dateFormat2 setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSString *dateString = [dateFormat2 stringFromDate:dte];
         NSLog(@"DateString: %@", dateString);
@@ -162,39 +137,28 @@
         //NSString *newString = [currentelementvalue substringToIndex:10];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         // ignore +11 and use timezone name instead of seconds from gmt
-        [dateFormat setDateFormat:@"EEE, d MMM YYYY mm:ss Z"];
+        [dateFormat setDateFormat:@"ccc, dd MMM yyyy mm:ss Z"];
         //[dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSDate *dte = [dateFormat dateFromString:newString];
-        NSLog(@"Date: %@", dte);
-        NSLog(newString);
         NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-        [dateFormat2 setDateFormat:@"MMMM-dd-YYYY"];
+        [dateFormat2 setDateFormat:@"ccc, MMMM-dd-yyyy "];
         //[dateFormat2 setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
         NSString *dateString = [dateFormat2 stringFromDate:dte];
-        //NSLog(@"DateString: %@", dateString);
-        
-        
-        
-        
+
         [thelist setValue:dateString forKey:@"pubDate"];
         currentelementvalue = nil;
-        
     }
   
-    else if ([elementName isEqualToString:@"summary"]){
-        [thelist setValue:currentelementvalue forKey:@"description"];
-        currentelementvalue = nil;
-        
-    }
+ 
+  
     else{
         if (![elementName isEqualToString:@"channel"]){
-            
-            
             if (![elementName isEqualToString:@"id"]){
-
+                if ([elementName isEqualToString:@"title"]|| [elementName isEqualToString:@"link"]){
                 [thelist setValue:currentelementvalue forKey:elementName];
+                }
             }
-        currentelementvalue = nil;
+            currentelementvalue = nil;
         }
     }
 }
@@ -202,7 +166,4 @@
 -(NSMutableArray*) getlist{
     return self.listArray; 
 }
-
-
-
 @end

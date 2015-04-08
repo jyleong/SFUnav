@@ -25,7 +25,7 @@
     BOOL hasInternet;
 }
 @end
-
+int boxheights[8];
 
 @implementation LibraryTableViewController
 
@@ -36,15 +36,21 @@
     self.navigationItem.title=@"Library";
     
     //check for internet connection - from Arjun
-    hasInternet =[self checkInternet];
+    hasInternet = [self checkInternet];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor colorWithRed:0 green:83/255.0 blue:155/255.0 alpha:1.0];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl beginRefreshing];
+        [self.refreshControl endRefreshing];
+    });
+    
     
     //get library equipment summary api information
+    
     if (hasInternet) {
         //get library hours api information
         NSString *str = @"http://api.lib.sfu.ca/hours/summary?date=";
@@ -70,7 +76,7 @@
         
         //NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
     }
-   
+    
     //holds links
     links = [[NSMutableArray alloc] init];
     
@@ -105,12 +111,36 @@
 
 - (void)reload
 {
+
     // Reload table data
+    hasInternet = [self checkInternet];
+    
+    if (hasInternet) {
+        //get library hours api information
+        NSString *str = @"http://api.lib.sfu.ca/hours/summary?date=";
+        NSURL *url = [NSURL URLWithString:str];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSError *error = nil;
+        hourResults = [NSJSONSerialization
+                       JSONObjectWithData:data
+                       options:NSJSONReadingMutableContainers
+                       error:&error];
+        
+        str = @"http://api.lib.sfu.ca/equipment/computers/free_summary";
+        url = [NSURL URLWithString:str];
+        data = [NSData dataWithContentsOfURL:url];
+        error = nil;
+        equipResults = [NSJSONSerialization
+                        JSONObjectWithData:data
+                        options:NSJSONReadingMutableContainers
+                        error:&error];
+        
+        equipResults = [equipResults objectForKey:@"locations"];
+    }
     [self.tableView reloadData];
     
     // End the refreshing
     if (self.refreshControl) {
-        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MMM d, h:mm a"];
         NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
@@ -144,8 +174,27 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     LibraryHoursTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"libraryCell" forIndexPath:indexPath];
+    
+    //clears table
+    if ([cell.contentView subviews]) {
+        for (UIView *subview in [cell.contentView subviews]) {
+            [subview removeFromSuperview];
+        }
+    }
+    
+    [cell.libraryName removeFromSuperview];
+    [cell.libraryStatus removeFromSuperview];
+    [cell.openTime removeFromSuperview];
+    [cell.closeTime removeFromSuperview];
+    
+    cell.libraryName = [[UILabel alloc] initWithFrame:CGRectMake(8, 11, 304, 21)];
+    cell.libraryStatus = [[UILabel alloc] initWithFrame:CGRectMake(8, 25, 304, 21)];
+    cell.openTime = [[UILabel alloc] initWithFrame:CGRectMake(125, 6, 77, 21)];
+    cell.closeTime = [[UILabel alloc] initWithFrame:CGRectMake(263, 6, 57, 21)];
+    
+   
     
     if (hasInternet) {
         // Configure the cell...
@@ -181,21 +230,28 @@
             if (openAllDay || (inRange && !closeAllDay)) {
                 isOpen = YES;
             }
-            /*
-             if (isOpen) {
-             cell.libraryName.textColor = [UIColor colorWithRed:0 green:.5 blue:0 alpha:1 ];
-             }
-             else {
-             cell.libraryName.textColor = [UIColor redColor];
-             }
-             */
+
             NSString *status = (isOpen ? @"open" : @"closed");
             
-            //text for labels
-            cell.libraryName.text = libraryName;
-            cell.libraryStatus.text = [NSString stringWithFormat:@"is %@",status];
-            cell.openTime.text = openTime;
-            cell.closeTime.text = closeTime;
+            [cell.libraryName setTextColor:[UIColor blackColor]];
+            [cell.libraryName setFont:[UIFont systemFontOfSize:15]];
+            [cell.libraryName setText:libraryName];
+            [cell.contentView.superview addSubview:cell.libraryName];
+            
+            [cell.libraryStatus setTextColor:[UIColor blackColor]];
+            [cell.libraryStatus setFont:[UIFont systemFontOfSize:12]];
+            [cell.libraryStatus setText:[NSString stringWithFormat:@"is %@",status]];
+            [cell.contentView.superview addSubview:cell.libraryStatus];
+            
+            [cell.openTime setTextColor:[UIColor lightGrayColor]];
+            [cell.openTime setFont:[UIFont systemFontOfSize:12]];
+            [cell.openTime setText:openTime];
+            [cell.contentView.superview addSubview:cell.openTime];
+            
+            [cell.closeTime setTextColor:[UIColor lightGrayColor]];
+            [cell.closeTime setFont:[UIFont systemFontOfSize:12]];
+            [cell.closeTime setText:closeTime];
+            [cell.contentView.superview addSubview:cell.closeTime];
             
             //format cell
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -291,6 +347,13 @@
             
             UIView *box;
             UILabel *floor; UILabel *cnt;
+            
+            if ([cell.contentView subviews]) {
+                for (UIView *subview in [cell.contentView subviews]) {
+                    [subview removeFromSuperview];
+                }
+            }
+            
             for (int i = 0; i < ratios.count; i++){
                 
                 //box
@@ -303,12 +366,13 @@
                     height = f*size;
                 }
                 
-                box = [[UIView alloc] initWithFrame:CGRectMake(8, 8+H, 304, height+10)];
+                boxheights[i] = height+10;
+                box = [[UIView alloc] initWithFrame:CGRectMake(8, 8+H, 304, boxheights[i])];
                 box.backgroundColor =  [UIColor colorWithRed:0.0 green:0.5 blue:0.0 alpha:f*4];
                 [cell.contentView addSubview:box];
                 
                 //labels
-                floor = [[UILabel alloc] initWithFrame:CGRectMake(8, 8+H, 304, height+10)];
+                floor = [[UILabel alloc] initWithFrame:CGRectMake(8, 8+H, 304, boxheights[i])];
                 floor.text = [NSString stringWithFormat:@"%@", floors[i]];
                 if (f*4 < 0.3) {
                     floor.textColor = [UIColor grayColor];
@@ -319,7 +383,7 @@
                 [floor setFont:[UIFont systemFontOfSize:height+9]];
                 [cell.contentView addSubview:floor];
                 
-                cnt = [[UILabel alloc] initWithFrame:CGRectMake(8, 8+H, 304, height+10)];
+                cnt = [[UILabel alloc] initWithFrame:CGRectMake(8, 8+H, 304, boxheights[i])];
                 cnt.text = [NSString stringWithFormat:@"%d %@", [counts[i]intValue], comps[i]];
                 cnt.textAlignment = NSTextAlignmentRight;
                 if (f*4 < 0.3) {
@@ -331,19 +395,30 @@
                 [cnt setFont:[UIFont systemFontOfSize:height+9]];
                 [cell.contentView addSubview:cnt];
                 
-                H += height+13;
+                H += boxheights[i]+3;
             }
         }
     }
     
     //if no internet
     else if (indexPath.section == 0 || indexPath.section == 1) {
-        if (indexPath.section == 0) {
-            cell.libraryName.text = @"Bennett Library";
+        if ([cell.contentView subviews]) {
+            for (UIView *subview in [cell.contentView subviews]) {
+                [subview removeFromSuperview];
+            }
         }
-        else {
-            cell.libraryName.text = @"Internet connection is required.";
-            cell.libraryName.textColor = [UIColor grayColor];
+        
+        if (indexPath.section == 0) {
+            [cell.libraryName setTextColor:[UIColor blackColor]];
+            [cell.libraryName setFont:[UIFont systemFontOfSize:15]];
+            [cell.libraryName setText: @"Bennett Library"];
+            [cell.contentView.superview addSubview:cell.libraryName];
+        }
+        else if (indexPath.section == 1){
+            [cell.libraryName setTextColor:[UIColor lightGrayColor]];
+            [cell.libraryName setFont:[UIFont systemFontOfSize:15]];
+            [cell.libraryName setText: @"Internet connection is required."];
+            [cell.contentView.superview addSubview:cell.libraryName];
         }
         cell.libraryStatus.hidden = YES;
         cell.openTime.hidden = YES;
@@ -352,7 +427,12 @@
     
     if (indexPath.section == 2) {
         ServicesURL* url= [links objectAtIndex:indexPath.row];
-        cell.libraryName.text = [url serviceName];
+        cell.libraryName.text = nil;
+        [cell.libraryName setTextColor:[UIColor blackColor]];
+        [cell.libraryName setFont:[UIFont systemFontOfSize:15]];
+        [cell.libraryName setText:[url serviceName]];
+        [cell.contentView.superview addSubview:cell.libraryName];
+        
         cell.libraryStatus.hidden = YES;
         cell.openTime.hidden = YES;
         cell.closeTime.hidden = YES;
