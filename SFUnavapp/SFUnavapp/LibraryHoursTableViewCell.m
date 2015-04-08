@@ -2,7 +2,7 @@
 //  LibraryHoursTableViewCell.m
 //  SFUnavapp
 //
-//  Created by Serena Chan on 2015-03-29.
+//  Created by Serena Chan on 2015-04-07.
 //  Copyright (c) 2015 Team NoMacs. All rights reserved.
 //
 
@@ -10,26 +10,14 @@
 
 @implementation LibraryHoursTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
-
 
 @end
