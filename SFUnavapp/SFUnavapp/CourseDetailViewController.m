@@ -43,6 +43,7 @@
     _moreDetails.hidden=YES;
     _addToCart.hidden=YES;
     self.navigationController.title=@"Course Details";
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 #pragma mark - JSON return handler

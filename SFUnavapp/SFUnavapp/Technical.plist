@@ -15,7 +15,11 @@
 			<key>contactInfo</key>
 			<string>West Mall Centre 2262</string>
 			<key>contactDetail</key>
-			<string>A/V Office (for CCC, DH, GYM, LB, MBC, TC, WMC)</string>
+			<string>A/V Office (for CCC, DH, GYM, LB, MBC, TC, WMC)
+Monday to Friday:
+8:00am - 10:00pm
+[Closed on Holidays]
+            </string>
 			<key>contactType</key>
 			<string>In Person</string>
 		</dict>
@@ -23,7 +27,11 @@
 			<key>contactInfo</key>
 			<string>Shrum Science Centre - Physics 9301</string>
 			<key>contactDetail</key>
-			<string>A/V Office (for ASB, AQ, BLU, CM, DAC, EDB, HC, RCB, SH, SSB, SSC, SWH, TASC)</string>
+			<string>A/V Office (for ASB, AQ, BLU, CM, DAC, EDB, HC, RCB, SH, SSB, SSC, SWH, TASC)
+Monday to Friday:
+8:00am - 10:00pm
+[Closed on Holidays]
+            </string>
 			<key>contactType</key>
 			<string>In Person</string>
 		</dict>

@@ -42,8 +42,8 @@
     
     //navigation name
     self.navigationItem.title=@"Campuses";
-    
     self.navigationController.navigationBar.topItem.title = @"";
+    
     campusContacts = [[NSArray alloc] initWithObjects:@"Switchboard", @"Student Services", @"Security Services", @"Emergency", nil];
     burnabyNumbers = [[NSArray alloc] initWithObjects:@"778-782-3111", @"778-782-6930", @"778-782-3100", @"778-782-4500",nil];
     surreyNumbers = [[NSArray alloc] initWithObjects:@"778-782-7400", @"778-782-6930", @"778-782-7070", @"778-782-7511",nil];
@@ -133,8 +133,11 @@
  {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"campusContactCell" forIndexPath:indexPath];
      
-     // transparent background
-     cell.backgroundColor = [UIColor clearColor];
+     //semitransparent cell backgroung colour
+     cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+     cell.textLabel.backgroundColor = [UIColor clearColor];
+     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+     cell.contentView.backgroundColor = [UIColor clearColor];
  
      // Configure the cell...
      if (indexPath.section == 0)
@@ -159,20 +162,17 @@
      else
      {  //section 1 contains the address
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
+         cell.detailTextLabel.text = nil;
+         cell.textLabel.numberOfLines = 0;
          if (tableView == burnabyTable) {
              cell.textLabel.text = @"8888 University Drive\nBurnaby, B.C. Canada. V5A 1S6";
-             cell.detailTextLabel.text = nil;
-             cell.textLabel.numberOfLines = 0;
+
          }
          else if (tableView == surreyTable) {
              cell.textLabel.text = @"250 - 13450 – 102nd Avenue\nSurrey, B.C. Canada. V3T 0A3";
-             cell.detailTextLabel.text = nil;
-             cell.textLabel.numberOfLines = 0;
          }
          else { //vancouver campus
              cell.textLabel.text = @"515 West Hastings Street\nVancouver, B.C. Canada. V6B 5K3";
-             cell.detailTextLabel.text = nil;
-             cell.textLabel.numberOfLines = 0;
          }
          
      }
