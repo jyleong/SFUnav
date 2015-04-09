@@ -30,7 +30,7 @@
     services = [[NSArray alloc]initWithObjects:@"Student Services", @"Safety & Risk Services", @"Technical Services", @"Meeting, Events, and Conferencing Services", nil];
     
     //background image
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SFUcrest"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mosaicBG"]]];
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
     //clear table background colour
     self.tableView.backgroundColor = [UIColor clearColor];
