@@ -30,11 +30,11 @@
     services = [[NSArray alloc]initWithObjects:@"Student Services", @"Safety & Risk Services", @"Technical Services", @"Meeting, Events, and Conferencing Services", nil];
     
     //background image
-    //[self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SFUcrest"]]];
-    //self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SFUcrest"]]];
+    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
     //clear table background colour
-    //self.tableView.backgroundColor = [UIColor clearColor];
-    //self.tableView.opaque = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
     
     //holds links
     links = [[NSMutableArray alloc] init];
@@ -83,6 +83,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    // round the table cells
+    cell.layer.cornerRadius = 10;
+    [cell.layer setMasksToBounds:YES];
     
     //semitransparent cell backgroung colour
     cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];

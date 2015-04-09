@@ -93,6 +93,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //background image
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SFUcrest"]]];
+    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    //clear table background colour
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
+    
     [self.tableView reloadData];
 }
 - (void)viewDidAppear:(BOOL)animated {
