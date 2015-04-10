@@ -63,7 +63,7 @@ int boxheights[8];
                        error:&error];
         
         
-        NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
+        //NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
         str = @"http://api.lib.sfu.ca/equipment/computers/free_summary";
         url = [NSURL URLWithString:str];
         data = [NSData dataWithContentsOfURL:url];
@@ -75,7 +75,7 @@ int boxheights[8];
         
         equipResults = [equipResults objectForKey:@"locations"];
         
-        NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
+        //NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
     }
     
     //holds links
@@ -199,6 +199,7 @@ int boxheights[8];
     
     if (hasInternet) {
         // Configure the cell...
+        NSString *nowtime;
         if (indexPath.section == 0) {
             //get info
             NSString *libraryName = [hourResults[indexPath.row] objectForKey:@"location"];
@@ -216,6 +217,7 @@ int boxheights[8];
             NSDate *openTimed = [df dateFromString:openTime];
             NSDate *closeTimed = [df dateFromString:closeTime];
             NSDate *timed = [NSDate date];
+            nowtime = [df stringFromDate:timed];
             [df setDateFormat:@"HH"];
             
             NSString *openTimeHR = [df stringFromDate:openTimed];
@@ -284,11 +286,21 @@ int boxheights[8];
             }
             [cell.contentView addSubview:hoursBox];
             
-            //current time line
-            int now = 187/23*time;
-            UIView *nowLine = [[UIView alloc] initWithFrame:CGRectMake(125+now, 25, 3, 14)];
-            nowLine.backgroundColor =  [UIColor blackColor];
-            [cell.contentView addSubview:nowLine];
+            //current time
+            int now = 187/24*time;
+            
+            UILabel *currenttime;
+            currenttime = [[UILabel alloc] initWithFrame:CGRectMake(125+now, 25, 50, 14)];
+            currenttime.text = [NSString stringWithFormat:@"%@", nowtime];
+            currenttime.textAlignment = NSTextAlignmentCenter;
+            if (inRange) {
+                currenttime.textColor = [UIColor whiteColor];
+            }
+            else{
+                currenttime.textColor = [UIColor redColor];
+            }
+            [currenttime setFont:[UIFont systemFontOfSize:10]];
+            [cell.contentView addSubview:currenttime];
             
             
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="6100" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -865,7 +865,7 @@
                         <viewControllerLayoutGuide type="bottom" id="npz-lz-uxY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Obl-X7-kCt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="blackTranslucent" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP1-s9-sqz">
@@ -901,7 +901,7 @@
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="im3-TT-ACs">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="642"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                 <connections>
@@ -1142,7 +1142,7 @@
                                     <constraint firstAttribute="height" constant="30" id="GTK-oj-fmF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="WiL-gF-KdC"/>
                                 </connections>
@@ -1153,7 +1153,7 @@
                                     <constraint firstAttribute="height" constant="30" id="4Np-N9-BXe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="xKj-0m-iS0" id="oFC-ef-3GV"/>
                                 </connections>
@@ -1188,8 +1188,8 @@
                                     <action selector="loginButtonPress:" destination="xKj-0m-iS0" eventType="touchUpInside" id="SKP-7b-J0E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This information is not available to any service or the developers. It stays on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="241" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
-                                <rect key="frame" x="40" y="385" width="241" height="89"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This information is not available to any service or the developers. It stays on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="241" translatesAutoresizingMaskIntoConstraints="NO" id="s9t-eD-eHg">
+                                <rect key="frame" x="40" y="407" width="241" height="89"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1200,20 +1200,20 @@
                                     <action selector="saveKeychain:" destination="xKj-0m-iS0" eventType="valueChanged" id="R6K-nv-k4B"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KIn-WD-MUM">
-                                <rect key="frame" x="204" y="352" width="51" height="31"/>
-                                <connections>
-                                    <action selector="loginGo:" destination="xKj-0m-iS0" eventType="valueChanged" id="YY3-RG-lEH"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store in Keychain" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWa-RM-ODd">
                                 <rect key="frame" x="68" y="311" width="130" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KIn-WD-MUM">
+                                <rect key="frame" x="204" y="358" width="51" height="31"/>
+                                <connections>
+                                    <action selector="loginGo:" destination="xKj-0m-iS0" eventType="valueChanged" id="YY3-RG-lEH"/>
+                                </connections>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AutoLogin goSFU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93d-f3-gTA">
-                                <rect key="frame" x="68" y="352" width="145" height="31"/>
+                                <rect key="frame" x="68" y="358" width="145" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1231,11 +1231,11 @@
                             <constraint firstItem="a10-jT-BCM" firstAttribute="top" secondItem="kJa-bt-N7o" secondAttribute="bottom" constant="18" id="SIs-PA-0rD"/>
                             <constraint firstItem="N6l-nz-VOc" firstAttribute="top" secondItem="Glx-MD-Duw" secondAttribute="bottom" constant="62" id="TM5-mz-5AG"/>
                             <constraint firstItem="Ucf-ax-XaT" firstAttribute="leading" secondItem="Glx-MD-Duw" secondAttribute="leading" id="TSz-Bn-lvD"/>
-                            <constraint firstItem="ReY-Rl-8bo" firstAttribute="top" secondItem="s9t-eD-eHg" secondAttribute="bottom" constant="45" id="V15-Qz-hqV"/>
+                            <constraint firstItem="ReY-Rl-8bo" firstAttribute="top" secondItem="s9t-eD-eHg" secondAttribute="bottom" constant="23" id="V15-Qz-hqV"/>
                             <constraint firstItem="KIn-WD-MUM" firstAttribute="leading" secondItem="N6l-nz-VOc" secondAttribute="leading" id="W0k-ml-RKz"/>
                             <constraint firstItem="N6l-nz-VOc" firstAttribute="leading" secondItem="VWa-RM-ODd" secondAttribute="trailing" constant="6" id="WwF-BH-nvb"/>
                             <constraint firstItem="N6l-nz-VOc" firstAttribute="bottom" secondItem="VWa-RM-ODd" secondAttribute="bottom" id="bc3-0T-beV"/>
-                            <constraint firstItem="Z8M-VY-tet" firstAttribute="top" secondItem="93d-f3-gTA" secondAttribute="bottom" constant="24" id="c5e-gn-X2z"/>
+                            <constraint firstItem="Z8M-VY-tet" firstAttribute="top" secondItem="93d-f3-gTA" secondAttribute="bottom" constant="18" id="c5e-gn-X2z"/>
                             <constraint firstItem="Tox-EQ-eBx" firstAttribute="centerX" secondItem="s9t-eD-eHg" secondAttribute="centerX" id="eTl-QP-f0b"/>
                             <constraint firstItem="Ucf-ax-XaT" firstAttribute="trailing" secondItem="Glx-MD-Duw" secondAttribute="trailing" id="eYu-xp-RSh"/>
                             <constraint firstItem="Glx-MD-Duw" firstAttribute="centerX" secondItem="Tox-EQ-eBx" secondAttribute="centerX" id="fFw-ip-UXb"/>
@@ -1243,13 +1243,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="N6l-nz-VOc" secondAttribute="trailing" constant="51" id="iRQ-13-i3s"/>
                             <constraint firstItem="VWa-RM-ODd" firstAttribute="leading" secondItem="93d-f3-gTA" secondAttribute="leading" id="m9t-6k-bfL"/>
                             <constraint firstItem="Ucf-ax-XaT" firstAttribute="centerX" secondItem="a10-jT-BCM" secondAttribute="centerX" id="oe9-MA-Uxe"/>
-                            <constraint firstItem="93d-f3-gTA" firstAttribute="top" secondItem="VWa-RM-ODd" secondAttribute="bottom" constant="10" id="p6h-05-F7g"/>
+                            <constraint firstItem="93d-f3-gTA" firstAttribute="top" secondItem="VWa-RM-ODd" secondAttribute="bottom" constant="16" id="p6h-05-F7g"/>
                             <constraint firstItem="KIn-WD-MUM" firstAttribute="bottom" secondItem="93d-f3-gTA" secondAttribute="bottom" id="pqQ-lu-eQO"/>
                             <constraint firstItem="ReY-Rl-8bo" firstAttribute="top" secondItem="Z8M-VY-tet" secondAttribute="bottom" constant="8" symbolic="YES" id="q2Y-8h-T8h"/>
                             <constraint firstItem="VWa-RM-ODd" firstAttribute="top" secondItem="Tox-EQ-eBx" secondAttribute="bottom" constant="6" id="sHj-b0-63u"/>
                             <constraint firstItem="a10-jT-BCM" firstAttribute="trailing" secondItem="d1f-gd-6Wq" secondAttribute="trailingMargin" id="tCU-XY-LMO"/>
                             <constraint firstItem="Ucf-ax-XaT" firstAttribute="leading" secondItem="d1f-gd-6Wq" secondAttribute="leadingMargin" constant="56" id="tQY-aN-N2S"/>
-                            <constraint firstItem="s9t-eD-eHg" firstAttribute="top" secondItem="93d-f3-gTA" secondAttribute="bottom" constant="2" id="uRn-EW-NK0"/>
+                            <constraint firstItem="s9t-eD-eHg" firstAttribute="top" secondItem="93d-f3-gTA" secondAttribute="bottom" constant="18" id="uRn-EW-NK0"/>
                             <constraint firstItem="Z8M-VY-tet" firstAttribute="centerX" secondItem="s9t-eD-eHg" secondAttribute="centerX" id="x8N-VL-Ikf"/>
                         </constraints>
                     </view>
@@ -1374,16 +1374,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyW-T5-Hhi" id="Sm7-J7-Ou3">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9C-TT-3H2">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9C-TT-3H2">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                                    </accessibility>
                                                     <string key="text">Lunch Buffet Hours
 
 Mon - Fri</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-TT-Uws">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7w-TT-Uws">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1421,16 +1424,19 @@ Mon - Fri</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vj8-u4-SxB" id="x6G-sm-fHs">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcr-lX-VoL">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcr-lX-VoL">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                                    </accessibility>
                                                     <string key="text">Regular Hours
 
 every day</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDt-fO-63v">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDt-fO-63v">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1451,16 +1457,19 @@ all day</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPH-Vo-ZUq" id="S9z-T1-lM6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbw-5F-WHd">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbw-5F-WHd">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                                    </accessibility>
                                                     <string key="text">Regular Hours
 
 Mon - Fri</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5S-A3-14X">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5S-A3-14X">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1498,7 +1507,7 @@ Mon - Fri</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CTH-Je-Clm" id="hyv-Mk-A8P">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-1A-htn">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-1A-htn">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="83"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Regular Hours
@@ -1508,7 +1517,7 @@ Fri</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgW-VX-FPj">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgW-VX-FPj">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="83"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1530,7 +1539,7 @@ Fri</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZH9-NN-YbJ" id="IK2-Du-lnu">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vR-vV-XpG">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vR-vV-XpG">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Hours
@@ -1540,7 +1549,7 @@ Fri</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-en-r5O">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-en-r5O">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="83"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1562,7 +1571,7 @@ Fri</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xM4-jx-vTD" id="YoZ-hM-8VM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOW-I1-rw1">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOW-I1-rw1">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="117"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1574,7 +1583,7 @@ Fri</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-jN-8zy">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-jN-8zy">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="117"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Hours
@@ -1598,7 +1607,7 @@ Sun</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdX-C7-NFQ" id="mO3-eU-Eng">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tez-Im-NlT">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tez-Im-NlT">
                                                     <rect key="frame" x="8" y="0.0" width="157" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Hours
@@ -1609,7 +1618,7 @@ Sat - Sun</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-La-p8o">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-La-p8o">
                                                     <rect key="frame" x="173" y="0.0" width="139" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">
@@ -1696,7 +1705,7 @@ Mon - Fri</string>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="bSZ-a0-1K2" rowHeight="81" style="IBUITableViewCellStyleDefault" id="DN0-Ay-Qv2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="bSZ-a0-1K2" rowHeight="81" style="IBUITableViewCellStyleDefault" id="DN0-Ay-Qv2">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" tableViewCell="DN0-Ay-Qv2" id="jTJ-Mh-RSs">
@@ -2760,11 +2769,11 @@ Mon - Fri</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YuH-DV-njh"/>
-        <segue reference="UVK-gw-bAs"/>
-        <segue reference="UCx-U3-Lfo"/>
         <segue reference="MCM-h2-i9P"/>
-        <segue reference="yTY-Gs-IaK"/>
+        <segue reference="UCx-U3-Lfo"/>
+        <segue reference="YuH-DV-njh"/>
+        <segue reference="xE5-sE-bYz"/>
+        <segue reference="UVK-gw-bAs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
