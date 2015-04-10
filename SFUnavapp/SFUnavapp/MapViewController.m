@@ -82,7 +82,7 @@ NSMutableArray * BuildingObjects;
 }
 
 -(void) changeImage: (NSString *) newIm {
-    [self.scrollView setZoomScale:0.65];
+    [self.scrollView setZoomScale:0.27];
     //Create file bundle with content of image file
     NSBundle *bundle = [NSBundle mainBundle];
     NSString* imgPath = [bundle pathForResource:newIm ofType:@"png"];
@@ -96,7 +96,7 @@ NSMutableArray * BuildingObjects;
         minZoomScale = [self.scrollView frame].size.height / [self.viewImageMap frame].size.height;
     }
     [self.scrollView setMinimumZoomScale:.2];
-    [self.scrollView setZoomScale:[self.scrollView minimumZoomScale]];
+    [self.scrollView setZoomScale:0.27];
     
 }
 
