@@ -48,6 +48,13 @@ BOOL goLogin;
     //Removing extra empty cells in tableview- Arjun
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
     
+    //background image
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mosaicBG"]]];
+    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    //clear table background colour
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
+    
     /*
      Mutable array to hold all service names and url
     Order of service names matters!! - Arjun
@@ -142,6 +149,10 @@ BOOL goLogin;
     static NSString *CellIdentifier=@"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.layer.cornerRadius = 10;
+    //semitransparent cell backgroung colour
+    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     
     [cell.layer setMasksToBounds:YES];
     //[cell.layer setBorderWidth:1];

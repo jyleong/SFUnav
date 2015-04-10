@@ -50,19 +50,20 @@ int boxheights[8];
     
     
     //get library equipment summary api information
-    
+    NSError *error;
     if (hasInternet) {
         //get library hours api information
         NSString *str = @"http://api.lib.sfu.ca/hours/summary?date=";
         NSURL *url = [NSURL URLWithString:str];
         NSData *data = [NSData dataWithContentsOfURL:url];
-        NSError *error = nil;
+        error = nil;
         hourResults = [NSJSONSerialization
                        JSONObjectWithData:data
                        options:NSJSONReadingMutableContainers
                        error:&error];
         
-        //NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
+        
+        NSLog(@"Your JSON Object: %@ Or Error is: %@", hourResults, error);
         str = @"http://api.lib.sfu.ca/equipment/computers/free_summary";
         url = [NSURL URLWithString:str];
         data = [NSData dataWithContentsOfURL:url];
@@ -74,7 +75,7 @@ int boxheights[8];
         
         equipResults = [equipResults objectForKey:@"locations"];
         
-        //NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
+        NSLog(@"Your JSON Object: %@ Or Error is: %@", equipResults, error);
     }
     
     //holds links

@@ -189,7 +189,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Campuses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D0t-7Q-t1g">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1944,12 +1944,13 @@ Mon - Fri</string>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="g4J-ZV-8dU">
                                         <rect key="frame" x="0.0" y="315" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g4J-ZV-8dU" id="yXI-eJ-EYZ">
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g4J-ZV-8dU" id="yXI-eJ-EYZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
+                                                <switch contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgP-CA-SfA">
                                                     <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <action selector="toggletime_min:" destination="hYB-sD-pmv" eventType="valueChanged" id="hQm-7o-bby"/>
                                                     </connections>
@@ -1960,10 +1961,12 @@ Mon - Fri</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="vgP-CA-SfA" secondAttribute="trailing" constant="20" id="zcY-zM-RGY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="18" minY="0.0" maxX="22" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="test" rowHeight="215" id="vcZ-mp-WUS">
@@ -2190,6 +2193,7 @@ Mon - Fri</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="Kro-YI-JoO">
                                 <cells>
@@ -2757,10 +2761,10 @@ Mon - Fri</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YuH-DV-njh"/>
-        <segue reference="peE-4i-7qa"/>
-        <segue reference="UCx-U3-Lfo"/>
-        <segue reference="Deu-Xm-vDE"/>
         <segue reference="UVK-gw-bAs"/>
+        <segue reference="UCx-U3-Lfo"/>
+        <segue reference="MCM-h2-i9P"/>
+        <segue reference="yTY-Gs-IaK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392160000005" green="0.070588235289999995" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
 </document>
