@@ -190,8 +190,8 @@ int boxheights[8];
     [cell.openTime removeFromSuperview];
     [cell.closeTime removeFromSuperview];
     
-    cell.libraryName = [[UILabel alloc] initWithFrame:CGRectMake(8, 11, 304, 21)];
-    cell.libraryStatus = [[UILabel alloc] initWithFrame:CGRectMake(8, 25, 304, 21)];
+    cell.libraryName = [[UILabel alloc] initWithFrame:CGRectMake(8, 6, 304, 21)];
+    cell.libraryStatus = [[UILabel alloc] initWithFrame:CGRectMake(8, 20, 304, 21)];
     cell.openTime = [[UILabel alloc] initWithFrame:CGRectMake(125, 6, 77, 21)];
     cell.closeTime = [[UILabel alloc] initWithFrame:CGRectMake(263, 6, 57, 21)];
     
@@ -266,14 +266,15 @@ int boxheights[8];
             line.backgroundColor =  [UIColor grayColor];
             [cell.contentView addSubview:line];
             
-            
+            int start = 0;
             //width of box
             UIView *hoursBox;
+            
             if (openAllDay == 1) {
                 hoursBox = [[UIView alloc] initWithFrame:CGRectMake(125, 27, 187, 10)];
             }
             else {
-                int start = 187/24*open;
+                start = 187/24*open;
                 int width = 187/24*close - start;
                 hoursBox = [[UIView alloc] initWithFrame:CGRectMake(125+start, 27, width, 10)];
             }
@@ -289,15 +290,20 @@ int boxheights[8];
             //current time
             int now = 187/24*time;
             UIView *nowLine = [[UIView alloc] initWithFrame:CGRectMake(125+now, 25, 3, 14)];
-            nowLine.backgroundColor =  [UIColor yellowColor];
+            if (inRange) {
+                nowLine.backgroundColor =  [UIColor yellowColor];
+            }
+            else {
+                nowLine.backgroundColor = [UIColor redColor];
+            }
             [cell.contentView addSubview:nowLine];
             
             UILabel *currenttime;
-            currenttime = [[UILabel alloc] initWithFrame:CGRectMake(77+now, 25, 45, 14)];
+            currenttime = [[UILabel alloc] initWithFrame:CGRectMake(77+now, 25, 48, 14)];
             currenttime.text = [NSString stringWithFormat:@"%@", nowtime];
             currenttime.textAlignment = NSTextAlignmentRight;
             if (inRange) {
-                if (now < 48) {
+                if (now < 48 + start) {
                     currenttime.textColor = [UIColor blackColor];
                 }
                 else {
@@ -306,6 +312,7 @@ int boxheights[8];
             }
             else{
                 currenttime.textColor = [UIColor redColor];
+                currenttime.backgroundColor = [UIColor whiteColor];
             }
             [currenttime setFont:[UIFont systemFontOfSize:10]];
             [cell.contentView addSubview:currenttime];

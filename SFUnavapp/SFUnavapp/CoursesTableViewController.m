@@ -56,7 +56,7 @@
 -(void) notlogin{
     if (flag!=1)
     {
-        UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:@"Not Logged In" message:@"Login is required to see your current courses. You can browse all courses without login" delegate:self cancelButtonTitle:@"Return" otherButtonTitles:@"Browse", @"LogIn",nil];
+        UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:@"Not Logged In" message:@"Login is required to see your current courses. You can browse all courses without login" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Browse", @"Login",nil];
         [Alert show];
     }
 }
