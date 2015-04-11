@@ -23,9 +23,9 @@
     
     NSString *info;
     NSString *routeinfo;
-    /*
-     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://api.translink.ca/rttiapi/v1/stops/59044/estimates?apikey=Inm4xjwOOLahxETIK89R&count=3&timeframe=60&routeNo="]];
-     */
+    
+    // NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://api.translink.ca/rttiapi/v1/stops/59044/estimates?apikey=Inm4xjwOOLahxETIK89R&count=3&timeframe=60&routeNo="]];
+    
     //setting up URL connection
     NSString *inputurlstring=[NSString stringWithFormat:@"http://api.translink.ca/rttiapi/v1/stops/%@/estimates?apikey=Inm4xjwOOLahxETIK89R&count=4&timeframe=60&routeNo=%@",self.busstopid,self.routnumber];
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:inputurlstring]];
@@ -46,10 +46,12 @@
         //NSLog(info);
         [self.busroutereturnvalues addObject:routeinfo];//this should create the array of busroutes servicing at the given busstopnumber
         
-        NSString *query = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedleavetime",routeinfo];
+        //this xpath query fetches the leave times
+        NSString *query = [NSString stringWithFormat:@"//nextbus[routeno=\"%@\"]/schedules/schedule/expectedleavetime",routeinfo];
         NSArray *expleavetime = [xmldocument searchWithXPathQuery:query];
         
-        NSString *querycountDown = [NSString stringWithFormat:@"//nextbus[routeno=%@]/schedules/schedule/expectedcountdown",routeinfo];
+        //this xpath query fetches the countdown times
+        NSString *querycountDown = [NSString stringWithFormat:@"//nextbus[routeno=\"%@\"]/schedules/schedule/expectedcountdown",routeinfo];
         NSArray *countDownarr = [xmldocument searchWithXPathQuery:querycountDown];
         
         
