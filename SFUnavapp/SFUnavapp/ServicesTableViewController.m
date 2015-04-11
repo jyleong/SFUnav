@@ -49,8 +49,8 @@ BOOL goLogin;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame : CGRectZero];
     
     //background image
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mosaicBG"]]];
-    self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sfu1.jpg"]]];
+//    self.tableView.backgroundView.contentMode = UIViewContentModeScaleToFill;
     //clear table background colour
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;

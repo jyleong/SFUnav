@@ -51,8 +51,6 @@ NSMutableArray *registrationCourses;
     _deptDone.hidden=YES;
     _courseDone.hidden=YES;
     _sectionDone.hidden=YES;
-    self.navigationController.title=@"Browse";
-    self.navigationController.navigationBar.topItem.title = @"";
     
 }
 //First call loads Department titles

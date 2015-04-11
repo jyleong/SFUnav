@@ -24,14 +24,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-        self.navigationController.title=@"Course Cart";
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -92,6 +87,7 @@
 
 
 // Override to support editing the table view.
+//Allow editing for delete and reorder
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
@@ -106,6 +102,7 @@
 
 
 // Override to support rearranging the table view.
+//Modifies the arrays to reflect current order
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     
     CourseCartObject *courseToMove;
@@ -124,7 +121,7 @@
     }
 }
 
-
+//Reorder cells within the sections
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
     if (sourceIndexPath.section != proposedDestinationIndexPath.section) {
@@ -154,6 +151,7 @@
 
 }
 #pragma mark - NSUserDefaults Handlers
+//Save current courses to userdeafults under the keys
 - (void)saveCustomObject:(NSMutableArray *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -163,7 +161,7 @@
 }
 
 
-
+//Calls to user defaults saver
 -(void) viewWillDisappear:(BOOL)animated
 {
     [self saveCustomObject:currentCourses key:@"currentCourses"];

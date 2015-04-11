@@ -94,7 +94,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //background image
-    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mosaicBG"]]];
+    [self.tableView setBackgroundView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sfu2.jpg"]]];
     self.tableView.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
     //clear table background colour
     //self.tableView.backgroundColor = [UIColor clearColor];

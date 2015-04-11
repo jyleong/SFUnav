@@ -41,33 +41,13 @@
 -(void) viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-    //self.navigationController.title=@"My Courses";
-    self.navigationController.navigationBar.topItem.title = @"";
     flag=0;
     if (autoLogin!=YES)
         [self notlogin];
     else
         [self genCourses];
 }
-//- (void)reload
-//{
-//    // Reload table data
-//    [self genCourses];
-//    
-//    // End the refreshing
-//    if (self.refreshControl) {
-//        
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateFormat:@"MMM d, h:mm a"];
-//        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
-//        NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
-//                                                                    forKey:NSForegroundColorAttributeName];
-//        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
-//        self.refreshControl.attributedTitle = attributedTitle;
-//        
-//        [self.refreshControl endRefreshing];
-//    }
-//}
+
 -(void) reloadtable
 {
     [self.tableView reloadData];
@@ -116,7 +96,8 @@
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     Course *temp;
     NSArray *data = [xpath searchWithXPathQuery:@"//*[@id='my_courses_table']/tr/td/a/span/@title"];
-    
+    if (data==nil)
+        return;
     for (int i=0; i<[data count]; i++)
     {
         temp=[[Course alloc]init];
@@ -158,7 +139,8 @@
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     Course *temp;
     NSArray *data = [xpath searchWithXPathQuery:@"//*[@id='page-content']/section/div[2]/ul[1]/li"];
-    
+    if (data==nil)
+        return;
     for (int i=0; i<[data count]; i++)
     {
         temp=[[Course alloc]init];
@@ -180,6 +162,7 @@
     }
 }
 
+// Generates course info from api reults
 -(void) genCourseInfo:(Course *)temp
 {
         NSString *apiURL=[NSString stringWithFormat:
@@ -210,8 +193,6 @@
             temp.days=[temp.days stringByAppendingString:[info[i] objectForKey:@"days"]];
             temp.campus=[temp.campus stringByAppendingString:[info[i] objectForKey:@"campus"]];
         }
-    
-    
 }
 -(BOOL) checkInternet
 {
@@ -245,7 +226,7 @@
     return [courseCollection count];
 }
 
-
+//Show cell details depending on Parsing results
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CourseDisplayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"courseDisplayCell" forIndexPath:indexPath];
 
@@ -317,40 +298,6 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Navigation
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
