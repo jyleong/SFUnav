@@ -288,13 +288,21 @@ int boxheights[8];
             
             //current time
             int now = 187/24*time;
+            UIView *nowLine = [[UIView alloc] initWithFrame:CGRectMake(125+now, 25, 3, 14)];
+            nowLine.backgroundColor =  [UIColor yellowColor];
+            [cell.contentView addSubview:nowLine];
             
             UILabel *currenttime;
-            currenttime = [[UILabel alloc] initWithFrame:CGRectMake(125+now, 25, 50, 14)];
+            currenttime = [[UILabel alloc] initWithFrame:CGRectMake(77+now, 25, 45, 14)];
             currenttime.text = [NSString stringWithFormat:@"%@", nowtime];
-            currenttime.textAlignment = NSTextAlignmentCenter;
+            currenttime.textAlignment = NSTextAlignmentRight;
             if (inRange) {
-                currenttime.textColor = [UIColor whiteColor];
+                if (now < 48) {
+                    currenttime.textColor = [UIColor blackColor];
+                }
+                else {
+                    currenttime.textColor = [UIColor whiteColor];
+                }
             }
             else{
                 currenttime.textColor = [UIColor redColor];
