@@ -5,6 +5,11 @@ This README contains the information contributors and other users who require to
 ### Version Submissions ###
 * Version 3 Branch Name: [Master](https://bitbucket.org/20151cmpt_275/2015-1-cmpt_275_team_13/branch/master)
 
+### Version 3 Startup Crash/Warnings Issue ###
+* At times when the map is run on a machine it may crash. This is a known bug in a 3rd party toolkit being used. It's known to work fine on the device and no such crashes have been found.
+* Warnings generated in the Images.xcassets and Storyboard can be ignored by changing the compiler flags, or by changing project build settings. These warnings are caused due to the absence of scaled images for all resolutions and auto layout issues.
+* Auto layout issues are ignored because we keep slightly bigger button sizes to allow for easier usage.
+
 ### Running the code ###
 * Current Deployment Target: iOS: 8.1
 * Suggested X-Code version to avoid issues: X-Code 6.1.1
