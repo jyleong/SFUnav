@@ -107,6 +107,7 @@
 }
 
 #pragma mark - JSON Calls
+//Background thread call to parse JSON Feed for the current course
 -(void) genData{
     dispatch_async(kBgQueue, ^{
         NSString *apiURL=[NSString stringWithFormat:
@@ -123,14 +124,14 @@
     });
 }
 
-
+//Opens default web browser with URL to view course details webpage
 - (IBAction)moreDetailsPress:(id)sender {
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_nodePath]];
 }
 
 #pragma mark - Manage Course Cart
-
+//Adds current course to cart, displays appropriate message if course already in cart
 - (IBAction)addToCartPress:(id)sender {
     BOOL addCourse=YES;
     CourseCartObject *currentCourse=[[CourseCartObject alloc]init];

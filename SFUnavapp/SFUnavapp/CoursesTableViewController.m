@@ -72,6 +72,7 @@
         [self performSegueWithIdentifier:@"LogIn" sender:self];
 }
 
+//Function Call to initiate new object and start course parsing
 -(void) genCourses{
     if ([self checkInternet])
     {
@@ -90,8 +91,8 @@
     }
 }
 
+//Generates courses from canvas
 -(void) parseCanvas{
-
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://canvas.sfu.ca/courses"]];
     TFHpple *xpath = [[TFHpple alloc] initWithHTMLData:result];
     Course *temp;
@@ -105,10 +106,11 @@
         int numberIndex=-1;
         TFHppleElement *item = data[i];
         NSLog(@"Content %@",item.content);
-        tempStr=[[item.content substringFromIndex:[item.content length]-13] lowercaseString];
+        if ([item.content length]>13 )
+            tempStr=[[item.content substringFromIndex:[item.content length]-13] lowercaseString];
         tempStr=[tempStr stringByReplacingOccurrencesOfString:@" " withString:@""];
-        
-        temp.section=[tempStr substringFromIndex:[tempStr length]-4];
+        if ([tempStr length]>4)
+            temp.section=[tempStr substringFromIndex:[tempStr length]-4];
         tempStr=[tempStr stringByReplacingOccurrencesOfString:temp.section withString:@""];
         if ([tempStr characterAtIndex:[tempStr length]-1]=='w')
         {
@@ -122,17 +124,26 @@
                 numberIndex=j;
             }
         }
-        temp.number=[tempStr substringFromIndex:numberIndex];
-        temp.dept=[tempStr substringToIndex:numberIndex];
+        if (numberIndex<[tempStr length])
+        {    temp.number=[tempStr substringFromIndex:numberIndex];
+            temp.dept=[tempStr substringToIndex:numberIndex];
+        }
         NSLog(@"Temp dept:%@, number:%@ section:%@",temp.dept, temp.number, temp.section);
         temp.location=YES;
         [self genCourseInfo:temp];
+        
         temp.days=[temp.days lowercaseString];
         temp.campus=[temp.campus lowercaseString];
+        if ([temp.dept isEqualToString:@"(null)"] || temp.dept==nil)
+        {
+            return;
+        }
         [courseCollection addObject:temp];
+    
     }
 
 }
+//Generates courses from Coursys
 -(void) parseCoursys{
 
     NSData *result = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"https://courses.cs.sfu.ca"]];
@@ -172,7 +183,6 @@
                          @"&section=%@",baseURL,temp.dept,temp.number,temp.section
                          ];
         apiURL=[apiURL lowercaseString];
-        NSLog(@"%@",apiURL);
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:apiURL ]];
         NSLog(@"info url:%@",apiURL);
         if (data==nil)
@@ -193,6 +203,7 @@
             temp.days=[temp.days stringByAppendingString:[info[i] objectForKey:@"days"]];
             temp.campus=[temp.campus stringByAppendingString:[info[i] objectForKey:@"campus"]];
         }
+
 }
 -(BOOL) checkInternet
 {

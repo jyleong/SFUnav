@@ -50,7 +50,7 @@
     return [registrationCourses count];
 }
 
-
+//Create section cells with course names and sections
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.layer.cornerRadius=10;

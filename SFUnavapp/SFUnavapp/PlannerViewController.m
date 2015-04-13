@@ -104,7 +104,7 @@ NSMutableArray *registrationCourses;
     _sectionDone.hidden=YES;
     [_coursePicker setUserInteractionEnabled:YES];
 }
-
+//Called after fetching course number, loads sections
 - (void)fetchedSections:(NSData *)responseData {
     //parse out the json data
     if (responseData==nil)
@@ -201,6 +201,7 @@ numberOfRowsInComponent:(NSInteger)component
 */
 
 #pragma mark - API CALLS
+//Call to fetch department for the current semester selection
 - (IBAction)semesterDone:(id)sender {
     _semesterChoice=[_semesterNames objectAtIndex:[_semesterPicker selectedRowInComponent:0]];
     dispatch_async(kBgQueue, ^{
@@ -214,6 +215,7 @@ numberOfRowsInComponent:(NSInteger)component
     });
 }
 
+//Call to fetch course names for the chosen term and department
 - (IBAction)deptDone:(id)sender {
     _deptChoice=[_deptNames objectAtIndex:[_departmentPicker selectedRowInComponent:0]];
     dispatch_async(kBgQueue, ^{
@@ -229,7 +231,7 @@ numberOfRowsInComponent:(NSInteger)component
     
        });
 }
-
+//Call to fetch sections for the chosen term, department and course
 - (IBAction)courseDone:(id)sender {
     _courseChoice=[_courseNames objectAtIndex:[_coursePicker selectedRowInComponent:0]];
     dispatch_async(kBgQueue, ^{
@@ -264,7 +266,7 @@ numberOfRowsInComponent:(NSInteger)component
     }
     
 }
-
+//Loads saved user states from the UserDefaults for Course Cart
 - (NSMutableArray *)loadCustomObjectWithKey:(NSString *)key {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject = [defaults objectForKey:key];
