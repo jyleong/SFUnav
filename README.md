@@ -6,7 +6,7 @@ This README contains information for contributors and new users who will use the
 * Version 3 Branch Name: [Master](https://bitbucket.org/20151cmpt_275/2015-1-cmpt_275_team_13/branch/master)
 
 ### Version 3 Startup Crash/Warnings Issue ###
-* There is a known bug in a 3rd party toolkit that causes the map to ocassionally crash when using the emulator in Xcode. This does not happen on a physical device.
+* There is a known bug in a 3rd party toolkit that causes the map to occasionally crash when using the emulator in Xcode. This does not happen on a physical device.
 *  Warnings generated in the Images.xcassets and Storyboard are caused by the absence of scaled images for all resolution and auto layout issues. Changing the compiler flags or project build settings will ignore the warnings.
 * Auto layout issues are ignored because we use slightly bigger buttons to allow for easier usage.
 
